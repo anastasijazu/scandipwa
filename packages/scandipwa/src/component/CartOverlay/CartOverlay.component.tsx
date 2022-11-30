@@ -209,7 +209,7 @@ export class CartOverlayComponent extends PureComponent<CartOverlayComponentProp
             <Button
               mix={ { block: 'CartOverlay', elem: 'CheckoutButton', mix: { block: 'Button' } } }
               events={ { onClick: handleCheckoutClick } }
-              attr={ { disabled: (hasOutOfStockProductsInCart || !minimumOrderAmountReached) } }
+              attr={ { disabled: hasOutOfStockProductsInCart || !minimumOrderAmountReached } }
             >
                 <LockIcon />
                 { __('Secure checkout') }

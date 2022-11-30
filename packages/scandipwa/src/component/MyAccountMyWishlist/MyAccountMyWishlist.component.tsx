@@ -171,7 +171,7 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
                   mods: { isHollow: true, isWithoutBorder: true },
                   mix: { block: 'MyAccountMyWishlist', elem: 'ClearWishlistButton' },
               } }
-              attr={ { disabled: (isActionsDisabled || isLoading) } }
+              attr={ { disabled: isActionsDisabled || isLoading } }
               events={ { onClick: removeAll } }
             >
                 { __('Clear All') }

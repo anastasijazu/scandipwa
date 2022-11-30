@@ -47,7 +47,7 @@ export class AddToCartComponent extends PureComponent<AddToCartComponentProps> {
         return (
             <Button
               events={ { onClick: handleButtonClick } }
-              attr={ { disabled: (isDisabled || isAdding) } }
+              attr={ { disabled: isDisabled || isAdding } }
               mix={ { block: 'Button AddToCart', mods: { layout }, mix } }
             >
                 { this.renderCartIcon() }
