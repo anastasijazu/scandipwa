@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { CheckoutPaymentComponentProps } from './CheckoutPayment.type';
@@ -49,12 +51,10 @@ export class CheckoutPaymentComponent extends PureComponent<CheckoutPaymentCompo
         // disable checkbox in order to skip direct clicks on checkbox and handle clicks on entire button instead
         return (
             <li block="CheckoutPayment">
-                <button
-                  block="CheckoutPayment"
-                  mods={ { isSelected } }
-                  elem="Button"
-                  type="button"
-                  onClick={ this.onClick }
+                <Button
+                  mix={ { block: 'CheckoutPayment', elem: 'Button', mods: { isSelected } } }
+                  attr={ { type: ButtonType.BUTTON } }
+                  events={ { onClick: this.onClick } }
                 >
                     <Field
                       type={ FieldType.CHECKBOX }
@@ -66,7 +66,7 @@ export class CheckoutPaymentComponent extends PureComponent<CheckoutPaymentCompo
                       label={ title }
                       isDisabled={ false }
                     />
-                </button>
+                </Button>
             </li>
         );
     }

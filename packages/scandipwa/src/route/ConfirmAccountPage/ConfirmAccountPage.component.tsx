@@ -18,6 +18,10 @@ import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputType } from 'Util/Validator/Config';
@@ -90,13 +94,15 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="submit"
-                  block="Button"
-                  mix={ { block: 'ConfirmAccountPage', elem: 'Button' } }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mix: { block: 'ConfirmAccountPage', elem: 'Button' },
+                  } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Confirm your account') }
-                </button>
+                </Button>
             </Form>
         );
     }
@@ -110,9 +116,12 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
 
         return (
             <>
-                <h1 block="ConfirmAccountPage" elem="Heading">
+                <Typography
+                  variant={ TypographyVariants.H1 }
+                  mix={ { block: 'ConfirmAccountPage', elem: 'Heading' } }
+                >
                     { __('Confirm your account') }
-                </h1>
+                </Typography>
                 { this.renderForm() }
             </>
         );

@@ -20,7 +20,7 @@ import { ImageRatio } from 'Component/Image/Image.type';
 import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { CartBundleOption, CartCustomizableOption } from 'Query/Cart.type';
-import Button from 'Src/ui-library/Button';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import {
     GQLCurrencyEnum,

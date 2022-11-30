@@ -20,6 +20,9 @@ import ExpandableContent from 'Component/ExpandableContent';
 import Loader from 'Component/Loader';
 import LockIcon from 'Component/LockIcon';
 import ProductLinks from 'Component/ProductLinks';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { CartTotals } from 'Store/Cart/Cart.type';
 import { LinkedProductType } from 'Store/LinkedProducts/LinkedProducts.type';
 import { ReactElement } from 'Type/Common.type';
@@ -137,15 +140,17 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
         return (
             <div block="CartPage" elem="CheckoutButtonWrapper">
-                <button
-                  block="CartPage"
-                  elem="CheckoutButton"
-                  mix={ { block: 'Button' } }
-                  onClick={ onCheckoutButtonClick }
+                <Button
+                  mix={ {
+                      block: 'CartPage',
+                      elem: 'CheckoutButton',
+                      mix: { block: 'Button' },
+                  } }
+                  events={ { onClick: onCheckoutButtonClick } }
                 >
                     <LockIcon />
                     { __('Proceed to checkout') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -221,9 +226,12 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
     renderHeading(): ReactElement {
         return (
-            <h1 block="CartPage" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: 'CartPage', elem: 'Heading' } }
+            >
                 { __('Cart') }
-            </h1>
+            </Typography>
         );
     }
 

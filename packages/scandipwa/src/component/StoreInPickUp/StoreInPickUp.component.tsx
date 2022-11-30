@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import StoreInPickUpPopupComponent from 'Component/StoreInPickUpPopup';
 import StoreInPickUpStoreComponent from 'Component/StoreInPickUpStore';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 
@@ -105,23 +107,26 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
               block="StoreInPickUp"
               elem="Actions"
             >
-                <button
-                  block="StoreInPickUp"
-                  elem="SelectButton"
-                  mix={ { block: 'Button' } }
-                  type="button"
-                  onClick={ handleOpenPopup }
+                <Button
+                  mix={ {
+                      block: 'StoreInPickUp',
+                      elem: 'SelectButton',
+                      mix: { block: 'Button' },
+                  } }
+                  attr={ { type: ButtonType.BUTTON } }
+                  events={ { onClick: handleOpenPopup } }
                 >
                    { __('Select store') }
-                </button>
-                <button
-                  type="submit"
-                  block="Button"
-                  mix={ { block: 'CheckoutShipping', elem: 'Button' } }
-                  disabled={ !selectedStore }
+                </Button>
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mix: { block: 'CheckoutShipping', elem: 'Button' },
+                  } }
+                  attr={ { type: ButtonType.SUBMIT, disabled: !selectedStore } }
                 >
                     { __('Proceed to billing') }
-                </button>
+                </Button>
             </div>
         );
     }

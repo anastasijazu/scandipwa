@@ -14,6 +14,7 @@ import { MouseEvent, PureComponent } from 'react';
 
 import HeartIcon from 'Component/HeartIcon';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { ProductWishlistButtonComponentProps } from './ProductWishlistButton.type';
@@ -71,16 +72,18 @@ export class ProductWishlistButtonComponent extends PureComponent<ProductWishlis
         const { isInWishlist, isDisabled, mix } = this.props;
 
         return (
-            <button
-              block="ProductWishlistButton"
-              elem="Button"
-              mods={ { isInWishlist, isDisabled } }
-              mix={ { block: 'Button', mix } }
-              title={ this.getTitle() }
-              onClick={ this.onClick }
+            <Button
+              mix={ {
+                  block: 'ProductWishlistButton',
+                  elem: 'Button',
+                  mods: { isInWishlist, isDisabled },
+                  mix: { block: 'Button', mix },
+              } }
+              attr={ { title: this.getTitle() } }
+              events={ { onClick: this.onClick } }
             >
                 <HeartIcon isActive={ isInWishlist } />
-            </button>
+            </Button>
         );
     }
 

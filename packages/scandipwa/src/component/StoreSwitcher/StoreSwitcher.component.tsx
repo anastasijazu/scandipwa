@@ -17,6 +17,7 @@ import ClickOutside from 'Component/ClickOutside';
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import StoreItem from 'Component/StoreItem';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { FormattedStore, StoreSwitcherComponentProps } from './StoreSwitcher.type';
@@ -82,15 +83,17 @@ export class StoreSwitcherComponent extends PureComponent<StoreSwitcherComponent
         return (
             <div block="StoreSwitcher">
                 <ClickOutside onClick={ onStoreSwitcherOutsideClick }>
-                    <button
-                      block="StoreSwitcher"
-                      elem="Title"
-                      mods={ mods }
-                      onClick={ onStoreSwitcherClick }
+                    <Button
+                      mix={ {
+                          block: 'StoreSwitcher',
+                          elem: 'Title',
+                          mods,
+                      } }
+                      events={ { onClick: onStoreSwitcherClick } }
                     >
                         { storeLabel }
                         <ChevronIcon direction={ isOpened ? Directions.TOP : Directions.BOTTOM } />
-                    </button>
+                    </Button>
 
                     <div block="StoreSwitcher" elem="StoreList" mods={ mods }>
                         { storeList.map(this.renderStore.bind(this)) }

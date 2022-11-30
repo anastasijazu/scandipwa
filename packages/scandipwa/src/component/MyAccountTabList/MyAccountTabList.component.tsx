@@ -14,6 +14,7 @@ import { PureComponent } from 'react';
 import ExpandableContent from 'Component/ExpandableContent';
 import MyAccountTabListItem from 'Component/MyAccountTabListItem';
 import { MyAccountTab } from 'Route/MyAccount/MyAccount.type';
+import Button from 'Src/ui/Button';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
 
 import { MyAccountTabListComponentProps } from './MyAccountTabList.type';
@@ -59,14 +60,13 @@ export class MyAccountTabListComponent extends PureComponent<MyAccountTabListCom
               key="logout"
               block="MyAccountTabListItem"
             >
-                <button
-                  block="MyAccountTabListItem"
-                  elem="Button"
-                  onClick={ handleLogout }
-                  role="link"
+                <Button
+                  mix={ { block: 'MyAccountTabListItem', elem: 'Button' } }
+                  attr={ { role: 'link' } }
+                  events={ { onClick: handleLogout } }
                 >
                     { __('Logout') }
-                </button>
+                </Button>
             </li>
         );
     }

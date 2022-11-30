@@ -15,6 +15,7 @@ import { PureComponent } from 'react';
 
 import Image from 'Component/Image/Image.container';
 import { ImageRatio } from 'Component/Image/Image.type';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { VideoThumbnailComponentProps } from './VideoThumbnail.type';
@@ -48,11 +49,10 @@ export class VideoThumbnailComponent extends PureComponent<VideoThumbnailCompone
 
         return (
             <div block="VideoThumbnail">
-                <button
-                  block="VideoThumbnail"
-                  elem="Button"
-                  onClick={ onPlayClick }
-                  title={ __('Play video %s', video_title) }
+                <Button
+                  mix={ { block: 'VideoThumbnail', elem: 'Button' } }
+                  attr={ { title: __('Play video %s', video_title) } }
+                  events={ { onClick: onPlayClick } }
                 >
                     <Image
                       src={ url }
@@ -66,7 +66,7 @@ export class VideoThumbnailComponent extends PureComponent<VideoThumbnailCompone
                       alt={ video_title }
                     />
                     { this.renderPlayIcon() }
-                </button>
+                </Button>
             </div>
         );
     }

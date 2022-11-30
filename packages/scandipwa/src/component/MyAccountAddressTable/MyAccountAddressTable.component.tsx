@@ -13,6 +13,7 @@ import KeyValueTable from 'Component/KeyValueTable';
 import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { FormattedRegion } from 'Util/Address/Address.type';
 
@@ -53,22 +54,30 @@ Props extends MyAccountAddressTableComponentProps = MyAccountAddressTableCompone
 
         return (
             <>
-                <button
-                  block="Button"
-                  onClick={ onEditClick }
-                  mods={ { isHollow: true } }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mods: { isHollow: true },
+                  } }
+                  events={ { onClick: onEditClick } }
                 >
                     { __('Edit address') }
-                </button>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true, isWithoutBorder: true } }
-                  onClick={ onDeleteClick }
-                  disabled={ isDeleteAllowed }
-                  title={ isDeleteAllowed ? __('Can not delete - address is set as default.') : 'Delete this address' }
+                </Button>
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mods: { isHollow: true, isWithoutBorder: true },
+                  } }
+                  attr={ {
+                      disabled: isDeleteAllowed,
+                      title: (isDeleteAllowed
+                          ? __('Can not delete - address is set as default.')
+                          : 'Delete this address'),
+                  } }
+                  events={ { onClick: onDeleteClick } }
                 >
                     { __('Delete') }
-                </button>
+                </Button>
             </>
         );
     }

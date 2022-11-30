@@ -8,7 +8,6 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import {
     Children,
     createRef,
@@ -22,6 +21,7 @@ import ChevronIcon from 'Component/ChevronIcon';
 import { Directions } from 'Component/ChevronIcon/ChevronIcon.config';
 import Draggable from 'Component/Draggable';
 import { DraggableComponentState } from 'Component/Draggable/Draggable.type';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 import CSS from 'Util/CSS';
@@ -499,20 +499,21 @@ export class SliderComponent extends PureComponent<SliderComponentProps, SliderC
         const isActive = i === Math.abs(-activeImage);
 
         return (
-            <button
-              block="Slider"
-              elem="Image"
-              mods={ { type: 'single' } }
-              // eslint-disable-next-line react/jsx-no-bind
-              onClick={ () => this.changeActiveImage(i) }
-              aria-label={ __('Slide crumb') }
+            <Button
+              mix={ {
+                  block: 'Slider',
+                  elem: 'Image',
+                  mods: { type: 'single' },
+              } }
+              attr={ { 'aria-label': __('Slide crumb') } }
+              events={ { onClick: () => this.changeActiveImage(i) } }
             >
                 <div
                   block="Slider"
                   elem="Crumb"
                   mods={ { isActive } }
                 />
-            </button>
+            </Button>
         );
     }
 
@@ -527,24 +528,28 @@ export class SliderComponent extends PureComponent<SliderComponentProps, SliderC
 
         return (
             <>
-                <button
-                  block="Slider"
-                  elem="Arrow"
-                  mods={ { isPrev: true, isDisabled: prevIsDisabled } }
-                  aria-label={ __('Previous') }
-                  onClick={ this.goPrev }
+                <Button
+                  mix={ {
+                      block: 'Slider',
+                      elem: 'Arrow',
+                      mods: { isPrev: true, isDisabled: prevIsDisabled },
+                  } }
+                  attr={ { 'aria-label': __('Previous') } }
+                  events={ { onClick: this.goPrev } }
                 >
                     <ChevronIcon direction={ Directions.LEFT } />
-                </button>
-                <button
-                  block="Slider"
-                  elem="Arrow"
-                  mods={ { isNext: true, isDisabled: nextIsDisabled } }
-                  aria-label={ __('Next') }
-                  onClick={ this.goNext }
+                </Button>
+                <Button
+                  mix={ {
+                      block: 'Slider',
+                      elem: 'Arrow',
+                      mods: { isNext: true, isDisabled: nextIsDisabled },
+                  } }
+                  attr={ { 'aria-label': __('Next') } }
+                  events={ { onClick: this.goNext } }
                 >
                     <ChevronIcon direction={ Directions.RIGHT } />
-                </button>
+                </Button>
             </>
         );
     }

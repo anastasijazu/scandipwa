@@ -15,6 +15,10 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -79,17 +83,19 @@ export class MyAccountSignInComponent extends PureComponent<MyAccountSignInCompo
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="button"
-                  block="Button"
-                  mods={ { likeLink: true } }
-                  mix={ { block: 'MyAccountOverlay', elem: 'ForgotPassword' } }
-                  onClick={ handleForgotPassword }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mods: { likeLink: true },
+                      mix: { block: 'MyAccountOverlay', elem: 'ForgotPassword' },
+                  } }
+                  attr={ { type: ButtonType.BUTTON } }
+                  events={ { onClick: handleForgotPassword } }
                 >
                     { __('Forgot password?') }
-                </button>
+                </Button>
                 <div block="MyAccountOverlay" elem="SignInButton">
-                    <button block="Button">{ __('Sign in') }</button>
+                    <Button mix={ { block: 'Button' } }>{ __('Sign in') }</Button>
                 </div>
                 <Loader isLoading={ isLoading } />
             </Form>
@@ -110,14 +116,18 @@ export class MyAccountSignInComponent extends PureComponent<MyAccountSignInCompo
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
-                    <h4 id="forgot-password-label">{ __("Don't have an account?") }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
-                      onClick={ handleCreateAccount }
+                    <Typography
+                      variant={ TypographyVariants.H4 }
+                      attr={ { id: 'forgot-password-label' } }
+                    >
+                        { __("Don't have an account?") }
+                    </Typography>
+                    <Button
+                      mix={ { block: 'Button', mods: { likeLink: true } } }
+                      events={ { onClick: handleCreateAccount } }
                     >
                         { __('Create an account') }
-                    </button>
+                    </Button>
                 </section>
             </article>
         );

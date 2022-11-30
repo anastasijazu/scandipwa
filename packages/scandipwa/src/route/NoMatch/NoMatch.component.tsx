@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
 import Link from 'Component/Link';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { scrollToTop } from 'Util/Browser';
 
@@ -54,9 +56,9 @@ export class NoMatchComponent extends PureComponent<NoMatchComponentProps> {
                   wrapperMix={ { block: 'NoMatch', elem: 'Wrapper' } }
                   label={ __('Page Not Found Content') }
                 >
-                    <h1>
+                    <Typography variant={ TypographyVariants.H1 }>
                         404
-                    </h1>
+                    </Typography>
                     <p block="NoMatch" elem="Subtitle">
                         { __('Page not found') }
                     </p>

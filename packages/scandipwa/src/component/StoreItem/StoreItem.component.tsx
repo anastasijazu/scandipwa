@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { StoreItemComponentProps } from './StoreItem.type';
@@ -26,13 +27,12 @@ export class StoreItemComponent extends PureComponent<StoreItemComponentProps> {
         } = this.props;
 
         return (
-            <button
-              block="StoreItem"
-              elem="Item"
-              onClick={ getStoreCode }
+            <Button
+              mix={ { block: 'StoreItem', elem: 'Item' } }
+              events={ { onClick: getStoreCode } }
             >
                 { label }
-            </button>
+            </Button>
         );
     }
 }

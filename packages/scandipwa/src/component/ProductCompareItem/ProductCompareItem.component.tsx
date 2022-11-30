@@ -19,6 +19,7 @@ import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import ProductWishlistButton from 'Component/ProductWishlistButton/ProductWishlistButton.container';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { ADD_TO_WISHLIST } from 'Util/Product';
 import { IndexedProduct, StockCheckProduct } from 'Util/Product/Product.type';
@@ -170,14 +171,13 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
         const { removeComparedProduct } = this.props;
 
         return (
-            <button
-              block="ProductCompareItem"
-              elem="CloseBtn"
-              onClick={ removeComparedProduct }
-              aria-label={ __('Remove') }
+            <Button
+              mix={ { block: 'ProductCompareItem', elem: 'CloseBtn' } }
+              attr={ { 'aria-label': __('Remove') } }
+              events={ { onClick: removeComparedProduct } }
             >
                 <CloseIcon />
-            </button>
+            </Button>
         );
     }
 

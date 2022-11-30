@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 
@@ -46,12 +47,12 @@ export class ProductTabComponent extends PureComponent<ProductTabComponentProps>
               elem="Item"
               mods={ { isActive } }
             >
-                <button
+                <Button
                   mix={ { block: 'ProductTab', elem: 'Button' } }
-                  onClick={ this.onClick }
+                  events={ { onClick: this.onClick } }
                 >
                     { tabName.toUpperCase() }
-                </button>
+                </Button>
             </li>
         );
     }

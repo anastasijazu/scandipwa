@@ -17,6 +17,8 @@ import CurrencySwitcher from 'Component/CurrencySwitcher';
 import Link from 'Component/Link';
 import MenuItem from 'Component/MenuItem';
 import StoreSwitcher from 'Component/StoreSwitcher';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { Mods, ReactElement } from 'Type/Common.type';
 import { getSortedItems } from 'Util/Menu';
 import { FormattedMenuItem } from 'Util/Menu/Menu.type';
@@ -399,7 +401,9 @@ export class MenuComponent extends PureComponent<MenuComponentProps> {
             <div block="Menu" elem="CompareLinkWrapper">
                 <Link to="compare" block="Menu" elem="CompareLink">
                     <CompareIcon />
-                    <h4>{ __('Compare products') }</h4>
+                    <Typography variant={ TypographyVariants.H4 }>
+                        { __('Compare products') }
+                    </Typography>
                     { this.renderCompareCount() }
                 </Link>
             </div>

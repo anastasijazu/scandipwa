@@ -10,11 +10,12 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { FieldType } from 'Component/Field/Field.config';
 import { FieldContainerProps } from 'Component/Field/Field.type';
 import FieldForm from 'Component/FieldForm';
 import { FormSection } from 'Component/FieldForm/FieldForm.type';
 import { FormContainerProps } from 'Component/Form/Form.type';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { trimCustomerAddress } from 'Util/Address';
 import { FieldData } from 'Util/Form/Form.type';
@@ -122,14 +123,16 @@ export class MyAccountAddressFormComponent<
     //#region RENDERERS
     renderActions(): ReactElement {
         return (
-            <button
-              type={ FieldType.SUBMIT }
-              block="Button"
-              mix={ { block: 'MyAccount', elem: 'Button' } }
-              mods={ { isHollow: true } }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { isHollow: true },
+                  mix: { block: 'MyAccount', elem: 'Button' },
+              } }
+              attr={ { type: ButtonType.SUBMIT } }
             >
                 { __('Save address') }
-            </button>
+            </Button>
         );
     }
     //#endregion

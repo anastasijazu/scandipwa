@@ -13,6 +13,8 @@ import ContentWrapper from 'Component/ContentWrapper';
 import Loader from 'Component/Loader';
 import SourceWishlist from 'Component/MyAccountMyWishlist/MyAccountMyWishlist.component';
 import SharedWishlistItem from 'Component/SharedWishlistItem';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 
@@ -43,10 +45,13 @@ export class WishlistSharedPageComponent extends SourceWishlist<WishlistSharedPa
         const { creatorsName } = this.props;
 
         return (
-            <h1 block="WishlistSharedPage" elem="CreatorsInfo">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: 'WishlistSharedPage', elem: 'CreatorsInfo' } }
+            >
                 { __('Wishlist shared by ') }
                 <strong>{ creatorsName }</strong>
-            </h1>
+            </Typography>
         );
     }
 

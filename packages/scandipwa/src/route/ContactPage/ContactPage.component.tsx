@@ -16,6 +16,8 @@ import ContactForm from 'Component/ContactForm';
 import ContentWrapper from 'Component/ContentWrapper';
 import Loader from 'Component/Loader';
 import NoMatch from 'Route/NoMatch';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { DEFAULT_CONTACT_US_CMS_BLOCK } from './ContactPage.config';
@@ -37,9 +39,12 @@ export class ContactPageComponent extends PureComponent<ContactPageComponentProp
         }
 
         return (
-            <h1 block="ContactPage" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: 'ContactPage', elem: 'Heading' } }
+            >
                 { __('Contact Us') }
-            </h1>
+            </Typography>
         );
     }
 

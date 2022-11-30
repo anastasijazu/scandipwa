@@ -9,7 +9,6 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import {
     ChangeEvent,
     createRef,
@@ -23,6 +22,7 @@ import CloseIcon from 'Component/CloseIcon';
 import Loader from 'Component/Loader';
 import SearchIcon from 'Component/SearchIcon';
 import SearchOverlay from 'Component/SearchOverlay';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { scrollToTop } from 'Util/Browser';
 import { noopFn } from 'Util/Common';
@@ -102,15 +102,14 @@ export class SearchFieldComponent extends PureComponent<SearchFieldComponentProp
         const { isVisible } = this.props;
 
         return (
-            <button
-              block="Header"
-              elem="Button"
-              onClick={ this.onClearSearchButtonClick }
-              mods={ {
-                  type: 'searchClear',
-                  isVisible,
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'searchClear', isVisible },
               } }
-              aria-label="Clear search"
+              events={ { onClick: this.onClearSearchButtonClick } }
+              attr={ { 'aria-label': 'Clear search' } }
             />
         );
     }

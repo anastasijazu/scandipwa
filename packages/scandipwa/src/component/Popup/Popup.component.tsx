@@ -15,6 +15,7 @@ import ClickOutside from 'Component/ClickOutside';
 import CloseIcon from 'Component/CloseIcon';
 import NotificationList from 'Component/NotificationList';
 import Overlay from 'Component/Overlay/Overlay.component';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import history from 'Util/History';
 
@@ -143,14 +144,13 @@ export class PopupComponent extends Overlay<PopupComponentProps> {
 
     renderCloseButton(): ReactElement {
         return (
-            <button
-              block="Popup"
-              elem="CloseBtn"
-              aria-label={ __('Close') }
-              onClick={ this.hidePopupAndGoBack }
+            <Button
+              mix={ { block: 'Popup', elem: 'CloseBtn' } }
+              attr={ { 'aria-label': __('Close') } }
+              events={ { onClick: this.hidePopupAndGoBack } }
             >
                 <CloseIcon />
-            </button>
+            </Button>
         );
     }
 

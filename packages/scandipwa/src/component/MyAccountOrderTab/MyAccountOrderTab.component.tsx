@@ -8,9 +8,9 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { MyAccountOrderTabComponentProps } from './MyAccountOrderTab.type';
@@ -28,12 +28,12 @@ export class MyAccountOrderTabComponent extends PureComponent<MyAccountOrderTabC
               elem="Item"
               mods={ { isActive } }
             >
-                <button
+                <Button
                   mix={ { block: 'MyAccountOrderTab', elem: 'Button' } }
-                  onClick={ handleClickOnTab }
+                  events={ { onClick: handleClickOnTab } }
                 >
                     { title }
-                </button>
+                </Button>
             </li>
         );
     }

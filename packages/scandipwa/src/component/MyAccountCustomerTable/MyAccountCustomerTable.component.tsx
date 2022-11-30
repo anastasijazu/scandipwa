@@ -8,10 +8,10 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import KeyValueTable from 'Component/KeyValueTable';
 import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import { Customer } from 'Query/MyAccount.type';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { MyAccountCustomerTableComponentProps } from './MyAccountCustomerTable.type';
@@ -52,20 +52,24 @@ export class MyAccountCustomerTableComponent extends KeyValueTable<MyAccountCust
 
         return (
             <>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true } }
-                  onClick={ handleOnEditInformation }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mods: { isHollow: true },
+                  } }
+                  events={ { onClick: handleOnEditInformation } }
                 >
                     { __('Edit details') }
-                </button>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true, isWithoutBorder: true } }
-                  onClick={ handleOnEditPassword }
+                </Button>
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mods: { isHollow: true, isWithoutBorder: true },
+                  } }
+                  events={ { onClick: handleOnEditPassword } }
                 >
                     { __('Change password') }
-                </button>
+                </Button>
             </>
         );
     }

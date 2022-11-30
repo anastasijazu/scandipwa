@@ -16,10 +16,9 @@ import { ReactElement } from 'Type/Common.type';
 
 import Typography from './Typography.component';
 import { TypographyContainerProps, TypographyContainerPropsKey } from './Typography.type';
-/** @namespace uiLibrary/Typography/Container */
-export class TypographyContainer extends PureComponent<
-TypographyContainerProps
-> {
+
+/** @namespace ui/Typography/Container */
+export class TypographyContainer extends PureComponent<TypographyContainerProps> {
     static defaultProps: Partial<TypographyContainerProps> = {
         mix: {},
     };

@@ -16,6 +16,9 @@ import ProductCompareAttributeRow from 'Component/ProductCompareAttributeRow';
 import ProductCompareItem from 'Component/ProductCompareItem';
 import ProductPrice from 'Component/ProductPrice';
 import { ComparableProduct } from 'Query/ProductCompare.type';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { getPrice } from 'Util/Product/Extract';
 import { StockCheckProduct } from 'Util/Product/Product.type';
@@ -71,9 +74,12 @@ export class ProductCompareComponent extends Component<ProductCompareComponentPr
         }
 
         return (
-            <h1 block="ContactPage" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: 'ContactPage', elem: 'Heading' } }
+            >
                 { __('Product compare') }
-            </h1>
+            </Typography>
         );
     }
 
@@ -86,13 +92,12 @@ export class ProductCompareComponent extends Component<ProductCompareComponentPr
               elem="FirstColumn"
               mix={ { block: 'ClearButton' } }
             >
-                <button
-                  block="Button"
-                  mods={ { isHollow: true } }
-                  onClick={ clearCompareList }
+                <Button
+                  mix={ { block: 'Button', mods: { isHollow: true } } }
+                  events={ { onClick: clearCompareList } }
                 >
                     { __('Clear Compare') }
-                </button>
+                </Button>
             </div>
         );
     }

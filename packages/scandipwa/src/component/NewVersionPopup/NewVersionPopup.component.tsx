@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import Popup from 'Component/Popup';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { NEW_VERSION_POPUP_ID } from './NewVersionPopup.config';
@@ -44,14 +45,16 @@ export class NewVersionPopupComponent extends PureComponent<NewVersionPopupCompo
         const { toggleNewVersion } = this.props;
 
         return (
-            <button
-              block="NewVersionPopup"
-              elem="ReloadButton"
-              mix={ { block: 'Button' } }
-              onClick={ toggleNewVersion }
+            <Button
+              mix={ {
+                  block: 'NewVersionPopup',
+                  elem: 'ReloadButton',
+                  mix: { block: 'Button' },
+              } }
+              events={ { onClick: toggleNewVersion } }
             >
                 { __('Reload the page') }
-            </button>
+            </Button>
         );
     }
 
@@ -59,14 +62,16 @@ export class NewVersionPopupComponent extends PureComponent<NewVersionPopupCompo
         const { handleDismiss } = this.props;
 
         return (
-            <button
-              block="Button"
-              elem="isLikeLink"
-              mix={ { block: 'NewVersionPopup', elem: 'DismissButton' } }
-              onClick={ handleDismiss }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  elem: 'isLikeLink',
+                  mix: { block: 'NewVersionPopup', elem: 'DismissButton' },
+              } }
+              events={ { onClick: handleDismiss } }
             >
                 { __('Dismiss') }
-            </button>
+            </Button>
         );
     }
 

@@ -12,7 +12,7 @@
 import { PureComponent } from 'react';
 
 import CartIcon from 'Component/CartIcon';
-import Button from 'Src/ui-library/Button';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { AddToCartComponentProps } from './AddToCart.type';

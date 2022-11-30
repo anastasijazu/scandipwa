@@ -8,7 +8,6 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import Html from 'Component/Html';
 import { ProductComponent } from 'Component/Product/Product.component';
 import { ProductType } from 'Component/Product/Product.config';
@@ -16,6 +15,7 @@ import ProductAlerts from 'Component/ProductAlerts';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import TierPrices from 'Component/TierPrices';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { GQLProductStockStatus } from 'Type/Graphql.type';
 import { isCrawler, isSSR } from 'Util/Browser';
@@ -60,10 +60,9 @@ export class ProductActionsComponent extends ProductComponent<ProductActionsComp
         const isNotSafariOrIos = !device.ios && !device.safari;
 
         return (
-            <button
-              block="ProductActions"
-              elem="Review"
-              onClick={ showNewReviewPopup }
+            <Button
+              mix={ { block: 'ProductActions', elem: 'Review' } }
+              events={ { onClick: showNewReviewPopup } }
             >
                 <span
                   block="ProductActions"
@@ -72,7 +71,7 @@ export class ProductActionsComponent extends ProductComponent<ProductActionsComp
                 >
                     { __('Write a review') }
                 </span>
-            </button>
+            </Button>
         );
     }
 

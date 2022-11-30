@@ -29,6 +29,8 @@ import ProductWishlistButton from 'Component/ProductWishlistButton';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { CategoryPageLayout } from 'Route/CategoryPage/CategoryPage.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { filterConfigurableOptions } from 'Util/Product';
 import { IndexedBundleItem, IndexedConfigurableOption } from 'Util/Product/Product.type';
@@ -364,9 +366,16 @@ export class ProductComponent<P extends ProductComponentProps = ProductComponent
         return (
             <>
                 { withMeta && <meta itemProp="brand" content={ brand } /> }
-                <h4 block={ this.className } elem="Brand" itemProp="brand">
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  mix={ {
+                      block: this.className,
+                      elem: 'Brand',
+                  } }
+                  attr={ { itemProp: 'brand' } }
+                >
                     <TextPlaceholder content={ brand } />
-                </h4>
+                </Typography>
             </>
         );
     }
@@ -436,9 +445,13 @@ export class ProductComponent<P extends ProductComponentProps = ProductComponent
         }
 
         return (
-            <h1 block={ this.className } elem="Title" itemProp="name">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: this.className, elem: 'Title' } }
+              attr={ { itemProp: 'name' } }
+            >
                 <TextPlaceholder content={ nameToRender } length={ TextPlaceHolderLength.MEDIUM } />
-            </h1>
+            </Typography>
         );
     }
     //#endregion

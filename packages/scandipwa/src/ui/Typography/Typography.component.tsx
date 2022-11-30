@@ -17,10 +17,8 @@ import { ReactElement } from 'Type/Common.type';
 import { TypographyVariants } from './Typography.config';
 import { TypographyComponentProps, TypographyMapVariant } from './Typography.type';
 
-/** @namespace uiLibrary/Typography/Component */
-export class TypographyComponent extends PureComponent<
-TypographyComponentProps
-> {
+/** @namespace ui/Typography/Component */
+export class TypographyComponent extends PureComponent<TypographyComponentProps> {
     variantMap: Record<TypographyVariants, TypographyMapVariant> = {
         [TypographyVariants.H1]: {
             Component: 'h1',
@@ -37,14 +35,6 @@ TypographyComponentProps
         [TypographyVariants.H4]: {
             Component: 'h4',
             block: 'h4',
-        },
-        [TypographyVariants.H5]: {
-            Component: 'h5',
-            block: 'h5',
-        },
-        [TypographyVariants.H6]: {
-            Component: 'h6',
-            block: 'h6',
         },
         [TypographyVariants.P]: {
             Component: 'p',

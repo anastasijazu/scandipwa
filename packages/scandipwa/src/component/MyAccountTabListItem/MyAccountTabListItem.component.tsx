@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import ChevronIcon from 'Component/ChevronIcon';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { MyAccountTabListItemComponentProps } from './MyAccountTabListItem.type';
@@ -45,15 +46,14 @@ export class MyAccountTabListItemComponent extends PureComponent<MyAccountTabLis
               block="MyAccountTabListItem"
               mods={ { isActive } }
             >
-                <button
-                  block="MyAccountTabListItem"
-                  elem="Button"
-                  onClick={ this.changeActiveTab }
-                  role="link"
+                <Button
+                  mix={ { block: 'MyAccountTabListItem', elem: 'Button' } }
+                  attr={ { role: 'link' } }
+                  events={ { onClick: this.changeActiveTab } }
                 >
                     { tabName }
                     <ChevronIcon />
-                </button>
+                </Button>
                 { children }
             </li>
         );

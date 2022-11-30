@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { InstallPromptIOSComponentProps } from './InstallPromptIOS.type';
@@ -23,13 +24,15 @@ export class InstallPromptIOSComponent extends PureComponent<InstallPromptIOSCom
         const { handleBannerClose } = this.props;
 
         return (
-            <button
-              block="InstallPromptIOS"
-              elem="Close"
-              onClick={ handleBannerClose }
+            <Button
+              mix={ {
+                  block: 'InstallPromptIOS',
+                  elem: 'Close',
+              } }
+              events={ { onClick: handleBannerClose } }
             >
                 { __('Maybe later') }
-            </button>
+            </Button>
         );
     }
 

@@ -12,6 +12,8 @@
 import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { SomethingWentWrongComponentProps } from './SomethingWentWrong.type';
@@ -49,7 +51,13 @@ export class SomethingWentWrongComponent extends PureComponent<SomethingWentWron
         return (
             <main block="SomethingWentWrong">
                 <ContentWrapper label="Something went wrong on the page.">
-                    <h1 block="SomethingWentWrong" elem="Heading">{ __('Ooops!') }</h1>
+                    <Typography
+                      variant={ TypographyVariants.H1 }
+                      mix={ { block: 'SomethingWentWrong', elem: 'Heading' } }
+                    >
+{ __('Ooops!') }
+
+                    </Typography>
                     <h2 block="SomethingWentWrong" elem="SubHeading">{ __('Something went wrong!') }</h2>
                     { /* eslint-disable-next-line react/forbid-elements */ }
                     <a

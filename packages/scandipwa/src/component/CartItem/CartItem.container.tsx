@@ -17,7 +17,7 @@ import { Dispatch } from 'redux';
 import { ProductType } from 'Component/Product/Product.config';
 import SwipeToDelete from 'Component/SwipeToDelete';
 import { CartTotals } from 'Query/Cart.type';
-import Button from 'Src/ui-library/Button';
+import Button from 'Src/ui/Button';
 import { showNotification } from 'Store/Notification/Notification.action';
 import { ReactElement, Url } from 'Type/Common.type';
 import { encodeBase64 } from 'Util/Base64';

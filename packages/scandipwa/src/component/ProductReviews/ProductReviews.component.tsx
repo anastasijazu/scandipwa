@@ -15,6 +15,7 @@ import ContentWrapper from 'Component/ContentWrapper';
 import ExpandableContent from 'Component/ExpandableContent';
 import ProductReviewList from 'Component/ProductReviewList';
 import ProductReviewRating from 'Component/ProductReviewRating';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { showNewReviewPopup } from 'Util/Product';
 
@@ -26,14 +27,16 @@ import './ProductReviews.style';
 export class ProductReviewsComponent extends PureComponent<ProductReviewsComponentProps> {
     renderButton(): ReactElement {
         return (
-            <button
-              block="ProductReviews"
-              elem="Button"
-              mix={ { block: 'Button', mods: { isHollow: true } } }
-              onClick={ showNewReviewPopup }
+            <Button
+              mix={ {
+                  block: 'ProductReviews',
+                  elem: 'Button',
+                  mix: { block: 'Button', mods: { isHollow: true } },
+              } }
+              events={ { onClick: showNewReviewPopup } }
             >
                 { __('Write a review') }
-            </button>
+            </Button>
         );
     }
 

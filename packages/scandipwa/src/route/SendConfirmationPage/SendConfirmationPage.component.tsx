@@ -17,6 +17,9 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputTypeInput } from 'Util/Validator/Config';
@@ -76,13 +79,17 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="submit"
-                  block="Button"
-                  mix={ { block: 'SendConfirmationPage', elem: 'Button' } }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mix: { block: 'SendConfirmationPage', elem: 'Button' },
+                  } }
+                  attr={ {
+                      type: 'submit',
+                  } }
                 >
                     { __('Send confirmation link') }
-                </button>
+                </Button>
             </Form>
         );
     }
@@ -96,9 +103,12 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
 
         return (
             <>
-                <h1 block="SendConfirmationPage" elem="Heading">
+                <Typography
+                  variant={ TypographyVariants.H1 }
+                  mix={ { block: 'SendConfirmationPage', elem: 'Heading' } }
+                >
                     { __('Send confirmation link') }
-                </h1>
+                </Typography>
                 <p block="SendConfirmationPage" elem="SubHeading">
                     { __('Please enter your email below and we will send you the confirmation link.') }
                 </p>

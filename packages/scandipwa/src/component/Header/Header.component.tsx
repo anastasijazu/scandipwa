@@ -10,7 +10,6 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import {
     createRef,
     lazy,
@@ -38,7 +37,9 @@ import SearchField from 'Component/SearchField';
 import ShareIcon from 'Component/ShareIcon';
 import StoreSwitcher from 'Component/StoreSwitcher';
 import UserIcon from 'Component/UserIcon';
-import Button from 'Src/ui-library/Button';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { isSignedIn } from 'Util/Auth';
 import { isCrawler, isSSR } from 'Util/Browser';
@@ -187,18 +188,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="back"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'back', isVisible } }
-              onClick={ onBackButtonClick }
-              aria-label="Go back"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'back', isVisible },
+              } }
+              attr={ {
+                  key: 'back',
+                  'aria-label': 'Go back',
+                  'aria-hidden': !isVisible,
+                  tabIndex: (isVisible ? 0 : -1),
+              } }
+              events={ { onClick: onBackButtonClick } }
             >
                 <ChevronIcon direction={ Directions.LEFT } />
-            </button>
+            </Button>
         );
     }
 
@@ -210,18 +215,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="close"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'close', isVisible } }
-              onClick={ onCloseButtonClick }
-              aria-label="Close"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'close', isVisible },
+              } }
+              attr={ {
+                  key: 'close',
+                  'aria-label': 'Close',
+                  'aria-hidden': !isVisible,
+                  tabIndex: (isVisible ? 0 : -1),
+              } }
+              events={ { onClick: onCloseButtonClick } }
             >
                 <CloseIcon />
-            </button>
+            </Button>
         );
     }
 
@@ -278,18 +287,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="share"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'share', isVisible } }
-              onClick={ shareWishlist }
-              aria-label="Share"
-              aria-hidden={ !isVisible }
-              disabled={ isWishlistLoading }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'share', isVisible },
+              } }
+              attr={ {
+                  key: 'share',
+                  'aria-label': 'Share',
+                  'aria-hidden': !isVisible,
+                  disabled: isWishlistLoading,
+              } }
+              events={ { onClick: shareWishlist } }
             >
                 <ShareIcon />
-            </button>
+            </Button>
         );
     }
 
@@ -348,14 +361,13 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { navigationState: { title } } = this.props;
 
         return (
-            <h1
-              key="title"
-              block="Header"
-              elem="Title"
-              mods={ { isVisible } }
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: 'Header', elem: 'Title', mods: { isVisible } } }
+              attr={ { key: 'title' } }
             >
                 { title ? (<span>{ decodeString(title.replace(/\+/g, ' ')) }</span>) : (<span>{ title }</span>) }
-            </h1>
+            </Typography>
         );
     }
 
@@ -541,16 +553,20 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         } = this.props;
 
         return (
-            <button
-              block="Header"
-              elem="MinicartButtonWrapper"
-              tabIndex={ 0 }
-              onClick={ onMinicartButtonClick }
-              aria-label={ __('Cart') }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'MinicartButtonWrapper',
+              } }
+              attr={ {
+                  'aria-label': __('Cart'),
+                  tabIndex: 0,
+              } }
+              events={ { onClick: onMinicartButtonClick } }
             >
                 <CartIcon />
                 { this.renderMinicartItemsQty() }
-            </button>
+            </Button>
         );
     }
 
@@ -600,18 +616,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { onOkButtonClick } = this.props;
 
         return (
-            <button
-              key="ok"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'ok', isVisible } }
-              onClick={ onOkButtonClick }
-              aria-label="Save changes"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'ok', isVisible },
+              } }
+              attr={ {
+                  key: 'ok',
+                  'aria-label': 'Save changes',
+                  'aria-hidden': !isVisible,
+                  tabIndex: (isVisible ? 0 : -1),
+              } }
+              events={ { onClick: onOkButtonClick } }
             >
                 { __('OK') }
-            </button>
+            </Button>
         );
     }
 
@@ -637,18 +657,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { onCancelButtonClick } = this.props;
 
         return (
-            <button
-              key="cancel"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'cancel', isVisible } }
-              onClick={ onCancelButtonClick }
-              aria-label="Cancel changes"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
+            <Button
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'cancel', isVisible },
+              } }
+              attr={ {
+                  key: 'cancel',
+                  'aria-label': 'Cancel changes',
+                  'aria-hidden': !isVisible,
+                  tabIndex: (isVisible ? 0 : -1),
+              } }
+              events={ { onClick: onCancelButtonClick } }
             >
                 { __('Cancel') }
-            </button>
+            </Button>
         );
     }
 

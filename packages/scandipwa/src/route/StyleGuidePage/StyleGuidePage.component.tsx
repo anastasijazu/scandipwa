@@ -18,6 +18,9 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import {
@@ -114,40 +117,40 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
             <div block="StyleGuidePage" elem="Buttons">
                 <h4 block="StyleGuidePage" elem="SubHeading">{ __('Transactional [default state + hover]') }</h4>
                 <div>
-                    <button block="Button" id="buttons">
+                    <Button mix={ { block: 'Button' } }>
                         { __('Button text') }
-                    </button>
-                    <button block="Button" id="hoverButtons" mods={ { isHovered: true } }>
+                    </Button>
+                    <Button mix={ { block: 'Button' } } mods={ { isHovered: true } }>
                         { __('Button text') }
-                    </button>
-                    <button block="Button" id="disabledButtons" disabled>
+                    </Button>
+                    <Button mix={ { block: 'Button' } } attr={ { disabled: true } }>
                         { __('Button text') }
-                    </button>
+                    </Button>
                 </div>
                 <div>
-                    <button block="Button">
+                    <Button mix={ { block: 'Button' } }>
                         <LockIcon />
                         { __('Button text') }
-                    </button>
-                    <button block="Button" mods={ { isHovered: true } }>
+                    </Button>
+                    <Button mix={ { block: 'Button', mods: { isHovered: true } } }>
                         <LockIcon />
                         { __('Button text') }
-                    </button>
-                    <button block="Button" disabled>
+                    </Button>
+                    <Button mix={ { block: 'Button' } } attr={ { disabled: true } }>
                         <LockIcon />
                         { __('Button text') }
-                    </button>
+                    </Button>
                 </div>
                 <h4 block="StyleGuidePage" elem="SubHeading">{ __('Supportive [default state + hover]') }</h4>
-                <button block="Button" id="hollowButtons" mods={ { isHollow: true } }>
+                <Button mix={ { block: 'Button' } } mods={ { isHollow: true } }>
                     { __('Secondary button') }
-                </button>
-                <button block="Button" id="hollowHoverButtons" mods={ { isHollow: true, isHovered: true } }>
+                </Button>
+                <Button mix={ { block: 'Button' } } mods={ { isHollow: true, isHovered: true } }>
                     { __('Secondary button') }
-                </button>
-                <button block="Button" id="hollowHoverButtons" mods={ { isHollow: true } } disabled>
+                </Button>
+                <Button mix={ { block: 'Button' } } attr={ { disabled: true } } mods={ { isHollow: true } }>
                     { __('Secondary button') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -156,10 +159,15 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
         return (
             <>
                 <div block="StyleGuidePage" elem="DesktopTextStyles">
-                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Desktop') }</h4>
-                    <h1 id="h1">{ __('Heading 1') }</h1>
-                    <h2 id="h2">{ __('Heading 2') }</h2>
-                    <h3 id="h3">{ __('Heading 3') }</h3>
+                    <Typography
+                      variant={ TypographyVariants.H4 }
+                      mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                    >
+                        { __('Desktop') }
+                    </Typography>
+                    <Typography variant={ TypographyVariants.H1 }>{ __('Heading 1') }</Typography>
+                    <Typography variant={ TypographyVariants.H2 }>{ __('Heading 2') }</Typography>
+                    <Typography variant={ TypographyVariants.H3 }>{ __('Heading 3') }</Typography>
                     <p id="paragraph">
                         { __('The ') }
                         <a block="Link" href="/">{ __('website') }</a>
@@ -190,10 +198,15 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     </p>
                 </div>
                 <div block="StyleGuidePage" elem="MobileTextStyles">
-                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Mobile') }</h4>
-                    <h1 id="h1Mobile">{ __('Heading 1') }</h1>
-                    <h2 id="h2Mobile">{ __('Heading 2') }</h2>
-                    <h3 id="h3Mobile">{ __('Heading 3') }</h3>
+                    <Typography
+                      mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                      variant={ TypographyVariants.H4 }
+                    >
+                        { __('Mobile') }
+                    </Typography>
+                    <Typography variant={ TypographyVariants.H1 }>{ __('Heading 1') }</Typography>
+                    <Typography variant={ TypographyVariants.H2 }>{ __('Heading 2') }</Typography>
+                    <Typography variant={ TypographyVariants.H3 }>{ __('Heading 3') }</Typography>
                     <p id="paragraphMobile">
                         { __('The ') }
                         <a block="Link" href="/">{ __('website') }</a>
@@ -230,7 +243,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
     renderInputs(): ReactElement {
         return (
             <>
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Select') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Select') }
+                </Typography>
                 <Field
                   type={ FieldType.SELECT }
                   label="Color"
@@ -306,7 +324,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   ] }
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Text') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Text') }
+                </Typography>
                 <Field
                   type={ FieldType.TEXT }
                   label="Email"
@@ -368,7 +391,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   } }
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Number') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Number') }
+                </Typography>
                 <Field
                   type={ FieldType.NUMBER }
                   label="Number"
@@ -442,7 +470,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   } }
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Telephone') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Telephone') }
+                </Typography>
                 <Field
                   type={ FieldType.TEL }
                   label="Telephone"
@@ -504,7 +537,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   } }
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Checkbox') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Checkbox') }
+                </Typography>
                 <Field
                   type={ FieldType.CHECKBOX }
                   label="Remember me"
@@ -537,7 +575,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   } }
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Radio') }</h4>
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
+                    { __('Radio') }
+                </Typography>
                 <Field
                   type={ FieldType.RADIO }
                   label="Remember me"
@@ -576,9 +619,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
         return (
             <>
-                <h4 block="StyleGuidePage" elem="SubHeading">
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
                     { __('Breadcrumbs') }
-                </h4>
+                </Typography>
                 <Breadcrumbs
                   breadcrumbs={ [{ url: '/styleguide', name: 'Style Guide' }] }
                   areBreadcrumbsVisible
@@ -588,9 +634,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   areBreadcrumbsVisible
                 />
 
-                <h4 block="StyleGuidePage" elem="SubHeading">
+                <Typography
+                  mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                  variant={ TypographyVariants.H4 }
+                >
                     { __('Notification messages') }
-                </h4>
+                </Typography>
 
                 <Notification
                   onHideNotification={ fakeFunction }
@@ -620,7 +669,15 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
     renderItem(title: string, render: () => ReactElement): ReactElement {
         return (
             <div block="StyleGuidePage" elem="Component" key={ title }>
-                <h1 block="StyleGuidePage" elem="Heading">{ title }</h1>
+                <Typography
+                  variant={ TypographyVariants.H1 }
+                  mix={ {
+                      block: 'StyleGuidePage',
+                      elem: 'Heading',
+                  } }
+                >
+                    { title }
+                </Typography>
                 { render() }
             </div>
         );

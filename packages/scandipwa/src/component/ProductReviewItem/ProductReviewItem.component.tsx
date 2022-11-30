@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ProductReview } from 'Query/ProductList.type';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { RatingVote } from 'Util/Product/Product.type';
 
@@ -90,9 +92,13 @@ export class ProductReviewItemComponent extends PureComponent<ProductReviewItemC
               itemProp="review"
               itemScope
             >
-                <h4 block="ProductReviewItem" elem="ReviewTitle" itemProp="name">
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  mix={ { block: 'ProductReviewItem', elem: 'ReviewTitle' } }
+                  attr={ { itemProp: 'name' } }
+                >
                     { title }
-                </h4>
+                </Typography>
                 <div block="ProductReviewItem" elem="RatingSummary">
                     { rating_votes.map(this.renderReviewListItemRating) }
                 </div>

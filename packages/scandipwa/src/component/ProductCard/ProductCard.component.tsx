@@ -22,6 +22,7 @@ import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { GroupedProductItem } from 'Query/ProductList.type';
 import { CategoryPageLayout } from 'Route/CategoryPage/CategoryPage.config';
+import Button from 'Src/ui/Button';
 import { Children, ReactElement } from 'Type/Common.type';
 import { IndexedConfigurableOption } from 'Util/Product/Product.type';
 
@@ -280,13 +281,12 @@ export class ProductCardComponent extends ProductComponent<ProductCardComponentP
 
         if (inStock && requiresConfiguration) {
             return (
-                    <button
-                      block="Button AddToCart"
-                      mods={ { layout } }
-                      onClick={ showSelectOptionsNotification }
+                    <Button
+                      mix={ { block: 'Button AddToCart', mods: { layout } } }
+                      events={ { onClick: showSelectOptionsNotification } }
                     >
                         { __('Add to cart') }
-                    </button>
+                    </Button>
             );
         }
 

@@ -16,6 +16,8 @@ import Link from 'Component/Link';
 import ProductAttributeValue from 'Component/ProductAttributeValue';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { SearchItemComponentProps } from './SearchItem.type';
@@ -57,9 +59,16 @@ export class SearchItemComponent extends PureComponent<SearchItemComponentProps>
         return (
             <figcaption block="SearchItem" elem="Content">
                 { this.renderCustomAttribute() }
-                <h4 block="SearchItem" elem="Title" mods={ { isLoaded: !!name } }>
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  mix={ {
+                      block: 'SearchItem',
+                      elem: 'Title',
+                      mods: { isLoaded: !!name },
+                  } }
+                >
                     <TextPlaceholder content={ name } length={ TextPlaceHolderLength.LONG } />
-                </h4>
+                </Typography>
             </figcaption>
         );
     }

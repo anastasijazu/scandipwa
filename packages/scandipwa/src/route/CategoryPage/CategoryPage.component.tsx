@@ -25,6 +25,7 @@ import ListIcon from 'Component/ListIcon';
 import Loader from 'Component/Loader';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { isCrawler, isSSR } from 'Util/Browser';
 import BrowserDatabase from 'Util/BrowserDatabase';
@@ -159,15 +160,14 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         }
 
         return (
-            <button
-              block="CategoryPage"
-              elem="Filter"
-              onClick={ onFilterButtonClick }
+            <Button
+              mix={ { block: 'CategoryPage', elem: 'Filter' } }
+              events={ { onClick: onFilterButtonClick } }
             >
                 <FilterIcon />
                 <span>{ __('Filters') }</span>
                 { this.renderFiltersCount() }
-            </button>
+            </Button>
         );
     }
 
@@ -279,31 +279,29 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         switch (type) {
         case CategoryPageLayout.GRID:
             return (
-                <button
-                  key={ type }
-                  onClick={ onGridButtonClick }
+                <Button
                   mix={ {
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
                   } }
-                  aria-label="grid"
+                  attr={ { key: type, 'aria-label': 'grid' } }
+                  events={ { onClick: onGridButtonClick } }
                 >
                     <GridIcon isActive={ activeLayoutType === CategoryPageLayout.GRID } />
-                </button>
+                </Button>
             );
         case CategoryPageLayout.LIST:
             return (
-                <button
-                  key={ type }
-                  onClick={ onListButtonClick }
+                <Button
                   mix={ {
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },
                   } }
-                  aria-label="list"
+                  attr={ { key: type, 'aria-label': 'list' } }
+                  events={ { onClick: onListButtonClick } }
                 >
                     <ListIcon isActive={ activeLayoutType === CategoryPageLayout.LIST } />
-                </button>
+                </Button>
             );
         default:
             return false;

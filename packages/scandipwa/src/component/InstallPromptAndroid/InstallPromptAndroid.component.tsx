@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import CloseIcon from 'Component/CloseIcon';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { InstallPromptAndroidComponentProps } from './InstallPromptAndroid.type';
@@ -24,14 +25,18 @@ export class InstallPromptAndroidComponent extends PureComponent<InstallPromptAn
         const { handleBannerClose } = this.props;
 
         return (
-            <button
-              block="InstallPromptAndroid"
-              elem="Close"
-              onClick={ handleBannerClose }
-              aria-label={ __('Close') }
+            <Button
+              mix={ {
+                  block: 'InstallPromptAndroid',
+                  elem: 'Close',
+              } }
+              attr={ {
+                  'aria-label': __('Close'),
+              } }
+              events={ { onClick: handleBannerClose } }
             >
                 <CloseIcon />
-            </button>
+            </Button>
         );
     }
 
@@ -47,14 +52,16 @@ export class InstallPromptAndroidComponent extends PureComponent<InstallPromptAn
         const { handleAppInstall } = this.props;
 
         return (
-            <button
-              block="InstallPromptAndroid"
-              elem="Button"
-              mix={ { block: 'Button' } }
-              onClick={ handleAppInstall }
+            <Button
+              mix={ {
+                  block: 'InstallPromptAndroid',
+                  elem: 'Button',
+                  mix: { block: 'Button' },
+              } }
+              events={ { onClick: handleAppInstall } }
             >
                 { __('Add to home screen') }
-            </button>
+            </Button>
         );
     }
 

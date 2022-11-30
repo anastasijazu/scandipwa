@@ -22,8 +22,7 @@
   },
   "include": [
     "./src/**/*",
-    "src/**/*",
-    "../ui-library/src/**/*"
+    "src/**/*"
   ],
   "extends": "./mosaic.jsconfig"
 }

@@ -12,7 +12,7 @@
 import { PureComponent } from 'react';
 
 import ChevronIcon from 'Component/ChevronIcon';
-import Button from 'Src/ui-library/Button';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 

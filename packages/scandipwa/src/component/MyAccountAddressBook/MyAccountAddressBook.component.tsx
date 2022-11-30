@@ -14,6 +14,7 @@ import { Component } from 'react';
 import MyAccountAddressPopup from 'Component/MyAccountAddressPopup';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import { CustomerAddress } from 'Query/MyAccount.type';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { getDefaultAddressLabel } from 'Util/Address';
 
@@ -60,14 +61,16 @@ export class MyAccountAddressBookComponent extends Component<MyAccountAddressBoo
         const { showCreateNewPopup } = this.props;
 
         return (
-            <button
-              block="Button"
-              mix={ { block: 'MyAccountAddressBook', elem: 'Button' } }
-              mods={ { isHollow: true } }
-              onClick={ showCreateNewPopup }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { isHollow: true },
+                  mix: { block: 'MyAccountAddressBook', elem: 'Button' },
+              } }
+              events={ { onClick: showCreateNewPopup } }
             >
                 { __('Add new address') }
-            </button>
+            </Button>
         );
     }
 

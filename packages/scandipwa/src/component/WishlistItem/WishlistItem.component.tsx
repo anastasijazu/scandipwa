@@ -22,6 +22,9 @@ import ProductCard from 'Component/ProductCard';
 import { ContentObject } from 'Component/ProductCard/ProductCard.type';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ItemOption } from 'Query/Wishlist.type';
+import Button from 'Src/ui/Button';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn, noopFnAsync } from 'Util/Common';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
@@ -148,14 +151,16 @@ export class WishlistItemComponent<P extends WishlistItemComponentProps = Wishli
         const mods: Record<string, boolean> = isMobile ? { isEditingActive } : {};
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: isMobile } }
-              mix={ { block: 'WishlistItem', elem: 'AddToCart', mods } }
-              onClick={ addToCart }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { isHollow: isMobile },
+                  mix: { block: 'WishlistItem', elem: 'AddToCart', mods },
+              } }
+              events={ { onClick: addToCart } }
             >
                 { __('Add to cart') }
-            </button>
+            </Button>
         );
     }
 
@@ -180,15 +185,17 @@ export class WishlistItemComponent<P extends WishlistItemComponentProps = Wishli
         const withReview = review_count >= 1;
 
         return (
-            <button
-              block="WishlistItem"
-              elem="Remove"
-              mods={ { withReview } }
-              onClick={ removeItem }
-              aria-label={ __('Remove') }
+            <Button
+              mix={ {
+                  block: 'WishlistItem',
+                  elem: 'Remove',
+                  mods: { withReview },
+              } }
+              attr={ { 'aria-label': __('Remove') } }
+              events={ { onClick: removeItem } }
             >
                 <CloseIcon />
-            </button>
+            </Button>
         );
     }
 
@@ -283,7 +290,7 @@ export class WishlistItemComponent<P extends WishlistItemComponentProps = Wishli
         const { product: { name } } = this.props;
 
         return (
-            <h4>{ name }</h4>
+            <Typography variant={ TypographyVariants.H4 }>{ name }</Typography>
         );
     }
 
@@ -333,16 +340,20 @@ export class WishlistItemComponent<P extends WishlistItemComponentProps = Wishli
                 <div block="WishlistItem" elem="ActionWrapper">
                     { this.renderAddToCartButton() }
                     { this.renderOutOfStockMessage() }
-                    <button
-                      key="edit"
-                      block="WislistItem"
-                      elem="Edit"
-                      onClick={ redirectToProductPage }
-                      aria-label={ __('Edit wishlist item') }
-                      tabIndex={ 0 }
+                    <Button
+                      mix={ {
+                          block: 'WislistItem',
+                          elem: 'Edit',
+                      } }
+                      attr={ {
+                          key: 'edit',
+                          'aria-label': __('Edit wishlist item'),
+                          tabIndex: 0,
+                      } }
+                      events={ { onClick: redirectToProductPage } }
                     >
                         <EditIcon />
-                    </button>
+                    </Button>
                 </div>
             </div>
         );

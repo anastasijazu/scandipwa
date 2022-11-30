@@ -13,6 +13,7 @@ import { MouseEvent, PureComponent } from 'react';
 
 import CompareIcon from 'Component/CompareIcon';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 
@@ -55,16 +56,18 @@ export class ProductCompareButtonComponent extends PureComponent<ProductCompareB
               mods={ { isActive } }
               mix={ mix }
             >
-                <button
-                  block="ProductCompareButton"
-                  elem="Button"
-                  onClick={ this.handleClick }
-                  mix={ { block: 'Button' } }
-                  aria-label={ __('Compare') }
+                <Button
+                  mix={ {
+                      block: 'ProductCompareButton',
+                      elem: 'Button',
+                      mix: { block: 'Button' },
+                  } }
+                  attr={ { 'aria-label': __('Compare') } }
+                  events={ { onClick: this.handleClick } }
                 >
                     <CompareIcon isActive={ isActive } />
                     <Loader isLoading={ isLoading } />
-                </button>
+                </Button>
             </div>
         );
     }

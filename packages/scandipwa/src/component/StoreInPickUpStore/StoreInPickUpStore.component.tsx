@@ -12,6 +12,10 @@
 import { PureComponent } from 'react';
 
 import Html from 'Component/Html';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { StoreInPickUpStoreComponentProps } from './StoreInPickUpStore.type';
@@ -29,13 +33,13 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
 
         return (
             <div block="StoreInPickUpStore" elem="StoreActions">
-                <button
-                  block="Button"
-                  onClick={ handleSelectStore }
-                  type="button"
+                <Button
+                  mix={ { block: 'Button' } }
+                  attr={ { type: ButtonType.BUTTON } }
+                  events={ { onClick: handleSelectStore } }
                 >
                     { __('Ship here') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -61,7 +65,7 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
         return (
             <div block="StoreInPickUpStore" elem="Store">
                 <div block="StoreInPickUpStore" elem="StoreData">
-                    <h3>{ name }</h3>
+                    <Typography variant={ TypographyVariants.H3 }>{ name }</Typography>
                     <p>{ street }</p>
                     <p>{ `${city}, ${region || ''} ${postcode}` }</p>
                     <p>{ country }</p>

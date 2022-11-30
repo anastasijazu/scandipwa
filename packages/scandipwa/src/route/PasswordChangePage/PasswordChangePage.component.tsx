@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import ContentWrapper from 'Component/ContentWrapper';
 import Loader from 'Component/Loader';
 import PasswordChangeForm from 'Component/PasswordChangeForm';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { PasswordChangePageComponentProps } from './PasswordChangePage.type';
@@ -57,7 +59,12 @@ export class PasswordChangePageComponent extends PureComponent<PasswordChangePag
 
         return (
             <>
-                { !isMobile && <h1>{ __('Change My Password') }</h1> }
+                { !isMobile
+                    && (
+                        <Typography variant={ TypographyVariants.H1 }>
+                            { __('Change My Password') }
+                        </Typography>
+                    ) }
                 <PasswordChangeForm
                   onFormError={ onError }
                   onFormSubmit={ onPasswordSuccess }

@@ -18,6 +18,8 @@ import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import ReviewStar from 'Component/ReviewStar';
 import { ReviewRatingValue } from 'Query/Review.type';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { ProductReviewFormComponentProps } from './ProductReviewForm.type';
@@ -85,14 +87,16 @@ export class ProductReviewFormComponent extends PureComponent<ProductReviewFormC
 
     renderButton(): ReactElement {
         return (
-            <button
-              block="ProductReviewForm"
-              elem="Button"
-              type="submit"
-              mix={ { block: 'Button' } }
+            <Button
+              mix={ {
+                  block: 'ProductReviewForm',
+                  elem: 'Button',
+                  mix: { block: 'Button' },
+              } }
+              attr={ { type: ButtonType.SUBMIT } }
             >
                 { __('Submit Review') }
-            </button>
+            </Button>
         );
     }
 

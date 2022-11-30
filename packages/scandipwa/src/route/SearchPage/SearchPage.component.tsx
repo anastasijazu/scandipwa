@@ -10,6 +10,8 @@
  */
 
 import CategoryPage from 'Route/CategoryPage/CategoryPage.component';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import { decodeString } from 'Util/Common';
 
@@ -26,17 +28,17 @@ SearchPageComponentState
         const { search } = this.props;
 
         return (
-            <h1
-              block="CategoryDetails"
-              elem="Heading"
+            <Typography
+              variant={ TypographyVariants.H1 }
               mix={ {
-                  block: 'SearchPage',
+                  block: 'CategoryDetails',
                   elem: 'Heading',
+                  mix: { block: 'SearchPage', elem: 'Heading' },
               } }
             >
                 { __('Search results for: ') }
                 <span>{ decodeString(search) }</span>
-            </h1>
+            </Typography>
         );
     }
 

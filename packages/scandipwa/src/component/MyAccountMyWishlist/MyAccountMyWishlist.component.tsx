@@ -17,6 +17,7 @@ import ProductCard from 'Component/ProductCard';
 import ShareIcon from 'Component/ShareIcon';
 import ShareWishlistPopup from 'Component/ShareWishlistPopup';
 import WishlistItem from 'Component/WishlistItem';
+import Button from 'Src/ui/Button';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
 import CSS from 'Util/CSS';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
@@ -164,15 +165,17 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         } = this.props;
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: true, isWithoutBorder: true } }
-              mix={ { block: 'MyAccountMyWishlist', elem: 'ClearWishlistButton' } }
-              onClick={ removeAll }
-              disabled={ isActionsDisabled || isLoading }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { isHollow: true, isWithoutBorder: true },
+                  mix: { block: 'MyAccountMyWishlist', elem: 'ClearWishlistButton' },
+              } }
+              attr={ { disabled: (isActionsDisabled || isLoading) } }
+              events={ { onClick: removeAll } }
             >
                 { __('Clear All') }
-            </button>
+            </Button>
         );
     }
 
@@ -189,15 +192,17 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const isDisabled = (isMobile && isEditingActive) || isActionsDisabled || isLoading || isQtyUpdateInProgress;
 
         return (
-            <button
-              block="Button"
-              mix={ { block: 'MyAccountMyWishlist', elem: 'Button' } }
-              onClick={ addAllToCart }
-              disabled={ isDisabled }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mix: { block: 'MyAccountMyWishlist', elem: 'Button' },
+              } }
+              attr={ { disabled: isDisabled } }
+              events={ { onClick: addAllToCart } }
             >
                 <CartIcon />
                 { __('Add All to Cart') }
-            </button>
+            </Button>
         );
     }
 
@@ -211,16 +216,18 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const disabled = isWishlistLoading || isWishlistEmpty;
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: true } }
-              mix={ { block: 'MyAccountMyWishlist', elem: 'ShareWishlistButton' } }
-              onClick={ shareWishlist }
-              disabled={ disabled }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { isHollow: true },
+                  mix: { block: 'MyAccountMyWishlist', elem: 'ShareWishlistButton' },
+              } }
+              attr={ { disabled } }
+              events={ { onClick: shareWishlist } }
             >
                 <ShareIcon isPrimary />
                 { __('Share') }
-            </button>
+            </Button>
         );
     }
 
@@ -231,17 +238,19 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const isDisabled = isActionsDisabled || (isMobile && !selectedIdMap.length) || isQtyUpdateInProgress;
 
         return (
-            <button
-              block="Button"
-              mods={ { likeLink: true } }
-              mix={ { block: 'MyAccountMyWishlist', elem: 'ClearRemoveItemsButton' } }
-              onClick={ this.handleRemoveButtonClick }
-              disabled={ isDisabled }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { likeLink: true },
+                  mix: { block: 'MyAccountMyWishlist', elem: 'ClearRemoveItemsButton' },
+              } }
+              attr={ { disabled: isDisabled } }
+              events={ { onClick: this.handleRemoveButtonClick } }
             >
                 { selectedIdMap.length === 1
                     ? __('Remove item (%s)', 1)
                     : __('Remove items (%s)', selectedIdMap.length) }
-            </button>
+            </Button>
         );
     }
 

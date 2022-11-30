@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { GQLProductStockStatus } from 'Type/Graphql.type';
 
@@ -34,13 +35,12 @@ export class ProductAlertsComponent extends PureComponent<ProductAlertsComponent
         }
 
         return (
-            <button
-              block="ProductAlerts"
-              elem="PriceDrop"
-              onClick={ handlePriceDropSubscribeAlertPriceDrop }
+            <Button
+              mix={ { block: 'ProductAlerts', elem: 'PriceDrop' } }
+              events={ { onClick: handlePriceDropSubscribeAlertPriceDrop } }
             >
                 { __('Notify me when the price drops') }
-            </button>
+            </Button>
         );
     }
 
@@ -60,13 +60,12 @@ export class ProductAlertsComponent extends PureComponent<ProductAlertsComponent
         }
 
         return (
-            <button
-              block="ProductAlerts"
-              elem="InStock"
-              onClick={ handlePriceDropSubscribeAlertInStock }
+            <Button
+              mix={ { block: 'ProductAlerts', elem: 'InStock' } }
+              events={ { onClick: handlePriceDropSubscribeAlertInStock } }
             >
                 { __('Notify me when this product is in stock') }
-            </button>
+            </Button>
         );
     }
 

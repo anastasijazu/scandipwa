@@ -8,12 +8,12 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
-
 import CartIcon from 'Component/CartIcon';
 import HomeIcon from 'Component/HomeIcon';
 import MenuIcon from 'Component/MenuIcon';
 import NavigationAbstract from 'Component/NavigationAbstract/NavigationAbstract.component';
 import UserIcon from 'Component/UserIcon';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { NavigationTabsMap } from './NavigationTabs.config';
@@ -70,15 +70,13 @@ export class NavigationTabsComponent extends NavigationAbstract<NavigationTabsCo
         const { onHomeButtonClick } = this.props;
 
         return (
-            <button
-              key="home"
-              block="NavigationTabs"
-              elem="Button"
-              aria-label="Home"
-              onClick={ onHomeButtonClick }
+            <Button
+              mix={ { block: 'NavigationTabs', elem: 'Button' } }
+              attr={ { key: 'home', 'aria-label': 'Home' } }
+              events={ { onClick: onHomeButtonClick } }
             >
                 <HomeIcon isActive={ isActive } />
-            </button>
+            </Button>
         );
     }
 
@@ -86,15 +84,13 @@ export class NavigationTabsComponent extends NavigationAbstract<NavigationTabsCo
         const { onMenuButtonClick } = this.props;
 
         return (
-            <button
-              key="menu"
-              block="NavigationTabs"
-              elem="Button"
-              aria-label="Go to menu and search"
-              onClick={ onMenuButtonClick }
+            <Button
+              mix={ { block: 'NavigationTabs', elem: 'Button' } }
+              attr={ { key: 'menu', 'aria-label': 'Go to menu and search' } }
+              events={ { onClick: onMenuButtonClick } }
             >
                 <MenuIcon isActive={ isActive } />
-            </button>
+            </Button>
         );
     }
 
@@ -102,15 +98,13 @@ export class NavigationTabsComponent extends NavigationAbstract<NavigationTabsCo
         const { onMyAccountButtonClick } = this.props;
 
         return (
-            <button
-              key="account"
-              block="NavigationTabs"
-              elem="Button"
-              onClick={ onMyAccountButtonClick }
-              aria-label="Open my account"
+            <Button
+              mix={ { block: 'NavigationTabs', elem: 'Button' } }
+              attr={ { key: 'account', 'aria-label': 'Open my account' } }
+              events={ { onClick: onMyAccountButtonClick } }
             >
                 <UserIcon isActive={ isActive } />
-            </button>
+            </Button>
         );
     }
 
@@ -136,12 +130,10 @@ export class NavigationTabsComponent extends NavigationAbstract<NavigationTabsCo
         const { onMinicartButtonClick } = this.props;
 
         return (
-            <button
-              key="mincart"
-              block="NavigationTabs"
-              elem="Button"
-              onClick={ onMinicartButtonClick }
-              aria-label="Minicart"
+            <Button
+              mix={ { block: 'NavigationTabs', elem: 'Button' } }
+              attr={ { key: 'minicart', 'aria-label': 'Minicart' } }
+              events={ { onClick: onMinicartButtonClick } }
             >
                 <div block="Header" elem="MinicartWrapper">
                     <div
@@ -154,7 +146,7 @@ export class NavigationTabsComponent extends NavigationAbstract<NavigationTabsCo
                     </div>
                     { this.renderMinicartItemsQty() }
                 </div>
-            </button>
+            </Button>
         );
     }
 

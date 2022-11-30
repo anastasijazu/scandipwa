@@ -19,6 +19,7 @@ import MyAccountOrderItemsTable from 'Component/MyAccountOrderItemsTable';
 import MyAccountOrderTabs from 'Component/MyAccountOrderTabs';
 import { CreditMemo } from 'Query/Order.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { decodeBase64 } from 'Util/Base64';
 import { noopFn } from 'Util/Common';
@@ -309,14 +310,16 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
         }
 
         return (
-            <button
-              block="Button"
-              mods={ { likeLink: true } }
-              mix={ { block: 'MyAccountOrder', elem: 'Reorder' } }
-              onClick={ handleReorder }
+            <Button
+              mix={ {
+                  block: 'Button',
+                  mods: { likeLink: true },
+                  mix: { block: 'MyAccountOrder', elem: 'Reorder' },
+              } }
+              events={ { onClick: handleReorder } }
             >
                 { __('Reorder') }
-            </button>
+            </Button>
         );
     }
 

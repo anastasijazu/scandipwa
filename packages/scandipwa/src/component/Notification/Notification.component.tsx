@@ -12,6 +12,7 @@
 import { createRef, PureComponent } from 'react';
 
 import Html from 'Component/Html';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 import CSS from 'Util/CSS';
@@ -113,7 +114,12 @@ export class NotificationComponent extends PureComponent<NotificationComponentPr
 
         return (
             <div block="Notification" mods={ mods } ref={ this.notification } id={ id }>
-                <button block="Notification" elem="Button" onClick={ this.hideNotification }> Close </button>
+                <Button
+                  mix={ { block: 'Notification', elem: 'Button' } }
+                  events={ { onClick: this.hideNotification } }
+                >
+                    Close
+                </Button>
                 <p block="Notification" elem="Text">
                     <Html content={ msgText } />
                 </p>

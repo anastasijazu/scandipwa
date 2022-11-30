@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { formatPrice } from 'Util/Price';
@@ -162,13 +164,14 @@ export class CheckoutDeliveryOptionComponent extends PureComponent<CheckoutDeliv
                   isHoverExcluded: !available || isSelected,
               } }
             >
-                <button
-                  block="CheckoutDeliveryOption"
-                  mods={ { isDisabled: !available } }
-                  elem="Button"
-                  type="button"
-                  onClick={ onOptionClick }
-                  disabled={ !available }
+                <Button
+                  mix={ {
+                      block: 'CheckoutDeliveryOption',
+                      elem: 'Button',
+                      mods: { isDisabled: !available },
+                  } }
+                  attr={ { type: ButtonType.BUTTON, disabled: !available } }
+                  events={ { onClick: onOptionClick } }
                 >
                     <Field
                       type={ FieldType.RADIO }
@@ -179,7 +182,7 @@ export class CheckoutDeliveryOptionComponent extends PureComponent<CheckoutDeliv
                       } }
                     />
                     { this.renderRow() }
-                </button>
+                </Button>
             </li>
         );
     }

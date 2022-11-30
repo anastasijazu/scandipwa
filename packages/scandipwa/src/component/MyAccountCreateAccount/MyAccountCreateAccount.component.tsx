@@ -14,6 +14,10 @@ import { PureComponent } from 'react';
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 import history from 'Util/History';
 import { validatePassword } from 'Util/Validator';
@@ -194,13 +198,15 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
     renderSubmitButton(): ReactElement {
         return (
             <div block="MyAccountOverlay" elem="Buttons">
-                <button
-                  block="Button"
-                  type="submit"
-                  mix={ { block: 'MyAccountOverlay', elem: 'SignUpButton' } }
+                <Button
+                  mix={ {
+                      block: 'Button',
+                      mix: { block: 'MyAccountOverlay', elem: 'SignUpButton' },
+                  } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Sign up') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -227,15 +233,17 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
-                    <h4>{ __('Already have an account?') }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
-                      mix={ { block: 'MyAccountOverlay', elem: 'SignInLink' } }
-                      onClick={ handleSignIn }
+                    <Typography variant={ TypographyVariants.H4 }>{ __('Already have an account?') }</Typography>
+                    <Button
+                      mix={ {
+                          block: 'Button',
+                          mods: { likeLink: true },
+                          mix: { block: 'MyAccountOverlay', elem: 'SignInLink' },
+                      } }
+                      events={ { onClick: handleSignIn } }
                     >
                         { __('Sign in') }
-                    </button>
+                    </Button>
                 </section>
             </article>
         );
