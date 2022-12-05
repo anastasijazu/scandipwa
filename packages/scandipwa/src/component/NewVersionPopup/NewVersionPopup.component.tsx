@@ -12,8 +12,8 @@
 import { PureComponent } from 'react';
 
 import Popup from 'Component/Popup';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { NEW_VERSION_POPUP_ID } from './NewVersionPopup.config';
 import { NewVersionPopupComponentProps } from './NewVersionPopup.type';

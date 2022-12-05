@@ -12,9 +12,9 @@
 import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { SomethingWentWrongComponentProps } from './SomethingWentWrong.type';
 

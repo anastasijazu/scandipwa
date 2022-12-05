@@ -10,9 +10,9 @@
  */
 
 import CategoryPage from 'Route/CategoryPage/CategoryPage.component';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { decodeString } from 'Util/Common';
 
 import { SearchPageComponentProps, SearchPageComponentState } from './SearchPage.type';

@@ -8,18 +8,19 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import { ProductType } from 'Component/Product/Product.config';
 import SwipeToDelete from 'Component/SwipeToDelete';
-import Button from 'Src/ui/Button';
 import { changeNavigationState } from 'Store/Navigation/Navigation.action';
 import { NavigationType } from 'Store/Navigation/Navigation.type';
 import { showNotification } from 'Store/Notification/Notification.action';
 import { NotificationType } from 'Store/Notification/Notification.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { isSignedIn } from 'Util/Auth';
 import { noopFn } from 'Util/Common';
 import history from 'Util/History';

@@ -12,9 +12,9 @@
 import Loader from 'Component/Loader';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable/MyAccountAddressTable.component';
 import { CustomerAddress } from 'Query/MyAccount.type';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { CheckoutAddressTableComponentProps } from './CheckoutAddressTable.type';
 

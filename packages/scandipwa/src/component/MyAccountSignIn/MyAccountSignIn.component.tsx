@@ -15,11 +15,11 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { ValidationInputType } from 'Util/Validator/Config';
 
 import { MyAccountSignInComponentProps } from './MyAccountSignIn.type';

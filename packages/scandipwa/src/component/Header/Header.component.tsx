@@ -10,6 +10,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import {
     createRef,
     lazy,
@@ -37,10 +38,10 @@ import SearchField from 'Component/SearchField';
 import ShareIcon from 'Component/ShareIcon';
 import StoreSwitcher from 'Component/StoreSwitcher';
 import UserIcon from 'Component/UserIcon';
-import Button from 'Src/ui/Button';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 import { isCrawler, isSSR } from 'Util/Browser';
 import { decodeString } from 'Util/Common';

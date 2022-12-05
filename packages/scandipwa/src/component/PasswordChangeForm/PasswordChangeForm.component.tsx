@@ -15,8 +15,8 @@ import { MutableRefObject } from 'react';
 import { FieldContainerProps } from 'Component/Field/Field.type';
 import FieldForm from 'Component/FieldForm';
 import { FormContainerProps } from 'Component/Form/Form.type';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import customerEmailAndPasswordFields from './PasswordChangeForm.form';
 import { PasswordChangeFormComponentProps } from './PasswordChangeForm.type';

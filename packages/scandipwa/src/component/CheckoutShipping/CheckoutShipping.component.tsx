@@ -18,10 +18,10 @@ import Loader from 'Component/Loader';
 import LockIcon from 'Component/LockIcon';
 import StoreInPickUpComponent from 'Component/StoreInPickUp';
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { getAllCartItemsSku } from 'Util/Cart';
 import { formatPrice } from 'Util/Price';
 

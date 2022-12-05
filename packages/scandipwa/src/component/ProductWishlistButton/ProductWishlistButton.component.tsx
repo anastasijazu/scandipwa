@@ -14,8 +14,8 @@ import { MouseEvent, PureComponent } from 'react';
 
 import HeartIcon from 'Component/HeartIcon';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { ProductWishlistButtonComponentProps } from './ProductWishlistButton.type';
 

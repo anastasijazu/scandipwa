@@ -14,11 +14,14 @@ import {
 } from 'Component/Field/Field.type';
 import { Children, Mix } from 'Type/Common.type';
 
-export interface ButtonContainerProps {
+import { ButtonAppearance } from './Button.config';
+
+export interface ButtonComponentProps {
     children: Children;
     mix: Mix;
+    appearance: ButtonAppearance;
     attr: FieldAttributes;
     events: FieldEvents;
 }
 
-export type ButtonContainerPropsKey = 'mix';
+export type ButtonComponentPropsKey = 'mix';

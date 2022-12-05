@@ -13,10 +13,10 @@ import { PureComponent } from 'react';
 
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { formatPrice } from 'Util/Price';
 
 import { DELIVERY_METHOD_UNAVAILABLE_MESSAGE } from './CheckoutDeliveryOption.config';

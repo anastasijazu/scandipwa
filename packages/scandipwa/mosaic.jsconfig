@@ -27,6 +27,9 @@
             "Pages/*": [
                 "src/pages/*"
             ],
+            "Ui/*": [
+                "src/ui/*"
+            ],
             "Src/*": [
                 "src/*"
             ]

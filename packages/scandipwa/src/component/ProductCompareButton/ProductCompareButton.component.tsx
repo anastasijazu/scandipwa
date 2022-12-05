@@ -13,8 +13,8 @@ import { MouseEvent, PureComponent } from 'react';
 
 import CompareIcon from 'Component/CompareIcon';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 
 import { ProductCompareButtonComponentProps } from './ProductCompareButton.type';

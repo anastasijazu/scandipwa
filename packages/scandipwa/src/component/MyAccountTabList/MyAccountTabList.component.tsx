@@ -14,8 +14,8 @@ import { PureComponent } from 'react';
 import ExpandableContent from 'Component/ExpandableContent';
 import MyAccountTabListItem from 'Component/MyAccountTabListItem';
 import { MyAccountTab } from 'Route/MyAccount/MyAccount.type';
-import Button from 'Src/ui/Button';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountTabListComponentProps } from './MyAccountTabList.type';
 

@@ -19,8 +19,9 @@ import {
 } from 'Component/ProductConfigurableAttributes/ProductConfigurableAttributes.type';
 import ResetAttributes from 'Component/ResetAttributes';
 import ResetButton from 'Component/ResetButton';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonAppearance } from 'Ui/Button/Button.config';
 
 import { CATEGORY_FILTER_OVERLAY_ID } from './CategoryFilterOverlay.config';
 import { CategoryFilterOverlayComponentProps } from './CategoryFilterOverlay.type';
@@ -63,7 +64,8 @@ export class CategoryFilterOverlayComponent extends PureComponent<CategoryFilter
               elem="SeeResults"
             >
                 <Button
-                  mix={ { block: 'CategoryFilterOverlay', elem: 'Button', mix: { block: 'Button' } } }
+                  appearance={ ButtonAppearance.PRIMARY }
+                  mix={ { block: 'CategoryFilterOverlay', elem: 'Button' } }
                   events={ { onClick: onSeeResultsClick } }
                 >
                     { __('SEE RESULTS') }

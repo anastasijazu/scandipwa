@@ -15,26 +15,34 @@ import { ButtonHTMLAttributes, PureComponent } from 'react';
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import { ReactElement } from 'Type/Common.type';
 
-import { ButtonContainerProps, ButtonContainerPropsKey } from './Button.type';
+import { ButtonComponentProps, ButtonComponentPropsKey } from './Button.type';
 
-/** @namespace ui/Button/Container */
-export class ButtonContainer extends PureComponent<ButtonContainerProps> {
-    static defaultProps: Partial<ButtonContainerProps> = {
+import './Button.style';
+
+/** @namespace ui/Button/Component */
+export class ButtonComponent extends PureComponent<ButtonComponentProps> {
+    static defaultProps: Partial<ButtonComponentProps> = {
         mix: {},
     };
 
-    containerProps(): Pick<ButtonContainerProps, ButtonContainerPropsKey> {
+    componentProps(): Pick<ButtonComponentProps, ButtonComponentPropsKey> {
         const { mix } = this.props;
 
         return { mix };
     }
 
     render(): ReactElement {
-        const { children, attr, events } = this.props;
+        const {
+            children, attr, events, appearance,
+        } = this.props;
+
+        const mods = appearance ? { appearance } : {};
 
         return (
             <button
-              { ...this.containerProps() }
+              block="Button"
+              mods={ mods }
+              { ...this.componentProps() }
               { ...attr as ButtonHTMLAttributes<HTMLButtonElement> }
               { ...events as FieldReactEvents<HTMLButtonElement> }
             >
@@ -44,4 +52,4 @@ export class ButtonContainer extends PureComponent<ButtonContainerProps> {
     }
 }
 
-export default ButtonContainer;
+export default ButtonComponent;

@@ -16,9 +16,11 @@ import { FieldType } from 'Component/Field/Field.config';
 import { EventFieldData } from 'Component/Field/Field.type';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonAppearance, ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CartCouponComponentProps, CartCouponComponentState } from './CartCoupon.type';
 
@@ -123,9 +125,12 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                     />
                 </div>
                 <Button
+                  appearance={ ButtonAppearance.SECONDARY }
                   attr={ { disabled: !enteredCouponCode, type: ButtonType.BUTTON } }
                   events={ { onClick: this.handleApplyCoupon } }
-                  mix={ { block: 'CartCoupon', elem: 'Button', mods: { isHollow: true } } }
+                  mix={ {
+                      block: 'CartCoupon', elem: 'Button', mods: { isHollow: true },
+                  } }
                 >
                     { __('Submit') }
                 </Button>
@@ -145,9 +150,10 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                     </p>
                 </div>
                 <Button
+                  appearance={ ButtonAppearance.PRIMARY }
                   attr={ { type: ButtonType.BUTTON } }
                   events={ { onClick: this.handleRemoveCoupon } }
-                  mix={ { block: 'Button CartCoupon', elem: 'Button', mix: { block: 'Button' } } }
+                  mix={ { block: 'CartCoupon', elem: 'Button' } }
                 >
                     { __('Remove Coupon') }
                 </Button>
@@ -163,9 +169,12 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
         }
 
         return (
-            <h3 block="CartCoupon" elem="Title">
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ { block: 'CartCoupon', elem: 'Title' } }
+            >
                 { title }
-            </h3>
+            </Typography>
         );
     }
 

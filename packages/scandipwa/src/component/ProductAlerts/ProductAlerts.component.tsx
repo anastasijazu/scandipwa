@@ -11,9 +11,9 @@
 
 import { PureComponent } from 'react';
 
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { GQLProductStockStatus } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
 
 import { ProductAlertsComponentProps } from './ProductAlerts.type';
 

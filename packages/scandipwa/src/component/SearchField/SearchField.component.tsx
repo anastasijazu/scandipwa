@@ -9,6 +9,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import {
     ChangeEvent,
     createRef,
@@ -22,8 +23,8 @@ import CloseIcon from 'Component/CloseIcon';
 import Loader from 'Component/Loader';
 import SearchIcon from 'Component/SearchIcon';
 import SearchOverlay from 'Component/SearchOverlay';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { scrollToTop } from 'Util/Browser';
 import { noopFn } from 'Util/Common';
 import history from 'Util/History';

@@ -16,10 +16,10 @@ import Loader from 'Component/Loader';
 import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
-import Button from 'Src/ui/Button';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { LoginAccountComponentProps } from './LoginAccount.type';
 

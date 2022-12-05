@@ -8,10 +8,11 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import { PureComponent } from 'react';
 
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { scrollToTop } from 'Util/Browser';
 
 import { ResetButtonComponentProps } from './ResetButton.type';

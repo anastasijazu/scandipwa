@@ -17,10 +17,10 @@ import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonAppearance, ButtonType } from 'Ui/Button/Button.config';
 import { getDefaultAddressLabel } from 'Util/Address';
 import { isSignedIn } from 'Util/Auth';
 
@@ -150,11 +150,11 @@ CheckoutAddressBookComponentState
               elem="CustomAddressWrapper"
             >
                 <Button
+                  appearance={ ButtonAppearance.SECONDARY }
                   mix={ {
                       block: 'CheckoutAddressBook',
                       elem: 'Button',
                       mods: { isCustomAddressExpanded },
-                      mix: { block: 'Button', mods: { isHollow: true } },
                   } }
                   attr={ { type: ButtonType.BUTTON } }
                   events={ { onClick: this.expandCustomAddress } }

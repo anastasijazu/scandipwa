@@ -15,8 +15,8 @@ import Loader from 'Component/Loader';
 import MyAccountAddressForm from 'Component/MyAccountAddressForm';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import Popup from 'Component/Popup';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountAddressPopupAction } from './MyAccountAddressPopup.config';
 import { MyAccountAddressPopupComponentProps } from './MyAccountAddressPopup.type';

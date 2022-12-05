@@ -14,9 +14,9 @@ import { PureComponent } from 'react';
 import Html from 'Component/Html';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import NoMatch from 'Route/NoMatch';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CmsPageComponentProps } from './CmsPage.type';
 

@@ -17,6 +17,8 @@ import { ReactElement } from 'Type/Common.type';
 import { TypographyVariants } from './Typography.config';
 import { TypographyComponentProps, TypographyMapVariant } from './Typography.type';
 
+import './Typography.style';
+
 /** @namespace ui/Typography/Component */
 export class TypographyComponent extends PureComponent<TypographyComponentProps> {
     variantMap: Record<TypographyVariants, TypographyMapVariant> = {

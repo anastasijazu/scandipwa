@@ -12,8 +12,8 @@
 import { createRef, PureComponent } from 'react';
 
 import Html from 'Component/Html';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 import CSS from 'Util/CSS';
 

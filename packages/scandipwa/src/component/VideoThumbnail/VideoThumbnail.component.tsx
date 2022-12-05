@@ -15,8 +15,8 @@ import { PureComponent } from 'react';
 
 import Image from 'Component/Image/Image.container';
 import { ImageRatio } from 'Component/Image/Image.type';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { VideoThumbnailComponentProps } from './VideoThumbnail.type';
 

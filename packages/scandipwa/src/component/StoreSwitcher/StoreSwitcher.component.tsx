@@ -17,8 +17,8 @@ import ClickOutside from 'Component/ClickOutside';
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import StoreItem from 'Component/StoreItem';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { FormattedStore, StoreSwitcherComponentProps } from './StoreSwitcher.type';
 

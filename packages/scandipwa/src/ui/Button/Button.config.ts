@@ -9,8 +9,15 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export const ButtonType = {
-    BUTTON: 'button',
-    SUBMIT: 'submit',
-    RESET: 'reset',
-};
+export enum ButtonType {
+    BUTTON = 'button',
+    SUBMIT = 'submit',
+    RESET = 'reset',
+}
+
+export enum ButtonAppearance {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    LINK = 'link',
+    ICON = 'icon',
+}

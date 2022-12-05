@@ -609,5 +609,13 @@
     "County": null,
     "State/Province": null,
     "Region": null,
-    "You %s the address": null
+    "You %s the address": null,
+    "Primary [default state + hover]": null,
+    "Primary [default state]": null,
+    "Primary": null,
+    "Secondary": null,
+    "Like link": null,
+    "Button like ": null,
+    "Button like link": null,
+    "Button icons": null
 }

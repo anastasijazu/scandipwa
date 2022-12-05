@@ -10,6 +10,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import { PureComponent } from 'react';
 
 import Breadcrumbs from 'Component/Breadcrumbs/Breadcrumbs.component';
@@ -18,10 +19,11 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
-import Button from 'Src/ui/Button';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonAppearance } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import {
     ADDITIONAL_ELEMENTS,
@@ -115,42 +117,54 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
     renderButtons(): ReactElement {
         return (
             <div block="StyleGuidePage" elem="Buttons">
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Transactional [default state + hover]') }</h4>
+                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary') }</h4>
                 <div>
-                    <Button mix={ { block: 'Button' } }>
+                    <Button appearance={ ButtonAppearance.PRIMARY }>
                         { __('Button text') }
                     </Button>
-                    <Button mix={ { block: 'Button' } } mods={ { isHovered: true } }>
-                        { __('Button text') }
-                    </Button>
-                    <Button mix={ { block: 'Button' } } attr={ { disabled: true } }>
+                    <Button appearance={ ButtonAppearance.PRIMARY } attr={ { disabled: true } }>
                         { __('Button text') }
                     </Button>
                 </div>
                 <div>
-                    <Button mix={ { block: 'Button' } }>
+                    <Button appearance={ ButtonAppearance.PRIMARY }>
                         <LockIcon />
                         { __('Button text') }
                     </Button>
-                    <Button mix={ { block: 'Button', mods: { isHovered: true } } }>
-                        <LockIcon />
-                        { __('Button text') }
-                    </Button>
-                    <Button mix={ { block: 'Button' } } attr={ { disabled: true } }>
+                    <Button appearance={ ButtonAppearance.PRIMARY } attr={ { disabled: true } }>
                         <LockIcon />
                         { __('Button text') }
                     </Button>
                 </div>
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Supportive [default state + hover]') }</h4>
-                <Button mix={ { block: 'Button' } } mods={ { isHollow: true } }>
+                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Secondary') }</h4>
+                <Button appearance={ ButtonAppearance.SECONDARY }>
                     { __('Secondary button') }
                 </Button>
-                <Button mix={ { block: 'Button' } } mods={ { isHollow: true, isHovered: true } }>
+                <Button appearance={ ButtonAppearance.SECONDARY } attr={ { disabled: true } }>
                     { __('Secondary button') }
                 </Button>
-                <Button mix={ { block: 'Button' } } attr={ { disabled: true } } mods={ { isHollow: true } }>
-                    { __('Secondary button') }
+
+                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Like link') }</h4>
+                <Button appearance={ ButtonAppearance.LINK }>
+                    { __('Button like link') }
                 </Button>
+                <Button appearance={ ButtonAppearance.LINK } attr={ { disabled: true } }>
+                    { __('Button like link') }
+                </Button>
+
+                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Button icons') }</h4>
+                <div>
+                    <Button appearance={ ButtonAppearance.ICON }>
+                        <LockIcon />
+                    </Button>
+                    <Button appearance={ ButtonAppearance.ICON } attr={ { disabled: true } }>
+                        <LockIcon />
+                    </Button>
+
+                    <Button>
+                        Test
+                    </Button>
+                </div>
             </div>
         );
     }
@@ -204,7 +218,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     >
                         { __('Mobile') }
                     </Typography>
-                    <Typography variant={ TypographyVariants.H1 }>{ __('Heading 1') }</Typography>
+                    <Typography variant={ TypographyVariants.H1 } appearance={ TypographyVariants.H2 }>{ __('Heading 1') }</Typography>
                     <Typography variant={ TypographyVariants.H2 }>{ __('Heading 2') }</Typography>
                     <Typography variant={ TypographyVariants.H3 }>{ __('Heading 3') }</Typography>
                     <p id="paragraphMobile">

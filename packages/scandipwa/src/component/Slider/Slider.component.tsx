@@ -8,6 +8,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import {
     Children,
     createRef,
@@ -21,8 +22,8 @@ import ChevronIcon from 'Component/ChevronIcon';
 import { Directions } from 'Component/ChevronIcon/ChevronIcon.config';
 import Draggable from 'Component/Draggable';
 import { DraggableComponentState } from 'Component/Draggable/Draggable.type';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 import CSS from 'Util/CSS';
 import { isRtl } from 'Util/CSS/CSS';

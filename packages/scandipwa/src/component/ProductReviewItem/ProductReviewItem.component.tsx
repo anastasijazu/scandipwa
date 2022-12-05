@@ -13,9 +13,9 @@ import { PureComponent } from 'react';
 
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ProductReview } from 'Query/ProductList.type';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { RatingVote } from 'Util/Product/Product.type';
 
 import { ProductReviewItemComponentProps } from './ProductReviewItem.type';

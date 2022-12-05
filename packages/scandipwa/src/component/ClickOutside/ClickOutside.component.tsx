@@ -68,6 +68,8 @@ export class ClickOutsideComponent extends PureComponent<ClickOutsideComponentPr
                     ref.current as HTMLElement & { overlayRef: RefObject<HTMLElement> }
                 )?.overlayRef?.current || ref.current;
 
+                console.log(elementRef);
+
                 return !elementRef?.contains(target as HTMLElement);
             },
         )) {

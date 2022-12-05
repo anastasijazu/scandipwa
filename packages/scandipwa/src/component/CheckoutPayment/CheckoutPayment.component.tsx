@@ -13,9 +13,9 @@ import { PureComponent } from 'react';
 
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { CheckoutPaymentComponentProps } from './CheckoutPayment.type';
 

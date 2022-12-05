@@ -8,6 +8,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import Html from 'Component/Html';
 import { ProductComponent } from 'Component/Product/Product.component';
 import { ProductType } from 'Component/Product/Product.config';
@@ -15,9 +16,9 @@ import ProductAlerts from 'Component/ProductAlerts';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import TierPrices from 'Component/TierPrices';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 import { GQLProductStockStatus } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
 import { isCrawler, isSSR } from 'Util/Browser';
 import {
     showNewReviewPopup,

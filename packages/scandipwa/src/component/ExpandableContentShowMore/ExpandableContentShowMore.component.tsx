@@ -11,8 +11,8 @@
 
 import { createRef, PureComponent } from 'react';
 
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import {
     ExpandableContentShowMoreComponentProps,

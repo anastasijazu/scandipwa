@@ -12,8 +12,9 @@
 import { PureComponent } from 'react';
 
 import CartIcon from 'Component/CartIcon';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonAppearance } from 'Ui/Button/Button.config';
 
 import { AddToCartComponentProps } from './AddToCart.type';
 
@@ -46,9 +47,10 @@ export class AddToCartComponent extends PureComponent<AddToCartComponentProps> {
 
         return (
             <Button
+              appearance={ ButtonAppearance.PRIMARY }
               events={ { onClick: handleButtonClick } }
               attr={ { disabled: isDisabled || isAdding } }
-              mix={ { block: 'Button AddToCart', mods: { layout }, mix } }
+              mix={ { block: 'AddToCart', mods: { layout }, mix } }
             >
                 { this.renderCartIcon() }
                 <span>{ isAdding ? __('Adding...') : __('Add to cart') }</span>

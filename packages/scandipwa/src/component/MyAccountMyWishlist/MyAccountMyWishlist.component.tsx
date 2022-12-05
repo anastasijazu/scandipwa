@@ -17,8 +17,8 @@ import ProductCard from 'Component/ProductCard';
 import ShareIcon from 'Component/ShareIcon';
 import ShareWishlistPopup from 'Component/ShareWishlistPopup';
 import WishlistItem from 'Component/WishlistItem';
-import Button from 'Src/ui/Button';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import CSS from 'Util/CSS';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 

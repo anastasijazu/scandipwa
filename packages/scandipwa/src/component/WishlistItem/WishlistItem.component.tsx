@@ -22,10 +22,10 @@ import ProductCard from 'Component/ProductCard';
 import { ContentObject } from 'Component/ProductCard/ProductCard.type';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ItemOption } from 'Query/Wishlist.type';
-import Button from 'Src/ui/Button';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { noopFn, noopFnAsync } from 'Util/Common';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 

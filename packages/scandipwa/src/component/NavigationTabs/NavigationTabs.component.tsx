@@ -8,13 +8,14 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import CartIcon from 'Component/CartIcon';
 import HomeIcon from 'Component/HomeIcon';
 import MenuIcon from 'Component/MenuIcon';
 import NavigationAbstract from 'Component/NavigationAbstract/NavigationAbstract.component';
 import UserIcon from 'Component/UserIcon';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { NavigationTabsMap } from './NavigationTabs.config';
 import { NavigationTabsComponentProps } from './NavigationTabs.type';

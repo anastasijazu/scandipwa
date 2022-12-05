@@ -22,8 +22,8 @@ import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { GroupedProductItem } from 'Query/ProductList.type';
 import { CategoryPageLayout } from 'Route/CategoryPage/CategoryPage.config';
-import Button from 'Src/ui/Button';
 import { Children, ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { IndexedConfigurableOption } from 'Util/Product/Product.type';
 
 import { scrollToTop } from '../../util/Browser/Browser';

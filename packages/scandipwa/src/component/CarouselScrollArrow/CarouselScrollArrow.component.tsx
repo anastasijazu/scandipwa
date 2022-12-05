@@ -12,8 +12,8 @@
 import { PureComponent } from 'react';
 
 import ChevronIcon from 'Component/ChevronIcon';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 
 import { CarouselScrollArrowComponentProps } from './CarouselScrollArrow.type';

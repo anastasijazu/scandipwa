@@ -16,10 +16,10 @@ import ProductCompareAttributeRow from 'Component/ProductCompareAttributeRow';
 import ProductCompareItem from 'Component/ProductCompareItem';
 import ProductPrice from 'Component/ProductPrice';
 import { ComparableProduct } from 'Query/ProductCompare.type';
-import Button from 'Src/ui/Button';
-import Typography from 'Src/ui/Typography';
-import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getPrice } from 'Util/Product/Extract';
 import { StockCheckProduct } from 'Util/Product/Product.type';
 
