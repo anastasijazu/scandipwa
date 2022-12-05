@@ -21,8 +21,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "./src/**/*",
-    "src/**/*"
+    "./src/**/*"
   ],
   "extends": "./mosaic.jsconfig"
 }
