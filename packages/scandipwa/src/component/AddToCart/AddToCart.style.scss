@@ -39,7 +39,6 @@
         will-change: transform, opacity;
         transition-timing-function: ease-in;
         transition-duration: .25s;
-        color: var(--color-white);
 
         &:last-child {
             inset-inline-start: 0;

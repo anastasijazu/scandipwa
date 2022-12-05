@@ -9,8 +9,6 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-@import './variables';
-@import './media';
-@import './loader';
-@import './icons';
-@import './parts';
+import { ButtonComponentProps } from 'Src/ui/Button/Button.type';
+
+export interface IconButtonComponentProps extends ButtonComponentProps {}

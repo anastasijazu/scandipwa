@@ -9,8 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-@import './variables';
-@import './media';
-@import './loader';
-@import './icons';
-@import './parts';
+export { default } from './IconLink.container';

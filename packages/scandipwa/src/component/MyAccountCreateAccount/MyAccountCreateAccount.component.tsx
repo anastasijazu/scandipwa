@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
+import Button from 'Src/ui/Button';
+import { ButtonColors, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import history from 'Util/History';
 import { validatePassword } from 'Util/Validator';
@@ -228,14 +230,14 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
                     <h4>{ __('Already have an account?') }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Button
+                      variant={ ButtonVariants.LINK }
+                      color={ ButtonColors.PRIMARY }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInLink' } }
-                      onClick={ handleSignIn }
+                      events={ { onClick: handleSignIn } }
                     >
                         { __('Sign in') }
-                    </button>
+                    </Button>
                 </section>
             </article>
         );
