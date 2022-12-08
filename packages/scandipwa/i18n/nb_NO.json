@@ -390,7 +390,6 @@
     "1 filter selected": null,
     "Thank you for your subscription.": null,
     "Excl. tax:": null,
-    "Please, select required options!": null,
     "Product compare": null,
     "Enter your password": null,
     "Your Tax/VAT Number": null,
@@ -619,5 +618,6 @@
     "Primary and secondary button and link [default state + disabled]": null,
     "website (button)": null,
     "website (link)": null,
-    "The website aims to achieve": null
+    "The website aims to achieve": null,
+    "You need to choose options for your item.": null
 }

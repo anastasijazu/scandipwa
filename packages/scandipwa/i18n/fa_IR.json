@@ -377,7 +377,6 @@
     "We could not preselect pickup location based on available information, please select it manually.": null,
     "Store": null,
     "Select store": null,
-    "Please, select required options!": null,
     "In stock": null,
     "SKU: %s": null,
     "Sorry! The product %s is out of stock!": null,
@@ -619,5 +618,6 @@
     "Primary and secondary button and link [default state + disabled]": null,
     "website (button)": null,
     "website (link)": null,
-    "The website aims to achieve": null
+    "The website aims to achieve": null,
+    "You need to choose options for your item.": null
 }
