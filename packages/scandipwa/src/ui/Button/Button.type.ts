@@ -9,10 +9,12 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
+import { MouseEventHandler } from 'react';
+
 import {
     FieldAttributes, FieldEvents,
 } from 'Component/Field/Field.type';
-import { Children, Mix } from 'Type/Common.type';
+import { Children, Mix, Mods } from 'Type/Common.type';
 
 import { ButtonColors, ButtonVariants } from './Button.config';
 
@@ -21,7 +23,18 @@ export interface ButtonComponentProps {
     mix: Mix;
     variant: ButtonVariants | string;
     color: ButtonColors | string;
+    isFullWidth: boolean;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
+    mods: Mods;
+    disabled?: boolean;
     attr?: FieldAttributes;
     events?: FieldEvents;
-    isLoading?: boolean;
+    isLoading: boolean;
 }
+
+export type ButtonComponentPropKeys =
+    | 'mods'
+    | 'onClick'
+    | 'block'
+    | 'disabled'
+    | 'mix';

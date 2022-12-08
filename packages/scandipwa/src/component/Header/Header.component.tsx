@@ -26,7 +26,6 @@ import CmsBlock from 'Component/CmsBlock';
 import CompareIcon from 'Component/CompareIcon';
 import CurrencySwitcher from 'Component/CurrencySwitcher';
 import ExclamationMarkIcon from 'Component/ExclamationMarkIcon';
-import Link from 'Component/Link';
 import Logo from 'Component/Logo';
 import Menu from 'Component/Menu';
 import { CUSTOMER_ACCOUNT_OVERLAY_KEY } from 'Component/MyAccountOverlay/MyAccountOverlay.config';
@@ -38,9 +37,11 @@ import SearchField from 'Component/SearchField';
 import ShareIcon from 'Component/ShareIcon';
 import StoreSwitcher from 'Component/StoreSwitcher';
 import UserIcon from 'Component/UserIcon';
+import Button from 'Src/ui/Button';
 import { ButtonColors, ButtonVariants } from 'Src/ui/Button/Button.config';
 import IconButton from 'Src/ui/IconButton';
 import IconLink from 'Src/ui/IconLink';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { isSignedIn } from 'Util/Auth';
 import { isCrawler, isSSR } from 'Util/Browser';
@@ -189,18 +190,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="back"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'back', isVisible } }
+            <IconButton
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'back', isVisible },
+              } }
+              attr={ {
+                  key: 'back',
+                  'aria-label': 'Go back',
+                  'aria-hidden': !isVisible,
+                  tabIndex: isVisible ? 0 : -1,
+              } }
               onClick={ onBackButtonClick }
-              aria-label="Go back"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
             >
                 <ChevronIcon direction={ Directions.LEFT } />
-            </button>
+            </IconButton>
         );
     }
 
@@ -212,18 +217,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="close"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'close', isVisible } }
+            <IconButton
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'close', isVisible },
+              } }
               onClick={ onCloseButtonClick }
-              aria-label="Close"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
+              attr={ {
+                  key: 'close',
+                  'aria-label': 'Close',
+                  'aria-hidden': !isVisible,
+                  tabIndex: isVisible ? 0 : -1,
+              } }
             >
                 <CloseIcon />
-            </button>
+            </IconButton>
         );
     }
 
@@ -280,18 +289,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <button
-              key="share"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'share', isVisible } }
+            <IconButton
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'share', isVisible },
+              } }
+              attr={ {
+                  key: 'share',
+                  'aria-label': 'Share',
+                  'aria-hidden': !isVisible,
+              } }
               onClick={ shareWishlist }
-              aria-label="Share"
-              aria-hidden={ !isVisible }
               disabled={ isWishlistLoading }
             >
                 <ShareIcon />
-            </button>
+            </IconButton>
         );
     }
 
@@ -336,7 +349,6 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   variant="transparent"
                   color="primary"
                   attr={ {
-                      key: 'compare',
                       'aria-label': __('Compare Page'),
                   } }
                   mix={ {
@@ -399,18 +411,22 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         }
 
         return (
-            <Link
+            <IconLink
               to="/"
-              aria-label="Go to homepage by clicking on ScandiPWA logo"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
-              block="Header"
-              elem="LogoWrapper"
-              mods={ { isVisible } }
+              mix={ {
+                  block: 'Header',
+                  elem: 'LogoWrapper',
+                  mods: { isVisible },
+              } }
+              attr={ {
+                  'aria-label': 'Go to homepage by clicking on ScandiPWA logo',
+                  'aria-hidden': !isVisible,
+                  tabIndex: isVisible ? 0 : -1,
+              } }
               key="logo"
             >
                 { this.renderLogoImage() }
-            </Link>
+            </IconLink>
         );
     }
 
@@ -456,8 +472,6 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
 
         return (
             <IconButton
-              variant={ ButtonVariants.TRANSPARENT }
-              color={ ButtonColors.PRIMARY }
               mix={ {
                   block: 'Header',
                   elem: 'MyAccountWrapper',
@@ -614,18 +628,24 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { onOkButtonClick } = this.props;
 
         return (
-            <button
-              key="ok"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'ok', isVisible } }
+            <Button
+              variant={ ButtonVariants.LINK }
+              color={ ButtonColors.SECONDARY }
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'ok', isVisible },
+              } }
+              attr={ {
+                  tabIndex: isVisible ? 0 : -1,
+                  'aria-label': 'Save changes',
+                  'aria-hidden': !isVisible,
+                  key: 'ok',
+              } }
               onClick={ onOkButtonClick }
-              aria-label="Save changes"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
             >
                 { __('OK') }
-            </button>
+            </Button>
         );
     }
 
@@ -651,18 +671,24 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { onCancelButtonClick } = this.props;
 
         return (
-            <button
-              key="cancel"
-              block="Header"
-              elem="Button"
-              mods={ { type: 'cancel', isVisible } }
+            <Button
+              variant={ ButtonVariants.LINK }
+              color={ ButtonColors.SECONDARY }
+              mix={ {
+                  block: 'Header',
+                  elem: 'Button',
+                  mods: { type: 'cancel', isVisible },
+              } }
+              attr={ {
+                  key: 'cancel',
+                  tabIndex: isVisible ? 0 : -1,
+                  'aria-label': 'Cancel changes',
+                  'aria-hidden': !isVisible,
+              } }
               onClick={ onCancelButtonClick }
-              aria-label="Cancel changes"
-              aria-hidden={ !isVisible }
-              tabIndex={ isVisible ? 0 : -1 }
             >
                 { __('Cancel') }
-            </button>
+            </Button>
         );
     }
 
@@ -700,10 +726,13 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                 <ExclamationMarkIcon />
                 <span>{ __('Check new arrivals') }</span>
                 <Link
+                  color={ ButtonColors.SECONDARY }
                   to="/"
                   key="news"
-                  block="Header"
-                  elem="NewsButton"
+                  mix={ {
+                      block: 'Header',
+                      elem: 'NewsButton',
+                  } }
                 >
                     { __('here!') }
                 </Link>

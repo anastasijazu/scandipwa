@@ -21,7 +21,7 @@ import { LinkComponentProps } from './Link.type';
 
 import './Link.style';
 
-/** @namespace ui/Link/Component */
+/** @namespace Ui/Link/Component */
 export class LinkComponent<
 P extends LinkComponentProps = LinkComponentProps,
 > extends PureComponent<P> {
@@ -56,36 +56,21 @@ P extends LinkComponentProps = LinkComponentProps,
             mix,
             mods,
             block,
+            isUnstyled,
             ...props
         } = this.props;
 
-        if (isOpenInNewTab) {
-            return (
-                <a
-                  { ...props }
-                  block={ block }
-                  mods={ mods }
-                  mix={ mix }
-                  { ...attr as LinkHTMLAttributes<HTMLElement> }
-                  onClick={ this.scrollToElement }
-                  href={ to as string }
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                    { children }
-                </a>
-            );
-        }
-
         return (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <a
               { ...props }
               block={ block }
+              mods={ isUnstyled ? {} : mods }
               mix={ mix }
               { ...attr as LinkHTMLAttributes<HTMLElement> }
               onClick={ this.scrollToElement }
               href={ to as string }
+              rel={ isOpenInNewTab && 'noopener noreferrer' }
+              target={ isOpenInNewTab && '_blank' }
             >
                 { children }
             </a>
@@ -101,35 +86,20 @@ P extends LinkComponentProps = LinkComponentProps,
             attr,
             mods,
             block,
+            isUnstyled,
             ...props
         } = this.props;
-
-        if (isOpenInNewTab) {
-            return (
-                <a
-                  { ...props }
-                  block={ block }
-                  mods={ mods }
-                  mix={ mix }
-                  { ...attr as LinkHTMLAttributes<HTMLElement> }
-                  href={ to as string }
-                    // eslint-disable-next-line react/forbid-dom-props
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                    { children }
-                </a>
-            );
-        }
 
         return (
             <a
               { ...props }
               block={ block }
-              mods={ { mods } }
+              mods={ isUnstyled ? {} : mods }
               mix={ mix }
               { ...attr as LinkHTMLAttributes<HTMLElement> }
               href={ to as string }
+              rel={ isOpenInNewTab && 'noopener noreferrer' }
+              target={ isOpenInNewTab && '_blank' }
             >
                 { children }
             </a>
@@ -143,7 +113,8 @@ P extends LinkComponentProps = LinkComponentProps,
             children,
             to,
             isOpenInNewTab,
-            mods,
+            mods: modifiers,
+            isUnstyled,
             block,
             ...props
         } = this.props;
@@ -153,7 +124,7 @@ P extends LinkComponentProps = LinkComponentProps,
                 <div
                   { ...props }
                   block={ block }
-                  mods={ mods }
+                  mods={ isUnstyled ? {} : modifiers }
                   mix={ mix }
                   { ...attr as LinkHTMLAttributes<HTMLElement> }
                 >
@@ -170,6 +141,7 @@ P extends LinkComponentProps = LinkComponentProps,
             return this.renderAbsolutePathLink();
         }
 
+        const mods = isUnstyled ? {} : modifiers;
         const classNameConverted = `${ stringify({ block, mods, mix })}`;
 
         return (

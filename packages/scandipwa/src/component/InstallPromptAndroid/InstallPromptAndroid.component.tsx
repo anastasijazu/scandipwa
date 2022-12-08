@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import CloseIcon from 'Component/CloseIcon';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { InstallPromptAndroidComponentProps } from './InstallPromptAndroid.type';
@@ -47,14 +48,12 @@ export class InstallPromptAndroidComponent extends PureComponent<InstallPromptAn
         const { handleAppInstall } = this.props;
 
         return (
-            <button
-              block="InstallPromptAndroid"
-              elem="Button"
-              mix={ { block: 'Button' } }
+            <Button
+              mix={ { block: 'InstallPromptAndroid', elem: 'Button' } }
               onClick={ handleAppInstall }
             >
                 { __('Add to home screen') }
-            </button>
+            </Button>
         );
     }
 

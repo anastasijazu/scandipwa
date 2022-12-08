@@ -15,10 +15,12 @@ import AddToCart from 'Component/AddToCart';
 import CloseIcon from 'Component/CloseIcon';
 import Image from 'Component/Image';
 import { ImageRatio } from 'Component/Image/Image.type';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import ProductWishlistButton from 'Component/ProductWishlistButton/ProductWishlistButton.container';
+import { ButtonColors } from 'Src/ui/Button/Button.config';
+import IconButton from 'Src/ui/IconButton';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { ADD_TO_WISHLIST } from 'Util/Product';
 import { IndexedProduct, StockCheckProduct } from 'Util/Product/Product.type';
@@ -46,7 +48,7 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
 
         return (
             <figure block="ProductCompareItem" elem="Figure">
-                <Link block="ProductCompareItem" elem="ImageLink" to={ linkTo }>
+                <Link mix={ { block: 'ProductCompareItem', elem: 'ImageLink' } } to={ linkTo } isUnstyled>
                     <Image
                       ratio={ ImageRatio.IMG_CUSTOM }
                       src={ imgUrl }
@@ -63,8 +65,11 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
 
         return (
             <Link
-              block="ProductCompareItem"
-              elem="Title"
+              color={ ButtonColors.SECONDARY }
+              mix={ {
+                  block: 'ProductCompareItem',
+                  elem: 'Title',
+              } }
               to={ linkTo }
             >
                 { name }
@@ -117,8 +122,11 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
             <Link
               to={ linkTo }
               onClick={ overriddenAddToCartBtnHandler }
-              block="ProductCompareItem"
-              elem="AddToCartBtnWrapper"
+              mix={ {
+                  block: 'ProductCompareItem',
+                  elem: 'AddToCartBtnWrapper',
+              } }
+              isUnstyled
             >
                 <AddToCart
                   product={ {} }
@@ -170,14 +178,16 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
         const { removeComparedProduct } = this.props;
 
         return (
-            <button
-              block="ProductCompareItem"
-              elem="CloseBtn"
+            <IconButton
+              mix={ {
+                  block: 'ProductCompareItem',
+                  elem: 'CloseBtn',
+              } }
               onClick={ removeComparedProduct }
-              aria-label={ __('Remove') }
+              attr={ { 'aria-label': __('Remove') } }
             >
                 <CloseIcon />
-            </button>
+            </IconButton>
         );
     }
 

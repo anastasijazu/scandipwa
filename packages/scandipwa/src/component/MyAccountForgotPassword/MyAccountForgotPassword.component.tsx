@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
+import Button from 'Src/ui/Button';
+import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -48,13 +50,13 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
                   addRequiredTag
                 />
                 <div block="MyAccountOverlay" elem="Buttons">
-                    <button
-                      block="Button"
-                      type="submit"
+                    <Button
                       mix={ { block: 'MyAccountOverlay', elem: 'ResetPassword' } }
+                      attr={ { type: ButtonType.SUBMIT } }
+                      isFullWidth
                     >
                         { __('Send reset link') }
-                    </button>
+                    </Button>
                 </div>
             </Form>
         );
@@ -70,13 +72,12 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
         return (
             <section aria-labelledby="create-account-label">
                 <h4 id="create-account-label">{ __("Don't have an account?") }</h4>
-                <button
-                  block="Button"
-                  mods={ { likeLink: true } }
+                <Button
+                  variant={ ButtonVariants.LINK }
                   onClick={ handleCreateAccount }
                 >
                     { __('Create an account') }
-                </button>
+                </Button>
             </section>
         );
     }
@@ -88,14 +89,13 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section aria-labelledby="forgot-password-labe">
                     <h4 id="forgot-password-label">{ __('Already have an account?') }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Button
+                      variant={ ButtonVariants.LINK }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInButton' } }
                       onClick={ handleSignIn }
                     >
                         { __('Sign in') }
-                    </button>
+                    </Button>
                 </section>
                 { this.renderCreateAccountLabel() }
             </article>

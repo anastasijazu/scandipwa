@@ -17,6 +17,12 @@
         &_outlined,
         &_transparent {
             @include button-like-common;
+
+            border: {
+                style: solid;
+                width: var(--default-button-border-width);
+                color: transparent;
+            }
         }
 
         &_filled {
@@ -87,12 +93,14 @@
             &.IconButton {
                 &_color {
                     &_primary {
+                        color: var(--color-black);
                         background-color: transparent;
                         border-color: transparent;
 
                         & * {
                             @include desktop {
                                 fill: var(--color-black);
+                                color: var(--color-black);
                             }
                         }
 
@@ -101,12 +109,14 @@
                                 & * {
                                     @include desktop {
                                         fill: var(--primary-base-color);
+                                        color: var(--primary-base-color);
                                     }
                                 }
 
                                 @include desktop {
                                     background-color: transparent;
                                     border-color: transparent;
+                                    color: var(--primary-base-color);
                                 }
                             }
                         }

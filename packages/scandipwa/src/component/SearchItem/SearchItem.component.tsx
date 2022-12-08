@@ -12,10 +12,10 @@
 import { PureComponent } from 'react';
 
 import Image from 'Component/Image';
-import Link from 'Component/Link';
 import ProductAttributeValue from 'Component/ProductAttributeValue';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 
 import { SearchItemComponentProps } from './SearchItem.type';
@@ -95,10 +95,13 @@ export class SearchItemComponent extends PureComponent<SearchItemComponentProps>
 
         return (
             <Link
-              block="SearchItem"
-              elem="Link"
+              mix={ {
+                  block: 'SearchItem',
+                  elem: 'Link',
+              } }
               to={ linkTo }
               onClick={ onClick }
+              isUnstyled
             >
                 <figure
                   block="SearchItem"

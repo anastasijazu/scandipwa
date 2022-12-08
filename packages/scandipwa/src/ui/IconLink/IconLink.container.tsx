@@ -12,41 +12,32 @@
  */
 
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
 
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import IconLink from 'Src/ui/IconLink/IconLink.component';
 import {
     LinkContainer,
-    mapDispatchToProps as sourceMapDispatchToProps,
-    mapStateToProps as sourceMapStateToProps,
+    mapDispatchToProps,
+    mapStateToProps,
+    NoMatchDispatcher,
 } from 'Src/ui/Link/Link.container';
 import { ReactElement } from 'Type/Common.type';
 
 import {
     IconLinkComponentProps,
     IconLinkContainerComponentPropKeys,
-    IconLinkContainerMapDispatchProps,
-    IconLinkContainerMapStateProps,
     IconLinkContainerProps,
 } from './IconLink.type';
 
-export const NoMatchDispatcher = import(
-    /* webpackMode: "lazy", webpackChunkName: "dispatchers" */
-    'Store/NoMatch/NoMatch.dispatcher'
-);
+export { mapDispatchToProps, mapStateToProps, NoMatchDispatcher };
 
-/** @namespace ui/IconLink/Container/mapStateToProps */
-export const mapStateToProps = (): IconLinkContainerMapStateProps => ({
-    ...sourceMapStateToProps,
-});
-
-/** @namespace ui/IconLink/Container/mapDispatchToProps */
-export const mapDispatchToProps = (dispatch: Dispatch): IconLinkContainerMapDispatchProps => ({
-    ...sourceMapDispatchToProps(dispatch),
-});
-
-/** @namespace ui/IconLink/Container */
+/** @namespace Ui/IconLink/Container */
 export class IconLinkContainer extends LinkContainer<IconLinkContainerProps> {
+    static defaultProps: Partial<IconLinkContainerProps> = {
+        ...LinkContainer.defaultProps,
+        variant: ButtonVariants.TRANSPARENT,
+    };
+
     containerProps(): Pick<IconLinkComponentProps, IconLinkContainerComponentPropKeys> {
         return {
             ...super.containerProps(),

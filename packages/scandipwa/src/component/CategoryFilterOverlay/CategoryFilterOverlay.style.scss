@@ -190,10 +190,6 @@
         }
     }
 
-    &-Button.Button {
-        width: 100%;
-    }
-
     &-ResetButton {
         @include desktop {
             margin-block-end: 12px;

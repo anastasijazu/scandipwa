@@ -19,6 +19,8 @@ import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import { StoreInPickUpCode } from 'Component/StoreInPickUp/StoreInPickUp.config';
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
+import Button from 'Src/ui/Button';
+import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { formatPrice } from 'Util/Price';
@@ -115,14 +117,17 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                     />
                    <div>
                         { `${checkbox_text } - ` }
-                        <button
-                          block="CheckoutBilling"
-                          elem="TACLink"
+                        <Button
+                          variant={ ButtonVariants.LINK }
+                          mix={ {
+                              block: 'CheckoutBilling',
+                              elem: 'TACLink',
+                          } }
                           onClick={ this.handleShowPopup }
-                          type="button"
+                          attr={ { type: ButtonType.BUTTON } }
                         >
                             { __('read more') }
-                        </button>
+                        </Button>
                    </div>
                 </label>
             </div>
@@ -198,14 +203,13 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
         return (
             <div block="Checkout" elem="StickyButtonWrapper">
                 { this.renderOrderTotal() }
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutBilling', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Complete order') }
-                </button>
+                </Button>
             </div>
         );
     }

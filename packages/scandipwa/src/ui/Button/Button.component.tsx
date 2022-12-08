@@ -15,24 +15,35 @@ import { ButtonHTMLAttributes, PureComponent } from 'react';
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import { ReactElement } from 'Type/Common.type';
 
+import { ButtonColors, ButtonVariants } from './Button.config';
 import { ButtonComponentProps } from './Button.type';
 
 import './Button.style';
 
-/** @namespace ui/Button/Component */
+/** @namespace Ui/Button/Component */
 export class ButtonComponent<
 P extends ButtonComponentProps = ButtonComponentProps,
 > extends PureComponent<P> {
     static defaultProps: Partial<ButtonComponentProps> = {
         mix: {},
-        color: '',
-        variant: '',
+        color: ButtonColors.PRIMARY,
+        variant: ButtonVariants.FILLED,
         isLoading: false,
+        isFullWidth: false,
     };
 
     render(): ReactElement {
         const {
-            children, attr, events, color, variant, isLoading, mix,
+            children,
+            attr,
+            events,
+            color,
+            variant,
+            isLoading,
+            disabled,
+            onClick,
+            mix,
+            isFullWidth,
         } = this.props;
 
         return (
@@ -42,8 +53,11 @@ P extends ButtonComponentProps = ButtonComponentProps,
                    variant,
                    color,
                    isLoading,
+                   isFullWidth,
                } }
                mix={ mix }
+               disabled={ disabled }
+               onClick={ onClick }
                { ...attr as ButtonHTMLAttributes<HTMLButtonElement> }
                { ...events as FieldReactEvents<HTMLButtonElement> }
              >

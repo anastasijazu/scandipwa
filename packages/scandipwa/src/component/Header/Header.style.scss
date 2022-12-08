@@ -188,6 +188,13 @@
         cursor: pointer;
         height: 100%;
         width: 100%;
+
+        svg {
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            transition-property: color, fill, stroke;
+            will-change: color, fill, stroke;
+        }
     }
 
     &-CompareButtonWrapper {

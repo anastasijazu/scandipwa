@@ -25,6 +25,8 @@ import ListIcon from 'Component/ListIcon';
 import Loader from 'Component/Loader';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
+import IconButton from 'Src/ui/IconButton';
 import { ReactElement } from 'Type/Common.type';
 import { isCrawler, isSSR } from 'Util/Browser';
 import BrowserDatabase from 'Util/BrowserDatabase';
@@ -279,31 +281,31 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         switch (type) {
         case CategoryPageLayout.GRID:
             return (
-                <button
-                  key={ type }
-                  onClick={ onGridButtonClick }
+                <IconButton
+                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
                   } }
-                  aria-label="grid"
+                  attr={ { key: type, 'aria-label': 'grid' } }
+                  onClick={ onGridButtonClick }
                 >
                     <GridIcon isActive={ activeLayoutType === CategoryPageLayout.GRID } />
-                </button>
+                </IconButton>
             );
         case CategoryPageLayout.LIST:
             return (
-                <button
-                  key={ type }
-                  onClick={ onListButtonClick }
+                <IconButton
+                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },
                   } }
-                  aria-label="list"
+                  attr={ { key: type, 'aria-label': 'list' } }
+                  onClick={ onListButtonClick }
                 >
                     <ListIcon isActive={ activeLayoutType === CategoryPageLayout.LIST } />
-                </button>
+                </IconButton>
             );
         default:
             return false;

@@ -11,6 +11,8 @@
 
 import { PureComponent } from 'react';
 
+import Button from 'Src/ui/Button';
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { scrollToTop } from 'Util/Browser';
 
@@ -50,17 +52,16 @@ export class ResetButtonComponent extends PureComponent<ResetButtonComponentProp
               block="ResetButton"
               mix={ mix }
             >
-                <button
-                  onClick={ this.onClick }
-                  block="ResetButton"
-                  elem="Button"
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
                   mix={ {
-                      block: 'Button',
-                      mods: { isHollow: true },
+                      block: 'ResetButton',
+                      elem: 'Button',
                   } }
+                  onClick={ this.onClick }
                 >
                     { __('Reset all') }
-                </button>
+                </Button>
             </div>
         );
     }

@@ -17,9 +17,12 @@ import { Dispatch } from 'redux';
 
 import { ReactElement, Url } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
+import { RootState } from 'Util/Store/Store.type';
 import { appendWithStoreCode } from 'Util/Url';
 
+import { ButtonColors, ButtonVariants } from '../Button/Button.config';
 import Link from './Link.component';
+import { LinkUnderlineType } from './Link.config';
 import {
     LinkComponentProps,
     LinkContainerComponentPropKeys,
@@ -34,17 +37,19 @@ export const NoMatchDispatcher = import(
     'Store/NoMatch/NoMatch.dispatcher'
 );
 
-/** @namespace ui/Link/Container/mapStateToProps */
-export const mapStateToProps = (): LinkContainerMapStateProps => ({});
+/** @namespace Ui/Link/Container/mapStateToProps */
+export const mapStateToProps = (state: RootState): LinkContainerMapStateProps => ({
+    baseLinkUrl: state.ConfigReducer.base_link_url || '',
+});
 
-/** @namespace ui/Link/Container/mapDispatchToProps */
+/** @namespace Ui/Link/Container/mapDispatchToProps */
 export const mapDispatchToProps = (dispatch: Dispatch): LinkContainerMapDispatchProps => ({
     updateNoMatch: (noMatch) => NoMatchDispatcher.then(
         ({ default: dispatcher }) => dispatcher.updateNoMatch(dispatch, { noMatch }),
     ),
 });
 
-/** @namespace ui/Link/Container */
+/** @namespace Ui/Link/Container */
 export class LinkContainer<
 P extends LinkContainerProps = LinkContainerProps,
 > extends PureComponent<P> {
@@ -52,8 +57,10 @@ P extends LinkContainerProps = LinkContainerProps,
         onClick: noopFn,
         mix: {},
         isOpenInNewTab: false,
-        variant: '',
-        color: '',
+        variant: ButtonVariants.LINK,
+        color: ButtonColors.PRIMARY,
+        disabled: false,
+        underline: LinkUnderlineType.NONE,
     };
 
     containerFunctions: LinkContainerFunctions = {
@@ -68,11 +75,19 @@ P extends LinkContainerProps = LinkContainerProps,
             attr,
             variant,
             color,
+            disabled,
+            baseLinkUrl,
+            dispatch,
+            isUnstyled,
+            underline,
+            key,
             ...restProps
         } = this.props;
 
         return {
             ...restProps,
+            key,
+            isUnstyled,
             to: this.getTo(),
             mix,
             isOpenInNewTab,
@@ -80,7 +95,7 @@ P extends LinkContainerProps = LinkContainerProps,
             attr,
             block: 'Link',
             mods: {
-                variant, color,
+                variant, color, disabled, underline,
             },
         };
     }

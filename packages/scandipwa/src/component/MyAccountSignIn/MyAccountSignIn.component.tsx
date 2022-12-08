@@ -15,6 +15,8 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
+import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -79,17 +81,18 @@ export class MyAccountSignInComponent extends PureComponent<MyAccountSignInCompo
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="button"
-                  block="Button"
-                  mods={ { likeLink: true } }
+                <Button
+                  variant={ ButtonVariants.LINK }
                   mix={ { block: 'MyAccountOverlay', elem: 'ForgotPassword' } }
                   onClick={ handleForgotPassword }
+                  attr={ {
+                      type: ButtonType.BUTTON,
+                  } }
                 >
                     { __('Forgot password?') }
-                </button>
+                </Button>
                 <div block="MyAccountOverlay" elem="SignInButton">
-                    <button block="Button">{ __('Sign in') }</button>
+                    <Button isFullWidth>{ __('Sign in') }</Button>
                 </div>
                 <Loader isLoading={ isLoading } />
             </Form>
@@ -111,13 +114,12 @@ export class MyAccountSignInComponent extends PureComponent<MyAccountSignInCompo
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
                     <h4 id="forgot-password-label">{ __("Don't have an account?") }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Button
+                      variant={ ButtonVariants.LINK }
                       onClick={ handleCreateAccount }
                     >
                         { __('Create an account') }
-                    </button>
+                    </Button>
                 </section>
             </article>
         );

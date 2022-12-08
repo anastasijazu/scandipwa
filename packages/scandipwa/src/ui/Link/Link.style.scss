@@ -14,6 +14,8 @@
 .Link {
     @include button;
 
+    cursor: pointer;
+
     &_variant {
         &_filled {
             &.Link_color {
@@ -36,8 +38,72 @@
         &_link {
             &.Link_color {
                 @include button-link-color;
+
+                &_primary {
+                    &.Link_underline {
+                        &_always {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: var(--link-color);
+                            }
+
+                            &:hover {
+                                @include desktop {
+                                    border-block-end-color: var(--link-hover-color);
+                                }
+                            }
+                        }
+
+                        &_hover {
+                            &:hover {
+                                @include desktop {
+                                    border-block-end: {
+                                        style: solid;
+                                        width: var(--default-button-border-width);
+                                        color: var(--link--hover-color);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &_secondary {
+                    &.Link_underline {
+                        &_always {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: var(--color-black);
+                            }
+
+                            &:hover {
+                                @include desktop {
+                                    border-block-end-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+
+                        &_hover {
+                            &:hover {
+                                @include desktop {
+                                    border-block-end: {
+                                        style: solid;
+                                        width: var(--default-button-border-width);
+                                        color: var(--primary-dark-color);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+
+    &_disabled {
+        @include button-disabled;
     }
 }
 

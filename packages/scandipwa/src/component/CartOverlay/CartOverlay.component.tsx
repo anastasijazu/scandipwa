@@ -14,11 +14,13 @@ import { PureComponent } from 'react';
 import CartItem from 'Component/CartItem';
 import CmsBlock from 'Component/CmsBlock';
 import { Page } from 'Component/Header/Header.config';
-import Link from 'Component/Link';
 import LockIcon from 'Component/LockIcon';
 import Overlay from 'Component/Overlay';
 import { OVERLAY_PLACEHOLDER } from 'Component/PopupSuspense/PopupSuspense.config';
 import { CART_URL } from 'Route/CartPage/CartPage.config';
+import Button from 'Src/ui/Button';
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { formatPrice } from 'Util/Price';
@@ -205,16 +207,14 @@ export class CartOverlayComponent extends PureComponent<CartOverlayComponentProp
         } = this.props;
 
         return (
-            <button
-              block="CartOverlay"
-              elem="CheckoutButton"
-              mix={ { block: 'Button' } }
+            <Button
+              mix={ { block: 'CartOverlay', elem: 'CheckoutButton' } }
               onClick={ handleCheckoutClick }
               disabled={ hasOutOfStockProductsInCart || !minimumOrderAmountReached }
             >
                 <LockIcon />
                 { __('Secure checkout') }
-            </button>
+            </Button>
         );
     }
 
@@ -224,9 +224,8 @@ export class CartOverlayComponent extends PureComponent<CartOverlayComponentProp
         return (
             <div block="CartOverlay" elem="Actions">
                 <Link
-                  block="CartOverlay"
-                  elem="CartButton"
-                  mix={ { block: 'Button', mods: { isHollow: true } } }
+                  variant={ ButtonVariants.OUTLINED }
+                  mix={ { block: 'CartOverlay', elem: 'CartButton' } }
                   to={ CART_URL }
                   onClick={ scrollToTop }
                 >

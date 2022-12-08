@@ -11,7 +11,7 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import BrowserDatabase from 'Util/BrowserDatabase';
 import { ONE_MONTH_IN_SECONDS } from 'Util/Request/QueryDispatcher';
@@ -57,8 +57,10 @@ export class CookiePopupComponent extends PureComponent<CookiePopupComponentProp
 
         return (
             <Link
-              block="CookiePopup"
-              elem="Link"
+              mix={ {
+                  block: 'CookiePopup',
+                  elem: 'Link',
+              } }
               to={ cookieLink }
             >
                 { __('View cookie policy') }

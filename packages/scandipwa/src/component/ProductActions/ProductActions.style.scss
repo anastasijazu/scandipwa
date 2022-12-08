@@ -275,26 +275,6 @@
                 }
             }
         }
-
-        button {
-            &:not([disabled]) {
-                cursor: pointer;
-            }
-
-            &:disabled {
-                cursor: default;
-            }
-
-            &:active {
-                border-color: var(--primary-dark-color);
-            }
-
-            @include hoverable {
-                &:hover {
-                    border-color: var(--primary-dark-color);
-                }
-            }
-        }
     }
 
     &-AttributesWrapper {

@@ -17,7 +17,7 @@ import { IconLinkComponentProps } from './IconLink.type';
 
 import './IconLink.style';
 
-/** @namespace ui/IconLink/Component */
+/** @namespace Ui/IconLink/Component */
 export class IconLinkComponent extends Link<IconLinkComponentProps> {}
 
 export default IconLinkComponent;

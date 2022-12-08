@@ -12,6 +12,8 @@
 import KeyValueTable from 'Component/KeyValueTable';
 import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import { Customer } from 'Query/MyAccount.type';
+import Button from 'Src/ui/Button';
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 
 import { MyAccountCustomerTableComponentProps } from './MyAccountCustomerTable.type';
@@ -52,20 +54,18 @@ export class MyAccountCustomerTableComponent extends KeyValueTable<MyAccountCust
 
         return (
             <>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true } }
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
                   onClick={ handleOnEditInformation }
                 >
                     { __('Edit details') }
-                </button>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true, isWithoutBorder: true } }
+                </Button>
+                <Button
+                  variant={ ButtonVariants.TRANSPARENT }
                   onClick={ handleOnEditPassword }
                 >
                     { __('Change password') }
-                </button>
+                </Button>
             </>
         );
     }

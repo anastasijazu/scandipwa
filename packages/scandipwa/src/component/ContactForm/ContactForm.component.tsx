@@ -13,6 +13,8 @@ import { FieldContainerProps } from 'Component/Field/Field.type';
 import FieldForm from 'Component/FieldForm';
 import { FormContainerProps } from 'Component/Form/Form.type';
 import Loader from 'Component/Loader';
+import Button from 'Src/ui/Button';
+import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 
 import contactForm from './ContactForm.form';
@@ -44,9 +46,9 @@ export class ContactFormComponent extends FieldForm<ContactFormComponentProps> {
         return (
             <>
                 <Loader isLoading={ isLoading } />
-                <button type="submit" block="Button">
+                <Button attr={ { type: ButtonType.SUBMIT } }>
                     { __('Send Your message') }
-                </button>
+                </Button>
             </>
         );
     }

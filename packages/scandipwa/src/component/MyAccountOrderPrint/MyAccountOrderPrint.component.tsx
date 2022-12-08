@@ -11,7 +11,6 @@
 
 import { createRef } from 'react';
 
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import Logo from 'Component/Logo';
 import MyAccountOrder from 'Component/MyAccountOrder/MyAccountOrder.component';
@@ -19,6 +18,7 @@ import { OrderTabs } from 'Component/MyAccountOrder/MyAccountOrder.config';
 import { OrderRenderItems } from 'Component/MyAccountOrder/MyAccountOrder.type';
 import MyAccountOrderItemsTable from 'Component/MyAccountOrderItemsTable';
 import { CreditMemo, Invoice } from 'Query/Order.type';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { decodeBase64 } from 'Util/Base64';
 import CSS from 'Util/CSS';
@@ -98,10 +98,13 @@ export class MyAccountOrderPrintComponent extends MyAccountOrder<MyAccountOrderP
         return (
             <Link
               to="/"
-              aria-label="Go to homepage by clicking on ScandiPWA logo"
-              block="MyAccountOrderPrint"
-              elem="LogoWrapper"
+              mix={ {
+                  block: 'MyAccountOrderPrint',
+                  elem: 'LogoWrapper',
+              } }
+              attr={ { 'aria-label': 'Go to homepage by clicking on ScandiPWA logo' } }
               key="logo"
+              isUnstyled
             >
                 <Logo
                   src={ logoSrc }

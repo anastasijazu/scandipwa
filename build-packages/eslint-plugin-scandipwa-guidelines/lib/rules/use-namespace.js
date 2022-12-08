@@ -244,7 +244,7 @@ const generateNamespace = (node, context) => {
         ...prepareFilePath(toFile),
     ].filter(Boolean).join('/').replace(
         // Convert to pascal-case, and trim "-"
-        /\b[a-z](?=[a-z]{2})/g,
+        /\b[a-z](?=[a-z])/g,
         (letter) => letter.toUpperCase()
     ).split('-')
         .join('');

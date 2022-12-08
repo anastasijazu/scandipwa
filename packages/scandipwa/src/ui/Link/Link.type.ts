@@ -12,6 +12,7 @@
 import {
     HTMLAttributes, LinkHTMLAttributes, MouseEvent,
 } from 'react';
+import { Dispatch } from 'redux';
 
 import {
     Children,
@@ -20,10 +21,14 @@ import {
     Url,
 } from 'Type/Common.type';
 
+import { LinkUnderlineType } from './Link.config';
+
 export type LinkAttributes = LinkHTMLAttributes<HTMLLinkElement>
 | HTMLAttributes<HTMLDivElement>;
 
-export interface LinkContainerMapStateProps {}
+export interface LinkContainerMapStateProps {
+    baseLinkUrl: string;
+}
 
 export interface LinkContainerMapDispatchProps {
     updateNoMatch: (noMatch: boolean) => void;
@@ -37,12 +42,17 @@ export type LinkContainerProps =
     LinkContainerMapStateProps & LinkContainerMapDispatchProps & {
         variant: string;
         color: string;
+        disabled: boolean;
         onClick: (e: MouseEvent) => void;
         to: Url | string;
         children: Children;
         isOpenInNewTab?: boolean;
+        dispatch?: Dispatch;
+        isUnstyled?: boolean;
+        underline: LinkUnderlineType;
         mix?: Mix;
         attr?: LinkAttributes;
+        key?: string | number;
         onMouseEnter?: () => void;
         onMouseLeave?: () => void;
     };
@@ -54,7 +64,9 @@ export interface LinkComponentProps {
     block: string;
     mods: Mods;
     mix?: Mix;
+    key?: string | number;
     isOpenInNewTab?: boolean;
+    isUnstyled?: boolean;
     attr?: any;
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
@@ -67,4 +79,5 @@ export type LinkContainerComponentPropKeys =
     | 'isOpenInNewTab'
     | 'attr'
     | 'block'
-    | 'mods';
+    | 'mods'
+    | 'isUnstyled';

@@ -135,24 +135,8 @@ button {
     & * {
         transition-duration: .25s;
         transition-timing-function: ease-out;
-        transition-property: fill;
-        will-change: fill;
-    }
-
-    @content;
-}
-
-@mixin button-shape-common {
-    text-transform: uppercase;
-    border: {
-        style: solid;
-        width: var(--default-button-border-width);
-        color: transparent;
-    }
-
-    @include mobile {
-        user-select: none;
-        width: 100%;
+        transition-property: color, fill, stroke;
+        will-change: color, fill, stroke;
     }
 
     @content;
@@ -164,15 +148,23 @@ button {
         color: var(--primary-filled-button-color);
         border-color: var(--primary-filled-button-border);
 
-        & * {
+        svg {
             fill: var(--primary-filled-button-color);
+        }
+
+        & * {
+            color: var(--primary-filled-button-color);
         }
 
         &:not([disabled]) {
             &:hover {
+                svg {
+                    fill: var(--primary-filled-button-hover-color);
+                }
+
                 & * {
                     @include desktop {
-                        fill: var(--primary-filled-button-hover-color);
+                        color: var(--primary-filled-button-hover-color);
                     }
                 }
 
@@ -190,15 +182,25 @@ button {
         color: var(--secondary-filled-button-color);
         border-color: var(--secondary-filled-button-border);
 
-        & * {
+        svg {
             fill: var(--secondary-filled-button-color);
+        }
+
+        & * {
+            color: var(--secondary-filled-button-color);
         }
 
         &:not([disabled]) {
             &:hover {
-                & * {
+                svg {
                     @include desktop {
                         fill: var(--secondary-filled-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--secondary-filled-button-hover-color);
                     }
                 }
 
@@ -218,15 +220,25 @@ button {
         color: var(--primary-hollow-button-color);
         border-color: var(--primary-hollow-button-border);
 
-        & * {
+        svg {
             fill: var(--primary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--primary-hollow-button-color);
         }
 
         &:not([disabled]) {
             &:hover {
-                & * {
+                svg {
                     @include desktop {
                         fill: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-hollow-button-hover-color);
                     }
                 }
 
@@ -244,15 +256,25 @@ button {
         color: var(--secondary-hollow-button-color);
         border-color: var(--secondary-hollow-button-border);
 
-        & * {
+        svg {
             fill: var(--secondary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--secondary-hollow-button-color);
         }
 
         &:not([disabled]) {
             &:hover {
-                & * {
+                svg {
                     @include desktop {
                         fill: var(--secondary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--secondary-hollow-button-hover-color);
                     }
                 }
 
@@ -270,15 +292,25 @@ button {
     &_primary {
         color: var(--primary-hollow-button-color);
 
-        & * {
+        svg {
             fill: var(--primary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--primary-hollow-button-color);
         }
 
         &:not([disabled]) {
             &:hover {
-                & * {
+                svg {
                     @include desktop {
                         fill: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-hollow-button-hover-color);
                     }
                 }
 
@@ -290,22 +322,32 @@ button {
     }
 
     &_secondary {
-        color: var(--secondary-hollow-button-color);
+        color: var(--color-black);
+
+        svg {
+            fill: var(--color-black);
+        }
 
         & * {
-            fill: var(--secondary-hollow-button-color);
+            color: var(--color-black);
         }
 
         &:not([disabled]) {
             &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-base-color);
+                    }
+                }
+
                 & * {
                     @include desktop {
-                        fill: var(--secondary-hollow-button-hover-color);
+                        color: var(--primary-base-color);
                     }
                 }
 
                 @include desktop {
-                    color: var(--secondary-hollow-button-hover-color);
+                    color: var(--primary-base-color);
                 }
             }
         }
@@ -316,21 +358,30 @@ button {
     &_primary {
         color: var(--link-color);
 
-        & * {
+        svg {
             fill: var(--link-color);
+        }
+
+        & * {
+            color: var(--link-color);
         }
 
         &:not([disabled]) {
             &:hover {
-                & * {
+                svg {
                     @include desktop {
                         fill: var(--link-hover);
                     }
                 }
 
+                & * {
+                    @include desktop {
+                        color: var(--link-hover);
+                    }
+                }
+
                 @include desktop {
                     color: var(--link-hover);
-                    border-block-end: var(--link-hover-underline);
                 }
             }
         }
@@ -339,20 +390,30 @@ button {
     &_secondary {
         color: var(--color-black);
 
+        svg {
+            fill: var(--color-black);
+        }
+
         & * {
             color: var(--color-black);
         }
 
         &:not([disabled]) {
             &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-dark-color);
+                    }
+                }
+
                 & * {
                     @include desktop {
-                        fill: var(--secondary-dark-color);
+                        color: var(--primary-dark-color);
                     }
                 }
 
                 @include desktop {
-                    color: var(--secondary-dark-color);
+                    color: var(--primary-dark-color);
                 }
             }
         }
@@ -371,7 +432,17 @@ button {
         &_filled,
         &_outlined,
         &_transparent {
-            @include button-shape-common;
+            text-transform: uppercase;
+            border: {
+                style: solid;
+                width: var(--default-button-border-width);
+                color: transparent;
+            }
+
+            @include mobile {
+                user-select: none;
+                width: 100%;
+            }
         }
 
         &_filled {
@@ -474,11 +545,6 @@ button {
             padding: var(--link-button-padding);
             font-size: var(--link-font-size);
             font-weight: var(--link-font-weight);
-            border-block-end: {
-                style: solid;
-                width: var(--default-button-border-width);
-                color: transparent;
-            };
 
             &:hover,
             &:focus {
@@ -501,4 +567,8 @@ button {
 
 .Button {
     @include button;
+
+    &_isFullWidth {
+        width: 100%;
+    }
 }

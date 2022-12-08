@@ -15,6 +15,7 @@ import Loader from 'Component/Loader';
 import MyAccountAddressForm from 'Component/MyAccountAddressForm';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import Popup from 'Component/Popup';
+import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
 
 import { MyAccountAddressPopupAction } from './MyAccountAddressPopup.config';
@@ -44,9 +45,9 @@ export class MyAccountAddressPopupComponent extends PureComponent<MyAccountAddre
                 <div block="MyAccountAddressPopup" elem="Address">
                     <MyAccountAddressTable address={ address } title={ __('Address details') } />
                 </div>
-                <button block="Button" onClick={ handleDeleteAddress }>
+                <Button onClick={ handleDeleteAddress }>
                     { __('Yes, delete address') }
-                </button>
+                </Button>
             </>
         );
     }

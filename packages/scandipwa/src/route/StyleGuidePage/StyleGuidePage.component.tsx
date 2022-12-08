@@ -10,6 +10,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import { PureComponent } from 'react';
 
 import Breadcrumbs from 'Component/Breadcrumbs/Breadcrumbs.component';
@@ -21,6 +22,7 @@ import Notification from 'Component/Notification';
 import Button from 'Src/ui/Button';
 import { ButtonColors, ButtonVariants } from 'Src/ui/Button/Button.config';
 import Link from 'Src/ui/Link';
+import { LinkUnderlineType } from 'Src/ui/Link/Link.config';
 import { ReactElement } from 'Type/Common.type';
 
 import {
@@ -118,10 +120,10 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                 <div block="StyleGuidePage" elem="Buttons">
                     <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary filled [default state + disabled]') }</h4>
                     <div>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY }>
+                        <Button>
                             { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button disabled>
                             { __('Button text') }
                         </Button>
                     </div>
@@ -130,16 +132,16 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button disabled>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY }>
+                        <Link to="/" variant={ ButtonVariants.FILLED }>
                             { __('Link text') }
                         </Link>
-                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Link to="/" variant={ ButtonVariants.FILLED } disabled>
                             { __('Link text') }
                         </Link>
                     </div>
@@ -148,28 +150,28 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                 <div block="StyleGuidePage" elem="Buttons">
                     <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary outlined [default state + disabled]') }</h4>
                     <div>
-                        <Button variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY }>
+                        <Button variant={ ButtonVariants.OUTLINED }>
                             { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.OUTLINED } disabled>
                             { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Button variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY }>
+                        <Button variant={ ButtonVariants.OUTLINED }>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.OUTLINED } disabled>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Link to="/" variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY }>
+                        <Link to="/" variant={ ButtonVariants.OUTLINED }>
                             { __('Link text') }
                         </Link>
-                        <Link to="/" variant={ ButtonVariants.OUTLINED } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Link to="/" variant={ ButtonVariants.OUTLINED } disabled>
                             { __('Link text') }
                         </Link>
                     </div>
@@ -178,19 +180,19 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                 <div block="StyleGuidePage" elem="Buttons">
                     <h4 block="StyleGuidePage" elem="SubHeading">{ __('Secondary filled [default state + disabled]') }</h4>
                     <div>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY }>
+                        <Button color={ ButtonColors.SECONDARY }>
                             { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Button color={ ButtonColors.SECONDARY } disabled>
                             { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY }>
+                        <Button color={ ButtonColors.SECONDARY }>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Button color={ ButtonColors.SECONDARY } disabled>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
@@ -199,7 +201,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                         <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY }>
                             { __('Link text') }
                         </Link>
-                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY } disabled>
                             { __('Link text') }
                         </Link>
                     </div>
@@ -208,28 +210,28 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                 <div block="StyleGuidePage" elem="Buttons">
                     <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary transparent [default state + disabled]') }</h4>
                     <div>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY }>
+                        <Button variant={ ButtonVariants.TRANSPARENT }>
                             { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.TRANSPARENT } disabled>
                             { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY }>
+                        <Button variant={ ButtonVariants.TRANSPARENT }>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.TRANSPARENT } disabled>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
                     </div>
                     <div>
-                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY }>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT }>
                             { __('Link text') }
                         </Link>
-                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } disabled>
                             { __('Link text') }
                         </Link>
                     </div>
@@ -241,7 +243,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                         <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY }>
                             { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
                             { __('Button text') }
                         </Button>
                     </div>
@@ -250,7 +252,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
-                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
                                 <LockIcon />
                                 { __('Button text') }
                         </Button>
@@ -260,7 +262,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                         <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY }>
                             { __('Link text') }
                         </Link>
-                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
                             { __('Link text') }
                         </Link>
                     </div>
@@ -271,7 +273,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     <div>
                         <p id="paragraph">
                             { __('The ') }
-                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.PRIMARY }>
+                            <Button variant={ ButtonVariants.LINK }>
                                 { __('website (button)') }
                             </Button>
                                 { __(' aims to achieve') }
@@ -281,7 +283,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                            <Button variant={ ButtonVariants.LINK } disabled>
                                 { __('website (button)') }
                             </Button>
                             { __(' aims to achieve') }
@@ -301,7 +303,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY } disabled>
                                 { __('website (button)') }
                             </Button>
                             { __(' aims to achieve') }
@@ -311,7 +313,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Link to="/" variant={ ButtonVariants.LINK } color={ ButtonColors.PRIMARY }>
+                            <Link to="/" underline={ LinkUnderlineType.HOVER }>
                                 { __('website (link)') }
                             </Link>
                             { __(' aims to achieve') }
@@ -321,7 +323,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Link to="/" variant={ ButtonVariants.LINK } color={ ButtonColors.PRIMARY } attr={ { disabled: true } }>
+                            <Link to="/" disabled>
                                 { __('website (link)') }
                             </Link>
                             { __(' aims to achieve') }
@@ -331,7 +333,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Link to="/" variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY }>
+                            <Link to="/" color={ ButtonColors.SECONDARY } underline={ LinkUnderlineType.ALWAYS }>
                                 { __('website (link)') }
                             </Link>
                             { __(' aims to achieve') }
@@ -341,7 +343,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
                         <p id="paragraph">
                             { __('The ') }
-                            <Link to="/" variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY } attr={ { disabled: true } }>
+                            <Link to="/" color={ ButtonColors.SECONDARY } disabled>
                                 { __('website (link)') }
                             </Link>
                             { __(' aims to achieve') }

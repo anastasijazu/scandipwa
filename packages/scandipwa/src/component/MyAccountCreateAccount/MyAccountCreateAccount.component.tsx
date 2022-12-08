@@ -15,7 +15,7 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Button from 'Src/ui/Button';
-import { ButtonColors, ButtonVariants } from 'Src/ui/Button/Button.config';
+import { ButtonColors, ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import history from 'Util/History';
 import { validatePassword } from 'Util/Validator';
@@ -196,13 +196,13 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
     renderSubmitButton(): ReactElement {
         return (
             <div block="MyAccountOverlay" elem="Buttons">
-                <button
-                  block="Button"
-                  type="submit"
+                <Button
                   mix={ { block: 'MyAccountOverlay', elem: 'SignUpButton' } }
+                  attr={ { type: ButtonType.SUBMIT } }
+                  isFullWidth
                 >
                     { __('Sign up') }
-                </button>
+                </Button>
             </div>
         );
     }

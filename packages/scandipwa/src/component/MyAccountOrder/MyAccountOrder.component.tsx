@@ -11,7 +11,6 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { ORDER_ACTION_LABELS } from 'Component/MyAccountOrder/MyAccountOrder.config';
 import MyAccountOrderInformation from 'Component/MyAccountOrderInformation';
@@ -19,6 +18,9 @@ import MyAccountOrderItemsTable from 'Component/MyAccountOrderItemsTable';
 import MyAccountOrderTabs from 'Component/MyAccountOrderTabs';
 import { CreditMemo } from 'Query/Order.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
+import Button from 'Src/ui/Button';
+import { ButtonVariants } from 'Src/ui/Button/Button.config';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { decodeBase64 } from 'Util/Base64';
 import { noopFn } from 'Util/Common';
@@ -200,8 +202,10 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
 
         return (
             <Link
-              block="MyAccountOrder"
-              elem="PrintOrder"
+              mix={ {
+                  block: 'MyAccountOrder',
+                  elem: 'PrintOrder',
+              } }
               to={ appendWithStoreCode(`${printAllUrl}/${id}`) }
               isOpenInNewTab
             >
@@ -241,8 +245,10 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
 
         return (
             <Link
-              block="MyAccountOrder"
-              elem="SubscribeToStatus"
+              mix={ {
+                  block: 'MyAccountOrder',
+                  elem: 'SubscribeToStatus',
+              } }
               to={ appendWithStoreCode(`${AccountPageUrl.ORDER_PRINT_URL}/${id}`) }
               isOpenInNewTab
             >
@@ -291,8 +297,10 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
 
         return (
             <Link
-              block="MyAccountOrder"
-              elem="SubscribeToStatus"
+              mix={ {
+                  block: 'MyAccountOrder',
+                  elem: 'SubscribeToStatus',
+              } }
               to={ rss_link }
               isOpenInNewTab
             >
@@ -309,14 +317,13 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
         }
 
         return (
-            <button
-              block="Button"
-              mods={ { likeLink: true } }
+            <Button
+              variant={ ButtonVariants.LINK }
               mix={ { block: 'MyAccountOrder', elem: 'Reorder' } }
               onClick={ handleReorder }
             >
                 { __('Reorder') }
-            </button>
+            </Button>
         );
     }
 

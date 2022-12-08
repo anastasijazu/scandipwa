@@ -12,7 +12,7 @@
 import { PureComponent } from 'react';
 
 import ExpandableContent from 'Component/ExpandableContent';
-import Link from 'Component/Link';
+import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 
 import { ProductDownloadableSamplesComponentProps } from './ProductDownloadableSamples.type';

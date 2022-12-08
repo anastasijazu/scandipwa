@@ -9,4 +9,8 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export { default } from './Link.container';
+export enum LinkUnderlineType {
+    ALWAYS = 'always',
+    HOVER = 'hover',
+    NONE = 'none',
+}

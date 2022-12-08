@@ -20,6 +20,7 @@ import ExpandableContent from 'Component/ExpandableContent';
 import Loader from 'Component/Loader';
 import LockIcon from 'Component/LockIcon';
 import ProductLinks from 'Component/ProductLinks';
+import Button from 'Src/ui/Button';
 import { CartTotals } from 'Store/Cart/Cart.type';
 import { LinkedProductType } from 'Store/LinkedProducts/LinkedProducts.type';
 import { ReactElement } from 'Type/Common.type';
@@ -137,15 +138,13 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
         return (
             <div block="CartPage" elem="CheckoutButtonWrapper">
-                <button
-                  block="CartPage"
-                  elem="CheckoutButton"
-                  mix={ { block: 'Button' } }
+                <Button
+                  mix={ { block: 'CartPage', elem: 'CheckoutButton' } }
                   onClick={ onCheckoutButtonClick }
                 >
                     <LockIcon />
                     { __('Proceed to checkout') }
-                </button>
+                </Button>
             </div>
         );
     }

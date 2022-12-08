@@ -13,10 +13,12 @@ import { PureComponent } from 'react';
 
 import CheckoutAddressForm from 'Component/CheckoutAddressForm';
 import CheckoutAddressTable from 'Component/CheckoutAddressTable';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
+import Button from 'Src/ui/Button';
+import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
+import Link from 'Src/ui/Link';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
 import { getDefaultAddressLabel } from 'Util/Address';
@@ -147,16 +149,14 @@ CheckoutAddressBookComponentState
               block="CheckoutAddressBook"
               elem="CustomAddressWrapper"
             >
-                <button
-                  block="CheckoutAddressBook"
-                  elem="Button"
-                  mods={ { isCustomAddressExpanded } }
-                  mix={ { block: 'Button', mods: { isHollow: true } } }
-                  type="button"
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
+                  mix={ { block: 'CheckoutAddressBook', elem: 'Button', mods: { isCustomAddressExpanded } } }
+                  attr={ { type: ButtonType.BUTTON } }
                   onClick={ this.expandCustomAddress }
                 >
                     { __('Use custom address') }
-                </button>
+                </Button>
                 { isCustomAddressExpanded && this.renderCustomAddress() }
             </div>
         );

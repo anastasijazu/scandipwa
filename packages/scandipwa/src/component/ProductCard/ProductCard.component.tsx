@@ -14,7 +14,6 @@ import { createRef } from 'react';
 
 import Image from 'Component/Image';
 import { ImageRatio } from 'Component/Image/Image.type';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { ProductComponent } from 'Component/Product/Product.component';
 import { ProductType } from 'Component/Product/Product.config';
@@ -22,6 +21,8 @@ import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { GroupedProductItem } from 'Query/ProductList.type';
 import { CategoryPageLayout } from 'Route/CategoryPage/CategoryPage.config';
+import Button from 'Src/ui/Button';
+import Link from 'Src/ui/Link';
 import { Children, ReactElement } from 'Type/Common.type';
 import { IndexedConfigurableOption } from 'Util/Product/Product.type';
 
@@ -213,11 +214,14 @@ export class ProductCardComponent extends ProductComponent<ProductCardComponentP
 
         return (
             <Link
-              block="ProductCard"
-              elem="Link"
               to={ linkTo }
               onClick={ this.handleLinkClick }
-              mix={ mix }
+              mix={ {
+                  block: 'ProductCard',
+                  elem: 'Link',
+                  mix,
+              } }
+              isUnstyled
             >
               { children }
             </Link>
@@ -280,13 +284,13 @@ export class ProductCardComponent extends ProductComponent<ProductCardComponentP
 
         if (inStock && requiresConfiguration) {
             return (
-                    <button
-                      block="Button AddToCart"
-                      mods={ { layout } }
+                    <Button
+                      mix={ { block: 'AddToCart', mods: { layout } } }
                       onClick={ showSelectOptionsNotification }
+                      isFullWidth
                     >
                         { __('Add to cart') }
-                    </button>
+                    </Button>
             );
         }
 
