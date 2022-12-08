@@ -21,8 +21,8 @@ import { ButtonColors, ButtonVariants } from './Button.config';
 export interface ButtonComponentProps {
     children: Children;
     mix: Mix;
-    variant: ButtonVariants | string;
-    color: ButtonColors | string;
+    variant: ButtonVariants;
+    color: ButtonColors;
     isFullWidth: boolean;
     onClick?: MouseEventHandler<HTMLButtonElement>;
     mods: Mods;

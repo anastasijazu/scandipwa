@@ -18,15 +18,11 @@ import {
     LinkContainerProps,
 } from 'Src/ui/Link/Link.type';
 
-export interface IconLinkContainerMapStateProps extends LinkContainerMapStateProps {}
-
-export interface IconLinkContainerMapDispatchProps extends LinkContainerMapDispatchProps {}
-
 export interface IconLinkContainerFunctions extends LinkContainerFunctions {}
 
 export type IconLinkContainerProps =
- IconLinkContainerMapStateProps
- & IconLinkContainerMapDispatchProps
+ LinkContainerMapStateProps
+ & LinkContainerMapDispatchProps
  & LinkContainerProps;
 
 export interface IconLinkComponentProps extends LinkComponentProps {}
