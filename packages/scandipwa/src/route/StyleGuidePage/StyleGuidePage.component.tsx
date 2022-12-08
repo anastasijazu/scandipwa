@@ -18,6 +18,8 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
+import Typography from 'Src/ui/Typography';
+import { TypographyVariants } from 'Src/ui/Typography/Typography.config';
 import { ReactElement } from 'Type/Common.type';
 
 import {
@@ -156,44 +158,54 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
         return (
             <>
                 <div block="StyleGuidePage" elem="DesktopTextStyles">
-                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Desktop') }</h4>
-                    <h1 id="h1">{ __('Heading 1') }</h1>
-                    <h2 id="h2">{ __('Heading 2') }</h2>
-                    <h3 id="h3">{ __('Heading 3') }</h3>
-                    <p id="paragraph">
+                    <Typography
+                      variant={ TypographyVariants.H4 }
+                      mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                    >
+                        { __('Desktop') }
+                    </Typography>
+                    <Typography variant={ TypographyVariants.H1 }>{ __('Heading 1') }</Typography>
+                    <Typography variant={ TypographyVariants.H2 }>{ __('Heading 2') }</Typography>
+                    <Typography variant={ TypographyVariants.H3 }>{ __('Heading 3') }</Typography>
+                    <Typography variant={ TypographyVariants.P }>
                         { __('The ') }
                         <a block="Link" href="/">{ __('website') }</a>
                         { __(' aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
-                    </p>
-                    <p id="paragraph">
+                    </Typography>
+                    <Typography variant={ TypographyVariants.P }>
                         { __('The ') }
                         <a block="StyleGuidePage" href="/" elem="ActiveLink">{ __('website') }</a>
                         { __(' aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
-                    </p>
-                    <p block="caption" id="caption">
+                    </Typography>
+                    <Typography variant={ TypographyVariants.CAPTION }>
                         { __('The ') }
                         <a block="Link" href="/">{ __('website') }</a>
                         { __(' aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
-                    </p>
-                    <p block="caption" id="caption">
+                    </Typography>
+                    <Typography variant={ TypographyVariants.CAPTION }>
                         { __('The ') }
                         <a block="StyleGuidePage" elem="ActiveLink" href="/">{ __('website') }</a>
                         { __(' aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
-                    </p>
+                    </Typography>
                 </div>
                 <div block="StyleGuidePage" elem="MobileTextStyles">
-                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Mobile') }</h4>
-                    <h1 id="h1Mobile">{ __('Heading 1') }</h1>
-                    <h2 id="h2Mobile">{ __('Heading 2') }</h2>
-                    <h3 id="h3Mobile">{ __('Heading 3') }</h3>
+                    <Typography
+                      mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }
+                      variant={ TypographyVariants.H4 }
+                    >
+                        { __('Mobile') }
+                    </Typography>
+                    <Typography variant={ TypographyVariants.H1 } appearance={ TypographyVariants.H2 }>{ __('Heading 1') }</Typography>
+                    <Typography variant={ TypographyVariants.H2 }>{ __('Heading 2') }</Typography>
+                    <Typography variant={ TypographyVariants.H3 }>{ __('Heading 3') }</Typography>
                     <p id="paragraphMobile">
                         { __('The ') }
                         <a block="Link" href="/">{ __('website') }</a>
