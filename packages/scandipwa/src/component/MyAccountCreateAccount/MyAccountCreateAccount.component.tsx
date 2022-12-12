@@ -15,6 +15,10 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonColors, ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import history from 'Util/History';
 import { validatePassword } from 'Util/Validator';
 import { ValidationInputType } from 'Util/Validator/Config';
@@ -194,13 +198,13 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
     renderSubmitButton(): ReactElement {
         return (
             <div block="MyAccountOverlay" elem="Buttons">
-                <button
-                  block="Button"
-                  type="submit"
+                <Button
                   mix={ { block: 'MyAccountOverlay', elem: 'SignUpButton' } }
+                  attr={ { type: ButtonType.SUBMIT } }
+                  isFullWidth
                 >
                     { __('Sign up') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -227,15 +231,15 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
-                    <h4>{ __('Already have an account?') }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Typography variant={ TypographyVariants.H4 }>{ __('Already have an account?') }</Typography>
+                    <Button
+                      variant={ ButtonVariants.LINK }
+                      color={ ButtonColors.PRIMARY }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInLink' } }
-                      onClick={ handleSignIn }
+                      events={ { onClick: handleSignIn } }
                     >
                         { __('Sign in') }
-                    </button>
+                    </Button>
                 </section>
             </article>
         );

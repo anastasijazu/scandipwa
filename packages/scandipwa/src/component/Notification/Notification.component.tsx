@@ -12,6 +12,7 @@
 import { createRef, PureComponent } from 'react';
 
 import Html from 'Component/Html';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 import CSS from 'Util/CSS';
@@ -114,9 +115,9 @@ export class NotificationComponent extends PureComponent<NotificationComponentPr
         return (
             <div block="Notification" mods={ mods } ref={ this.notification } id={ id }>
                 <button block="Notification" elem="Button" onClick={ this.hideNotification }> Close </button>
-                <p block="Notification" elem="Text">
+                <Typography mix={ { block: 'Notification', elem: 'Text' } }>
                     <Html content={ msgText } />
-                </p>
+                </Typography>
                 { this.renderDebug() }
             </div>
         );

@@ -20,6 +20,9 @@ import {
 import ResetAttributes from 'Component/ResetAttributes';
 import ResetButton from 'Component/ResetButton';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CATEGORY_FILTER_OVERLAY_ID } from './CategoryFilterOverlay.config';
 import { CategoryFilterOverlayComponentProps } from './CategoryFilterOverlay.type';
@@ -61,14 +64,13 @@ export class CategoryFilterOverlayComponent extends PureComponent<CategoryFilter
               block="CategoryFilterOverlay"
               elem="SeeResults"
             >
-                <button
-                  block="CategoryFilterOverlay"
-                  elem="Button"
-                  mix={ { block: 'Button' } }
+                <Button
+                  mix={ { block: 'CategoryFilterOverlay', elem: 'Button' } }
                   onClick={ onSeeResultsClick }
+                  isFullWidth
                 >
                     { __('SEE RESULTS') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -100,18 +102,25 @@ export class CategoryFilterOverlayComponent extends PureComponent<CategoryFilter
         const { isContentFiltered } = this.props;
 
         return (
-            <h3 block="CategoryFilterOverlay" elem="Heading" mods={ { isContentFiltered } }>
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ {
+                  block: 'CategoryFilterOverlay',
+                  elem: 'Heading',
+                  mods: { isContentFiltered },
+              } }
+            >
                 { __('Shopping Options') }
-            </h3>
+            </Typography>
         );
     }
 
     renderNoResults(): ReactElement {
         return (
-            <p block="CategoryFilterOverlay" elem="NoResults">
+            <Typography mix={ { block: 'CategoryFilterOverlay', elem: 'NoResults' } }>
                 { __(`The selected filter combination returned no results.
                 Please try again, using a different set of filters.`) }
-            </p>
+            </Typography>
         );
     }
 

@@ -13,6 +13,7 @@ import { PureComponent } from 'react';
 
 import Overlay from 'Component/Overlay';
 import SearchItem from 'Component/SearchItem';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { IndexedProduct } from 'Util/Product/Product.type';
 
@@ -58,7 +59,7 @@ export class SearchOverlayComponent extends PureComponent<SearchOverlayComponent
     }
 
     renderNoResults(): ReactElement {
-        return <p block="NoResults">{ __('No results found!') }</p>;
+        return <Typography mix={ { block: 'NoResults' } }>{ __('No results found!') }</Typography>;
     }
 
     renderSearchResults(): ReactElement {

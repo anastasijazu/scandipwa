@@ -18,6 +18,8 @@ import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder
 import TierPrices from 'Component/TierPrices';
 import { ReactElement } from 'Type/Common.type';
 import { GQLProductStockStatus } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { isCrawler, isSSR } from 'Util/Browser';
 import {
     showNewReviewPopup,
@@ -60,9 +62,12 @@ export class ProductActionsComponent extends ProductComponent<ProductActionsComp
         const isNotSafariOrIos = !device.ios && !device.safari;
 
         return (
-            <button
-              block="ProductActions"
-              elem="Review"
+            <Button
+              variant={ ButtonVariants.LINK }
+              mix={ {
+                  block: 'ProductActions',
+                  elem: 'Review',
+              } }
               onClick={ showNewReviewPopup }
             >
                 <span
@@ -72,7 +77,7 @@ export class ProductActionsComponent extends ProductComponent<ProductActionsComp
                 >
                     { __('Write a review') }
                 </span>
-            </button>
+            </Button>
         );
     }
 

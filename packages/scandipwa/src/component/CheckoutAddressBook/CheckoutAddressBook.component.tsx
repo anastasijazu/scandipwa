@@ -13,12 +13,16 @@ import { PureComponent } from 'react';
 
 import CheckoutAddressForm from 'Component/CheckoutAddressForm';
 import CheckoutAddressTable from 'Component/CheckoutAddressTable';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getDefaultAddressLabel } from 'Util/Address';
 import { isSignedIn } from 'Util/Auth';
 
@@ -123,9 +127,12 @@ CheckoutAddressBookComponentState
         }
 
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Shipping address') }
-            </h2>
+            </Typography>
         );
     }
 
@@ -147,16 +154,14 @@ CheckoutAddressBookComponentState
               block="CheckoutAddressBook"
               elem="CustomAddressWrapper"
             >
-                <button
-                  block="CheckoutAddressBook"
-                  elem="Button"
-                  mods={ { isCustomAddressExpanded } }
-                  mix={ { block: 'Button', mods: { isHollow: true } } }
-                  type="button"
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
+                  mix={ { block: 'CheckoutAddressBook', elem: 'Button', mods: { isCustomAddressExpanded } } }
+                  attr={ { type: ButtonType.BUTTON } }
                   onClick={ this.expandCustomAddress }
                 >
                     { __('Use custom address') }
-                </button>
+                </Button>
                 { isCustomAddressExpanded && this.renderCustomAddress() }
             </div>
         );

@@ -15,6 +15,8 @@ import { FormContainerProps } from 'Component/Form/Form.type';
 import { ChangeCustomerPasswordOptions, SignInOptions } from 'Query/MyAccount.type';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCustomerUpdateInput } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { FieldData } from 'Util/Form/Form.type';
 import transformToNameValuePair from 'Util/Form/Transform';
 
@@ -85,13 +87,12 @@ export class MyAccountCustomerFormComponent extends FieldForm<MyAccountCustomerF
 
     renderActions(): ReactElement {
         return (
-            <button
-              type="submit"
-              block="Button"
+            <Button
               mix={ { block: 'MyAccountInformation', elem: 'Submit' } }
+              attr={ { type: ButtonType.SUBMIT } }
             >
                 { __('Save') }
-            </button>
+            </Button>
         );
     }
 

@@ -15,6 +15,10 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { ValidationInputType } from 'Util/Validator/Config';
 
 import { MyAccountForgotPasswordComponentProps } from './MyAccountForgotPassword.type';
@@ -48,13 +52,13 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
                   addRequiredTag
                 />
                 <div block="MyAccountOverlay" elem="Buttons">
-                    <button
-                      block="Button"
-                      type="submit"
+                    <Button
                       mix={ { block: 'MyAccountOverlay', elem: 'ResetPassword' } }
+                      attr={ { type: ButtonType.SUBMIT } }
+                      isFullWidth
                     >
                         { __('Send reset link') }
-                    </button>
+                    </Button>
                 </div>
             </Form>
         );
@@ -69,14 +73,18 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
 
         return (
             <section aria-labelledby="create-account-label">
-                <h4 id="create-account-label">{ __("Don't have an account?") }</h4>
-                <button
-                  block="Button"
-                  mods={ { likeLink: true } }
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  attr={ { id: 'create-account-label' } }
+                >
+                    { __("Don't have an account?") }
+                </Typography>
+                <Button
+                  variant={ ButtonVariants.LINK }
                   onClick={ handleCreateAccount }
                 >
                     { __('Create an account') }
-                </button>
+                </Button>
             </section>
         );
     }
@@ -87,15 +95,19 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section aria-labelledby="forgot-password-labe">
-                    <h4 id="forgot-password-label">{ __('Already have an account?') }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Typography
+                      variant={ TypographyVariants.H4 }
+                      attr={ { id: 'forgot-password-label' } }
+                    >
+                        { __('Already have an account?') }
+                    </Typography>
+                    <Button
+                      variant={ ButtonVariants.LINK }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInButton' } }
                       onClick={ handleSignIn }
                     >
                         { __('Sign in') }
-                    </button>
+                    </Button>
                 </section>
                 { this.renderCreateAccountLabel() }
             </article>

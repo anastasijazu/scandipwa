@@ -12,7 +12,9 @@
 import { PureComponent } from 'react';
 
 import CloseIcon from 'Component/CloseIcon';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { InstallPromptAndroidComponentProps } from './InstallPromptAndroid.type';
 
@@ -37,9 +39,9 @@ export class InstallPromptAndroidComponent extends PureComponent<InstallPromptAn
 
     renderContent(): ReactElement {
         return (
-            <p block="InstallPromptAndroid" elem="Content">
+            <Typography mix={ { block: 'InstallPromptAndroid', elem: 'Content' } }>
                 { __('Add website to your home screen for the full-screen browsing experience!') }
-            </p>
+            </Typography>
         );
     }
 
@@ -47,14 +49,12 @@ export class InstallPromptAndroidComponent extends PureComponent<InstallPromptAn
         const { handleAppInstall } = this.props;
 
         return (
-            <button
-              block="InstallPromptAndroid"
-              elem="Button"
-              mix={ { block: 'Button' } }
+            <Button
+              mix={ { block: 'InstallPromptAndroid', elem: 'Button' } }
               onClick={ handleAppInstall }
             >
                 { __('Add to home screen') }
-            </button>
+            </Button>
         );
     }
 

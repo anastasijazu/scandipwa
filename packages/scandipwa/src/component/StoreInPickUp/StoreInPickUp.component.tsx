@@ -14,6 +14,10 @@ import { PureComponent } from 'react';
 import StoreInPickUpPopupComponent from 'Component/StoreInPickUpPopup';
 import StoreInPickUpStoreComponent from 'Component/StoreInPickUpStore';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { noopFn } from 'Util/Common';
 
 import { StoreInPickUpComponentProps } from './StoreInPickUp.type';
@@ -38,12 +42,15 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
 
     renderHeading(): ReactElement {
         return (
-            <h3
-              block="StoreInPickUp"
-              elem="Heading"
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ {
+                  block: 'StoreInPickUp',
+                  elem: 'Heading',
+              } }
             >
                 { __('Store') }
-            </h3>
+            </Typography>
         );
     }
 
@@ -105,23 +112,19 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
               block="StoreInPickUp"
               elem="Actions"
             >
-                <button
-                  block="StoreInPickUp"
-                  elem="SelectButton"
-                  mix={ { block: 'Button' } }
-                  type="button"
+                <Button
+                  mix={ { block: 'StoreInPickUp', elem: 'SelectButton' } }
                   onClick={ handleOpenPopup }
                 >
                    { __('Select store') }
-                </button>
-                <button
-                  type="submit"
-                  block="Button"
+                </Button>
+                <Button
                   mix={ { block: 'CheckoutShipping', elem: 'Button' } }
                   disabled={ !selectedStore }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Proceed to billing') }
-                </button>
+                </Button>
             </div>
         );
     }

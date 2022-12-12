@@ -10,7 +10,6 @@
  */
 
 .AddToCart {
-    width: 100%;
     padding: 0;
     vertical-align: middle;
 
@@ -39,7 +38,6 @@
         will-change: transform, opacity;
         transition-timing-function: ease-in;
         transition-duration: .25s;
-        color: var(--color-white);
 
         &:last-child {
             inset-inline-start: 0;

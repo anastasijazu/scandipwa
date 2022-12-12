@@ -19,9 +19,9 @@ import domToReact from 'html-react-parser/lib/dom-to-react';
 import { lazy, PureComponent, Suspense } from 'react';
 
 import Image from 'Component/Image';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader/Loader.component';
 import { WidgetFactoryComponentProps } from 'Component/WidgetFactory/WidgetFactory.type';
+import Link from 'Ui/Link';
 import { hash } from 'Util/Request/Hash';
 
 import { HtmlComponentProps, HtmlParserRule } from './Html.type';

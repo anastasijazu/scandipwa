@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import TextPlaceholder from 'Component/TextPlaceholder';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 
 import { CategoryItemsCountComponentProps } from './CategoryItemsCount.type';
@@ -29,14 +30,14 @@ export class CategoryItemsCountComponent extends PureComponent<CategoryItemsCoun
         } = this.props;
 
         return (
-            <p block="CategoryPage" elem="ItemsCount">
+            <Typography mix={ { block: 'CategoryPage', elem: 'ItemsCount' } }>
                 <TextPlaceholder
                   content={ (!isMatchingListFilter
                       ? __('Products are loading...')
                       : __('%s items found', totalItems)
                   ) }
                 />
-            </p>
+            </Typography>
         );
     }
 }

@@ -11,8 +11,9 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 import BrowserDatabase from 'Util/BrowserDatabase';
 import { ONE_MONTH_IN_SECONDS } from 'Util/Request/QueryDispatcher';
 
@@ -57,8 +58,10 @@ export class CookiePopupComponent extends PureComponent<CookiePopupComponentProp
 
         return (
             <Link
-              block="CookiePopup"
-              elem="Link"
+              mix={ {
+                  block: 'CookiePopup',
+                  elem: 'Link',
+              } }
               to={ cookieLink }
             >
                 { __('View cookie policy') }
@@ -70,10 +73,10 @@ export class CookiePopupComponent extends PureComponent<CookiePopupComponentProp
         const { cookieText } = this.props;
 
         return (
-            <p block="CookiePopup" elem="Content">
+            <Typography mix={ { block: 'CookiePopup', elem: 'Content' } }>
                 { cookieText }
                 { this.renderCookieLink() }
-            </p>
+            </Typography>
         );
     }
 

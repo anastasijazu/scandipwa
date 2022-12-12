@@ -20,6 +20,8 @@ import {
 } from 'Component/MyAccountOverlay/MyAccountOverlay.config';
 import MyAccountSignIn from 'Component/MyAccountSignIn';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import checkoutGuestForm from './CheckoutGuestForm.form';
 import { CheckoutGuestFormComponentProps, CheckoutGuestFormRenderMapItem } from './CheckoutGuestForm.type';
@@ -98,9 +100,12 @@ export class CheckoutGuestFormComponent extends FieldForm<CheckoutGuestFormCompo
 
     renderHeading(): ReactElement {
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Enter personal information') }
-            </h2>
+            </Typography>
         );
     }
 

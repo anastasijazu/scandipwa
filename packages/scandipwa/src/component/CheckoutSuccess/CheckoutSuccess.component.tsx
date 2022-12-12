@@ -11,10 +11,13 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import { ORDER_ID } from 'Component/MyAccountOrder/MyAccountOrder.config';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 import { appendWithStoreCode } from 'Util/Url';
 
@@ -28,7 +31,7 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
         return (
             <div block="CheckoutSuccess" elem="ButtonWrapper">
                 <Link
-                  block="Button"
+                  variant={ ButtonVariants.FILLED }
                   mix={ { block: 'CheckoutSuccess', elem: 'ContinueButton' } }
                   to="/"
                 >
@@ -55,13 +58,14 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
 
         return (
             <div block="CheckoutRegistrationLink">
-                <p>
+                <Typography>
                     { __('You can track your order status by creating an account.') }
-                </p>
-                <p>
+                </Typography>
+                <Typography>
                     { `${__('Email address')}: ${email}` }
-                </p>
+                </Typography>
                 <Link
+                  variant={ ButtonVariants.FILLED }
                   to={ {
                       pathname: appendWithStoreCode(`${ AccountPageUrl.REGISTRATION_URL }`),
                       state: {
@@ -71,7 +75,6 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
                           orderID,
                       },
                   } }
-                  block="Button"
                 >
                     { __('Create account') }
                 </Link>
@@ -84,8 +87,8 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
 
         return (
             <div block="CheckoutSuccess">
-                <h3>{ __('Your order # is: %s', orderID) }</h3>
-                <p>{ __('We`ll email you an order confirmation with details and tracking info.') }</p>
+                <Typography variant={ TypographyVariants.H3 }>{ __('Your order # is: %s', orderID) }</Typography>
+                <Typography>{ __('We`ll email you an order confirmation with details and tracking info.') }</Typography>
                 { this.renderButtons() }
                 { this.renderCreateAccountButton() }
             </div>

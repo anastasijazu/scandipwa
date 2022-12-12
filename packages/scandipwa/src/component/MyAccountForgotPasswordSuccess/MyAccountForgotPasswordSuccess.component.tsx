@@ -11,7 +11,9 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountForgotPasswordSuccessContainerProps } from './MyAccountForgotPasswordSuccess.type';
 
@@ -27,16 +29,13 @@ export class MyAccountForgotPasswordSuccessComponent extends PureComponent<MyAcc
               elem="Additional"
               mods={ { state } }
             >
-                <p id="forgot-password-success">
+                <Typography attr={ { id: 'forgot-password-success' } }>
                     { /* eslint-disable-next-line max-len */ }
                     { __('If there is an account associated with %s you will receive an email with a link to reset your password', submittedEmail) }
-                </p>
-                <button
-                  block="Button"
-                  onClick={ handleSignIn }
-                >
+                </Typography>
+                <Button onClick={ handleSignIn }>
                     { __('Got it') }
-                </button>
+                </Button>
             </article>
         );
     }

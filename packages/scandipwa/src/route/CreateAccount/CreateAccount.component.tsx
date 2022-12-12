@@ -15,6 +15,9 @@ import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CreateAccountComponentProps } from './CreateAccount.type';
 
@@ -27,9 +30,13 @@ export class CreateAccountComponent extends MyAccountOverlayComponent<CreateAcco
 
         return (
             <div block="CreateAccount" elem="SignInWrapper">
-                <h3>{ __('Registered Customers') }</h3>
+                <Typography variant={ TypographyVariants.H3 }>{ __('Registered Customers') }</Typography>
                 <p>{ __('If you have an account, sign in with your email address.') }</p>
-                <button block="Button" onClick={ onLoginClick }>{ __('Sign In') }</button>
+                <Button
+                  onClick={ onLoginClick }
+                >
+                    { __('Sign In') }
+                </Button>
             </div>
         );
     }
@@ -37,11 +44,11 @@ export class CreateAccountComponent extends MyAccountOverlayComponent<CreateAcco
     renderCreateAccountWrapper(): ReactElement {
         return (
             <div block="CreateAccount" elem="CreateAccountWrapper">
-                <h3>{ __('New Customers') }</h3>
-                <p>
+                <Typography variant={ TypographyVariants.H3 }>{ __('New Customers') }</Typography>
+                <Typography>
                     { __('Creating an account has many benefits:') }
                     { __(' check out faster, keep more than one address, track orders and more.') }
-                </p>
+                </Typography>
                 { this.renderCreateAccount(true) }
             </div>
         );
@@ -50,10 +57,10 @@ export class CreateAccountComponent extends MyAccountOverlayComponent<CreateAcco
     renderForgotPasswordWrapper(): ReactElement {
         return (
             <div block="CreateAccount" elem="ForgetPasswordWrapper">
-                <h3>{ __('Forgot Your Password?') }</h3>
-                <p>
+                <Typography variant={ TypographyVariants.H3 }>{ __('Forgot Your Password?') }</Typography>
+                <Typography>
                     { __('Please enter your email address below to receive a password reset link.') }
-                </p>
+                </Typography>
                 { this.renderForgotPassword() }
             </div>
         );

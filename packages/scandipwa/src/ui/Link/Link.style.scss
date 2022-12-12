@@ -1,0 +1,115 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+@import '../Button/Button.style';
+
+.Link {
+    @include button;
+
+    cursor: pointer;
+
+    &_variant {
+        &_filled {
+            &.Link_color {
+                @include button-filled-color;
+            }
+        }
+
+        &_outlined {
+            &.Link_color {
+                @include button-outlined-color;
+            }
+        }
+
+        &_transparent {
+            &.Link_color {
+                @include button-transparent-color;
+            }
+        }
+
+        &_link {
+            &.Link_color {
+                @include button-link-color;
+
+                &_primary {
+                    &.Link_underline {
+                        &_always {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: var(--link-color);
+                            }
+
+                            &:hover {
+                                @include desktop {
+                                    border-block-end-color: var(--link-hover-color);
+                                }
+                            }
+                        }
+
+                        &_hover {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: transparent;
+                            }
+
+                            &:hover {
+                                @include desktop {
+                                    border-block-end: {
+                                        style: solid;
+                                        width: var(--default-button-border-width);
+                                        color: var(--link-hover-color);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &_secondary {
+                    &.Link_underline {
+                        &_always {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: var(--color-black);
+                            }
+
+                            &:hover {
+                                @include desktop {
+                                    border-block-end-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+
+                        &_hover {
+                            &:hover {
+                                @include desktop {
+                                    border-block-end: {
+                                        style: solid;
+                                        width: var(--default-button-border-width);
+                                        color: var(--primary-dark-color);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_disabled {
+        @include button-disabled;
+    }
+}
+

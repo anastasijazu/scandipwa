@@ -3127,10 +3127,10 @@
     eslint-traverse "^1.0.0"
     requireindex "~1.1.0"
 
-"@tilework/mosaic-config-injectors@0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@tilework/mosaic-config-injectors/-/mosaic-config-injectors-0.2.1.tgz#991450f947da31619847c2a331911f153f733f83"
-  integrity sha512-d/O2fZWJqncIYp0sWs9Olqm6pQ3o2GYsL+JIe2o+N9aJ3WIt4dip0ZE9xpoURED19jtZMzdEw15nUfwUL/TyeQ==
+"@tilework/mosaic-config-injectors@0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@tilework/mosaic-config-injectors/-/mosaic-config-injectors-0.2.2.tgz#76fdaa2a7dafd2d380a30e289f40fe777506783f"
+  integrity sha512-TOkGUu8V6DFvEtbm/slsMRKbCwgdb875bfg5yLKf+iFlos4ExejXASzVfVzxiUHjKFEclyrTYkGIKDOQOWaffQ==
   dependencies:
     "@babel/plugin-transform-arrow-functions" "7.13.0"
     "@babel/plugin-transform-async-to-generator" "7.13.0"
@@ -3144,15 +3144,15 @@
     deepmerge "^4.2.2"
     globby "^11.0.2"
 
-"@tilework/mosaic-cra-scripts@0.1.25":
-  version "0.1.25"
-  resolved "https://registry.yarnpkg.com/@tilework/mosaic-cra-scripts/-/mosaic-cra-scripts-0.1.25.tgz#f1ba8aba6d23e89d1e6157aae0ada7f45603ff56"
-  integrity sha512-X39pZQ9Nrr7oniP2uMcUN9GkxzQMwa/IzJ9140d9q28IB+MDdt+kZrldNcQPHwXeTBLsTbbybKXZ27j29y1s9Q==
+"@tilework/mosaic-cra-scripts@0.1.26":
+  version "0.1.26"
+  resolved "https://registry.yarnpkg.com/@tilework/mosaic-cra-scripts/-/mosaic-cra-scripts-0.1.26.tgz#7597aa78587f92d227abed02d85c57a7dc4ed627"
+  integrity sha512-m4fTuqDzrVuUEurqjpm2daAuXBpui9BBPvDJgpt8v2MgOfIG7R0A+xYvvMFmYI8pF901U92uuYZ06f8ATY/Ozg==
   dependencies:
-    "@tilework/mosaic-config-injectors" "0.2.1"
+    "@tilework/mosaic-config-injectors" "0.2.2"
     "@tilework/mosaic-craco" "0.0.5"
     "@tilework/mosaic-dev-utils" "0.2.3"
-    "@tilework/mosaic-test-utils" "0.0.34"
+    "@tilework/mosaic-test-utils" "0.0.35"
     "@tilework/mosaic-webpack-fallback-plugin" "0.0.17"
     babel-jest "26.6.3"
     babel-plugin-module-resolver "^4.0.0"
@@ -3227,16 +3227,16 @@
     memoizee "^0.4.15"
     node-fetch "^2.6.1"
 
-"@tilework/mosaic-nextjs-scripts@0.1.26":
-  version "0.1.26"
-  resolved "https://registry.yarnpkg.com/@tilework/mosaic-nextjs-scripts/-/mosaic-nextjs-scripts-0.1.26.tgz#2ff5cb1b57fe62f1a9da3a377956e1a50c54dd98"
-  integrity sha512-vZXL9nqbROJLPlMmIMEVdo3i6K/NPid9S2la5Zf+n0KVU0x0MMb0r3yP9tFUkw+6KUCeWA/YlSxtDmHfSLtKdQ==
+"@tilework/mosaic-nextjs-scripts@0.1.27":
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/@tilework/mosaic-nextjs-scripts/-/mosaic-nextjs-scripts-0.1.27.tgz#2d402c024a79f65db3a2c783d851a1545a154eba"
+  integrity sha512-a6XNv88ePKV8xpAlF+Y/Hs2e+dE9Z53jxze8lWWvmSZdpxJdwviuxcsQCHWvCfz5NZ7URfHErjVo6apgaSAMpA==
   dependencies:
     "@babel/core" "^7.14.0"
     "@babel/preset-react" "^7.13.13"
-    "@tilework/mosaic-config-injectors" "0.2.1"
+    "@tilework/mosaic-config-injectors" "0.2.2"
     "@tilework/mosaic-dev-utils" "0.2.3"
-    "@tilework/mosaic-test-utils" "0.0.34"
+    "@tilework/mosaic-test-utils" "0.0.35"
     chokidar "^3.5.1"
     cross-spawn "^7.0.0"
     debounce "^1.2.0"
@@ -3248,17 +3248,17 @@
     resolve "^1.20.0"
     tree-kill "^1.2.2"
 
-"@tilework/mosaic-test-utils@0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@tilework/mosaic-test-utils/-/mosaic-test-utils-0.0.34.tgz#21c0fe9cea05711de93c016bd1f7304b0939ce02"
-  integrity sha512-sQaK5O5BYUMTOsYKy2emKFp4M+vMRS/ataPgqldjdI1qXjKhReXc93uFZxS79+vPLQ5B75yzasBWfJX2/EqN3A==
+"@tilework/mosaic-test-utils@0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@tilework/mosaic-test-utils/-/mosaic-test-utils-0.0.35.tgz#1ea5282008154b900e9bb6310e54a3943148f5d3"
+  integrity sha512-YPEHWqU8XceS4ZCih7/sEYTzTmqp480NJBVCQlZHL//WcozIz18HdyyqPQv6pA1BxNENlSEmc6thkr+zdgOqqA==
   dependencies:
     "@testing-library/jest-dom" "^5.11.4"
     "@testing-library/react" "^11.2.6"
     "@tilework/mosaic" "0.1.7"
-    "@tilework/mosaic-config-injectors" "0.2.1"
+    "@tilework/mosaic-config-injectors" "0.2.2"
     "@tilework/mosaic-dev-utils" "0.2.3"
-    "@tilework/mosaic-nextjs-scripts" "0.1.26"
+    "@tilework/mosaic-nextjs-scripts" "0.1.27"
     babel-jest "26.6.3"
     babel-preset-react-app "10.0.0"
     react "17.0.1"

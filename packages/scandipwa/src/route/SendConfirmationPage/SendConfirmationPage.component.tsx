@@ -18,6 +18,10 @@ import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputTypeInput } from 'Util/Validator/Config';
 
@@ -36,9 +40,9 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
 
         return (
             <div block="SendConfirmationPage" elem="WarningMsg">
-                <h2>
+                <Typography variant={ TypographyVariants.H2 }>
                     { __('Unable to re-request confirmation email') }
-                </h2>
+                </Typography>
                 <div>
                     { __('The URL is invalid. Some parameters are missing.') }
                 </div>
@@ -76,13 +80,12 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   mix={ { block: 'SendConfirmationPage', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Send confirmation link') }
-                </button>
+                </Button>
             </Form>
         );
     }
@@ -96,12 +99,12 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
 
         return (
             <>
-                <h1 block="SendConfirmationPage" elem="Heading">
+                <Typography variant={ TypographyVariants.H1 } mix={ { block: 'SendConfirmationPage', elem: 'Heading' } }>
                     { __('Send confirmation link') }
-                </h1>
-                <p block="SendConfirmationPage" elem="SubHeading">
+                </Typography>
+                <Typography mix={ { block: 'SendConfirmationPage', elem: 'SubHeading' } }>
                     { __('Please enter your email below and we will send you the confirmation link.') }
-                </p>
+                </Typography>
                 { this.renderForm() }
             </>
         );

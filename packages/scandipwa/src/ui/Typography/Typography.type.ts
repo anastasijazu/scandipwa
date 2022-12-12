@@ -18,8 +18,8 @@ import { TypographyVariants } from './Typography.config';
 
 export interface TypographyContainerProps {
     children: Children;
-    mix: Mix;
-    attr: FieldAttributes;
+    mix?: Mix;
+    attr?: FieldAttributes;
     variant: TypographyVariants;
     appearance?: string;
 }

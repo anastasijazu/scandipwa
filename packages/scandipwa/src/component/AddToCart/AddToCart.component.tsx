@@ -13,6 +13,7 @@ import { PureComponent } from 'react';
 
 import CartIcon from 'Component/CartIcon';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { AddToCartComponentProps } from './AddToCart.type';
 
@@ -44,16 +45,16 @@ export class AddToCartComponent extends PureComponent<AddToCartComponentProps> {
         } = this.props;
 
         return (
-            <button
+            <Button
+              mix={ { block: 'AddToCart', mods: { layout }, mix } }
               onClick={ handleButtonClick }
-              block="Button AddToCart"
-              mix={ mix }
-              mods={ { layout } }
               disabled={ isDisabled || isAdding }
+              isLoading={ isAdding }
+              isFullWidth
             >
                 { this.renderCartIcon() }
                 <span>{ isAdding ? __('Adding...') : __('Add to cart') }</span>
-            </button>
+            </Button>
         );
     }
 }

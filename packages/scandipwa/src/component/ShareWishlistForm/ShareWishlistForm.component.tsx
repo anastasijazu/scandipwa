@@ -15,6 +15,8 @@ import { FormContainerProps } from 'Component/Form/Form.type';
 import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
 import { GQLShareWishlistInput } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { FieldData } from 'Util/Form/Form.type';
 import transformToNameValuePair from 'Util/Form/Transform';
 
@@ -45,9 +47,9 @@ export class ShareWishlistFormComponent extends FieldForm<ShareWishlistFormCompo
         return (
             <>
                 { isFormLoading && <Loader isLoading /> }
-                <button type="submit" block="Button">
+                <Button attr={ { type: ButtonType.SUBMIT } }>
                     { __('Share Wishlist') }
-                </button>
+                </Button>
             </>
         );
     }

@@ -19,7 +19,7 @@ import { TypographyComponentProps, TypographyMapVariant } from './Typography.typ
 
 import './Typography.style';
 
-/** @namespace ui/Typography/Component */
+/** @namespace Ui/Typography/Component */
 export class TypographyComponent extends PureComponent<TypographyComponentProps> {
     variantMap: Record<TypographyVariants, TypographyMapVariant> = {
         [TypographyVariants.H1]: {
@@ -50,23 +50,23 @@ export class TypographyComponent extends PureComponent<TypographyComponentProps>
 
     renderVariant(): ReactElement {
         const {
-            variant, children, mix, attr, appearance,
+            variant, children, attr, mix, appearance,
         } = this.props;
         const { Component, block } = this.variantMap[variant];
 
-        if (Component) {
-            return (
-                <Component
-                  block={ appearance || block }
-                  mix={ mix }
-                  { ...attr as HTMLAttributes<HTMLElement> }
-                >
-                  { children }
-                </Component>
-            );
+        if (!Component) {
+            return null;
         }
 
-        return null;
+        return (
+            <Component
+              block={ appearance || block }
+              mix={ mix || '' }
+              { ...attr as HTMLAttributes<HTMLElement> }
+            >
+              { children }
+            </Component>
+        );
     }
 
     render(): ReactElement {

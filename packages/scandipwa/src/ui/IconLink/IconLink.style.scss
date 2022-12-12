@@ -1,0 +1,148 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+@import '../Button/Button.style';
+
+.IconLink {
+    &_variant {
+        &_filled,
+        &_outlined,
+        &_transparent {
+            cursor: pointer;
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+            line-height: normal;
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            transition-property: background-color, color, border;
+            will-change: background-color, color, border;
+            padding: 2px;
+            border-radius: 100%;
+            border: {
+                style: solid;
+                width: 2px;
+                color: transparent;
+            }
+
+            @include mobile {
+                user-select: none;
+            }
+
+            &[disabled] {
+                @include button-disabled;
+            }
+
+            & * {
+                transition-duration: .25s;
+                transition-timing-function: ease-out;
+                transition-property: fill;
+                will-change: fill;
+            }
+        }
+
+        &_filled {
+            &.IconLink {
+                &_color {
+                    &_primary {
+                        background-color: var(--primary-base-color);
+                        border-color: var(--primary-base-color);
+
+                        & * {
+                            @include desktop {
+                                fill: $white;
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: $white;
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: var(--primary-dark-color);
+                                    border-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_outlined {
+            &.IconLink {
+                &_color {
+                    &_primary {
+                        background-color: transparent;
+                        border-color: var(--primary-base-color);
+
+                        & * {
+                            @include desktop {
+                                fill: var(--primary-base-color);
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: var(--primary-dark-color);
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: transparent;
+                                    border-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_transparent {
+            &.IconLink {
+                &_color {
+                    &_primary {
+                        background-color: transparent;
+                        border-color: transparent;
+
+                        & * {
+                            @include desktop {
+                                fill: var(--color-black);
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: var(--primary-base-color);
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: transparent;
+                                    border-color: transparent;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

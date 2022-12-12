@@ -21,6 +21,10 @@ import { StoreInPickUpCode } from 'Component/StoreInPickUp/StoreInPickUp.config'
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { formatPrice } from 'Util/Price';
 
 import { CheckoutBillingComponentProps, CheckoutBillingComponentState } from './CheckoutBilling.type';
@@ -115,14 +119,17 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                     />
                    <div>
                         { `${checkbox_text } - ` }
-                        <button
-                          block="CheckoutBilling"
-                          elem="TACLink"
+                        <Button
+                          variant={ ButtonVariants.LINK }
+                          mix={ {
+                              block: 'CheckoutBilling',
+                              elem: 'TACLink',
+                          } }
                           onClick={ this.handleShowPopup }
-                          type="button"
+                          attr={ { type: ButtonType.BUTTON } }
                         >
                             { __('read more') }
-                        </button>
+                        </Button>
                    </div>
                 </label>
             </div>
@@ -198,14 +205,13 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
         return (
             <div block="Checkout" elem="StickyButtonWrapper">
                 { this.renderOrderTotal() }
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutBilling', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Complete order') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -267,9 +273,12 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
 
     renderHeading(): ReactElement {
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Billing address') }
-            </h2>
+            </Typography>
         );
     }
 

@@ -11,7 +11,6 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link/Link.component';
 import {
     ORDER_ACTION_LABELS,
     OrderTabs,
@@ -22,6 +21,7 @@ import {
     InvoiceItem, OrderItemProduct, RefundItem, ShipmentItemInterface,
 } from 'Query/Order.type';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 import { getTimeInCurrentTimezone } from 'Util/Manipulations/Date';
 import { getProductFromOrder } from 'Util/Orders';
 import { appendWithStoreCode } from 'Util/Url';
@@ -75,8 +75,10 @@ export class MyAccountOrderItemsTableComponent extends PureComponent<MyAccountOr
 
         return (
             <Link
-              block="MyAccountOrderItemsTable"
-              elem="PrintOrder"
+              mix={ {
+                  block: 'MyAccountOrderItemsTable',
+                  elem: 'PrintOrder',
+              } }
               to={ appendWithStoreCode(`${printUrl}/${id}`) }
               isOpenInNewTab
             >

@@ -15,6 +15,7 @@ import { FieldType } from 'Component/Field/Field.config';
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import Loader from 'Component/Loader';
 import UploadIcon from 'Component/UploadIcon';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 
 import { FieldFileComponentProps } from './FieldFile.type';
@@ -26,10 +27,10 @@ import { FieldFileComponentProps } from './FieldFile.type';
 export class FieldFileComponent extends PureComponent<FieldFileComponentProps> {
     renderSubLabel(allowedTypes: string): ReactElement {
         return (
-            <p block="FieldFile" elem="AllowedTypes">
+            <Typography mix={ { block: 'FieldFile', elem: 'AllowedTypes' } }>
                 { __('Compatible file extensions to upload:') }
                 <strong>{ ` ${allowedTypes}` }</strong>
-            </p>
+            </Typography>
         );
     }
 
@@ -50,7 +51,7 @@ export class FieldFileComponent extends PureComponent<FieldFileComponentProps> {
                 <label htmlFor={ id }>
                     <p>{ fileName }</p>
                     <button onClick={ resetFieldValue as any }>
-                    { __('Remove file') }
+                        { __('Remove file') }
                     </button>
                 </label>
             );

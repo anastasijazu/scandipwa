@@ -14,6 +14,8 @@ import { FieldContainerProps } from 'Component/Field/Field.type';
 import FieldForm from 'Component/FieldForm';
 import { FormContainerProps } from 'Component/Form/Form.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { MyAccountNewsletterSubscriptionComponentProps } from './MyAccountNewsletterSubscription.type';
 
@@ -65,14 +67,15 @@ export class MyAccountNewsletterSubscriptionComponent extends FieldForm<MyAccoun
 
     renderActions(): ReactElement {
         return (
-            <button
-              type={ FieldType.SUBMIT }
-              block="Button"
+            <Button
               mix={ { block: 'MyAccountNewsletterSubscription', elem: 'Button' } }
-              aria-label={ __('Submit') }
+              attr={ {
+                  type: ButtonType.SUBMIT,
+                  'aria-label': __('Submit'),
+              } }
             >
                 { __('Save changes') }
-            </button>
+            </Button>
         );
     }
 }

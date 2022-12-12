@@ -12,9 +12,9 @@
 import { PureComponent } from 'react';
 
 import ChevronIcon from 'Component/ChevronIcon';
-import Link from 'Component/Link';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { ReactElement, Url } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { BreadcrumbComponentProps } from './Breadcrumb.type';
 
@@ -54,10 +54,10 @@ export class BreadcrumbComponent extends PureComponent<BreadcrumbComponentProps>
 
         return (
             <Link
-              block="Breadcrumb"
-              elem="Link"
               to={ url }
-              tabIndex={ isDisabled ? -1 : 0 }
+              mix={ { block: 'Breadcrumb', elem: 'Link' } }
+              attr={ { tabIndex: isDisabled ? -1 : 0 } }
+              isUnstyled
             >
                 <meta
                   itemProp="item"

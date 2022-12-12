@@ -26,6 +26,10 @@ import Loader from 'Component/Loader';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import IconButton from 'Ui/IconButton';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isCrawler, isSSR } from 'Util/Browser';
 import BrowserDatabase from 'Util/BrowserDatabase';
 
@@ -188,9 +192,12 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         return (
             <div block="CategoryPage" elem="PlaceholderWrapper">
                 <div block="CategoryPage" elem="PlaceholderContainer">
-                    <h3 block="CategoryPage" elem="PlaceholderHeading">
+                    <Typography
+                      variant={ TypographyVariants.H3 }
+                      mix={ { block: 'CategoryPage', elem: 'PlaceholderHeading' } }
+                    >
                         { __('Shopping Options') }
-                    </h3>
+                    </Typography>
                     <div block="CategoryPage" elem="PlaceholderList">
                         <div block="CategoryPage" elem="PlaceholderListItem" />
                         <div block="CategoryPage" elem="PlaceholderListItem" />
@@ -204,9 +211,9 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
 
     renderFilterButtonPlaceholder(): ReactElement {
         return (
-            <p block="CategoryPage" elem="FilterButtonPlaceholder">
+            <Typography mix={ { block: 'CategoryPage', elem: 'FilterButtonPlaceholder' } }>
                 <TextPlaceholder length={ TextPlaceHolderLength.SHORT } />
-            </p>
+            </Typography>
         );
     }
 
@@ -279,31 +286,31 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         switch (type) {
         case CategoryPageLayout.GRID:
             return (
-                <button
-                  key={ type }
-                  onClick={ onGridButtonClick }
+                <IconButton
+                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
                   } }
-                  aria-label="grid"
+                  attr={ { key: type, 'aria-label': 'grid' } }
+                  onClick={ onGridButtonClick }
                 >
                     <GridIcon isActive={ activeLayoutType === CategoryPageLayout.GRID } />
-                </button>
+                </IconButton>
             );
         case CategoryPageLayout.LIST:
             return (
-                <button
-                  key={ type }
-                  onClick={ onListButtonClick }
+                <IconButton
+                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },
                   } }
-                  aria-label="list"
+                  attr={ { key: type, 'aria-label': 'list' } }
+                  onClick={ onListButtonClick }
                 >
                     <ListIcon isActive={ activeLayoutType === CategoryPageLayout.LIST } />
-                </button>
+                </IconButton>
             );
         default:
             return false;

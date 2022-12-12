@@ -11,7 +11,9 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountConfirmEmailComponentProps } from './MyAccountConfirmEmail.type';
 
@@ -27,16 +29,15 @@ export class MyAccountConfirmEmailComponent extends PureComponent<MyAccountConfi
               elem="Additional"
               mods={ { state } }
             >
-                <p id="confirm-email-notice">
+                <Typography attr={ { id: 'confirm-email-notice' } }>
                     { /* eslint-disable-next-line max-len */ }
                     { __('The email confirmation link has been sent to your email. Please confirm your account to proceed.') }
-                </p>
-                <button
-                  block="Button"
+                </Typography>
+                <Button
                   onClick={ handleSignIn }
                 >
                     { __('Got it') }
-                </button>
+                </Button>
             </article>
         );
     }

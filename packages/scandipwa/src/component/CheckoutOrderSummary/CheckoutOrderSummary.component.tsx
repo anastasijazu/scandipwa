@@ -19,6 +19,8 @@ import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
 import { IndexedCartItem } from 'Store/Cart/Cart.type';
 import { Mods, ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getItemsCountLabel } from 'Util/Cart';
 
 import { CmsBlock } from '../../route/Checkout/Checkout.component';
@@ -205,7 +207,7 @@ export class CheckoutOrderSummaryComponent extends PureComponent<CheckoutOrderSu
               elem="Header"
               mix={ { block: 'CheckoutPage', elem: 'Heading', mods: { hasDivider: true } } }
             >
-                <h2>{ __('Summary') }</h2>
+                <Typography variant={ TypographyVariants.H2 }>{ __('Summary') }</Typography>
             </div>
         );
     }

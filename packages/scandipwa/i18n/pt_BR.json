@@ -609,5 +609,15 @@
     "State/Province": null,
     "Region": null,
     "You %s the address": null,
+    "Primary filled [default state + disabled]": null,
+    "Link text": null,
+    "Primary outlined [default state + disabled]": null,
+    "Secondary filled [default state + disabled]": null,
+    "Primary transparent [default state + disabled]": null,
+    "Secondary transparent [default state + disabled]": null,
+    "Primary and secondary button and link [default state + disabled]": null,
+    "website (button)": null,
+    "website (link)": null,
+    "The website aims to achieve": null,
     "You need to choose options for your item.": null
 }

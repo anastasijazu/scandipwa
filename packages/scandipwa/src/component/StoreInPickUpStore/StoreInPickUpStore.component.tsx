@@ -13,6 +13,10 @@ import { PureComponent } from 'react';
 
 import Html from 'Component/Html';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { StoreInPickUpStoreComponentProps } from './StoreInPickUpStore.type';
 
@@ -29,13 +33,12 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
 
         return (
             <div block="StoreInPickUpStore" elem="StoreActions">
-                <button
-                  block="Button"
+                <Button
                   onClick={ handleSelectStore }
-                  type="button"
+                  attr={ { type: ButtonType.BUTTON } }
                 >
                     { __('Ship here') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -61,15 +64,15 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
         return (
             <div block="StoreInPickUpStore" elem="Store">
                 <div block="StoreInPickUpStore" elem="StoreData">
-                    <h3>{ name }</h3>
-                    <p>{ street }</p>
-                    <p>{ `${city}, ${region || ''} ${postcode}` }</p>
-                    <p>{ country }</p>
+                    <Typography variant={ TypographyVariants.H3 }>{ name }</Typography>
+                    <Typography>{ street }</Typography>
+                    <Typography>{ `${city}, ${region || ''} ${postcode}` }</Typography>
+                    <Typography>{ country }</Typography>
                     { /* eslint-disable-next-line react/forbid-elements */ }
                     <a href={ `tel:${phone}` }>{ phone }</a>
-                    <p>
+                    <Typography>
                         <Html content={ description || '' } />
-                    </p>
+                    </Typography>
                 </div>
                 <div block="StoreInPickUpStore" elem="StoreActions">
                     { this.renderActions() }

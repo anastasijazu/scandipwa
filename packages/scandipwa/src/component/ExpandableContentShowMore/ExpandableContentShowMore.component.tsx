@@ -12,6 +12,8 @@
 import { createRef, PureComponent } from 'react';
 
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 
 import {
     ExpandableContentShowMoreComponentProps,
@@ -129,18 +131,18 @@ ExpandableContentShowMoreComponentState
 
         const { isOpen } = this.state;
 
-        const mods = isOpen ? { state: 'isOpen' } : {};
-
         return (
-            <button
+            <Button
+              variant={ ButtonVariants.LINK }
               onClick={ this.handleShowAllButtonClick }
-              mix={ { block: 'Button', mods: { likeLink: true } } }
-              block="ExpandableContentShowMore"
-              elem="ShowAllButton"
-              mods={ mods }
+              mix={ {
+                  block: 'ExpandableContentShowMore',
+                  elem: 'ShowAllButton',
+                  mods: isOpen ? { state: 'isOpen' } : {},
+              } }
             >
                 { isOpen ? __('Show less') : __('Show more') }
-            </button>
+            </Button>
         );
     }
 
