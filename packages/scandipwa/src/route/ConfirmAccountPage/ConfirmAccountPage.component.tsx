@@ -19,6 +19,8 @@ import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -90,13 +92,12 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   mix={ { block: 'ConfirmAccountPage', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Confirm your account') }
-                </button>
+                </Button>
             </Form>
         );
     }

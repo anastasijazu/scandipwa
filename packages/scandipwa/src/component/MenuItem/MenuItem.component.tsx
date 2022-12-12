@@ -13,9 +13,9 @@
 import { PureComponent } from 'react';
 
 import AddIcon from 'Component/AddIcon';
-import Link from 'Component/Link';
 import MinusIcon from 'Component/MinusIcon';
 import { Mods, ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 import { noopFn } from 'Util/Common';
 import { FormattedMenuItem } from 'Util/Menu/Menu.type';
 
@@ -90,13 +90,16 @@ export class MenuItemComponent extends PureComponent<MenuItemComponentProps> {
         return (
             <Link
               to={ url }
-              block="Menu"
-              elem="Link"
-              id={ item_id }
+              mix={ {
+                  block: 'Menu',
+                  elem: 'Link',
+                  mods: { isHovered },
+              } }
+              attr={ { id: item_id } }
               onMouseEnter={ handleCategoryHover }
               onMouseLeave={ handleLinkLeave }
-              mods={ { isHovered } }
               onClick={ onItemClick }
+              isUnstyled
             >
                 { this.renderItemContent(item, itemMods) }
             </Link>

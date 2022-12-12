@@ -35,11 +35,10 @@
 
 @mixin button-visible {
     opacity: 1;
-    height: 25px;
-    width: 25px;
+    height: 24px;
+    width: 24px;
     pointer-events: all;
     overflow: visible;
-    cursor: pointer;
 }
 
 @mixin visible-on-mobile {
@@ -189,15 +188,17 @@
         cursor: pointer;
         height: 100%;
         width: 100%;
+
+        svg {
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            transition-property: color, fill, stroke;
+            will-change: color, fill, stroke;
+        }
     }
 
     &-CompareButtonWrapper {
         margin-inline-start: 35px;
-        height: 24px;
-
-        a {
-            all: initial;
-        }
     }
 
     &-CompareCount {
@@ -294,12 +295,6 @@
             grid-template-columns: minmax(var(--header-logo-width), 1fr) minmax(auto, 660px) 1fr;
             justify-content: unset;
             padding-inline: 32px;
-        }
-    }
-
-    &-MyAccount {
-        @include desktop {
-            height: 24px;
         }
     }
 

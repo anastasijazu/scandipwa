@@ -13,6 +13,8 @@ import { PureComponent } from 'react';
 
 import Html from 'Component/Html';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { StoreInPickUpStoreComponentProps } from './StoreInPickUpStore.type';
 
@@ -29,13 +31,12 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
 
         return (
             <div block="StoreInPickUpStore" elem="StoreActions">
-                <button
-                  block="Button"
+                <Button
                   onClick={ handleSelectStore }
-                  type="button"
+                  attr={ { type: ButtonType.BUTTON } }
                 >
                     { __('Ship here') }
-                </button>
+                </Button>
             </div>
         );
     }

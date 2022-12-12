@@ -14,9 +14,10 @@ import { Component } from 'react';
 import CmsBlock from 'Component/CmsBlock';
 import ContentWrapper from 'Component/ContentWrapper';
 import Image from 'Component/Image';
-import Link from 'Component/Link';
 import NewsletterSubscription from 'Component/NewsletterSubscription';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonColors } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { noopFn } from 'Util/Common';
 
 import { COLUMN_MAP, NEWSLETTER_COLUMN, RENDER_NEWSLETTER } from './Footer.config';
@@ -89,12 +90,15 @@ export class FooterComponent extends Component<FooterComponentProps> {
 
         return (
             <Link
-              block="Footer"
-              elem="ColumnItem"
+              color={ ButtonColors.SECONDARY }
               to={ href }
-              mods={ src ? { type: 'image' } : undefined }
+              mix={ {
+                  block: 'Footer',
+                  elem: 'ColumnItem',
+                  mods: src ? { type: 'image' } : undefined,
+              } }
               key={ i }
-              aria-label={ title }
+              attr={ { 'aria-label': title } }
               onClick={ onItemClick }
             >
                 { this.renderColumnItemContent(src, title) }

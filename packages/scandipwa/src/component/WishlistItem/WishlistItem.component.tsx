@@ -23,6 +23,8 @@ import { ContentObject } from 'Component/ProductCard/ProductCard.type';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ItemOption } from 'Query/Wishlist.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { noopFn, noopFnAsync } from 'Util/Common';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 
@@ -148,14 +150,15 @@ export class WishlistItemComponent<P extends WishlistItemComponentProps = Wishli
         const mods: Record<string, boolean> = isMobile ? { isEditingActive } : {};
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: isMobile } }
+            <Button
+              variant={ isMobile
+                  ? ButtonVariants.OUTLINED
+                  : ButtonVariants.FILLED }
               mix={ { block: 'WishlistItem', elem: 'AddToCart', mods } }
               onClick={ addToCart }
             >
                 { __('Add to cart') }
-            </button>
+            </Button>
         );
     }
 

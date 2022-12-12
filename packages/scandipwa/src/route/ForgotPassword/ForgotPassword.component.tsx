@@ -18,6 +18,7 @@ import {
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { isSignedIn } from 'Util/Auth';
 
 import { ForgotPasswordComponentProps } from './ForgotPassword.type';
@@ -33,13 +34,12 @@ export class ForgotPasswordComponent extends MyAccountOverlayComponent<ForgotPas
             <div block="ForgotPassword" elem="SignInWrapper">
                 <h3>{ __('Registered Customers') }</h3>
                 <p>{ __('If you have an account, sign in with your email address.') }</p>
-                <button
-                  block="Button"
+                <Button
                   mix={ { block: 'ForgotPassword', elem: 'SignInButton' } }
                   onClick={ onLoginClick }
                 >
                     { __('Sign In') }
-                </button>
+                </Button>
             </div>
         );
     }
@@ -54,13 +54,12 @@ export class ForgotPasswordComponent extends MyAccountOverlayComponent<ForgotPas
                     { __('Creating an account has many benefits:') }
                     { __(' check out faster, keep more than one address, track orders and more.') }
                 </p>
-                <button
-                  block="Button"
+                <Button
                   mix={ { block: 'ForgotPassword', elem: 'CreateAccountButton' } }
                   onClick={ onCreateAccountClick }
                 >
                     { __('Create an Account') }
-                </button>
+                </Button>
             </div>
         );
     }

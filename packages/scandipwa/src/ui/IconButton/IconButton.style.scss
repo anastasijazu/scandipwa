@@ -1,0 +1,128 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+@import '../Button/Button.style';
+
+.IconButton {
+    &_variant {
+        &_filled,
+        &_outlined,
+        &_transparent {
+            @include button-like-common;
+
+            border: {
+                style: solid;
+                width: var(--default-button-border-width);
+                color: transparent;
+            }
+        }
+
+        &_filled {
+            &.IconButton {
+                &_color {
+                    &_primary {
+                        background-color: var(--primary-base-color);
+                        border-color: var(--primary-base-color);
+
+                        & * {
+                            @include desktop {
+                                fill: $white;
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: $white;
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: var(--primary-dark-color);
+                                    border-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_outlined {
+            &.IconButton {
+                &_color {
+                    &_primary {
+                        background-color: transparent;
+                        border-color: var(--primary-base-color);
+
+                        & * {
+                            @include desktop {
+                                fill: var(--primary-base-color);
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: var(--primary-dark-color);
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: transparent;
+                                    border-color: var(--primary-dark-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &_transparent {
+            &.IconButton {
+                &_color {
+                    &_primary {
+                        color: var(--color-black);
+                        background-color: transparent;
+                        border-color: transparent;
+
+                        & * {
+                            @include desktop {
+                                fill: var(--color-black);
+                                color: var(--color-black);
+                            }
+                        }
+
+                        &:not([disabled]) {
+                            &:hover {
+                                & * {
+                                    @include desktop {
+                                        fill: var(--primary-base-color);
+                                        color: var(--primary-base-color);
+                                    }
+                                }
+
+                                @include desktop {
+                                    background-color: transparent;
+                                    border-color: transparent;
+                                    color: var(--primary-base-color);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

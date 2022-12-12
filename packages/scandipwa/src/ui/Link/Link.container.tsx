@@ -20,11 +20,14 @@ import { noopFn } from 'Util/Common';
 import { RootState } from 'Util/Store/Store.type';
 import { appendWithStoreCode } from 'Util/Url';
 
+import { ButtonColors, ButtonVariants } from '../Button/Button.config';
 import Link from './Link.component';
+import { LinkUnderlineType } from './Link.config';
 import {
     LinkComponentProps,
-    LinkContainerDispatchProps,
+    LinkContainerComponentPropKeys,
     LinkContainerFunctions,
+    LinkContainerMapDispatchProps,
     LinkContainerMapStateProps,
     LinkContainerProps,
 } from './Link.type';
@@ -34,48 +37,65 @@ export const NoMatchDispatcher = import(
     'Store/NoMatch/NoMatch.dispatcher'
 );
 
-/** @namespace Component/Link/Container/mapStateToProps */
+/** @namespace Ui/Link/Container/mapStateToProps */
 export const mapStateToProps = (state: RootState): LinkContainerMapStateProps => ({
     baseLinkUrl: state.ConfigReducer.base_link_url || '',
 });
 
-/** @namespace Component/Link/Container/mapDispatchToProps */
-export const mapDispatchToProps = (dispatch: Dispatch): LinkContainerDispatchProps => ({
+/** @namespace Ui/Link/Container/mapDispatchToProps */
+export const mapDispatchToProps = (dispatch: Dispatch): LinkContainerMapDispatchProps => ({
     updateNoMatch: (noMatch) => NoMatchDispatcher.then(
         ({ default: dispatcher }) => dispatcher.updateNoMatch(dispatch, { noMatch }),
     ),
 });
 
-/** @namespace Component/Link/Container */
-export class LinkContainer extends PureComponent<LinkContainerProps> {
+/** @namespace Ui/Link/Container */
+export class LinkContainer<
+P extends LinkContainerProps = LinkContainerProps,
+> extends PureComponent<P> {
     static defaultProps: Partial<LinkContainerProps> = {
         onClick: noopFn,
+        mix: {},
+        isOpenInNewTab: false,
+        variant: ButtonVariants.LINK,
+        color: ButtonColors.PRIMARY,
+        disabled: false,
+        underline: LinkUnderlineType.NONE,
     };
 
     containerFunctions: LinkContainerFunctions = {
         onClick: this.onClick.bind(this),
     };
 
-    containerProps(): LinkComponentProps {
+    containerProps(): Pick<LinkComponentProps, LinkContainerComponentPropKeys> {
         const {
-            block,
-            elem,
-            mods,
             mix,
-            baseLinkUrl, // remove this prop
-            dispatch, // remove this prop
-            updateNoMatch,
+            children,
+            isOpenInNewTab,
+            attr,
+            variant,
+            color,
+            disabled,
+            baseLinkUrl,
+            dispatch,
+            isUnstyled,
+            underline,
+            key,
             ...restProps
         } = this.props;
 
         return {
             ...restProps,
+            key,
+            isUnstyled,
             to: this.getTo(),
-            bemProps: {
-                block,
-                elem,
-                mods,
-                mix,
+            mix,
+            isOpenInNewTab,
+            children,
+            attr,
+            block: 'Link',
+            mods: {
+                variant, color, disabled, underline,
             },
         };
     }
@@ -86,8 +106,8 @@ export class LinkContainer extends PureComponent<LinkContainerProps> {
         const to = toProp || '/';
 
         if (typeof to === 'string') {
-            // in case this URL is absolute, do not append store
-            if (/^https?:\/\//.test(to)) {
+            // in case this URL is absolute or used for scroll, do not append store
+            if (/^https?:\/\//.test(to) || /^#/.test(to)) {
                 return to;
             }
 

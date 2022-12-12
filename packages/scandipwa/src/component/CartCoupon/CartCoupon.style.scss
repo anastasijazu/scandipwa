@@ -82,8 +82,6 @@
     }
 
     &-Button {
-        @include button;
-
         @include mobile {
             width: 100%;
             margin-inline-start: 0;

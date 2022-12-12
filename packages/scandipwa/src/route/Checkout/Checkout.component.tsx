@@ -16,6 +16,8 @@ import ContentWrapper from 'Component/ContentWrapper';
 import { Page } from 'Component/Header/Header.config';
 import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 import { scrollToTop } from 'Util/Browser';
 import history from 'Util/History';
 import { appendWithStoreCode } from 'Util/Url';
@@ -412,26 +414,24 @@ export class CheckoutComponent extends PureComponent<CheckoutComponentProps> {
                block="Checkout"
                elem="DeliverySelect"
              >
-                 <button
-                   block="Checkout"
-                   elem="ShippingButton"
-                   mix={ { block: 'Button', mods: { isHollow: !isPickInStoreMethodSelected } } }
-                   type="button"
+                 <Button
+                   variant={ ButtonVariants.OUTLINED }
+                   mix={ { block: 'Checkout', elem: 'ShippingButton' } }
+                   attr={ { type: ButtonType.BUTTON } }
                    disabled={ !isPickInStoreMethodSelected }
                    onClick={ handleSelectDeliveryMethod }
                  >
                     { __('Shipping') }
-                 </button>
-                 <button
-                   block="Checkout"
-                   elem="PickInStore"
-                   mix={ { block: 'Button', mods: { isHollow: isPickInStoreMethodSelected } } }
-                   type="button"
+                 </Button>
+                 <Button
+                   variant={ ButtonVariants.OUTLINED }
+                   mix={ { block: 'Checkout', elem: 'PickInStore' } }
+                   attr={ { type: ButtonType.BUTTON } }
                    disabled={ isPickInStoreMethodSelected || shippingMethods?.length < 1 }
                    onClick={ handleSelectDeliveryMethod }
                  >
                      { __('Pick in Store') }
-                 </button>
+                 </Button>
              </div>
         );
     }

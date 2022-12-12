@@ -20,6 +20,7 @@ import {
 import ResetAttributes from 'Component/ResetAttributes';
 import ResetButton from 'Component/ResetButton';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { CATEGORY_FILTER_OVERLAY_ID } from './CategoryFilterOverlay.config';
 import { CategoryFilterOverlayComponentProps } from './CategoryFilterOverlay.type';
@@ -61,14 +62,13 @@ export class CategoryFilterOverlayComponent extends PureComponent<CategoryFilter
               block="CategoryFilterOverlay"
               elem="SeeResults"
             >
-                <button
-                  block="CategoryFilterOverlay"
-                  elem="Button"
-                  mix={ { block: 'Button' } }
+                <Button
+                  mix={ { block: 'CategoryFilterOverlay', elem: 'Button' } }
                   onClick={ onSeeResultsClick }
+                  isFullWidth
                 >
                     { __('SEE RESULTS') }
-                </button>
+                </Button>
             </div>
         );
     }

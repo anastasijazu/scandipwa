@@ -12,9 +12,9 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import { STATUS_EXPIRED } from 'Component/MyAccountDownloadableTableRow/MyAccountDownloadableTableRow.config';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { MyAccountDownloadableTableRowComponentProps } from './MyAccountDownloadableTableRow.type';
 
@@ -56,8 +56,10 @@ export class MyAccountDownloadableTableRowComponent extends PureComponent<MyAcco
         return (
             <Link
               to={ download_url }
-              block="MyAccountDownloadTableRow"
-              elem="DownloadLink"
+              mix={ {
+                  block: 'MyAccountDownloadTableRow',
+                  elem: 'DownloadLink',
+              } }
               isOpenInNewTab={ isOpenInNewTab }
             >
                 { link_title }

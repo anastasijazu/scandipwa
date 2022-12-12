@@ -17,6 +17,8 @@ import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 
 import { LoginAccountComponentProps } from './LoginAccount.type';
 
@@ -47,13 +49,12 @@ export class LoginAccountComponent extends MyAccountOverlayComponent<LoginAccoun
             return (
                 <div block="LoginAccount" elem="CreateAccount">
                     <h4>{ __("Don't have an account?") }</h4>
-                    <button
-                      block="Button"
-                      mods={ { likeLink: true } }
+                    <Button
+                      variant={ ButtonVariants.LINK }
                       onClick={ onCreateAccountClick }
                     >
                         { __('Create an Account') }
-                    </button>
+                    </Button>
                 </div>
             );
         }
@@ -65,13 +66,12 @@ export class LoginAccountComponent extends MyAccountOverlayComponent<LoginAccoun
                     { __('Creating an account has many benefits:') }
                     { __(' check out faster, keep more than one address, track orders and more.') }
                 </p>
-                <button
-                  block="Button"
+                <Button
                   mix={ { block: 'LoginAccount', elem: 'CreateAccountButton' } }
                   onClick={ onCreateAccountClick }
                 >
                     { __('Create an Account') }
-                </button>
+                </Button>
             </div>
         );
     }

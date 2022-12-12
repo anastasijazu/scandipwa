@@ -14,10 +14,11 @@ import { MouseEvent, PureComponent } from 'react';
 
 import CompareIcon from 'Component/CompareIcon';
 import CurrencySwitcher from 'Component/CurrencySwitcher';
-import Link from 'Component/Link';
 import MenuItem from 'Component/MenuItem';
 import StoreSwitcher from 'Component/StoreSwitcher';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonColors } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { getSortedItems } from 'Util/Menu';
 import { FormattedMenuItem } from 'Util/Menu/Menu.type';
 import { debounce } from 'Util/Request';
@@ -390,7 +391,7 @@ export class MenuComponent extends PureComponent<MenuComponentProps> {
 
         return (
             <div block="Menu" elem="CompareLinkWrapper">
-                <Link to="compare" block="Menu" elem="CompareLink">
+                <Link color={ ButtonColors.SECONDARY } to="compare" mix={ { block: 'Menu', elem: 'CompareLink' } }>
                     <CompareIcon />
                     <h4>{ __('Compare products') }</h4>
                     { this.renderCompareCount() }

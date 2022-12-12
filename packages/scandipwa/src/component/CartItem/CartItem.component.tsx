@@ -17,7 +17,6 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Image from 'Component/Image';
 import { ImageRatio } from 'Component/Image/Image.type';
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import { CartBundleOption, CartCustomizableOption } from 'Query/Cart.type';
 import { ReactElement } from 'Type/Common.type';
@@ -27,6 +26,7 @@ import {
     GQLSelectedCustomizableOption,
     GQLSelectedDownloadableLinks,
 } from 'Type/Graphql.type';
+import Link from 'Ui/Link';
 import { formatPrice } from 'Util/Price';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -163,7 +163,7 @@ export class CartItemComponent extends PureComponent<CartItemComponentProps> {
         }
 
         return (
-            <Link to={ linkTo } block="CartItem" elem="Link">
+            <Link to={ linkTo } mix={ { block: 'CartItem', elem: 'Link' } } isUnstyled>
                 { this.renderWrapperContent() }
             </Link>
         );
@@ -500,7 +500,7 @@ export class CartItemComponent extends PureComponent<CartItemComponentProps> {
 
         if (isMobile) {
             return (
-                <Link to={ linkTo } block="CartItem" elem="Link">
+                <Link to={ linkTo } mix={ { block: 'CartItem', elem: 'Link' } } isUnstyled>
                     { this.renderImageElement() }
                 </Link>
             );

@@ -15,10 +15,10 @@ import ExpandableContent from 'Component/ExpandableContent';
 import FieldContainer from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import FieldGroup from 'Component/FieldGroup';
-import Link from 'Component/Link';
 import { DownloadableProductLinks } from 'Query/ProductList.type';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Link from 'Ui/Link';
 import { formatPrice } from 'Util/Price';
 
 import { ProductDownloadableLinksComponentProps } from './ProductDownloadableLinks.type';
@@ -89,8 +89,10 @@ export class ProductDownloadableLinksComponent extends PureComponent<ProductDown
             <Link
               to={ sample_url }
               isOpenInNewTab={ isOpenInNewTab }
-              block="ProductDownloadableLink"
-              elem="SampleLink"
+              mix={ {
+                  block: 'ProductDownloadableLink',
+                  elem: 'SampleLink',
+              } }
             >
                 { __('Sample') }
             </Link>

@@ -26,7 +26,7 @@
     }
 
     &-Buttons {
-        > div:first-of-type {
+        > div {
             margin-block-end: 24px;
         }
     }
@@ -284,19 +284,11 @@
         border: 1px solid var(--primary-error-color);
     }
 
-    .Button {
+    .Button, .Link {
         margin-inline-end: 42px;
 
-        &_isHovered {
-            border-color: var(--button-hover-border);
-            background-color: var(--button-hover-background);
-            color: var(--button-hover-color);
-
-            &.Button_isHollow {
-                border-color: var(--button-hover-background);
-                background-color: transparent;
-                color: var(--button-hover-background);
-            }
+        &_variant_link {
+            margin-inline-end: 0;
         }
     }
 

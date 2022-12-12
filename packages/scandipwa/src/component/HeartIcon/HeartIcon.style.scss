@@ -11,6 +11,7 @@
 
 .HeartIcon {
     stroke: var(--color-black);
+    fill: transparent;
 
     &:hover {
         stroke: var(--primary-base-color);

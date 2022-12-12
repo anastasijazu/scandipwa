@@ -11,8 +11,8 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { PaginationLinkComponentProps } from './PaginationLink.type';
 
@@ -49,10 +49,12 @@ export class PaginationLinkComponent extends PureComponent<PaginationLinkCompone
                   pathname,
                   state,
               } }
-              aria-label={ label }
-              block="PaginationLink"
-              mods={ { isCurrent, isArrow: typeof children !== 'string' } }
-              aria-current={ isCurrent ? 'page' : 'false' }
+              attr={ { 'aria-label': label, 'aria-current': isCurrent ? 'page' : 'false' } }
+              mix={ {
+                  block: 'PaginationLink',
+                  mods: { isCurrent, isArrow: typeof children !== 'string' },
+              } }
+              isUnstyled
             >
                 { children }
             </Link>

@@ -18,6 +18,8 @@ import ShareIcon from 'Component/ShareIcon';
 import ShareWishlistPopup from 'Component/ShareWishlistPopup';
 import WishlistItem from 'Component/WishlistItem';
 import { ObjectEntries, ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import CSS from 'Util/CSS';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 
@@ -164,15 +166,14 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         } = this.props;
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: true, isWithoutBorder: true } }
+            <Button
+              variant={ ButtonVariants.TRANSPARENT }
               mix={ { block: 'MyAccountMyWishlist', elem: 'ClearWishlistButton' } }
               onClick={ removeAll }
               disabled={ isActionsDisabled || isLoading }
             >
                 { __('Clear All') }
-            </button>
+            </Button>
         );
     }
 
@@ -189,15 +190,14 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const isDisabled = (isMobile && isEditingActive) || isActionsDisabled || isLoading || isQtyUpdateInProgress;
 
         return (
-            <button
-              block="Button"
+            <Button
               mix={ { block: 'MyAccountMyWishlist', elem: 'Button' } }
               onClick={ addAllToCart }
               disabled={ isDisabled }
             >
                 <CartIcon />
                 { __('Add All to Cart') }
-            </button>
+            </Button>
         );
     }
 
@@ -211,16 +211,15 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const disabled = isWishlistLoading || isWishlistEmpty;
 
         return (
-            <button
-              block="Button"
-              mods={ { isHollow: true } }
+            <Button
+              variant={ ButtonVariants.OUTLINED }
               mix={ { block: 'MyAccountMyWishlist', elem: 'ShareWishlistButton' } }
               onClick={ shareWishlist }
               disabled={ disabled }
             >
                 <ShareIcon isPrimary />
                 { __('Share') }
-            </button>
+            </Button>
         );
     }
 
@@ -231,9 +230,8 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
         const isDisabled = isActionsDisabled || (isMobile && !selectedIdMap.length) || isQtyUpdateInProgress;
 
         return (
-            <button
-              block="Button"
-              mods={ { likeLink: true } }
+            <Button
+              variant={ ButtonVariants.LINK }
               mix={ { block: 'MyAccountMyWishlist', elem: 'ClearRemoveItemsButton' } }
               onClick={ this.handleRemoveButtonClick }
               disabled={ isDisabled }
@@ -241,7 +239,7 @@ S extends MyAccountMyWishlistComponentState = MyAccountMyWishlistComponentState,
                 { selectedIdMap.length === 1
                     ? __('Remove item (%s)', 1)
                     : __('Remove items (%s)', selectedIdMap.length) }
-            </button>
+            </Button>
         );
     }
 

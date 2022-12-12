@@ -1,0 +1,574 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+:root {
+    --link-color: var(--imported_link_color, var(--primary-base-color));
+    --link-hover: var(--imported_linkHover_color, var(--primary-dark-color));
+    --default-hover-link-underline: 2px solid var(--link-hover);
+    --link-underline: var(--imported_link_border_bottom, none);
+    --link-hover-underline: var(--imported_linkHover_border_bottom, var(--default-hover-link-underline));
+
+
+    --default-button-padding: 20px;
+    --default-button-radius: 2px;
+    --default-button-height: 48px;
+    --default-text-decoration: none;
+    --default-button-border-width: 2px;
+
+    // Filled button
+    --button-border-radius: var(--imported_buttons_border_radius, var(--default-button-radius));
+    --button-height: var(--imported_buttons_height, var(--default-button-height));
+    --button-padding: var(--imported_buttons_padding, var(--default-button-padding));
+    --button-text-decoration: var(--imported_buttons_text_decoration, var(--default-text-decoration));
+    --button-font-size: 14px;
+    --button-font-weight: 700;
+
+    // Primary filled button
+    --primary-filled-button-color: var(--imported_buttons_color, #{$white});
+    --primary-filled-button-background: var(--imported_buttons_background_color, var(--primary-base-color));
+    --primary-filled-button-border: var(--imported_buttons_background_color, var(--primary-base-color));
+
+    // Secondary filled button
+    --secondary-filled-button-color: var(--imported_buttons_color, #{$white});
+    --secondary-filled-button-background: var(--imported_buttons_background_color, var(--secondary-dark-color));
+    --secondary-filled-button-border: var(--imported_buttons_background_color, var(--secondary-dark-color));
+
+    // Filled button (Hover)
+    --button-hover-border-radius: var(--imported_hoverButtons_border_radius, var(--default-button-radius));
+    --button-hover-height: var(--imported_hoverButtons_height, var(--default-button-height));
+    --button-hover-padding: var(--imported_hoverButtons_padding, var(--default-button-padding));
+    --button-hover-decoration: var(--imported_hoverButtons_text_decoration, var(--default-text-decoration));
+
+    // Primary filled button (Hover)
+    --primary-filled-button-hover-color: var(--imported_hoverButtons_color, #{$white});
+    --primary-filled-button-hover-background: var(--imported_hoverButtons_background_color, var(--primary-dark-color));
+    --primary-filled-button-hover-border: var(--imported_hoverButtons_background_color, var(--primary-dark-color));
+
+    // Secondary filled button (Hover)
+    --secondary-filled-button-hover-color: var(--imported_hoverButton_color, #{$white});
+    --secondary-filled-button-hover-background: var(--imported_hoverButton_background_color, var(--secondary-base-color));
+    --secondary-filled-button-hover-border: var(--imported_hoverButton_background_color, var(--secondary-base-color));
+
+    // Outlined button (Hollow)
+    --hollow-button-border-radius: var(--imported_hollowButtons_border_radius, var(--default-button-radius));
+    --hollow-button-height: var(--imported_hollowButtons_height, var(--default-button-height));
+    --hollow-button-padding: var(--imported_hollowButtons_padding, var(--default-button-padding));
+    --hollow-button-text-decoration: var(--imported_hollowButtons_text_decoration, var(--default-text-decoration));
+    --hollow-button-font-size: 14px;
+    --hollow-button-font-weight: 700;
+
+    // Primary outlined button
+    --primary-hollow-button-color: var(--imported_hollowButtons_color, var(--primary-base-color));
+    --primary-hollow-button-background: var(--imported_hollowButtons_background_color, transparent);
+    --primary-hollow-button-border: var(--imported_hollowButtons_border_color, var(--primary-base-color));
+
+    // Secondary outlined button
+    --secondary-hollow-button-color: var(--imported_hollowButtons_color, var(--secondary-dark-color));
+    --secondary-hollow-button-background: var(--imported_hollowButtons_background_color, transparent);
+    --secondary-hollow-button-border: var(--imported_hollowButtons_border_color, var(--secondary-dark-color));
+
+    // Outlined button (Hover)
+    --hollow-button-hover-border-radius: var(--imported_hollowHoverButtons_border_radius, var(--default-button-radius));
+    --hollow-button-hover-height: var(--imported_hollowHoverButtons_height, var(--default-button-height));
+    --hollow-button-hover-padding: var(--imported_hollowHoverButtons_padding, var(--default-button-padding));
+    --hollow-button-hover-text-decoration: var(--imported_hollowHoverButtons_text_decoration, var(--default-text-decoration));
+
+    // Primary outlined button (Hover)
+    --primary-hollow-button-hover-color: var(--imported_hollowHoverButtons_color, var(--primary-dark-color));
+    --primary-hollow-button-hover-background: var(--imported_hollowHoverButtons_background_color, transparent);
+    --primary-hollow-button-hover-border: var(--imported_hollowHoverButtons_border_color, var(--primary-dark-color));
+
+    // Secondary outlined button (Hover)
+    --secondary-hollow-button-hover-color: var(--imported_hollowHoverButtons_color, var(--secondary-base-color));
+    --secondary-hollow-button-hover-background: var(--imported_hollowHoverButtons_background_color, transparent);
+    --secondary-hollow-button-hover-border: var(--imported_hollowHoverButtons_border_color, var(--secondary-base-color));
+
+    // Like link button
+    --link-button-height: min-content;
+    --link-button-padding: 0;
+
+    // Like link button (Hover)
+    --link-button-hover-height: min-content;
+    --link-button-hover-padding: 0;
+}
+
+button {
+    background-color: transparent;
+
+    // override default blue color for lists in Safari since iOS15
+
+    & * {
+        color: var(--color-black);
+    }
+}
+
+@mixin button-disabled {
+    pointer-events: none;
+    opacity: .25;
+
+    @content;
+}
+
+@mixin button-like-common {
+    cursor: pointer;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    line-height: normal;
+    transition-duration: .25s;
+    transition-timing-function: ease-out;
+    transition-property: background-color, color, border;
+    will-change: background-color, color, border;
+
+    &[disabled] {
+        @include button-disabled;
+    }
+
+    & * {
+        transition-duration: .25s;
+        transition-timing-function: ease-out;
+        transition-property: color, fill, stroke;
+        will-change: color, fill, stroke;
+    }
+
+    @content;
+}
+
+@mixin button-filled-color {
+    &_primary {
+        background-color: var(--primary-filled-button-background);
+        color: var(--primary-filled-button-color);
+        border-color: var(--primary-filled-button-border);
+
+        svg {
+            fill: var(--primary-filled-button-color);
+        }
+
+        & * {
+            color: var(--primary-filled-button-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    fill: var(--primary-filled-button-hover-color);
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-filled-button-hover-color);
+                    }
+                }
+
+                @include desktop {
+                    background-color: var(--primary-filled-button-hover-background);
+                    border-color: var(--primary-filled-button-hover-border);
+                    color: var(--primary-filled-button-hover-color);
+                }
+            }
+        }
+    }
+
+    &_secondary {
+        background-color: var(--secondary-filled-button-background);
+        color: var(--secondary-filled-button-color);
+        border-color: var(--secondary-filled-button-border);
+
+        svg {
+            fill: var(--secondary-filled-button-color);
+        }
+
+        & * {
+            color: var(--secondary-filled-button-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--secondary-filled-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--secondary-filled-button-hover-color);
+                    }
+                }
+
+                @include desktop {
+                    background-color: var(--secondary-filled-button-hover-background);
+                    border-color: var(--secondary-filled-button-hover-border);
+                    color: var(--secondary-filled-button-hover-color);
+                }
+            }
+        }
+    }
+}
+
+@mixin button-outlined-color {
+    &_primary {
+        background-color: var(--primary-hollow-button-background);
+        color: var(--primary-hollow-button-color);
+        border-color: var(--primary-hollow-button-border);
+
+        svg {
+            fill: var(--primary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--primary-hollow-button-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                @include desktop {
+                    background-color: var(--primary-hollow-button-hover-background);
+                    border-color: var(--primary-hollow-button-hover-border);
+                    color: var(--primary-hollow-button-hover-color);
+                }
+            }
+        }
+    }
+
+    &_secondary {
+        background-color: var(--secondary-hollow-button-background);
+        color: var(--secondary-hollow-button-color);
+        border-color: var(--secondary-hollow-button-border);
+
+        svg {
+            fill: var(--secondary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--secondary-hollow-button-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--secondary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--secondary-hollow-button-hover-color);
+                    }
+                }
+
+                @include desktop {
+                    background-color: var(--secondary-hollow-button-hover-background);
+                    border-color: var(--secondary-hollow-button-hover-border);
+                    color: var(--secondary-hollow-button-hover-color);
+                }
+            }
+        }
+    }
+}
+
+@mixin button-transparent-color {
+    &_primary {
+        color: var(--primary-hollow-button-color);
+
+        svg {
+            fill: var(--primary-hollow-button-color);
+        }
+
+        & * {
+            color: var(--primary-hollow-button-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-hollow-button-hover-color);
+                    }
+                }
+
+                @include desktop {
+                    color: var(--primary-hollow-button-hover-color);
+                }
+            }
+        }
+    }
+
+    &_secondary {
+        color: var(--color-black);
+
+        svg {
+            fill: var(--color-black);
+        }
+
+        & * {
+            color: var(--color-black);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-base-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-base-color);
+                    }
+                }
+
+                @include desktop {
+                    color: var(--primary-base-color);
+                }
+            }
+        }
+    }
+}
+
+@mixin button-link-color {
+    &_primary {
+        color: var(--link-color);
+
+        svg {
+            fill: var(--link-color);
+        }
+
+        & * {
+            color: var(--link-color);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--link-hover);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--link-hover);
+                    }
+                }
+
+                @include desktop {
+                    color: var(--link-hover);
+                }
+            }
+        }
+    }
+
+    &_secondary {
+        color: var(--color-black);
+
+        svg {
+            fill: var(--color-black);
+        }
+
+        & * {
+            color: var(--color-black);
+        }
+
+        &:not([disabled]) {
+            &:hover {
+                svg {
+                    @include desktop {
+                        fill: var(--primary-dark-color);
+                    }
+                }
+
+                & * {
+                    @include desktop {
+                        color: var(--primary-dark-color);
+                    }
+                }
+
+                @include desktop {
+                    color: var(--primary-dark-color);
+                }
+            }
+        }
+    }
+}
+
+@mixin button {
+    &_variant {
+        &_filled,
+        &_outlined,
+        &_transparent,
+        &_link {
+            @include button-like-common;
+        }
+
+        &_filled,
+        &_outlined,
+        &_transparent {
+            text-transform: uppercase;
+            border: {
+                style: solid;
+                width: var(--default-button-border-width);
+                color: transparent;
+            }
+
+            @include mobile {
+                user-select: none;
+                width: 100%;
+            }
+        }
+
+        &_filled {
+            font-size: var(--button-font-size);
+            font-weight: var(--button-font-weight);
+            border-radius: var(--button-border-radius);
+            height: var(--button-height);
+            padding-inline: var(--button-padding);
+            text-decoration: var(--button-text-decoration);
+
+            &:hover,
+            &:focus {
+                text-decoration: var(--button-hover-text-decoration);
+            }
+
+            &:not([disabled]) {
+                &:hover {
+                    @include desktop {
+                        border-radius: var(--button-hover-border-radius);
+                        height: var(--button-hover-height);
+                        padding-inline: var(--button-hover-padding);
+                    }
+                }
+            }
+
+            &.Button {
+                &_color {
+                    @include button-filled-color;
+                }
+
+                &_isLoading {
+                    @include button-disabled;
+                }
+            }
+        }
+
+        &_outlined {
+            font-size: var(--hollow-button-font-size);
+            font-weight: var(--hollow-button-font-weight);
+            background-color: var(--hollow-button-background);
+            border-radius: var(--hollow-button-border-radius);
+            height: var(--hollow-button-height);
+            padding-inline: var(--hollow-button-padding);
+            text-decoration: var(--hollow-button-text-decoration);
+
+            &:not([disabled]) {
+                &:hover {
+                    @include desktop {
+                        border-radius: var(--hollow-button-hover-border-radius);
+                        height: var(--hollow-button-hover-height);
+                        padding-inline: var(--hollow-button-hover-padding);
+                        text-decoration: var(--hollow-button-hover-text-decoration);
+                    }
+                }
+            }
+
+            &.Button {
+                &_color {
+                    @include button-outlined-color;
+                }
+
+                &_isLoading {
+                    @include button-disabled;
+                }
+            }
+        }
+
+        &_transparent {
+            font-size: var(--hollow-button-font-size);
+            font-weight: var(--hollow-button-font-weight);
+            border-radius: var(--hollow-button-border-radius);
+            height: var(--hollow-button-height);
+            padding-inline: var(--hollow-button-padding);
+            text-decoration: var(--hollow-button-text-decoration);
+
+            &:not([disabled]) {
+                &:hover {
+                    @include desktop {
+                        border-radius: var(--hollow-button-hover-border-radius);
+                        height: var(--hollow-button-hover-height);
+                        padding-inline: var(--hollow-button-hover-padding);
+                        text-decoration: var(--hollow-button-hover-text-decoration);
+                    }
+                }
+            }
+
+            &.Button {
+                &_color {
+                    @include button-transparent-color;
+                }
+
+                &_isLoading {
+                    @include button-disabled;
+                }
+            }
+        }
+
+        &_link {
+            height: var(--link-button-height);
+            padding: var(--link-button-padding);
+            font-size: var(--link-font-size);
+            font-weight: var(--link-font-weight);
+
+            &:hover,
+            &:focus {
+                height: var(--link-button-hover-height);
+                padding: var(--link-button-hover-padding);
+            }
+
+            &.Button {
+                &_color {
+                    @include button-link-color;
+                }
+
+                &_isLoading {
+                    @include button-disabled;
+                }
+            }
+        }
+    }
+}
+
+.Button {
+    @include button;
+
+    &_isFullWidth {
+        width: 100%;
+    }
+}

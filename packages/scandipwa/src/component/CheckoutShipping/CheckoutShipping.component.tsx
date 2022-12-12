@@ -20,6 +20,8 @@ import StoreInPickUpComponent from 'Component/StoreInPickUp';
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { getAllCartItemsSku } from 'Util/Cart';
 import { formatPrice } from 'Util/Price';
 
@@ -97,15 +99,14 @@ export class CheckoutShippingComponent extends PureComponent<CheckoutShippingCom
         return (
             <div block="Checkout" elem="StickyButtonWrapper">
                 { this.renderOrderTotal() }
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutShipping', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     <LockIcon />
                     { __('Proceed to billing') }
-                </button>
+                </Button>
             </div>
         );
     }

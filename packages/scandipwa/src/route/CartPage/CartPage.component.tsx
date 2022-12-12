@@ -23,6 +23,7 @@ import ProductLinks from 'Component/ProductLinks';
 import { CartTotals } from 'Store/Cart/Cart.type';
 import { LinkedProductType } from 'Store/LinkedProducts/LinkedProducts.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 
 import { CartPageComponentProps } from './CartPage.type';
@@ -137,15 +138,13 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
         return (
             <div block="CartPage" elem="CheckoutButtonWrapper">
-                <button
-                  block="CartPage"
-                  elem="CheckoutButton"
-                  mix={ { block: 'Button' } }
+                <Button
+                  mix={ { block: 'CartPage', elem: 'CheckoutButton' } }
                   onClick={ onCheckoutButtonClick }
                 >
                     <LockIcon />
                     { __('Proceed to checkout') }
-                </button>
+                </Button>
             </div>
         );
     }

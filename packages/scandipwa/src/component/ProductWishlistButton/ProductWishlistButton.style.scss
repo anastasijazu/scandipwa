@@ -13,12 +13,28 @@
     display: inline-block;
     height: var(--wishlist-heart-size);
     width: var(--wishlist-heart-size);
+    border: {
+        width: 2px;
+        style: solid;
+        color: transparent;
+    }
 
     &-Button.Button {
         background-color: unset;
         border: none;
         height: var(--wishlist-heart-size);
         padding: 0;
+        transition-duration: .25s;
+        transition-timing-function: ease-out;
+        transition-property: color, fill, stroke;
+        will-change: color, fill, stroke;
+
+        & * {
+            transition-duration: .25s;
+            transition-timing-function: ease-out;
+            transition-property: color, fill, stroke;
+            will-change: color, fill, stroke;
+        }
 
         &:hover,
         &:focus {

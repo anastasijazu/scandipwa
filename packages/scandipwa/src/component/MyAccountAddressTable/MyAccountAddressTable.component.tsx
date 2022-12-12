@@ -14,6 +14,8 @@ import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { FormattedRegion } from 'Util/Address/Address.type';
 
 import { getAddressTablePairArray } from './MyAccountAddressTable.table';
@@ -53,22 +55,24 @@ Props extends MyAccountAddressTableComponentProps = MyAccountAddressTableCompone
 
         return (
             <>
-                <button
-                  block="Button"
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
                   onClick={ onEditClick }
-                  mods={ { isHollow: true } }
                 >
                     { __('Edit address') }
-                </button>
-                <button
-                  block="Button"
-                  mods={ { isHollow: true, isWithoutBorder: true } }
+                </Button>
+                <Button
+                  variant={ ButtonVariants.TRANSPARENT }
                   onClick={ onDeleteClick }
                   disabled={ isDeleteAllowed }
-                  title={ isDeleteAllowed ? __('Can not delete - address is set as default.') : 'Delete this address' }
+                  attr={ {
+                      title: isDeleteAllowed
+                          ? __('Can not delete - address is set as default.')
+                          : 'Delete this address',
+                  } }
                 >
                     { __('Delete') }
-                </button>
+                </Button>
             </>
         );
     }

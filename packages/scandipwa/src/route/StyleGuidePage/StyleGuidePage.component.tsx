@@ -10,6 +10,7 @@
  * @package scandipwa/scandipwa
  * @link https://github.com/scandipwa/scandipwa
  */
+
 import { PureComponent } from 'react';
 
 import Breadcrumbs from 'Component/Breadcrumbs/Breadcrumbs.component';
@@ -19,6 +20,10 @@ import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
+import { LinkUnderlineType } from 'Ui/Link/Link.config';
 
 import {
     ADDITIONAL_ELEMENTS,
@@ -111,44 +116,243 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
     renderButtons(): ReactElement {
         return (
-            <div block="StyleGuidePage" elem="Buttons">
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Transactional [default state + hover]') }</h4>
-                <div>
-                    <button block="Button" id="buttons">
-                        { __('Button text') }
-                    </button>
-                    <button block="Button" id="hoverButtons" mods={ { isHovered: true } }>
-                        { __('Button text') }
-                    </button>
-                    <button block="Button" id="disabledButtons" disabled>
-                        { __('Button text') }
-                    </button>
+            <>
+                <div block="StyleGuidePage" elem="Buttons">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary filled [default state + disabled]') }</h4>
+                    <div>
+                        <Button>
+                            { __('Button text') }
+                        </Button>
+                        <Button disabled>
+                            { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Button variant={ ButtonVariants.FILLED } color={ ButtonColors.PRIMARY }>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                        <Button disabled>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Link to="/" variant={ ButtonVariants.FILLED }>
+                            { __('Link text') }
+                        </Link>
+                        <Link to="/" variant={ ButtonVariants.FILLED } disabled>
+                            { __('Link text') }
+                        </Link>
+                    </div>
                 </div>
-                <div>
-                    <button block="Button">
-                        <LockIcon />
-                        { __('Button text') }
-                    </button>
-                    <button block="Button" mods={ { isHovered: true } }>
-                        <LockIcon />
-                        { __('Button text') }
-                    </button>
-                    <button block="Button" disabled>
-                        <LockIcon />
-                        { __('Button text') }
-                    </button>
+
+                <div block="StyleGuidePage" elem="Buttons">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary outlined [default state + disabled]') }</h4>
+                    <div>
+                        <Button variant={ ButtonVariants.OUTLINED }>
+                            { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.OUTLINED } disabled>
+                            { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Button variant={ ButtonVariants.OUTLINED }>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.OUTLINED } disabled>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Link to="/" variant={ ButtonVariants.OUTLINED }>
+                            { __('Link text') }
+                        </Link>
+                        <Link to="/" variant={ ButtonVariants.OUTLINED } disabled>
+                            { __('Link text') }
+                        </Link>
+                    </div>
                 </div>
-                <h4 block="StyleGuidePage" elem="SubHeading">{ __('Supportive [default state + hover]') }</h4>
-                <button block="Button" id="hollowButtons" mods={ { isHollow: true } }>
-                    { __('Secondary button') }
-                </button>
-                <button block="Button" id="hollowHoverButtons" mods={ { isHollow: true, isHovered: true } }>
-                    { __('Secondary button') }
-                </button>
-                <button block="Button" id="hollowHoverButtons" mods={ { isHollow: true } } disabled>
-                    { __('Secondary button') }
-                </button>
-            </div>
+
+                <div block="StyleGuidePage" elem="Buttons">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Secondary filled [default state + disabled]') }</h4>
+                    <div>
+                        <Button color={ ButtonColors.SECONDARY }>
+                            { __('Button text') }
+                        </Button>
+                        <Button color={ ButtonColors.SECONDARY } disabled>
+                            { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Button color={ ButtonColors.SECONDARY }>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                        <Button color={ ButtonColors.SECONDARY } disabled>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY }>
+                            { __('Link text') }
+                        </Link>
+                        <Link to="/" variant={ ButtonVariants.FILLED } color={ ButtonColors.SECONDARY } disabled>
+                            { __('Link text') }
+                        </Link>
+                    </div>
+                </div>
+
+                <div block="StyleGuidePage" elem="Buttons">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary transparent [default state + disabled]') }</h4>
+                    <div>
+                        <Button variant={ ButtonVariants.TRANSPARENT }>
+                            { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.TRANSPARENT } disabled>
+                            { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Button variant={ ButtonVariants.TRANSPARENT }>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.TRANSPARENT } disabled>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT }>
+                            { __('Link text') }
+                        </Link>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } disabled>
+                            { __('Link text') }
+                        </Link>
+                    </div>
+                </div>
+
+                <div block="StyleGuidePage" elem="Buttons">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Secondary transparent [default state + disabled]') }</h4>
+                    <div>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY }>
+                            { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
+                            { __('Button text') }
+                        </Button>
+                    </div>
+                    <div>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY }>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                        <Button variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
+                                <LockIcon />
+                                { __('Button text') }
+                        </Button>
+                    </div>
+
+                    <div>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY }>
+                            { __('Link text') }
+                        </Link>
+                        <Link to="/" variant={ ButtonVariants.TRANSPARENT } color={ ButtonColors.SECONDARY } disabled>
+                            { __('Link text') }
+                        </Link>
+                    </div>
+                </div>
+
+                <div block="StyleGuidePage" elem="ButtonsLinks">
+                    <h4 block="StyleGuidePage" elem="SubHeading">{ __('Primary and secondary button and link [default state + disabled]') }</h4>
+                    <div>
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Button variant={ ButtonVariants.LINK }>
+                                { __('website (button)') }
+                            </Button>
+                                { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Button variant={ ButtonVariants.LINK } disabled>
+                                { __('website (button)') }
+                            </Button>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY }>
+                                { __('website (button)') }
+                            </Button>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Button variant={ ButtonVariants.LINK } color={ ButtonColors.SECONDARY } disabled>
+                                { __('website (button)') }
+                            </Button>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Link to="/" underline={ LinkUnderlineType.HOVER }>
+                                { __('website (link)') }
+                            </Link>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Link to="/" disabled>
+                                { __('website (link)') }
+                            </Link>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Link to="/" color={ ButtonColors.SECONDARY } underline={ LinkUnderlineType.ALWAYS }>
+                                { __('website (link)') }
+                            </Link>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+
+                        <p id="paragraph">
+                            { __('The ') }
+                            <Link to="/" color={ ButtonColors.SECONDARY } disabled>
+                                { __('website (link)') }
+                            </Link>
+                            { __(' aims to achieve') }
+                            <strong>{ __(' following ') }</strong>
+                            { __('business goals:') }
+                        </p>
+                    </div>
+                </div>
+            </>
         );
     }
 
@@ -161,30 +365,22 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     <h2 id="h2">{ __('Heading 2') }</h2>
                     <h3 id="h3">{ __('Heading 3') }</h3>
                     <p id="paragraph">
-                        { __('The ') }
-                        <a block="Link" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p id="paragraph">
-                        { __('The ') }
-                        <a block="StyleGuidePage" href="/" elem="ActiveLink">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p block="caption" id="caption">
-                        { __('The ') }
-                        <a block="Link" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p block="caption" id="caption">
-                        { __('The ') }
-                        <a block="StyleGuidePage" elem="ActiveLink" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
@@ -195,30 +391,22 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     <h2 id="h2Mobile">{ __('Heading 2') }</h2>
                     <h3 id="h3Mobile">{ __('Heading 3') }</h3>
                     <p id="paragraphMobile">
-                        { __('The ') }
-                        <a block="Link" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p id="paragraphMobile">
-                        { __('The ') }
-                        <a block="StyleGuidePage" elem="ActiveLink" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p block="caption" id="captionMobile">
-                        { __('The ') }
-                        <a block="Link" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>
                     <p block="caption" id="captionMobile">
-                        { __('The ') }
-                        <a block="StyleGuidePage" elem="ActiveLink" href="/">{ __('website') }</a>
-                        { __(' aims to achieve') }
+                        { __('The website aims to achieve') }
                         <strong>{ __(' following ') }</strong>
                         { __('business goals:') }
                     </p>

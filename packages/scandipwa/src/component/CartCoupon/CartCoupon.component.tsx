@@ -17,6 +17,8 @@ import { EventFieldData } from 'Component/Field/Field.type';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonColors, ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 
 import { CartCouponComponentProps, CartCouponComponentState } from './CartCoupon.type';
 
@@ -120,16 +122,19 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                       mix={ { mods: { hasError: isFieldWithError }, block: 'Field' } }
                     />
                 </div>
-                <button
-                  block="CartCoupon"
-                  elem="Button"
-                  type={ FieldType.BUTTON }
-                  mods={ { isHollow: true } }
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
+                  color={ ButtonColors.PRIMARY }
+                  mix={ {
+                      block: 'CartCoupon',
+                      elem: 'Button',
+                  } }
+                  attr={ { type: ButtonType.BUTTON } }
                   disabled={ !enteredCouponCode }
                   onClick={ this.handleApplyCoupon }
                 >
                     { __('Submit') }
-                </button>
+                </Button>
             </>
         );
     }
@@ -145,15 +150,17 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                         <strong>{ couponCode.toUpperCase() }</strong>
                     </p>
                 </div>
-                <button
-                  block="CartCoupon"
-                  elem="Button"
-                  type="button"
-                  mix={ { block: 'Button' } }
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
+                  mix={ {
+                      block: 'CartCoupon',
+                      elem: 'Button',
+                  } }
+                  attr={ { type: ButtonType.BUTTON } }
                   onClick={ this.handleRemoveCoupon }
                 >
                     { __('Remove Coupon') }
-                </button>
+                </Button>
             </>
         );
     }

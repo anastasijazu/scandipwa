@@ -15,6 +15,7 @@ import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { CreateAccountComponentProps } from './CreateAccount.type';
 
@@ -29,7 +30,11 @@ export class CreateAccountComponent extends MyAccountOverlayComponent<CreateAcco
             <div block="CreateAccount" elem="SignInWrapper">
                 <h3>{ __('Registered Customers') }</h3>
                 <p>{ __('If you have an account, sign in with your email address.') }</p>
-                <button block="Button" onClick={ onLoginClick }>{ __('Sign In') }</button>
+                <Button
+                  onClick={ onLoginClick }
+                >
+                    { __('Sign In') }
+                </Button>
             </div>
         );
     }

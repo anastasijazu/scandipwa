@@ -11,25 +11,20 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { MouseEvent, PureComponent } from 'react';
+import { LinkHTMLAttributes, MouseEvent, PureComponent } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { stringify } from 'rebem-classname';
 
 import { ReactElement } from 'Type/Common.type';
-import { noopFn } from 'Util/Common';
 
 import { LinkComponentProps } from './Link.type';
 
-/** @namespace Component/Link/Component */
-export class LinkComponent extends PureComponent<LinkComponentProps> {
-    static defaultProps: Partial<LinkComponentProps> = {
-        bemProps: {},
-        className: '',
-        onClick: noopFn,
-        isOpenInNewTab: false,
-        id: '',
-    };
+import './Link.style';
 
+/** @namespace Ui/Link/Component */
+export class LinkComponent<
+P extends LinkComponentProps = LinkComponentProps,
+> extends PureComponent<P> {
     scrollToElement(e: MouseEvent): void {
         const {
             to: cssIdentifier,
@@ -57,66 +52,54 @@ export class LinkComponent extends PureComponent<LinkComponentProps> {
             isOpenInNewTab,
             children,
             to,
+            attr,
+            mix,
+            mods,
+            block,
+            isUnstyled,
             ...props
         } = this.props;
 
-        if (isOpenInNewTab) {
-            return (
-                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-                <a
-                  { ...props }
-                  onClick={ this.scrollToElement }
-                  href={ to as string }
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                    { children }
-                </a>
-            );
-        }
-
         return (
-            // eslint-disable-next-line jsx-a11y/click-events-have-key-events
             <a
               { ...props }
+              block={ block }
+              mods={ isUnstyled ? {} : mods }
+              mix={ mix }
+              { ...attr as LinkHTMLAttributes<HTMLElement> }
               onClick={ this.scrollToElement }
               href={ to as string }
+              rel={ isOpenInNewTab && 'noopener noreferrer' }
+              target={ isOpenInNewTab && '_blank' }
             >
                 { children }
             </a>
         );
     }
 
-    renderAbsolutePathLink(classNameConverted: string): ReactElement {
+    renderAbsolutePathLink(): ReactElement {
         const {
             isOpenInNewTab,
             children,
             to,
-            bemProps,
+            mix,
+            attr,
+            mods,
+            block,
+            isUnstyled,
             ...props
         } = this.props;
-
-        if (isOpenInNewTab) {
-            return (
-                <a
-                  { ...props }
-                  href={ to as string }
-                    // eslint-disable-next-line react/forbid-dom-props
-                  className={ classNameConverted }
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                    { children }
-                </a>
-            );
-        }
 
         return (
             <a
               { ...props }
+              block={ block }
+              mods={ isUnstyled ? {} : mods }
+              mix={ mix }
+              { ...attr as LinkHTMLAttributes<HTMLElement> }
               href={ to as string }
-                // eslint-disable-next-line react/forbid-dom-props
-              className={ classNameConverted }
+              rel={ isOpenInNewTab && 'noopener noreferrer' }
+              target={ isOpenInNewTab && '_blank' }
             >
                 { children }
             </a>
@@ -125,17 +108,26 @@ export class LinkComponent extends PureComponent<LinkComponentProps> {
 
     render(): ReactElement {
         const {
-            className,
-            bemProps,
+            mix,
+            attr,
             children,
             to,
             isOpenInNewTab,
+            mods: modifiers,
+            isUnstyled,
+            block,
             ...props
         } = this.props;
 
         if (!to) {
             return (
-                <div { ...props } { ...bemProps }>
+                <div
+                  { ...props }
+                  block={ block }
+                  mods={ isUnstyled ? {} : modifiers }
+                  mix={ mix }
+                  { ...attr as LinkHTMLAttributes<HTMLElement> }
+                >
                     { children }
                 </div>
             );
@@ -145,15 +137,17 @@ export class LinkComponent extends PureComponent<LinkComponentProps> {
             return this.renderRelativePathLink();
         }
 
-        const classNameConverted = `${ className } ${ stringify(bemProps)}`;
-
         if (/^https?:\/\//.test(to as string) || isOpenInNewTab) {
-            return this.renderAbsolutePathLink(classNameConverted);
+            return this.renderAbsolutePathLink();
         }
+
+        const mods = isUnstyled ? {} : modifiers;
+        const classNameConverted = `${ stringify({ block, mods, mix })}`;
 
         return (
             <RouterLink
               { ...props }
+              { ...attr as LinkHTMLAttributes<HTMLElement> }
               to={ to }
               // eslint-disable-next-line react/forbid-component-props
               className={ classNameConverted }

@@ -11,13 +11,13 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import Loader from 'Component/Loader';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import MyAccountCustomerTable from 'Component/MyAccountCustomerTable';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { MyAccountDashboardComponentProps } from './MyAccountDashboard.type';
 

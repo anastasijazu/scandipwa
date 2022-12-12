@@ -11,10 +11,11 @@
 
 import { PureComponent } from 'react';
 
-import Link from 'Component/Link';
 import { ORDER_ID } from 'Component/MyAccountOrder/MyAccountOrder.config';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { isSignedIn } from 'Util/Auth';
 import { appendWithStoreCode } from 'Util/Url';
 
@@ -28,7 +29,7 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
         return (
             <div block="CheckoutSuccess" elem="ButtonWrapper">
                 <Link
-                  block="Button"
+                  variant={ ButtonVariants.FILLED }
                   mix={ { block: 'CheckoutSuccess', elem: 'ContinueButton' } }
                   to="/"
                 >
@@ -62,6 +63,7 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
                     { `${__('Email address')}: ${email}` }
                 </p>
                 <Link
+                  variant={ ButtonVariants.FILLED }
                   to={ {
                       pathname: appendWithStoreCode(`${ AccountPageUrl.REGISTRATION_URL }`),
                       state: {
@@ -71,7 +73,6 @@ export class CheckoutSuccessComponent extends PureComponent<CheckoutSuccessCompo
                           orderID,
                       },
                   } }
-                  block="Button"
                 >
                     { __('Create account') }
                 </Link>

@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountConfirmEmailComponentProps } from './MyAccountConfirmEmail.type';
 
@@ -31,12 +32,11 @@ export class MyAccountConfirmEmailComponent extends PureComponent<MyAccountConfi
                     { /* eslint-disable-next-line max-len */ }
                     { __('The email confirmation link has been sent to your email. Please confirm your account to proceed.') }
                 </p>
-                <button
-                  block="Button"
+                <Button
                   onClick={ handleSignIn }
                 >
                     { __('Got it') }
-                </button>
+                </Button>
             </article>
         );
     }

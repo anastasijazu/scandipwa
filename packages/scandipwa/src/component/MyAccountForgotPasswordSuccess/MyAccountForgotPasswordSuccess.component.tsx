@@ -12,6 +12,7 @@
 import { PureComponent } from 'react';
 
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { MyAccountForgotPasswordSuccessContainerProps } from './MyAccountForgotPasswordSuccess.type';
 
@@ -31,12 +32,9 @@ export class MyAccountForgotPasswordSuccessComponent extends PureComponent<MyAcc
                     { /* eslint-disable-next-line max-len */ }
                     { __('If there is an account associated with %s you will receive an email with a link to reset your password', submittedEmail) }
                 </p>
-                <button
-                  block="Button"
-                  onClick={ handleSignIn }
-                >
+                <Button onClick={ handleSignIn }>
                     { __('Got it') }
-                </button>
+                </Button>
             </article>
         );
     }

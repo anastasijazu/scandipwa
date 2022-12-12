@@ -16,6 +16,8 @@ import { FieldType } from 'Component/Field/Field.config';
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import MinusIcon from 'Component/MinusIcon';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import IconButton from 'Ui/IconButton';
 import { DEFAULT_MAX_PRODUCTS } from 'Util/Product/Product.type';
 
 import { FieldNumberWitControlsComponentProps } from './FieldNumberWithControls.type';
@@ -54,24 +56,26 @@ export class FieldNumberWithControlsComponent extends PureComponent<FieldNumberW
                   aria-label={ __('Value') }
                   disabled={ isDisabled }
                 />
-                <button
+                <IconButton
+                  variant={ ButtonVariants.OUTLINED }
                   disabled={ max === 1 || numberValue >= max || isDisabled }
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={ () => handleValueChange(numberValue + 1) }
-                  aria-label={ __('Add') }
-                  type={ FieldType.BUTTON }
+                  attr={ {
+                      'aria-label': __('Add'),
+                      type: ButtonType.BUTTON,
+                  } }
                 >
                     <AddIcon block="SubtractButton" isPrimary />
-                </button>
-                <button
+                </IconButton>
+                <IconButton
+                  variant={ ButtonVariants.OUTLINED }
                   disabled={ numberValue + 1 === min || numberValue <= min || isDisabled }
                   // eslint-disable-next-line react/jsx-no-bind
                   onClick={ () => handleValueChange(numberValue - 1) }
-                  aria-label={ __('Subtract') }
-                  type={ FieldType.BUTTON }
                 >
                     <MinusIcon block="AddButton" isPrimary />
-                </button>
+                </IconButton>
             </>
         );
     }

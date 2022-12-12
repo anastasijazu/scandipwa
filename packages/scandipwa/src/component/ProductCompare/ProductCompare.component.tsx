@@ -17,6 +17,8 @@ import ProductCompareItem from 'Component/ProductCompareItem';
 import ProductPrice from 'Component/ProductPrice';
 import { ComparableProduct } from 'Query/ProductCompare.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { getPrice } from 'Util/Product/Extract';
 import { StockCheckProduct } from 'Util/Product/Product.type';
 
@@ -86,13 +88,12 @@ export class ProductCompareComponent extends Component<ProductCompareComponentPr
               elem="FirstColumn"
               mix={ { block: 'ClearButton' } }
             >
-                <button
-                  block="Button"
-                  mods={ { isHollow: true } }
+                <Button
+                  variant={ ButtonVariants.OUTLINED }
                   onClick={ clearCompareList }
                 >
                     { __('Clear Compare') }
-                </button>
+                </Button>
             </div>
         );
     }

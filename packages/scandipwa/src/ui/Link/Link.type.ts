@@ -9,7 +9,9 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { MouseEvent } from 'react';
+import {
+    HTMLAttributes, LinkHTMLAttributes, MouseEvent,
+} from 'react';
 import { Dispatch } from 'redux';
 
 import {
@@ -19,11 +21,16 @@ import {
     Url,
 } from 'Type/Common.type';
 
+import { LinkUnderlineType } from './Link.config';
+
+export type LinkAttributes = LinkHTMLAttributes<HTMLLinkElement>
+| HTMLAttributes<HTMLDivElement>;
+
 export interface LinkContainerMapStateProps {
     baseLinkUrl: string;
 }
 
-export interface LinkContainerDispatchProps {
+export interface LinkContainerMapDispatchProps {
     updateNoMatch: (noMatch: boolean) => void;
 }
 
@@ -32,32 +39,45 @@ export interface LinkContainerFunctions {
 }
 
 export type LinkContainerProps =
-    LinkContainerMapStateProps & LinkContainerDispatchProps & {
+    LinkContainerMapStateProps & LinkContainerMapDispatchProps & {
+        variant: string;
+        color: string;
+        disabled: boolean;
         onClick: (e: MouseEvent) => void;
         to: Url | string;
         children: Children;
         isOpenInNewTab?: boolean;
-        className?: string;
-        block?: string;
-        elem?: string;
-        mods?: Mods;
-        mix?: Mix;
         dispatch?: Dispatch;
-        id?: string;
+        isUnstyled?: boolean;
+        underline: LinkUnderlineType;
+        mix?: Mix;
+        attr?: LinkAttributes;
+        key?: string | number;
         onMouseEnter?: () => void;
         onMouseLeave?: () => void;
-        tabIndex?: number;
     };
 
 export interface LinkComponentProps {
     to: Url | string;
     children: Children;
     onClick: (e: MouseEvent) => void;
-    bemProps: Mix & { mix?: Mix };
-    className?: string;
+    block: string;
+    mods: Mods;
+    mix?: Mix;
+    key?: string | number;
     isOpenInNewTab?: boolean;
-    id?: string;
+    isUnstyled?: boolean;
+    attr?: any;
     onMouseEnter?: () => void;
     onMouseLeave?: () => void;
-    tabIndex?: number;
 }
+
+export type LinkContainerComponentPropKeys =
+    | 'to'
+    | 'children'
+    | 'mix'
+    | 'isOpenInNewTab'
+    | 'attr'
+    | 'block'
+    | 'mods'
+    | 'isUnstyled';

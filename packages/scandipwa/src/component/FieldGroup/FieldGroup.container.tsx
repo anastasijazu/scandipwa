@@ -117,7 +117,7 @@ export class FieldGroupContainer extends PureComponent<FieldGroupContainerProps,
         const fields = getFieldsData(
             this.groupRef,
             false,
-            [FieldType.NUMBER_WITH_CONTROLS, FieldType.BUTTON],
+            [FieldType.NUMBER_WITH_CONTROLS],
         );
 
         hook(...[...args, { ...attr, formRef: this.groupRef, fields }]);

@@ -12,8 +12,9 @@
 import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
-import Link from 'Component/Link';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { scrollToTop } from 'Util/Browser';
 
 import { NoMatchComponentProps } from './NoMatch.type';
@@ -65,10 +66,9 @@ export class NoMatchComponent extends PureComponent<NoMatchComponentProps> {
                         { __('Sorry, we can`t find the page you are looking for! Please press a button below to go back to homepage.') }
                     </p>
                     <Link
+                      variant={ ButtonVariants.FILLED }
                       to="/"
-                      block="NoMatch"
-                      elem="Button"
-                      mix={ { block: 'Button' } }
+                      mix={ { block: 'NoMatch', elem: 'Button' } }
                     >
                         { __('Back to homepage') }
                     </Link>

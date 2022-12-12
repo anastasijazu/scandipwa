@@ -16,6 +16,8 @@ import { FieldContainerProps } from 'Component/Field/Field.type';
 import FieldForm from 'Component/FieldForm';
 import { FormContainerProps } from 'Component/Form/Form.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import customerEmailAndPasswordFields from './PasswordChangeForm.form';
 import { PasswordChangeFormComponentProps } from './PasswordChangeForm.type';
@@ -51,14 +53,12 @@ export class PasswordChangeFormComponent extends FieldForm<PasswordChangeFormCom
     renderActions(): ReactElement {
         return (
             <div block="PasswordChangeForm" elem="Action">
-                <button
-                  type="submit"
-                  block="PasswordChangeForm"
-                  elem="Button"
-                  mix={ { block: 'Button' } }
+                <Button
+                  mix={ { block: 'PasswordChangeForm', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Update Password') }
-                </button>
+                </Button>
             </div>
         );
     }

@@ -18,6 +18,8 @@ import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputTypeInput } from 'Util/Validator/Config';
 
@@ -76,13 +78,12 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
                   } }
                   addRequiredTag
                 />
-                <button
-                  type="submit"
-                  block="Button"
+                <Button
                   mix={ { block: 'SendConfirmationPage', elem: 'Button' } }
+                  attr={ { type: ButtonType.SUBMIT } }
                 >
                     { __('Send confirmation link') }
-                </button>
+                </Button>
             </Form>
         );
     }
