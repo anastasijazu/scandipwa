@@ -18,9 +18,9 @@ import Form from 'Component/Form';
 import Loader from 'Component/Loader';
 import ReviewStar from 'Component/ReviewStar';
 import { ReviewRatingValue } from 'Query/Review.type';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { ProductReviewFormComponentProps } from './ProductReviewForm.type';
 

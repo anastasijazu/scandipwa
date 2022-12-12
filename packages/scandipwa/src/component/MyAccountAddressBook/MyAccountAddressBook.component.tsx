@@ -14,9 +14,9 @@ import { Component } from 'react';
 import MyAccountAddressPopup from 'Component/MyAccountAddressPopup';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import { CustomerAddress } from 'Query/MyAccount.type';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { getDefaultAddressLabel } from 'Util/Address';
 
 import { MyAccountAddressBookComponentProps } from './MyAccountAddressBook.type';

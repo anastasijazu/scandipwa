@@ -13,9 +13,9 @@ import { PureComponent } from 'react';
 
 import { ORDER_ID } from 'Component/MyAccountOrder/MyAccountOrder.config';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { isSignedIn } from 'Util/Auth';
 import { appendWithStoreCode } from 'Util/Url';
 

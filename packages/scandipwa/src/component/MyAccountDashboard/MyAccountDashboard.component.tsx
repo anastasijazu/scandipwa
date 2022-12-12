@@ -15,9 +15,9 @@ import Loader from 'Component/Loader';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import MyAccountCustomerTable from 'Component/MyAccountCustomerTable';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
-import Link from 'Src/ui/Link';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { MyAccountDashboardComponentProps } from './MyAccountDashboard.type';
 

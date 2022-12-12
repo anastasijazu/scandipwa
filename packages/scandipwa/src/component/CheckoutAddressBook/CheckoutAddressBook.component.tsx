@@ -16,11 +16,11 @@ import CheckoutAddressTable from 'Component/CheckoutAddressTable';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
-import Button from 'Src/ui/Button';
-import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { getDefaultAddressLabel } from 'Util/Address';
 import { isSignedIn } from 'Util/Auth';
 

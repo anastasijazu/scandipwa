@@ -21,7 +21,7 @@ import { lazy, PureComponent, Suspense } from 'react';
 import Image from 'Component/Image';
 import Loader from 'Component/Loader/Loader.component';
 import { WidgetFactoryComponentProps } from 'Component/WidgetFactory/WidgetFactory.type';
-import Link from 'Src/ui/Link';
+import Link from 'Ui/Link';
 import { hash } from 'Util/Request/Hash';
 
 import { HtmlComponentProps, HtmlParserRule } from './Html.type';

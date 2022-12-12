@@ -15,9 +15,9 @@ import AddIcon from 'Component/AddIcon';
 import { FieldType } from 'Component/Field/Field.config';
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import MinusIcon from 'Component/MinusIcon';
-import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
-import IconButton from 'Src/ui/IconButton';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import IconButton from 'Ui/IconButton';
 import { DEFAULT_MAX_PRODUCTS } from 'Util/Product/Product.type';
 
 import { FieldNumberWitControlsComponentProps } from './FieldNumberWithControls.type';

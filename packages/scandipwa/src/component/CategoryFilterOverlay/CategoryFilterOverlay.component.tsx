@@ -19,8 +19,8 @@ import {
 } from 'Component/ProductConfigurableAttributes/ProductConfigurableAttributes.type';
 import ResetAttributes from 'Component/ResetAttributes';
 import ResetButton from 'Component/ResetButton';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { CATEGORY_FILTER_OVERLAY_ID } from './CategoryFilterOverlay.config';
 import { CategoryFilterOverlayComponentProps } from './CategoryFilterOverlay.type';

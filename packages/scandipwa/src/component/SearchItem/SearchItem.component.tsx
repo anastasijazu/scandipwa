@@ -15,8 +15,8 @@ import Image from 'Component/Image';
 import ProductAttributeValue from 'Component/ProductAttributeValue';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { SearchItemComponentProps } from './SearchItem.type';
 

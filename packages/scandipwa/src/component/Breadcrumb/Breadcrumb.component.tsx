@@ -13,8 +13,8 @@ import { PureComponent } from 'react';
 
 import ChevronIcon from 'Component/ChevronIcon';
 import TextPlaceholder from 'Component/TextPlaceholder';
-import Link from 'Src/ui/Link';
 import { ReactElement, Url } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { BreadcrumbComponentProps } from './Breadcrumb.type';
 

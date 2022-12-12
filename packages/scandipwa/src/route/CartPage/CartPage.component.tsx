@@ -20,10 +20,10 @@ import ExpandableContent from 'Component/ExpandableContent';
 import Loader from 'Component/Loader';
 import LockIcon from 'Component/LockIcon';
 import ProductLinks from 'Component/ProductLinks';
-import Button from 'Src/ui/Button';
 import { CartTotals } from 'Store/Cart/Cart.type';
 import { LinkedProductType } from 'Store/LinkedProducts/LinkedProducts.type';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { noopFn } from 'Util/Common';
 
 import { CartPageComponentProps } from './CartPage.type';

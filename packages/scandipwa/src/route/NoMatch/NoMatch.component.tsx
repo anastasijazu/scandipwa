@@ -12,9 +12,9 @@
 import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { scrollToTop } from 'Util/Browser';
 
 import { NoMatchComponentProps } from './NoMatch.type';

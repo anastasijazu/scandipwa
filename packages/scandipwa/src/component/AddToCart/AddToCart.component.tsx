@@ -12,8 +12,8 @@
 import { PureComponent } from 'react';
 
 import CartIcon from 'Component/CartIcon';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 
 import { AddToCartComponentProps } from './AddToCart.type';
 

@@ -20,8 +20,8 @@ import MyAccountOrderTotals from 'Component/MyAccountOrderTotals';
 import {
     InvoiceItem, OrderItemProduct, RefundItem, ShipmentItemInterface,
 } from 'Query/Order.type';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 import { getTimeInCurrentTimezone } from 'Util/Manipulations/Date';
 import { getProductFromOrder } from 'Util/Orders';
 import { appendWithStoreCode } from 'Util/Url';

@@ -18,11 +18,11 @@ import LockIcon from 'Component/LockIcon';
 import Overlay from 'Component/Overlay';
 import { OVERLAY_PLACEHOLDER } from 'Component/PopupSuspense/PopupSuspense.config';
 import { CART_URL } from 'Route/CartPage/CartPage.config';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { formatPrice } from 'Util/Price';
 
 import { CartOverlayComponentProps } from './CartOverlay.type';

@@ -13,8 +13,8 @@
 import { PureComponent } from 'react';
 
 import { STATUS_EXPIRED } from 'Component/MyAccountDownloadableTableRow/MyAccountDownloadableTableRow.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 
 import { MyAccountDownloadableTableRowComponentProps } from './MyAccountDownloadableTableRow.type';
 

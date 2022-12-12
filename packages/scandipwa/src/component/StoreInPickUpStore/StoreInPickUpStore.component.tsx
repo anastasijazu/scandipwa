@@ -12,9 +12,9 @@
 import { PureComponent } from 'react';
 
 import Html from 'Component/Html';
-import Button from 'Src/ui/Button';
-import { ButtonType } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType } from 'Ui/Button/Button.config';
 
 import { StoreInPickUpStoreComponentProps } from './StoreInPickUpStore.type';
 

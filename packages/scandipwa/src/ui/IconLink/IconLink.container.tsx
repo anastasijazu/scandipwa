@@ -13,15 +13,15 @@
 
 import { connect } from 'react-redux';
 
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
-import IconLink from 'Src/ui/IconLink/IconLink.component';
+import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import IconLink from 'Ui/IconLink/IconLink.component';
 import {
     LinkContainer,
     mapDispatchToProps,
     mapStateToProps,
     NoMatchDispatcher,
-} from 'Src/ui/Link/Link.container';
-import { ReactElement } from 'Type/Common.type';
+} from 'Ui/Link/Link.container';
 
 import {
     IconLinkComponentProps,

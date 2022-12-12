@@ -19,11 +19,11 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
-import Button from 'Src/ui/Button';
-import { ButtonColors, ButtonVariants } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
-import { LinkUnderlineType } from 'Src/ui/Link/Link.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
+import { LinkUnderlineType } from 'Ui/Link/Link.config';
 
 import {
     ADDITIONAL_ELEMENTS,

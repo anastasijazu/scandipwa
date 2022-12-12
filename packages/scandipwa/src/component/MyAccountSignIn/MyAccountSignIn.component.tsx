@@ -15,9 +15,9 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
-import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 import { ValidationInputType } from 'Util/Validator/Config';
 
 import { MyAccountSignInComponentProps } from './MyAccountSignIn.type';

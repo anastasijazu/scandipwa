@@ -15,9 +15,9 @@ import CmsBlock from 'Component/CmsBlock';
 import ContentWrapper from 'Component/ContentWrapper';
 import Image from 'Component/Image';
 import NewsletterSubscription from 'Component/NewsletterSubscription';
-import { ButtonColors } from 'Src/ui/Button/Button.config';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonColors } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
 import { noopFn } from 'Util/Common';
 
 import { COLUMN_MAP, NEWSLETTER_COLUMN, RENDER_NEWSLETTER } from './Footer.config';

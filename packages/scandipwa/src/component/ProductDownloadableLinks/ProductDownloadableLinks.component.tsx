@@ -16,9 +16,9 @@ import FieldContainer from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import FieldGroup from 'Component/FieldGroup';
 import { DownloadableProductLinks } from 'Query/ProductList.type';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Link from 'Ui/Link';
 import { formatPrice } from 'Util/Price';
 
 import { ProductDownloadableLinksComponentProps } from './ProductDownloadableLinks.type';

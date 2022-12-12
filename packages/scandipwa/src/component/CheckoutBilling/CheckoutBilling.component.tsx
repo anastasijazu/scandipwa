@@ -19,10 +19,10 @@ import { FieldType } from 'Component/Field/Field.config';
 import Form from 'Component/Form';
 import { StoreInPickUpCode } from 'Component/StoreInPickUp/StoreInPickUp.config';
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
-import Button from 'Src/ui/Button';
-import { ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
+import Button from 'Ui/Button';
+import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 import { formatPrice } from 'Util/Price';
 
 import { CheckoutBillingComponentProps, CheckoutBillingComponentState } from './CheckoutBilling.type';

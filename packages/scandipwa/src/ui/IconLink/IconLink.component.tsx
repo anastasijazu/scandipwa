@@ -11,7 +11,7 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import Link from 'Src/ui/Link/Link.component';
+import Link from 'Ui/Link/Link.component';
 
 import { IconLinkComponentProps } from './IconLink.type';
 

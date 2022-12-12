@@ -22,9 +22,9 @@ import ProductCard from 'Component/ProductCard';
 import { ContentObject } from 'Component/ProductCard/ProductCard.type';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ItemOption } from 'Query/Wishlist.type';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { noopFn, noopFnAsync } from 'Util/Common';
 import { IndexedWishlistProduct } from 'Util/Product/Product.type';
 

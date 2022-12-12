@@ -12,9 +12,9 @@
 import KeyValueTable from 'Component/KeyValueTable';
 import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import { Customer } from 'Query/MyAccount.type';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 
 import { MyAccountCustomerTableComponentProps } from './MyAccountCustomerTable.type';
 

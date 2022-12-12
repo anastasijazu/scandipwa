@@ -14,8 +14,8 @@ import { PureComponent } from 'react';
 
 import AddIcon from 'Component/AddIcon';
 import MinusIcon from 'Component/MinusIcon';
-import Link from 'Src/ui/Link';
 import { Mods, ReactElement } from 'Type/Common.type';
+import Link from 'Ui/Link';
 import { noopFn } from 'Util/Common';
 import { FormattedMenuItem } from 'Util/Menu/Menu.type';
 

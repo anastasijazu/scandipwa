@@ -13,9 +13,9 @@ import KeyValueTable from 'Component/KeyValueTable';
 import { DataPair } from 'Component/KeyValueTable/KeyValueTable.type';
 import Loader from 'Component/Loader';
 import { CustomerAddress } from 'Query/MyAccount.type';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 import { FormattedRegion } from 'Util/Address/Address.type';
 
 import { getAddressTablePairArray } from './MyAccountAddressTable.table';

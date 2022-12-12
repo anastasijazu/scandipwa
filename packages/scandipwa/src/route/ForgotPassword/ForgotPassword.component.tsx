@@ -17,8 +17,8 @@ import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
-import Button from 'Src/ui/Button';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
 import { isSignedIn } from 'Util/Auth';
 
 import { ForgotPasswordComponentProps } from './ForgotPassword.type';

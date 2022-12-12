@@ -19,7 +19,6 @@ import Image from 'Component/Image';
 import { ImageRatio } from 'Component/Image/Image.type';
 import Loader from 'Component/Loader';
 import { CartBundleOption, CartCustomizableOption } from 'Query/Cart.type';
-import Link from 'Src/ui/Link';
 import { ReactElement } from 'Type/Common.type';
 import {
     GQLCurrencyEnum,
@@ -27,6 +26,7 @@ import {
     GQLSelectedCustomizableOption,
     GQLSelectedDownloadableLinks,
 } from 'Type/Graphql.type';
+import Link from 'Ui/Link';
 import { formatPrice } from 'Util/Price';
 import { ValidationInputType } from 'Util/Validator/Config';
 

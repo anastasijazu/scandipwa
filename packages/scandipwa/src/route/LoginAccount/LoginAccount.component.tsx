@@ -16,9 +16,9 @@ import Loader from 'Component/Loader';
 import {
     MyAccountOverlayComponent,
 } from 'Component/MyAccountOverlay/MyAccountOverlay.component';
-import Button from 'Src/ui/Button';
-import { ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonVariants } from 'Ui/Button/Button.config';
 
 import { LoginAccountComponentProps } from './LoginAccount.type';
 

@@ -16,9 +16,9 @@ import { FieldType } from 'Component/Field/Field.config';
 import { EventFieldData } from 'Component/Field/Field.type';
 import Form from 'Component/Form';
 import Loader from 'Component/Loader';
-import Button from 'Src/ui/Button';
-import { ButtonColors, ButtonType, ButtonVariants } from 'Src/ui/Button/Button.config';
 import { ReactElement } from 'Type/Common.type';
+import Button from 'Ui/Button';
+import { ButtonColors, ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 
 import { CartCouponComponentProps, CartCouponComponentState } from './CartCoupon.type';
 
