@@ -15,13 +15,16 @@ import { PureComponent } from 'react';
 import { ReactElement } from 'Type/Common.type';
 
 import Typography from './Typography.component';
-import { TypographyVariants } from './Typography.config';
+import { TypographyAppearance, TypographyVariants } from './Typography.config';
 import { TypographyContainerProps, TypographyContainerPropsKey } from './Typography.type';
 
 /** @namespace Ui/Typography/Container */
 export class TypographyContainer extends PureComponent<TypographyContainerProps> {
     static defaultProps: Partial<TypographyContainerProps> = {
         variant: TypographyVariants.P,
+        mix: {},
+        attr: {},
+        appearance: TypographyAppearance.DEFAULT,
     };
 
     containerProps(): Pick<TypographyContainerProps, TypographyContainerPropsKey> {

@@ -24,11 +24,11 @@ export interface ButtonComponentProps {
     variant: ButtonVariants;
     color: ButtonColors;
     isFullWidth: boolean;
-    onClick?: MouseEventHandler<HTMLButtonElement>;
+    onClick: MouseEventHandler<HTMLButtonElement>;
     mods: Mods;
-    disabled?: boolean;
-    attr?: FieldAttributes;
-    events?: FieldEvents;
+    disabled: boolean;
+    attr: FieldAttributes;
+    events: FieldEvents;
     isLoading: boolean;
 }
 

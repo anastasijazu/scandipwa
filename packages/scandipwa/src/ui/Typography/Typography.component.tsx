@@ -14,7 +14,7 @@ import { HTMLAttributes, PureComponent } from 'react';
 
 import { ReactElement } from 'Type/Common.type';
 
-import { TypographyVariants } from './Typography.config';
+import { TypographyAppearance, TypographyVariants } from './Typography.config';
 import { TypographyComponentProps, TypographyMapVariant } from './Typography.type';
 
 import './Typography.style';
@@ -58,9 +58,13 @@ export class TypographyComponent extends PureComponent<TypographyComponentProps>
             return null;
         }
 
+        const bemBlock = appearance === TypographyAppearance.DEFAULT
+            ? block
+            : appearance;
+
         return (
             <Component
-              block={ appearance || block }
+              block={ bemBlock }
               mix={ mix || '' }
               { ...attr as HTMLAttributes<HTMLElement> }
             >

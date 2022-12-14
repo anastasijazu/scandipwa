@@ -14,6 +14,7 @@ import { ButtonHTMLAttributes, PureComponent } from 'react';
 
 import { FieldReactEvents } from 'Component/Field/Field.type';
 import { ReactElement } from 'Type/Common.type';
+import { noopFn } from 'Util/Common';
 
 import { ButtonColors, ButtonVariants } from './Button.config';
 import { ButtonComponentProps } from './Button.type';
@@ -30,6 +31,10 @@ P extends ButtonComponentProps = ButtonComponentProps,
         variant: ButtonVariants.FILLED,
         isLoading: false,
         isFullWidth: false,
+        disabled: false,
+        onClick: noopFn,
+        attr: {},
+        events: {},
     };
 
     render(): ReactElement {

@@ -61,6 +61,12 @@ P extends LinkContainerProps = LinkContainerProps,
         color: ButtonColors.PRIMARY,
         disabled: false,
         underline: LinkUnderlineType.NONE,
+        isUnstyled: false,
+        to: '/',
+        attr: {},
+        key: '',
+        onMouseEnter: noopFn,
+        onMouseLeave: noopFn,
     };
 
     containerFunctions: LinkContainerFunctions = {
@@ -76,17 +82,17 @@ P extends LinkContainerProps = LinkContainerProps,
             variant,
             color,
             disabled,
-            baseLinkUrl,
-            dispatch,
             isUnstyled,
             underline,
             key,
-            ...restProps
+            onMouseEnter,
+            onMouseLeave,
         } = this.props;
 
         return {
-            ...restProps,
             key,
+            onMouseEnter,
+            onMouseLeave,
             isUnstyled,
             to: this.getTo(),
             mix,
@@ -101,9 +107,7 @@ P extends LinkContainerProps = LinkContainerProps,
     }
 
     getTo(): Url | string {
-        const { to: toProp } = this.props;
-        // fix null, undefined and empty links
-        const to = toProp || '/';
+        const { to } = this.props;
 
         if (typeof to === 'string') {
             // in case this URL is absolute or used for scroll, do not append store
@@ -114,7 +118,7 @@ P extends LinkContainerProps = LinkContainerProps,
             return appendWithStoreCode(to);
         }
 
-        const pathname = to.pathname || '/';
+        const pathname = to?.pathname || '/';
 
         return {
             ...to,

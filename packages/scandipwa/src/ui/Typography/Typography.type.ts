@@ -14,14 +14,14 @@ import {
 } from 'Component/Field/Field.type';
 import { Children, Mix } from 'Type/Common.type';
 
-import { TypographyVariants } from './Typography.config';
+import { TypographyAppearance, TypographyVariants } from './Typography.config';
 
 export interface TypographyContainerProps {
     children: Children;
-    mix?: Mix;
-    attr?: FieldAttributes;
+    mix: Mix;
+    attr: FieldAttributes;
     variant: TypographyVariants;
-    appearance?: string;
+    appearance: TypographyAppearance;
 }
 
 export interface TypographyComponentProps extends TypographyContainerProps {}

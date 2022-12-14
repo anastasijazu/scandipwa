@@ -12,7 +12,6 @@
 import {
     HTMLAttributes, LinkHTMLAttributes, MouseEvent,
 } from 'react';
-import { Dispatch } from 'redux';
 
 import {
     Children,
@@ -44,17 +43,16 @@ export type LinkContainerProps =
         color: string;
         disabled: boolean;
         onClick: (e: MouseEvent) => void;
-        to: Url | string;
+        to?: Url | string;
         children: Children;
-        isOpenInNewTab?: boolean;
-        dispatch?: Dispatch;
-        isUnstyled?: boolean;
+        isOpenInNewTab: boolean;
+        isUnstyled: boolean;
         underline: LinkUnderlineType;
-        mix?: Mix;
-        attr?: LinkAttributes;
-        key?: string | number;
-        onMouseEnter?: () => void;
-        onMouseLeave?: () => void;
+        mix: Mix;
+        attr: LinkAttributes;
+        key: string | number;
+        onMouseEnter: () => void;
+        onMouseLeave: () => void;
     };
 
 export interface LinkComponentProps {
@@ -63,13 +61,13 @@ export interface LinkComponentProps {
     onClick: (e: MouseEvent) => void;
     block: string;
     mods: Mods;
-    mix?: Mix;
-    key?: string | number;
-    isOpenInNewTab?: boolean;
-    isUnstyled?: boolean;
-    attr?: any;
-    onMouseEnter?: () => void;
-    onMouseLeave?: () => void;
+    mix: Mix;
+    key: string | number;
+    isOpenInNewTab: boolean;
+    isUnstyled: boolean;
+    attr: LinkAttributes;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
 }
 
 export type LinkContainerComponentPropKeys =
@@ -80,4 +78,7 @@ export type LinkContainerComponentPropKeys =
     | 'attr'
     | 'block'
     | 'mods'
-    | 'isUnstyled';
+    | 'isUnstyled'
+    | 'key'
+    | 'onMouseEnter'
+    | 'onMouseLeave';
