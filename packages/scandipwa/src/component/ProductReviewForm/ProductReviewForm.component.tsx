@@ -89,7 +89,7 @@ export class ProductReviewFormComponent extends PureComponent<ProductReviewFormC
         return (
             <Button
               mix={ { block: 'ProductReviewForm', elem: 'Button' } }
-              attr={ { type: ButtonType.SUBMIT } }
+              type={ ButtonType.SUBMIT }
             >
                 { __('Submit Review') }
             </Button>

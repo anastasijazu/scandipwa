@@ -55,7 +55,7 @@ export class PasswordChangeFormComponent extends FieldForm<PasswordChangeFormCom
             <div block="PasswordChangeForm" elem="Action">
                 <Button
                   mix={ { block: 'PasswordChangeForm', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Update Password') }
                 </Button>

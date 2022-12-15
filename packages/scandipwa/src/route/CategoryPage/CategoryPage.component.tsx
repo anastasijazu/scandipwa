@@ -292,7 +292,8 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
                   } }
-                  attr={ { key: type, 'aria-label': 'grid' } }
+                  key={ type }
+                  aria-label="grid"
                   onClick={ onGridButtonClick }
                 >
                     <GridIcon isActive={ activeLayoutType === CategoryPageLayout.GRID } />
@@ -306,7 +307,8 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },
                   } }
-                  attr={ { key: type, 'aria-label': 'list' } }
+                  key={ type }
+                  aria-label="list"
                   onClick={ onListButtonClick }
                 >
                     <ListIcon isActive={ activeLayoutType === CategoryPageLayout.LIST } />

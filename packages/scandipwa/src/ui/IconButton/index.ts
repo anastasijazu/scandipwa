@@ -9,4 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export { default } from './IconButton.component';
+export { default } from './IconButton.container';

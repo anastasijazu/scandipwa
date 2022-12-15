@@ -16,7 +16,11 @@ import { ReactElement } from 'Type/Common.type';
 
 import Typography from './Typography.component';
 import { TypographyAppearance, TypographyVariants } from './Typography.config';
-import { TypographyContainerProps, TypographyContainerPropsKey } from './Typography.type';
+import {
+    TypographyComponentProps,
+    TypographyContainerProps,
+    TypographyContainerPropsKey,
+} from './Typography.type';
 
 /** @namespace Ui/Typography/Container */
 export class TypographyContainer extends PureComponent<TypographyContainerProps> {
@@ -27,7 +31,7 @@ export class TypographyContainer extends PureComponent<TypographyContainerProps>
         appearance: TypographyAppearance.DEFAULT,
     };
 
-    containerProps(): Pick<TypographyContainerProps, TypographyContainerPropsKey> {
+    containerProps(): Pick<TypographyComponentProps, TypographyContainerPropsKey> {
         const {
             mix,
             attr,

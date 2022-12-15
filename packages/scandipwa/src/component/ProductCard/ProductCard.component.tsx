@@ -287,7 +287,6 @@ export class ProductCardComponent extends ProductComponent<ProductCardComponentP
                     <Button
                       mix={ { block: 'AddToCart', mods: { layout } } }
                       onClick={ showSelectOptionsNotification }
-                      isFullWidth
                     >
                         { __('Add to cart') }
                     </Button>

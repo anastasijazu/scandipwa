@@ -15,7 +15,7 @@ import { MouseEvent, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { ReactElement, Url } from 'Type/Common.type';
+import { Mods, ReactElement, Url } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 import { RootState } from 'Util/Store/Store.type';
 import { appendWithStoreCode } from 'Util/Url';
@@ -59,14 +59,11 @@ P extends LinkContainerProps = LinkContainerProps,
         isOpenInNewTab: false,
         variant: ButtonVariants.LINK,
         color: ButtonColors.PRIMARY,
-        disabled: false,
         underline: LinkUnderlineType.NONE,
         isUnstyled: false,
         to: '/',
-        attr: {},
         key: '',
-        onMouseEnter: noopFn,
-        onMouseLeave: noopFn,
+        disabled: false,
     };
 
     containerFunctions: LinkContainerFunctions = {
@@ -78,31 +75,34 @@ P extends LinkContainerProps = LinkContainerProps,
             mix,
             children,
             isOpenInNewTab,
-            attr,
             variant,
             color,
-            disabled,
             isUnstyled,
             underline,
+            disabled,
             key,
-            onMouseEnter,
-            onMouseLeave,
+            onClick,
+            ...restProps
         } = this.props;
+
+        const mods: Mods = isUnstyled
+            ? {}
+            : {
+                variant, color, disabled, underline,
+            };
 
         return {
             key,
-            onMouseEnter,
-            onMouseLeave,
-            isUnstyled,
             to: this.getTo(),
-            mix,
+            mix: {
+                block: 'Link',
+                mods,
+                mix,
+            },
             isOpenInNewTab,
             children,
-            attr,
-            block: 'Link',
-            mods: {
-                variant, color, disabled, underline,
-            },
+            onClick,
+            ...restProps,
         };
     }
 

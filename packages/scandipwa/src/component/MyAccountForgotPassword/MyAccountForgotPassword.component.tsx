@@ -54,8 +54,7 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
                 <div block="MyAccountOverlay" elem="Buttons">
                     <Button
                       mix={ { block: 'MyAccountOverlay', elem: 'ResetPassword' } }
-                      attr={ { type: ButtonType.SUBMIT } }
-                      isFullWidth
+                      type={ ButtonType.SUBMIT }
                     >
                         { __('Send reset link') }
                     </Button>

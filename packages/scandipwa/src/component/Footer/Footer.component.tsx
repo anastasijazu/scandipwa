@@ -100,7 +100,7 @@ export class FooterComponent extends Component<FooterComponentProps> {
                   mods: src ? { type: 'image' } : undefined,
               } }
               key={ i }
-              attr={ { 'aria-label': title } }
+              aria-label={ title }
               onClick={ onItemClick }
             >
                 { this.renderColumnItemContent(src, title) }

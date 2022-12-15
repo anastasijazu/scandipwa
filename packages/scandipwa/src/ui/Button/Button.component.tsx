@@ -10,13 +10,10 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { ButtonHTMLAttributes, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { FieldReactEvents } from 'Component/Field/Field.type';
 import { ReactElement } from 'Type/Common.type';
-import { noopFn } from 'Util/Common';
 
-import { ButtonColors, ButtonVariants } from './Button.config';
 import { ButtonComponentProps } from './Button.type';
 
 import './Button.style';
@@ -25,46 +22,17 @@ import './Button.style';
 export class ButtonComponent<
 P extends ButtonComponentProps = ButtonComponentProps,
 > extends PureComponent<P> {
-    static defaultProps: Partial<ButtonComponentProps> = {
-        mix: {},
-        color: ButtonColors.PRIMARY,
-        variant: ButtonVariants.FILLED,
-        isLoading: false,
-        isFullWidth: false,
-        disabled: false,
-        onClick: noopFn,
-        attr: {},
-        events: {},
-    };
-
     render(): ReactElement {
         const {
             children,
-            attr,
-            events,
-            color,
-            variant,
-            isLoading,
-            disabled,
-            onClick,
             mix,
-            isFullWidth,
+            ...restProps
         } = this.props;
 
         return (
              <button
-               block="Button"
-               mods={ {
-                   variant,
-                   color,
-                   isLoading,
-                   isFullWidth,
-               } }
                mix={ mix }
-               disabled={ disabled }
-               onClick={ onClick }
-               { ...attr as ButtonHTMLAttributes<HTMLButtonElement> }
-               { ...events as FieldReactEvents<HTMLButtonElement> }
+               { ...restProps }
              >
                  { children }
              </button>

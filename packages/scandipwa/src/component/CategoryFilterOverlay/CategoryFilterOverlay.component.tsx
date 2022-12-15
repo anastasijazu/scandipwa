@@ -67,7 +67,6 @@ export class CategoryFilterOverlayComponent extends PureComponent<CategoryFilter
                 <Button
                   mix={ { block: 'CategoryFilterOverlay', elem: 'Button' } }
                   onClick={ onSeeResultsClick }
-                  isFullWidth
                 >
                     { __('SEE RESULTS') }
                 </Button>

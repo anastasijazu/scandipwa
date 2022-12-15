@@ -154,7 +154,7 @@ export class PopupComponent extends Overlay<PopupComponentProps> {
                   block: 'Popup',
                   elem: 'CloseBtn',
               } }
-              attr={ { 'aria-label': __('Close') } }
+              aria-label={ __('Close') }
               onClick={ this.hidePopupAndGoBack }
             >
                 <CloseIcon />

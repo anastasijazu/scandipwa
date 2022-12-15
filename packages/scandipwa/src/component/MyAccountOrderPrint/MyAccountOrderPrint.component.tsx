@@ -107,7 +107,7 @@ export class MyAccountOrderPrintComponent extends MyAccountOrder<MyAccountOrderP
                   block: 'MyAccountOrderPrint',
                   elem: 'LogoWrapper',
               } }
-              attr={ { 'aria-label': 'Go to homepage by clicking on ScandiPWA logo' } }
+              aria-label="Go to homepage by clicking on ScandiPWA logo"
               key="logo"
               isUnstyled
             >

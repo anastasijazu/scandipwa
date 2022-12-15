@@ -131,7 +131,7 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                       block: 'CartCoupon',
                       elem: 'Button',
                   } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   disabled={ !enteredCouponCode }
                   onClick={ this.handleApplyCoupon }
                 >
@@ -158,7 +158,7 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                       block: 'CartCoupon',
                       elem: 'Button',
                   } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   onClick={ this.handleRemoveCoupon }
                 >
                     { __('Remove Coupon') }

@@ -96,7 +96,7 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
                 />
                 <Button
                   mix={ { block: 'ConfirmAccountPage', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Confirm your account') }
                 </Button>

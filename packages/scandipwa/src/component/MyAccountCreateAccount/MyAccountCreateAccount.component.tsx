@@ -200,8 +200,7 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
             <div block="MyAccountOverlay" elem="Buttons">
                 <Button
                   mix={ { block: 'MyAccountOverlay', elem: 'SignUpButton' } }
-                  attr={ { type: ButtonType.SUBMIT } }
-                  isFullWidth
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Sign up') }
                 </Button>
@@ -236,7 +235,7 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
                       variant={ ButtonVariants.LINK }
                       color={ ButtonColors.PRIMARY }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInLink' } }
-                      events={ { onClick: handleSignIn } }
+                      onClick={ handleSignIn }
                     >
                         { __('Sign in') }
                     </Button>

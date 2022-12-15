@@ -34,10 +34,8 @@ export class NewsletterSubscriptionComponent extends FieldForm<NewsletterSubscri
         return (
             <Button
               variant={ ButtonVariants.OUTLINED }
-              attr={ {
-                  type: ButtonType.SUBMIT,
-                  'aria-label': __('Submit'),
-              } }
+              type={ ButtonType.SUBMIT }
+              aria-label={ __('Submit') }
             >
                 { __('Subscribe') }
             </Button>

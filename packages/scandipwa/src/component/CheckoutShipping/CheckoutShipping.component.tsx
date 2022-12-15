@@ -102,7 +102,7 @@ export class CheckoutShippingComponent extends PureComponent<CheckoutShippingCom
                 <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutShipping', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     <LockIcon />
                     { __('Proceed to billing') }

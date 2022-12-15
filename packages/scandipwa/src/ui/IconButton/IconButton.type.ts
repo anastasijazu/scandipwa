@@ -6,9 +6,17 @@
  *
  * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
  * @package scandipwa/scandipwa
- * @link https://github.com/scandipwa/scandipwa
+ * @Button https://github.com/scandipwa/scandipwa
  */
 
-import { ButtonComponentProps } from 'Ui/Button/Button.type';
+import {
+    ButtonComponentProps,
+    ButtonContainerComponentPropKeys,
+    ButtonContainerProps,
+} from 'Ui/Button/Button.type';
+
+export interface IconButtonContainerProps extends ButtonContainerProps {}
 
 export interface IconButtonComponentProps extends ButtonComponentProps {}
+
+export type IconButtonContainerComponentPropKeys = ButtonContainerComponentPropKeys;

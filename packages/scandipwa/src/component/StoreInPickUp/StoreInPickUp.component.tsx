@@ -121,7 +121,7 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
                 <Button
                   mix={ { block: 'CheckoutShipping', elem: 'Button' } }
                   disabled={ !selectedStore }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Proceed to billing') }
                 </Button>

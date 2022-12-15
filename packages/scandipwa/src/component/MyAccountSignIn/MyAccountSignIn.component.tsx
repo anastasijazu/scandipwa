@@ -87,14 +87,13 @@ export class MyAccountSignInComponent extends PureComponent<MyAccountSignInCompo
                   variant={ ButtonVariants.LINK }
                   mix={ { block: 'MyAccountOverlay', elem: 'ForgotPassword' } }
                   onClick={ handleForgotPassword }
-                  attr={ {
-                      type: ButtonType.BUTTON,
-                  } }
+                  type={ ButtonType.BUTTON }
+
                 >
                     { __('Forgot password?') }
                 </Button>
                 <div block="MyAccountOverlay" elem="SignInButton">
-                    <Button isFullWidth>{ __('Sign in') }</Button>
+                    <Button>{ __('Sign in') }</Button>
                 </div>
                 <Loader isLoading={ isLoading } />
             </Form>

@@ -157,7 +157,7 @@ CheckoutAddressBookComponentState
                 <Button
                   variant={ ButtonVariants.OUTLINED }
                   mix={ { block: 'CheckoutAddressBook', elem: 'Button', mods: { isCustomAddressExpanded } } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   onClick={ this.expandCustomAddress }
                 >
                     { __('Use custom address') }

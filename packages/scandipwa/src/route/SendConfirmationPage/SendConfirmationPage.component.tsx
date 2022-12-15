@@ -82,7 +82,7 @@ export class SendConfirmationPageComponent extends PureComponent<SendConfirmatio
                 />
                 <Button
                   mix={ { block: 'SendConfirmationPage', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Send confirmation link') }
                 </Button>

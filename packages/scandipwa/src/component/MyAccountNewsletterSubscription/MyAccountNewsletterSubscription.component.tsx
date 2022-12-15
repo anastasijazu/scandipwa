@@ -69,10 +69,8 @@ export class MyAccountNewsletterSubscriptionComponent extends FieldForm<MyAccoun
         return (
             <Button
               mix={ { block: 'MyAccountNewsletterSubscription', elem: 'Button' } }
-              attr={ {
-                  type: ButtonType.SUBMIT,
-                  'aria-label': __('Submit'),
-              } }
+              type={ ButtonType.SUBMIT }
+              aria-label={ __('Submit') }
             >
                 { __('Save changes') }
             </Button>

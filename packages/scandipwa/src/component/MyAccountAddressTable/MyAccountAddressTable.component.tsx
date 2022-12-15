@@ -53,6 +53,10 @@ Props extends MyAccountAddressTableComponentProps = MyAccountAddressTableCompone
             return null;
         }
 
+        const title = isDeleteAllowed
+            ? __('Can not delete - address is set as default.')
+            : 'Delete this address';
+
         return (
             <>
                 <Button
@@ -65,11 +69,7 @@ Props extends MyAccountAddressTableComponentProps = MyAccountAddressTableCompone
                   variant={ ButtonVariants.TRANSPARENT }
                   onClick={ onDeleteClick }
                   disabled={ isDeleteAllowed }
-                  attr={ {
-                      title: isDeleteAllowed
-                          ? __('Can not delete - address is set as default.')
-                          : 'Delete this address',
-                  } }
+                  title={ title }
                 >
                     { __('Delete') }
                 </Button>

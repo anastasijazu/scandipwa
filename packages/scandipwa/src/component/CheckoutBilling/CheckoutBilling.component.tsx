@@ -126,7 +126,7 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                               elem: 'TACLink',
                           } }
                           onClick={ this.handleShowPopup }
-                          attr={ { type: ButtonType.BUTTON } }
+                          type={ ButtonType.BUTTON }
                         >
                             { __('read more') }
                         </Button>
@@ -208,7 +208,7 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                 <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutBilling', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Complete order') }
                 </Button>

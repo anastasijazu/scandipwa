@@ -35,7 +35,7 @@ export class StoreInPickUpStoreComponent extends PureComponent<StoreInPickUpStor
             <div block="StoreInPickUpStore" elem="StoreActions">
                 <Button
                   onClick={ handleSelectStore }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                 >
                     { __('Ship here') }
                 </Button>

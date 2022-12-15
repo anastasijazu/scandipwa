@@ -184,7 +184,7 @@ export class ProductCompareItemComponent extends PureComponent<ProductCompareIte
                   elem: 'CloseBtn',
               } }
               onClick={ removeComparedProduct }
-              attr={ { 'aria-label': __('Remove') } }
+              aria-label={ __('Remove') }
             >
                 <CloseIcon />
             </IconButton>
