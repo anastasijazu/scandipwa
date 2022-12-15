@@ -58,7 +58,7 @@ export class CartItemPriceComponent extends PureComponent<CartItemPriceComponent
 
         return (
             <Typography
-              mix={ { block: 'ProductPrice', elem: 'OutOfStock', mix } }
+              mix={ { block: 'ProductPrice', mix } }
               attr={ {
                   'aria-label': __('Product Price'),
               } }
