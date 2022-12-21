@@ -11,12 +11,16 @@
 
 import { Children, Mix } from 'Type/Common.type';
 
-import { TooltipPlacementType } from './Tooltip.config';
-
 export interface TooltipContainerProps {
-    children: Children;
+    children?: Children;
     mix: Mix;
-    content: any;
-    placement: TooltipPlacementType;
-    arrow: boolean;
+    content: string;
 }
+
+export interface TooltipComponentProps {
+    children?: Children;
+    mix: Mix;
+    content: string;
+}
+
+export type TooltipContainerComponentPropKeys = 'mix' | 'children' | 'content';

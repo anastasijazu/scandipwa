@@ -11,10 +11,43 @@
 
 import { PureComponent } from 'react';
 
-import { TooltipContainerProps } from './Tooltip.type';
+import { ReactElement } from 'Type/Common.type';
+
+import TooltipComponent from './Tooltip.component';
+import {
+    TooltipComponentProps,
+    TooltipContainerComponentPropKeys,
+    TooltipContainerProps,
+} from './Tooltip.type';
 
 /** @namespace Ui/Tooltip/Container */
 export class TooltipContainer extends PureComponent<TooltipContainerProps> {
+    static defaultProps: Partial<TooltipContainerProps> = {
+        mix: {},
+        content: 'test',
+    };
+
+    containerProps(): Pick<TooltipComponentProps, TooltipContainerComponentPropKeys> {
+        const {
+            mix,
+            content,
+            children,
+        } = this.props;
+
+        return {
+            mix,
+            content,
+            children,
+        };
+    }
+
+    render(): ReactElement {
+        return (
+            <TooltipComponent
+              { ...this.containerProps() }
+            />
+        );
+    }
 }
 
 export default TooltipContainer;

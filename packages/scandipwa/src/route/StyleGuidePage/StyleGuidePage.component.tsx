@@ -24,6 +24,7 @@ import Button from 'Ui/Button';
 import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
 import { LinkUnderlineType } from 'Ui/Link/Link.config';
+import Tooltip from 'Ui/Tooltip';
 import Typography from 'Ui/Typography';
 import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
@@ -121,6 +122,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
     renderButtons(): ReactElement {
         return (
             <>
+            <Tooltip />
                 <div block="StyleGuidePage" elem="Buttons">
                     <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
                         { __('Primary filled [default state + disabled]') }
@@ -797,6 +799,8 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                 <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
                     { __('Notification messages') }
                 </Typography>
+
+                <Tooltip />
 
                 <Notification
                   onHideNotification={ fakeFunction }
