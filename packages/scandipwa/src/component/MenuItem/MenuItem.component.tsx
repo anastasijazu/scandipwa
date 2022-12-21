@@ -95,7 +95,7 @@ export class MenuItemComponent extends PureComponent<MenuItemComponentProps> {
                   elem: 'Link',
                   mods: { isHovered },
               } }
-              attr={ { id: item_id } }
+              id={ item_id }
               onMouseEnter={ handleCategoryHover }
               onMouseLeave={ handleLinkLeave }
               onClick={ onItemClick }

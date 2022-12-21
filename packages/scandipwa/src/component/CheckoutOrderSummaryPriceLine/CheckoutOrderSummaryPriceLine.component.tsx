@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { formatPrice } from 'Util/Price';
@@ -57,10 +58,10 @@ export class CheckoutOrderSummaryPriceLineComponent extends PureComponent<Checko
         const { title } = this.props;
 
         return (
-            <p block="CheckoutOrderSummary" elem="Text">
+            <Typography mix={ { block: 'CheckoutOrderSummary', elem: 'Text' } }>
                 { title }
                 { this.renderCoupon() }
-            </p>
+            </Typography>
         );
     }
 

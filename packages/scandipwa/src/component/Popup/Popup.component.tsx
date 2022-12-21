@@ -17,6 +17,8 @@ import NotificationList from 'Component/NotificationList';
 import Overlay from 'Component/Overlay/Overlay.component';
 import { ReactElement } from 'Type/Common.type';
 import IconButton from 'Ui/IconButton';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import history from 'Util/History';
 
 import { ESCAPE_KEY } from './Popup.config';
@@ -136,9 +138,12 @@ export class PopupComponent extends Overlay<PopupComponentProps> {
         }
 
         return (
-            <h3 block="Popup" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ { block: 'Popup', elem: 'Heading' } }
+            >
                 { title }
-            </h3>
+            </Typography>
         );
     }
 
@@ -149,7 +154,7 @@ export class PopupComponent extends Overlay<PopupComponentProps> {
                   block: 'Popup',
                   elem: 'CloseBtn',
               } }
-              attr={ { 'aria-label': __('Close') } }
+              aria-label={ __('Close') }
               onClick={ this.hidePopupAndGoBack }
             >
                 <CloseIcon />

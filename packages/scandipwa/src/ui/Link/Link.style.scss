@@ -56,12 +56,18 @@
                         }
 
                         &_hover {
+                            border-block-end: {
+                                style: solid;
+                                width: var(--default-button-border-width);
+                                color: transparent;
+                            }
+
                             &:hover {
                                 @include desktop {
                                     border-block-end: {
                                         style: solid;
                                         width: var(--default-button-border-width);
-                                        color: var(--link--hover-color);
+                                        color: var(--link-hover-color);
                                     }
                                 }
                             }

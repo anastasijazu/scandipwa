@@ -15,6 +15,7 @@ import ContentWrapper from 'Component/ContentWrapper';
 import ExpandableContent from 'Component/ExpandableContent';
 import ProductReviewList from 'Component/ProductReviewList';
 import ProductReviewRating from 'Component/ProductReviewRating';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonVariants } from 'Ui/Button/Button.config';
@@ -93,10 +94,10 @@ export class ProductReviewsComponent extends PureComponent<ProductReviewsCompone
                   mix={ { block: 'ProductReviews', elem: 'SummaryRating' } }
                   summary={ rating_summary }
                 />
-                <p block="ProductReviews" elem="SummaryDetails">
+                <Typography mix={ { block: 'ProductReviews', elem: 'SummaryDetails' } }>
                     { percent }
                     <span>{ __('%s reviews', review_count || 0) }</span>
-                </p>
+                </Typography>
             </>
         );
     }

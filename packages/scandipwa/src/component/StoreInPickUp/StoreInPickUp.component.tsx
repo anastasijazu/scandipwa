@@ -16,6 +16,8 @@ import StoreInPickUpStoreComponent from 'Component/StoreInPickUpStore';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { noopFn } from 'Util/Common';
 
 import { StoreInPickUpComponentProps } from './StoreInPickUp.type';
@@ -40,12 +42,15 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
 
     renderHeading(): ReactElement {
         return (
-            <h3
-              block="StoreInPickUp"
-              elem="Heading"
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ {
+                  block: 'StoreInPickUp',
+                  elem: 'Heading',
+              } }
             >
                 { __('Store') }
-            </h3>
+            </Typography>
         );
     }
 
@@ -116,7 +121,7 @@ export class StoreInPickUpComponent extends PureComponent<StoreInPickUpComponent
                 <Button
                   mix={ { block: 'CheckoutShipping', elem: 'Button' } }
                   disabled={ !selectedStore }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Proceed to billing') }
                 </Button>

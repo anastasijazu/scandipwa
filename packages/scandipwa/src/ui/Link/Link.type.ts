@@ -10,21 +10,21 @@
  */
 
 import {
-    HTMLAttributes, LinkHTMLAttributes, MouseEvent,
+    LinkHTMLAttributes, MouseEvent,
 } from 'react';
-import { Dispatch } from 'redux';
 
 import {
     Children,
     Mix,
-    Mods,
     Url,
 } from 'Type/Common.type';
 
 import { LinkUnderlineType } from './Link.config';
 
-export type LinkAttributes = LinkHTMLAttributes<HTMLLinkElement>
-| HTMLAttributes<HTMLDivElement>;
+export interface LinkAttributes extends LinkHTMLAttributes<HTMLLinkElement> {
+    key: string | number;
+    onClick: (e: MouseEvent) => void;
+}
 
 export interface LinkContainerMapStateProps {
     baseLinkUrl: string;
@@ -39,37 +39,26 @@ export interface LinkContainerFunctions {
 }
 
 export type LinkContainerProps =
-    LinkContainerMapStateProps & LinkContainerMapDispatchProps & {
+    LinkContainerMapStateProps
+    & LinkContainerMapDispatchProps
+    & LinkAttributes
+    & {
         variant: string;
         color: string;
-        disabled: boolean;
-        onClick: (e: MouseEvent) => void;
-        to: Url | string;
+        to?: Url | string;
         children: Children;
-        isOpenInNewTab?: boolean;
-        dispatch?: Dispatch;
-        isUnstyled?: boolean;
+        isOpenInNewTab: boolean;
+        isUnstyled: boolean;
         underline: LinkUnderlineType;
-        mix?: Mix;
-        attr?: LinkAttributes;
-        key?: string | number;
-        onMouseEnter?: () => void;
-        onMouseLeave?: () => void;
+        mix: Mix;
+        disabled: boolean;
     };
 
-export interface LinkComponentProps {
+export interface LinkComponentProps extends LinkAttributes {
     to: Url | string;
     children: Children;
-    onClick: (e: MouseEvent) => void;
-    block: string;
-    mods: Mods;
-    mix?: Mix;
-    key?: string | number;
-    isOpenInNewTab?: boolean;
-    isUnstyled?: boolean;
-    attr?: any;
-    onMouseEnter?: () => void;
-    onMouseLeave?: () => void;
+    mix: Mix;
+    isOpenInNewTab: boolean;
 }
 
 export type LinkContainerComponentPropKeys =
@@ -77,7 +66,5 @@ export type LinkContainerComponentPropKeys =
     | 'children'
     | 'mix'
     | 'isOpenInNewTab'
-    | 'attr'
-    | 'block'
-    | 'mods'
-    | 'isUnstyled';
+    | 'onClick'
+    | 'key';

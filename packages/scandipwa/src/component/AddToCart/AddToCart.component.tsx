@@ -50,7 +50,6 @@ export class AddToCartComponent extends PureComponent<AddToCartComponentProps> {
               onClick={ handleButtonClick }
               disabled={ isDisabled || isAdding }
               isLoading={ isAdding }
-              isFullWidth
             >
                 { this.renderCartIcon() }
                 <span>{ isAdding ? __('Adding...') : __('Add to cart') }</span>

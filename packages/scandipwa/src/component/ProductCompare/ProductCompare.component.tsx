@@ -19,6 +19,8 @@ import { ComparableProduct } from 'Query/ProductCompare.type';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getPrice } from 'Util/Product/Extract';
 import { StockCheckProduct } from 'Util/Product/Product.type';
 
@@ -73,9 +75,9 @@ export class ProductCompareComponent extends Component<ProductCompareComponentPr
         }
 
         return (
-            <h1 block="ContactPage" elem="Heading">
+            <Typography variant={ TypographyVariants.H1 } mix={ { block: 'ProductCompare', elem: 'Heading' } }>
                 { __('Product compare') }
-            </h1>
+            </Typography>
         );
     }
 

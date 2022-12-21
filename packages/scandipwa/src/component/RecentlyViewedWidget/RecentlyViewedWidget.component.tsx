@@ -9,11 +9,13 @@
  * @link https://github.com/scandipwa/scandipwa-theme
  */
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import ProductCard from 'Component/ProductCard';
 import { RecentlyViewedProductItem } from 'Store/RecentlyViewedProducts/RecentlyViewedProducts.type';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { RecentlyViewedWidgetComponentProps } from './RecentlyViewedWidget.type';
 
@@ -102,7 +104,7 @@ export class RecentlyViewedWidgetComponent extends Component<RecentlyViewedWidge
             <div
               block="RecentlyViewedWidget"
             >
-                <h2>{ __('Recently Viewed Products') }</h2>
+                <Typography variant={ TypographyVariants.H2 }>{ __('Recently Viewed Products') }</Typography>
                 { this.renderProducts(products) }
             </div>
         );

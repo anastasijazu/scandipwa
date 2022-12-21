@@ -22,6 +22,8 @@ import MyAccountTabList from 'Component/MyAccountTabList';
 import NoMatch from 'Route/NoMatch';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 
 import { AccountPageUrl } from './MyAccount.config';
@@ -168,10 +170,10 @@ export class MyAccountComponent extends Component<MyAccountComponentProps> {
                   elem="TabContent"
                   mods={ { activeTab } }
                 >
-                    <h2 block="MyAccount" elem="Heading">
+                    <Typography variant={ TypographyVariants.H2 } mix={ { block: 'MyAccount', elem: 'Heading' } }>
                         { title || tabName }
                         { this.renderSubHeading() }
-                    </h2>
+                    </Typography>
                     <Suspense fallback={ <Loader /> }>
                         <TabContent
                           isEditingActive={ isEditingActive }

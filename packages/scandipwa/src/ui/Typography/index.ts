@@ -9,4 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export { default } from './Button.container';
+export { default } from './Typography.container';

@@ -1,0 +1,81 @@
+/* eslint-disable @scandipwa/scandipwa-guidelines/jsx-no-props-destruction */
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+import { HTMLAttributes, PureComponent } from 'react';
+
+import { ReactElement } from 'Type/Common.type';
+
+import { TypographyAppearance, TypographyVariants } from './Typography.config';
+import { TypographyComponentProps, TypographyMapVariant } from './Typography.type';
+
+import './Typography.style';
+
+/** @namespace Ui/Typography/Component */
+export class TypographyComponent extends PureComponent<TypographyComponentProps> {
+    variantMap: Record<TypographyVariants, TypographyMapVariant> = {
+        [TypographyVariants.H1]: {
+            Component: 'h1',
+            block: 'h1',
+        },
+        [TypographyVariants.H2]: {
+            Component: 'h2',
+            block: 'h2',
+        },
+        [TypographyVariants.H3]: {
+            Component: 'h3',
+            block: 'h3',
+        },
+        [TypographyVariants.H4]: {
+            Component: 'h4',
+            block: 'h4',
+        },
+        [TypographyVariants.P]: {
+            Component: 'p',
+            block: 'p',
+        },
+        [TypographyVariants.CAPTION]: {
+            Component: 'p',
+            block: 'caption',
+        },
+    };
+
+    renderVariant(): ReactElement {
+        const {
+            variant, children, attr, mix, appearance,
+        } = this.props;
+        const { Component, block } = this.variantMap[variant];
+
+        if (!Component) {
+            return null;
+        }
+
+        const bemBlock = appearance === TypographyAppearance.DEFAULT
+            ? block
+            : appearance;
+
+        return (
+            <Component
+              block={ bemBlock }
+              mix={ mix || '' }
+              { ...attr as HTMLAttributes<HTMLElement> }
+            >
+              { children }
+            </Component>
+        );
+    }
+
+    render(): ReactElement {
+        return this.renderVariant();
+    }
+}
+
+export default TypographyComponent;

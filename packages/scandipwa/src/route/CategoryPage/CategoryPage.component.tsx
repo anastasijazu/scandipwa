@@ -28,6 +28,8 @@ import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder
 import { ReactElement } from 'Type/Common.type';
 import { ButtonVariants } from 'Ui/Button/Button.config';
 import IconButton from 'Ui/IconButton';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isCrawler, isSSR } from 'Util/Browser';
 import BrowserDatabase from 'Util/BrowserDatabase';
 
@@ -190,9 +192,12 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         return (
             <div block="CategoryPage" elem="PlaceholderWrapper">
                 <div block="CategoryPage" elem="PlaceholderContainer">
-                    <h3 block="CategoryPage" elem="PlaceholderHeading">
+                    <Typography
+                      variant={ TypographyVariants.H3 }
+                      mix={ { block: 'CategoryPage', elem: 'PlaceholderHeading' } }
+                    >
                         { __('Shopping Options') }
-                    </h3>
+                    </Typography>
                     <div block="CategoryPage" elem="PlaceholderList">
                         <div block="CategoryPage" elem="PlaceholderListItem" />
                         <div block="CategoryPage" elem="PlaceholderListItem" />
@@ -206,9 +211,9 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
 
     renderFilterButtonPlaceholder(): ReactElement {
         return (
-            <p block="CategoryPage" elem="FilterButtonPlaceholder">
+            <Typography mix={ { block: 'CategoryPage', elem: 'FilterButtonPlaceholder' } }>
                 <TextPlaceholder length={ TextPlaceHolderLength.SHORT } />
-            </p>
+            </Typography>
         );
     }
 
@@ -287,7 +292,8 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
                   } }
-                  attr={ { key: type, 'aria-label': 'grid' } }
+                  key={ type }
+                  aria-label="grid"
                   onClick={ onGridButtonClick }
                 >
                     <GridIcon isActive={ activeLayoutType === CategoryPageLayout.GRID } />
@@ -301,7 +307,8 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },
                   } }
-                  attr={ { key: type, 'aria-label': 'list' } }
+                  key={ type }
+                  aria-label="list"
                   onClick={ onListButtonClick }
                 >
                     <ListIcon isActive={ activeLayoutType === CategoryPageLayout.LIST } />

@@ -21,6 +21,8 @@ import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonType } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 import { ValidationInputType } from 'Util/Validator/Config';
 
@@ -39,9 +41,9 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
 
         return (
             <div block="ConfirmAccountPage" elem="WarningMsg">
-                <h2>
+                <Typography variant={ TypographyVariants.H2 }>
                     { __('Unable to confirm account') }
-                </h2>
+                </Typography>
                 <div>
                     { __('The URL is invalid. Some parameters are missing.') }
                 </div>
@@ -94,7 +96,7 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
                 />
                 <Button
                   mix={ { block: 'ConfirmAccountPage', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Confirm your account') }
                 </Button>
@@ -111,9 +113,9 @@ export class ConfirmAccountPageComponent extends PureComponent<ConfirmAccountPag
 
         return (
             <>
-                <h1 block="ConfirmAccountPage" elem="Heading">
+                <Typography variant={ TypographyVariants.H1 } mix={ { block: 'ConfirmAccountPage', elem: 'Heading' } }>
                     { __('Confirm your account') }
-                </h1>
+                </Typography>
                 { this.renderForm() }
             </>
         );

@@ -23,6 +23,8 @@ import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import Button from 'Ui/Button';
 import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { formatPrice } from 'Util/Price';
 
 import { CheckoutBillingComponentProps, CheckoutBillingComponentState } from './CheckoutBilling.type';
@@ -124,7 +126,7 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                               elem: 'TACLink',
                           } }
                           onClick={ this.handleShowPopup }
-                          attr={ { type: ButtonType.BUTTON } }
+                          type={ ButtonType.BUTTON }
                         >
                             { __('read more') }
                         </Button>
@@ -206,7 +208,7 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
                 <Button
                   disabled={ isDisabled }
                   mix={ { block: 'CheckoutBilling', elem: 'Button' } }
-                  attr={ { type: ButtonType.SUBMIT } }
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Complete order') }
                 </Button>
@@ -271,9 +273,12 @@ export class CheckoutBillingComponent extends PureComponent<CheckoutBillingCompo
 
     renderHeading(): ReactElement {
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Billing address') }
-            </h2>
+            </Typography>
         );
     }
 

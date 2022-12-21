@@ -30,6 +30,8 @@ import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { CategoryPageLayout } from 'Route/CategoryPage/CategoryPage.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { filterConfigurableOptions } from 'Util/Product';
 import { IndexedBundleItem, IndexedConfigurableOption } from 'Util/Product/Product.type';
 import { ValidationInputTypeNumber } from 'Util/Validator/Config';
@@ -364,9 +366,15 @@ export class ProductComponent<P extends ProductComponentProps = ProductComponent
         return (
             <>
                 { withMeta && <meta itemProp="brand" content={ brand } /> }
-                <h4 block={ this.className } elem="Brand" itemProp="brand">
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  mix={ { block: this.className, elem: 'Brand' } }
+                  attr={ {
+                      itemProp: 'brand',
+                  } }
+                >
                     <TextPlaceholder content={ brand } />
-                </h4>
+                </Typography>
             </>
         );
     }
@@ -429,16 +437,20 @@ export class ProductComponent<P extends ProductComponentProps = ProductComponent
 
         if (!header) {
             return (
-                <p block={ this.className } elem="Name">
+                <Typography mix={ { block: this.className, elem: 'Name' } }>
                     <TextPlaceholder content={ nameToRender } length={ TextPlaceHolderLength.MEDIUM } />
-                </p>
+                </Typography>
             );
         }
 
         return (
-            <h1 block={ this.className } elem="Title" itemProp="name">
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ { block: this.className, elem: 'Title' } }
+              attr={ { itemProp: 'name' } }
+            >
                 <TextPlaceholder content={ nameToRender } length={ TextPlaceHolderLength.MEDIUM } />
-            </h1>
+            </Typography>
         );
     }
     //#endregion

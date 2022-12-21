@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { formatPrice, roundPrice } from 'Util/Price';
@@ -56,10 +57,15 @@ export class CartItemPriceComponent extends PureComponent<CartItemPriceComponent
         const { mix } = this.props;
 
         return (
-            <p block="ProductPrice" aria-label={ __('Product Price') } mix={ mix }>
+            <Typography
+              mix={ { block: 'ProductPrice', mix } }
+              attr={ {
+                  'aria-label': __('Product Price'),
+              } }
+            >
                 { this.renderPrice() }
                 { this.renderSubPrice() }
-            </p>
+            </Typography>
         );
     }
 }

@@ -15,6 +15,8 @@ import { PureComponent } from 'react';
 import CloseIcon from 'Component/CloseIcon';
 import Html from 'Component/Html';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getFiltersCount } from 'Util/Category';
 
 import { ResetAttributesComponentProps, ResetItem } from './ResetAttributes.type';
@@ -69,9 +71,12 @@ export class ResetAttributesComponent extends PureComponent<ResetAttributesCompo
 
     renderDesktopTitle(): ReactElement {
         return (
-            <h3 block="ResetAttributes" elem="Title">
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ { block: 'ResetAttributes', elem: 'Title' } }
+            >
                 { __('Now shopping by:') }
-            </h3>
+            </Typography>
         );
     }
 

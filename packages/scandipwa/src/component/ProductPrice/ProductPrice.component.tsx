@@ -14,6 +14,7 @@ import { PureComponent } from 'react';
 import { ProductType } from 'Component/Product/Product.config';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import { FormattedMoney } from 'Util/Product/Product.type';
@@ -71,12 +72,12 @@ export class ProductPriceComponent extends PureComponent<ProductPriceComponentPr
         const { mix } = this.props;
 
         return (
-            <p block="ProductPrice" aria-label="Product Price" mix={ mix }>
+            <Typography mix={ { block: 'ProductPrice', mix } } attr={ { 'aria-label': 'Product Price' } }>
                 <TextPlaceholder
                   mix={ { block: 'ProductPrice', elem: 'Placeholder' } }
                   length={ TextPlaceHolderLength.CUSTOM }
                 />
-            </p>
+            </Typography>
         );
     }
 
@@ -402,10 +403,10 @@ export class ProductPriceComponent extends PureComponent<ProductPriceComponentPr
         }
 
         return (
-            <p block="ProductPrice" elem="TierPrice">
+            <Typography mix={ { block: 'ProductPrice', elem: 'TierPrice' } }>
                 { __('As low as') }
                 <strong>{ ` ${tierPriceFormatted}` }</strong>
-            </p>
+            </Typography>
         );
     }
 

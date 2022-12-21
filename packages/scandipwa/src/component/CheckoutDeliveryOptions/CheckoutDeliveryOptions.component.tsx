@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import CheckoutDeliveryOption from 'Component/CheckoutDeliveryOption';
 import { ShippingMethod } from 'Query/Checkout.type';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CheckoutDeliveryOptionsComponentProps } from './CheckoutDeliveryOptions.type';
 
@@ -27,9 +29,12 @@ export class CheckoutDeliveryOptionsComponent extends PureComponent<CheckoutDeli
 
     renderHeading(): ReactElement {
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Shipping method') }
-            </h2>
+            </Typography>
         );
     }
 
@@ -54,9 +59,9 @@ export class CheckoutDeliveryOptionsComponent extends PureComponent<CheckoutDeli
 
     renderNoDeliveryOptions(): ReactElement {
         return (
-            <p block="CheckoutDeliveryOptions" elem="NoOptions">
+            <Typography mix={ { block: 'CheckoutDeliveryOptions', elem: 'NoOptions' } }>
                 { __('There are no shipping methods available, try different address.') }
-            </p>
+            </Typography>
         );
     }
 

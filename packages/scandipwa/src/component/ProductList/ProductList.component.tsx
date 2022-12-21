@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import Pagination from 'Component/Pagination';
 import ProductListPage from 'Component/ProductListPage';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { scrollToTop } from 'Util/Browser';
 import { noopFn } from 'Util/Common';
 import { IndexedProduct } from 'Util/Product/Product.type';
@@ -184,9 +186,13 @@ export class ProductListComponent extends PureComponent<ProductListComponentProp
                   block="ProductList"
                   elem="ProductsMissing"
                 >
-                    <h2>{ __('We are sorry!') }</h2>
-                    <h3>{ __('There were no products found matching your request.') }</h3>
-                    <p>{ __('Please, try removing selected filters and try again!') }</p>
+                    <Typography variant={ TypographyVariants.H2 }>
+                        { __('We are sorry!') }
+                    </Typography>
+                    <Typography variant={ TypographyVariants.H3 }>
+                        { __('There were no products found matching your request.') }
+                    </Typography>
+                    <Typography>{ __('Please, try removing selected filters and try again!') }</Typography>
                 </div>
             </div>
         );
@@ -309,7 +315,7 @@ export class ProductListComponent extends PureComponent<ProductListComponentProp
         }
 
         return (
-            <h2>{ title }</h2>
+            <Typography variant={ TypographyVariants.H2 }>{ title }</Typography>
         );
     }
 

@@ -16,6 +16,7 @@ import FieldContainer from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import FieldGroup from 'Component/FieldGroup';
 import { DownloadableProductLinks } from 'Query/ProductList.type';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import Link from 'Ui/Link';
@@ -132,10 +133,10 @@ export class ProductDownloadableLinksComponent extends PureComponent<ProductDown
         const { title, isRequired } = this.props;
 
         return (
-            <p block="ProductDownloadableLinks" elem="Title">
+            <Typography mix={ { block: 'ProductDownloadableLinks', elem: 'Title' } }>
                 { title }
                 { isRequired && <strong block="ProductDownloadableLinks" elem="Required"> *</strong> }
-            </p>
+            </Typography>
         );
     }
 

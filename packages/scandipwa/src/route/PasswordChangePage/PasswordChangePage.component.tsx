@@ -15,6 +15,8 @@ import ContentWrapper from 'Component/ContentWrapper';
 import Loader from 'Component/Loader';
 import PasswordChangeForm from 'Component/PasswordChangeForm';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { PasswordChangePageComponentProps } from './PasswordChangePage.type';
 
@@ -31,9 +33,9 @@ export class PasswordChangePageComponent extends PureComponent<PasswordChangePag
 
         return (
             <div block="PasswordChangePage" elem="WarningMsg">
-                <h2>
+                <Typography variant={ TypographyVariants.H2 }>
                     { __('Unable to reset password') }
-                </h2>
+                </Typography>
                 <div>
                     { __('The URL is invalid. Some parameters are missing.') }
                 </div>
@@ -57,7 +59,7 @@ export class PasswordChangePageComponent extends PureComponent<PasswordChangePag
 
         return (
             <>
-                { !isMobile && <h1>{ __('Change My Password') }</h1> }
+                { !isMobile && <Typography variant={ TypographyVariants.H1 }>{ __('Change My Password') }</Typography> }
                 <PasswordChangeForm
                   onFormError={ onError }
                   onFormSubmit={ onPasswordSuccess }

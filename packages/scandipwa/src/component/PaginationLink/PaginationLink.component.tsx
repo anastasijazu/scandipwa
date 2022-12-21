@@ -49,7 +49,8 @@ export class PaginationLinkComponent extends PureComponent<PaginationLinkCompone
                   pathname,
                   state,
               } }
-              attr={ { 'aria-label': label, 'aria-current': isCurrent ? 'page' : 'false' } }
+              aria-label={ label }
+              aria-current={ isCurrent ? 'page' : 'false' }
               mix={ {
                   block: 'PaginationLink',
                   mods: { isCurrent, isArrow: typeof children !== 'string' },

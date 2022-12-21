@@ -13,6 +13,8 @@ import { Component, createRef } from 'react';
 
 import ProductCard from 'Component/ProductCard';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import CSS from 'Util/CSS';
 import { IndexedProduct } from 'Util/Product/Product.type';
 
@@ -96,7 +98,7 @@ export class NewProductsComponent extends Component<NewProductsComponentProps> {
 
         return (
             <section block="NewProducts" ref={ this.newProductsRef }>
-                <h2>{ __('New Products') }</h2>
+                <Typography variant={ TypographyVariants.H2 }>{ __('New Products') }</Typography>
                 <ul block="NewProducts" elem="Products">
                     { products.map(this.renderProductCard) }
                 </ul>

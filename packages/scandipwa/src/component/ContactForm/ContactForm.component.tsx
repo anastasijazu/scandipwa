@@ -46,7 +46,7 @@ export class ContactFormComponent extends FieldForm<ContactFormComponentProps> {
         return (
             <>
                 <Loader isLoading={ isLoading } />
-                <Button attr={ { type: ButtonType.SUBMIT } }>
+                <Button type={ ButtonType.SUBMIT }>
                     { __('Send Your message') }
                 </Button>
             </>

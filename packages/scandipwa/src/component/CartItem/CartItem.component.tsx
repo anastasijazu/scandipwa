@@ -19,6 +19,7 @@ import Image from 'Component/Image';
 import { ImageRatio } from 'Component/Image/Image.type';
 import Loader from 'Component/Loader';
 import { CartBundleOption, CartCustomizableOption } from 'Query/Cart.type';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import {
     GQLCurrencyEnum,
@@ -369,9 +370,9 @@ export class CartItemComponent extends PureComponent<CartItemComponentProps> {
         }
 
         return (
-            <p block="CartItem" elem="OutOfStock">
+            <Typography mix={ { block: 'CartItem', elem: 'OutOfStock' } }>
                 { __('Product is out of stock') }
-            </p>
+            </Typography>
         );
     }
 

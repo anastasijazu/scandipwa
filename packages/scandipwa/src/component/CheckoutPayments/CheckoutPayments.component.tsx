@@ -18,6 +18,8 @@ import { PurchaseOrderComponent } from 'Component/PurchaseOrder/PurchaseOrder.co
 import { PaymentMethod } from 'Query/Checkout.type';
 import { CheckoutSteps } from 'Route/Checkout/Checkout.config';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { PaymentMethods } from './CheckoutPayments.config';
 import { CheckoutPaymentsComponentProps } from './CheckoutPayments.type';
@@ -110,9 +112,12 @@ export class CheckoutPaymentsComponent extends PureComponent<CheckoutPaymentsCom
 
     renderHeading(): ReactElement {
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Payment method') }
-            </h2>
+            </Typography>
         );
     }
 

@@ -13,6 +13,10 @@ import { PureComponent } from 'react';
 
 import ContentWrapper from 'Component/ContentWrapper';
 import { ReactElement } from 'Type/Common.type';
+import { ButtonVariants } from 'Ui/Button/Button.config';
+import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { SomethingWentWrongComponentProps } from './SomethingWentWrong.type';
 
@@ -49,18 +53,27 @@ export class SomethingWentWrongComponent extends PureComponent<SomethingWentWron
         return (
             <main block="SomethingWentWrong">
                 <ContentWrapper label="Something went wrong on the page.">
-                    <h1 block="SomethingWentWrong" elem="Heading">{ __('Ooops!') }</h1>
-                    <h2 block="SomethingWentWrong" elem="SubHeading">{ __('Something went wrong!') }</h2>
+                    <Typography
+                      variant={ TypographyVariants.H1 }
+                      mix={ { block: 'SomethingWentWrong', elem: 'Heading' } }
+                    >
+                        { __('Ooops!') }
+                    </Typography>
+                    <Typography
+                      variant={ TypographyVariants.H2 }
+                      mix={ { block: 'SomethingWentWrong', elem: 'SubHeading' } }
+                    >
+                        { __('Something went wrong!') }
+                    </Typography>
                     { /* eslint-disable-next-line react/forbid-elements */ }
-                    <a
-                      href="/"
-                      block="SomethingWentWrong"
-                      elem="Button"
-                      mix={ { block: 'Button' } }
+                    <Link
+                      variant={ ButtonVariants.FILLED }
+                      to="/"
+                      mix={ { block: 'SomethingWentWrong', elem: 'Button' } }
                       onClick={ onClick }
                     >
                         { __('Back to homepage') }
-                    </a>
+                    </Link>
                     { this.renderErrorDetails() }
                 </ContentWrapper>
             </main>

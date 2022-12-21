@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 
 import { InstallPromptIOSComponentProps } from './InstallPromptIOS.type';
@@ -35,21 +36,21 @@ export class InstallPromptIOSComponent extends PureComponent<InstallPromptIOSCom
 
     renderContent(): ReactElement {
         return (
-            <p block="InstallPromptIOS" elem="Content">
+            <Typography mix={ { block: 'InstallPromptIOS', elem: 'Content' } }>
                 <span>{ __('Tap:') }</span>
                 <span block="InstallPromptIOS" elem="Share" />
                 <span>{ __(', then') }</span>
                 <span block="InstallPromptIOS" elem="Plus" />
                 <span>{ __('Add to Home Screen') }</span>
-            </p>
+            </Typography>
         );
     }
 
     renderHeading(): ReactElement {
         return (
-            <p block="InstallPromptIOS" elem="Heading">
+            <Typography mix={ { block: 'InstallPromptIOS', elem: 'Heading' } }>
                 { __('Browse website in full-screen:') }
-            </p>
+            </Typography>
         );
     }
 

@@ -43,6 +43,8 @@ import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
 import IconButton from 'Ui/IconButton';
 import IconLink from 'Ui/IconLink';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { isSignedIn } from 'Util/Auth';
 import { isCrawler, isSSR } from 'Util/Browser';
 import { decodeString } from 'Util/Common';
@@ -196,12 +198,10 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   elem: 'Button',
                   mods: { type: 'back', isVisible },
               } }
-              attr={ {
-                  key: 'back',
-                  'aria-label': 'Go back',
-                  'aria-hidden': !isVisible,
-                  tabIndex: isVisible ? 0 : -1,
-              } }
+              key="back"
+              aria-label="Go back"
+              aria-hidden={ !isVisible }
+              tabIndex={ isVisible ? 0 : -1 }
               onClick={ onBackButtonClick }
             >
                 <ChevronIcon direction={ Directions.LEFT } />
@@ -224,12 +224,10 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   mods: { type: 'close', isVisible },
               } }
               onClick={ onCloseButtonClick }
-              attr={ {
-                  key: 'close',
-                  'aria-label': 'Close',
-                  'aria-hidden': !isVisible,
-                  tabIndex: isVisible ? 0 : -1,
-              } }
+              key="close"
+              aria-label="Close"
+              aria-hidden={ !isVisible }
+              tabIndex={ isVisible ? 0 : -1 }
             >
                 <CloseIcon />
             </IconButton>
@@ -295,11 +293,9 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   elem: 'Button',
                   mods: { type: 'share', isVisible },
               } }
-              attr={ {
-                  key: 'share',
-                  'aria-label': 'Share',
-                  'aria-hidden': !isVisible,
-              } }
+              key="share"
+              aria-label="Share"
+              aria-hidden={ !isVisible }
               onClick={ shareWishlist }
               disabled={ isWishlistLoading }
             >
@@ -348,9 +344,8 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   to="compare"
                   variant="transparent"
                   color="primary"
-                  attr={ {
-                      'aria-label': __('Compare Page'),
-                  } }
+                  key="compare"
+                  aria-label={ __('Compare Page') }
                   mix={ {
                       block: 'Header',
                       elem: 'Button',
@@ -368,14 +363,17 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
         const { navigationState: { title } } = this.props;
 
         return (
-            <h1
-              key="title"
-              block="Header"
-              elem="Title"
-              mods={ { isVisible } }
+            <Typography
+              variant={ TypographyVariants.H1 }
+              mix={ {
+                  block: 'Header',
+                  elem: 'Title',
+                  mods: { isVisible },
+              } }
+              attr={ { key: 'title' } }
             >
                 { title ? (<span>{ decodeString(title.replace(/\+/g, ' ')) }</span>) : (<span>{ title }</span>) }
-            </h1>
+            </Typography>
         );
     }
 
@@ -418,12 +416,11 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   elem: 'LogoWrapper',
                   mods: { isVisible },
               } }
-              attr={ {
-                  'aria-label': 'Go to homepage by clicking on ScandiPWA logo',
-                  'aria-hidden': !isVisible,
-                  tabIndex: isVisible ? 0 : -1,
-              } }
+              aria-label="Go to homepage by clicking on ScandiPWA logo"
+              aria-hidden={ !isVisible }
+              tabIndex={ isVisible ? 0 : -1 }
               key="logo"
+              isUnstyled
             >
                 { this.renderLogoImage() }
             </IconLink>
@@ -476,12 +473,10 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   block: 'Header',
                   elem: 'MyAccountWrapper',
               } }
-              attr={ {
-                  tabIndex: 0,
-                  'aria-label': 'Open my account',
-                  id: 'myAccount',
-              } }
-              events={ { onClick: onMyAccountButtonClick } }
+              tabIndex={ 0 }
+              aria-label="Open my account"
+              id="myAccount"
+              onClick={ onMyAccountButtonClick }
             >
                 <UserIcon />
             </IconButton>
@@ -636,12 +631,10 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   elem: 'Button',
                   mods: { type: 'ok', isVisible },
               } }
-              attr={ {
-                  tabIndex: isVisible ? 0 : -1,
-                  'aria-label': 'Save changes',
-                  'aria-hidden': !isVisible,
-                  key: 'ok',
-              } }
+              tabIndex={ isVisible ? 0 : -1 }
+              aria-label="Save changes"
+              aria-hidden={ !isVisible }
+              key="ok"
               onClick={ onOkButtonClick }
             >
                 { __('OK') }
@@ -679,12 +672,10 @@ export class HeaderComponent extends NavigationAbstract<HeaderComponentProps> {
                   elem: 'Button',
                   mods: { type: 'cancel', isVisible },
               } }
-              attr={ {
-                  key: 'cancel',
-                  tabIndex: isVisible ? 0 : -1,
-                  'aria-label': 'Cancel changes',
-                  'aria-hidden': !isVisible,
-              } }
+              key="cancel"
+              tabIndex={ isVisible ? 0 : -1 }
+              aria-label="Cancel changes"
+              aria-hidden={ !isVisible }
               onClick={ onCancelButtonClick }
             >
                 { __('Cancel') }
