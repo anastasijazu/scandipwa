@@ -11,6 +11,7 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import Link from 'Ui/Link';
 import BrowserDatabase from 'Util/BrowserDatabase';
@@ -72,10 +73,10 @@ export class CookiePopupComponent extends PureComponent<CookiePopupComponentProp
         const { cookieText } = this.props;
 
         return (
-            <p block="CookiePopup" elem="Content">
+            <Typography mix={ { block: 'CookiePopup', elem: 'Content' } }>
                 { cookieText }
                 { this.renderCookieLink() }
-            </p>
+            </Typography>
         );
     }
 

@@ -89,7 +89,7 @@ export class MyAccountCustomerFormComponent extends FieldForm<MyAccountCustomerF
         return (
             <Button
               mix={ { block: 'MyAccountInformation', elem: 'Submit' } }
-              attr={ { type: ButtonType.SUBMIT } }
+              type={ ButtonType.SUBMIT }
             >
                 { __('Save') }
             </Button>

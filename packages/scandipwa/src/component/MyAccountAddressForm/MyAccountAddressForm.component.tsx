@@ -126,7 +126,7 @@ export class MyAccountAddressFormComponent<
             <Button
               variant={ ButtonVariants.OUTLINED }
               mix={ { block: 'MyAccount', elem: 'Button' } }
-              attr={ { type: ButtonType.SUBMIT } }
+              type={ ButtonType.SUBMIT }
             >
                 { __('Save address') }
             </Button>

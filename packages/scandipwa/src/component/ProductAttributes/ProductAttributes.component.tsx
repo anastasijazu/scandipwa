@@ -14,6 +14,8 @@ import { Fragment, PureComponent } from 'react';
 import ExpandableContent from 'Component/ExpandableContent';
 import ProductAttributeValue from 'Component/ProductAttributeValue';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { IndexedAttributeWithValue } from 'Util/Product/Product.type';
 
 import { ProductAttributesComponentProps } from './ProductAttributes.type';
@@ -42,9 +44,12 @@ export class ProductAttributesComponent extends PureComponent<ProductAttributesC
             uniqueGroups.map(
                 (group) => (
                     <div block="ProductAttributes" elem="AttributeBlock" key={ group.attribute_group_name }>
-                        <h2 block="ProductAttributes" elem="Group">
+                        <Typography
+                          variant={ TypographyVariants.H2 }
+                          mix={ { block: 'ProductAttributes', elem: 'Group' } }
+                        >
                             { group.attribute_group_name }
-                        </h2>
+                        </Typography>
                         { this.renderAttributes(group.attribute_group_id) }
                     </div>
                 ),

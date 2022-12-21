@@ -52,21 +52,14 @@ P extends LinkComponentProps = LinkComponentProps,
             isOpenInNewTab,
             children,
             to,
-            attr,
             mix,
-            mods,
-            block,
-            isUnstyled,
             ...props
         } = this.props;
 
         return (
             <a
-              { ...props }
-              block={ block }
-              mods={ isUnstyled ? {} : mods }
+              { ...props as LinkHTMLAttributes<HTMLElement> }
               mix={ mix }
-              { ...attr as LinkHTMLAttributes<HTMLElement> }
               onClick={ this.scrollToElement }
               href={ to as string }
               rel={ isOpenInNewTab && 'noopener noreferrer' }
@@ -83,20 +76,13 @@ P extends LinkComponentProps = LinkComponentProps,
             children,
             to,
             mix,
-            attr,
-            mods,
-            block,
-            isUnstyled,
             ...props
         } = this.props;
 
         return (
             <a
-              { ...props }
-              block={ block }
-              mods={ isUnstyled ? {} : mods }
+              { ...props as LinkHTMLAttributes<HTMLElement> }
               mix={ mix }
-              { ...attr as LinkHTMLAttributes<HTMLElement> }
               href={ to as string }
               rel={ isOpenInNewTab && 'noopener noreferrer' }
               target={ isOpenInNewTab && '_blank' }
@@ -109,24 +95,17 @@ P extends LinkComponentProps = LinkComponentProps,
     render(): ReactElement {
         const {
             mix,
-            attr,
             children,
             to,
             isOpenInNewTab,
-            mods: modifiers,
-            isUnstyled,
-            block,
             ...props
         } = this.props;
 
         if (!to) {
             return (
                 <div
-                  { ...props }
-                  block={ block }
-                  mods={ isUnstyled ? {} : modifiers }
+                  { ...props as LinkHTMLAttributes<HTMLElement> }
                   mix={ mix }
-                  { ...attr as LinkHTMLAttributes<HTMLElement> }
                 >
                     { children }
                 </div>
@@ -141,13 +120,11 @@ P extends LinkComponentProps = LinkComponentProps,
             return this.renderAbsolutePathLink();
         }
 
-        const mods = isUnstyled ? {} : modifiers;
-        const classNameConverted = `${ stringify({ block, mods, mix })}`;
+        const classNameConverted = `${ stringify({ mix })}`;
 
         return (
             <RouterLink
-              { ...props }
-              { ...attr as LinkHTMLAttributes<HTMLElement> }
+              { ...props as LinkHTMLAttributes<HTMLElement> }
               to={ to }
               // eslint-disable-next-line react/forbid-component-props
               className={ classNameConverted }

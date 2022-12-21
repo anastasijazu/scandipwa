@@ -13,6 +13,7 @@
 
 import { PureComponent } from 'react';
 
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 
 import { OfflineNoticeComponentProps } from './OfflineNotice.type';
@@ -38,12 +39,12 @@ export class OfflineNoticeComponent extends PureComponent<OfflineNoticeComponent
         if (isBig) {
             return (
                 <div block="OfflineNotice" elem="Text" mods={ { isBig } }>
-                    <p block="OfflineNotice" elem="Text-Title">
+                    <Typography mix={ { block: 'OfflineNotice', elem: 'Text-Title' } }>
                         { __('You are currently offline.') }
-                    </p>
-                    <p block="OfflineNotice" elem="Text-Description">
+                    </Typography>
+                    <Typography mix={ { block: 'OfflineNotice', elem: 'Text-Description' } }>
                         { __('We could not load the content. Check your internet connection and try again.') }
-                    </p>
+                    </Typography>
                 </div>
             );
         }

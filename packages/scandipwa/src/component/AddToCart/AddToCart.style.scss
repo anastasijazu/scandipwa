@@ -12,6 +12,7 @@
 .AddToCart {
     padding: 0;
     vertical-align: middle;
+    width: 100%;
 
     @include desktop {
         line-height: 20px;

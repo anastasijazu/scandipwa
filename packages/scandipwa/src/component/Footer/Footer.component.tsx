@@ -18,6 +18,8 @@ import NewsletterSubscription from 'Component/NewsletterSubscription';
 import { ReactElement } from 'Type/Common.type';
 import { ButtonColors } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { noopFn } from 'Util/Common';
 
 import { COLUMN_MAP, NEWSLETTER_COLUMN, RENDER_NEWSLETTER } from './Footer.config';
@@ -98,7 +100,7 @@ export class FooterComponent extends Component<FooterComponentProps> {
                   mods: src ? { type: 'image' } : undefined,
               } }
               key={ i }
-              attr={ { 'aria-label': title } }
+              aria-label={ title }
               onClick={ onItemClick }
             >
                 { this.renderColumnItemContent(src, title) }
@@ -133,9 +135,12 @@ export class FooterComponent extends Component<FooterComponentProps> {
 
         return (
             <div block="Footer" elem="Column" mods={ mods } key={ i }>
-                <h3 block="Footer" elem="ColumnTitle">
+                <Typography
+                  variant={ TypographyVariants.H3 }
+                  mix={ { block: 'Footer', elem: 'ColumnTitle' } }
+                >
                     { title }
-                </h3>
+                </Typography>
                 <div
                   block="Footer"
                   elem="ColumnContent"

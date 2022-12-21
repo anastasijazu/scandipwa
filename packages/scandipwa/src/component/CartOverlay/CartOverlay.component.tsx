@@ -18,6 +18,7 @@ import LockIcon from 'Component/LockIcon';
 import Overlay from 'Component/Overlay';
 import { OVERLAY_PLACEHOLDER } from 'Component/PopupSuspense/PopupSuspense.config';
 import { CART_URL } from 'Route/CartPage/CartPage.config';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { GQLCurrencyEnum } from 'Type/Graphql.type';
 import Button from 'Ui/Button';
@@ -86,9 +87,9 @@ export class CartOverlayComponent extends PureComponent<CartOverlayComponentProp
 
     renderNoCartItems(): ReactElement {
         return (
-            <p block="CartOverlay" elem="Empty">
+            <Typography mix={ { block: 'CartOverlay', elem: 'Empty' } }>
                 { __('You have no items in your shopping cart.') }
-            </p>
+            </Typography>
         );
     }
 

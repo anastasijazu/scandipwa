@@ -417,7 +417,7 @@ export class CheckoutComponent extends PureComponent<CheckoutComponentProps> {
                  <Button
                    variant={ ButtonVariants.OUTLINED }
                    mix={ { block: 'Checkout', elem: 'ShippingButton' } }
-                   attr={ { type: ButtonType.BUTTON } }
+                   type={ ButtonType.BUTTON }
                    disabled={ !isPickInStoreMethodSelected }
                    onClick={ handleSelectDeliveryMethod }
                  >
@@ -426,7 +426,7 @@ export class CheckoutComponent extends PureComponent<CheckoutComponentProps> {
                  <Button
                    variant={ ButtonVariants.OUTLINED }
                    mix={ { block: 'Checkout', elem: 'PickInStore' } }
-                   attr={ { type: ButtonType.BUTTON } }
+                   type={ ButtonType.BUTTON }
                    disabled={ isPickInStoreMethodSelected || shippingMethods?.length < 1 }
                    onClick={ handleSelectDeliveryMethod }
                  >

@@ -15,6 +15,8 @@ import Html from 'Component/Html';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import NoMatch from 'Route/NoMatch';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CmsPageComponentProps } from './CmsPage.type';
 
@@ -34,9 +36,9 @@ export class CmsPageComponent extends PureComponent<CmsPageComponentProps> {
         }
 
         return (
-            <h1 block="CmsPage" elem="Heading">
+            <Typography variant={ TypographyVariants.H1 } mix={ { block: 'CmsPage', elem: 'Heading' } }>
                 <TextPlaceholder content={ content_heading } />
-            </h1>
+            </Typography>
         );
     }
 

@@ -20,6 +20,8 @@ import MyAccountOrderItemsTable from 'Component/MyAccountOrderItemsTable';
 import { CreditMemo, Invoice } from 'Query/Order.type';
 import { ReactElement } from 'Type/Common.type';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { decodeBase64 } from 'Util/Base64';
 import CSS from 'Util/CSS';
 import media from 'Util/Media';
@@ -55,12 +57,15 @@ export class MyAccountOrderPrintComponent extends MyAccountOrder<MyAccountOrderP
         const { order: { increment_id, status } } = this.props;
 
         return (
-            <h2 block="MyAccountOrder" elem="OrderId">
-                { __('Order # %s', increment_id) }
-                <span block="MyAccountOrder" elem="OrderStatus">
-                    { status }
-                </span>
-            </h2>
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'MyAccountOrder', elem: 'OrderId' } }
+            >
+              { __('Order # %s', increment_id) }
+              <span block="MyAccountOrder" elem="OrderStatus">
+                  { status }
+              </span>
+            </Typography>
         );
     }
 
@@ -102,7 +107,7 @@ export class MyAccountOrderPrintComponent extends MyAccountOrder<MyAccountOrderP
                   block: 'MyAccountOrderPrint',
                   elem: 'LogoWrapper',
               } }
-              attr={ { 'aria-label': 'Go to homepage by clicking on ScandiPWA logo' } }
+              aria-label="Go to homepage by clicking on ScandiPWA logo"
               key="logo"
               isUnstyled
             >

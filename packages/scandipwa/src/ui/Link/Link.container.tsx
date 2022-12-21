@@ -15,7 +15,7 @@ import { MouseEvent, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { ReactElement, Url } from 'Type/Common.type';
+import { Mods, ReactElement, Url } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 import { RootState } from 'Util/Store/Store.type';
 import { appendWithStoreCode } from 'Util/Url';
@@ -59,8 +59,11 @@ P extends LinkContainerProps = LinkContainerProps,
         isOpenInNewTab: false,
         variant: ButtonVariants.LINK,
         color: ButtonColors.PRIMARY,
-        disabled: false,
         underline: LinkUnderlineType.NONE,
+        isUnstyled: false,
+        to: '/',
+        key: '',
+        disabled: false,
     };
 
     containerFunctions: LinkContainerFunctions = {
@@ -72,38 +75,39 @@ P extends LinkContainerProps = LinkContainerProps,
             mix,
             children,
             isOpenInNewTab,
-            attr,
             variant,
             color,
-            disabled,
-            baseLinkUrl,
-            dispatch,
             isUnstyled,
             underline,
+            disabled,
             key,
+            onClick,
             ...restProps
         } = this.props;
 
+        const mods: Mods = isUnstyled
+            ? {}
+            : {
+                variant, color, disabled, underline,
+            };
+
         return {
-            ...restProps,
             key,
-            isUnstyled,
             to: this.getTo(),
-            mix,
+            mix: {
+                block: 'Link',
+                mods,
+                mix,
+            },
             isOpenInNewTab,
             children,
-            attr,
-            block: 'Link',
-            mods: {
-                variant, color, disabled, underline,
-            },
+            onClick,
+            ...restProps,
         };
     }
 
     getTo(): Url | string {
-        const { to: toProp } = this.props;
-        // fix null, undefined and empty links
-        const to = toProp || '/';
+        const { to } = this.props;
 
         if (typeof to === 'string') {
             // in case this URL is absolute or used for scroll, do not append store
@@ -114,7 +118,7 @@ P extends LinkContainerProps = LinkContainerProps,
             return appendWithStoreCode(to);
         }
 
-        const pathname = to.pathname || '/';
+        const pathname = to?.pathname || '/';
 
         return {
             ...to,

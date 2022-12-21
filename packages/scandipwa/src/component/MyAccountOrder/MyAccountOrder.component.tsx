@@ -22,6 +22,8 @@ import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonVariants } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { decodeBase64 } from 'Util/Base64';
 import { noopFn } from 'Util/Common';
 import { convertStringToDate, getTimeInCurrentTimezone } from 'Util/Manipulations/Date';
@@ -182,12 +184,15 @@ Props extends MyAccountOrderComponentProps = MyAccountOrderComponentProps,
         }
 
         return (
-            <h2 block="MyAccountOrder" elem="OrderId">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'MyAccountOrder', elem: 'OrderId' } }
+            >
                 { __('Order # %s', increment_id) }
                 <span block="MyAccountOrder" elem="OrderStatus">
                     { status }
                 </span>
-            </h2>
+            </Typography>
         );
     }
 

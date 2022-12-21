@@ -19,6 +19,8 @@ import {
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { LoginAccountComponentProps } from './LoginAccount.type';
 
@@ -35,8 +37,8 @@ export class LoginAccountComponent extends MyAccountOverlayComponent<LoginAccoun
 
         return (
             <div block="LoginAccount" elem="SignInWrapper">
-                <h3>{ __('Registered Customers') }</h3>
-                <p>{ __('If you have an account, sign in with your email address.') }</p>
+                <Typography variant={ TypographyVariants.H3 }>{ __('Registered Customers') }</Typography>
+                <Typography>{ __('If you have an account, sign in with your email address.') }</Typography>
                 { this.renderSignIn() }
             </div>
         );
@@ -48,7 +50,7 @@ export class LoginAccountComponent extends MyAccountOverlayComponent<LoginAccoun
         if (isMobile) {
             return (
                 <div block="LoginAccount" elem="CreateAccount">
-                    <h4>{ __("Don't have an account?") }</h4>
+                    <Typography variant={ TypographyVariants.H4 }>{ __("Don't have an account?") }</Typography>
                     <Button
                       variant={ ButtonVariants.LINK }
                       onClick={ onCreateAccountClick }
@@ -61,11 +63,11 @@ export class LoginAccountComponent extends MyAccountOverlayComponent<LoginAccoun
 
         return (
             <div block="LoginAccount" elem="CreateAccount">
-                <h3>{ __('New Customers') }</h3>
-                <p>
+                <Typography variant={ TypographyVariants.H3 }>{ __('New Customers') }</Typography>
+                <Typography>
                     { __('Creating an account has many benefits:') }
                     { __(' check out faster, keep more than one address, track orders and more.') }
-                </p>
+                </Typography>
                 <Button
                   mix={ { block: 'LoginAccount', elem: 'CreateAccountButton' } }
                   onClick={ onCreateAccountClick }

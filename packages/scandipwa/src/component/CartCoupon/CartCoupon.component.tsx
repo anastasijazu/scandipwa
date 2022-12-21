@@ -19,6 +19,8 @@ import Loader from 'Component/Loader';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonColors, ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { CartCouponComponentProps, CartCouponComponentState } from './CartCoupon.type';
 
@@ -129,7 +131,7 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                       block: 'CartCoupon',
                       elem: 'Button',
                   } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   disabled={ !enteredCouponCode }
                   onClick={ this.handleApplyCoupon }
                 >
@@ -145,10 +147,10 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
         return (
             <>
                 <div block="CartCoupon" elem="Message">
-                    <p block="CartCoupon" elem="MessageText">
+                    <Typography mix={ { block: 'CartCoupon', elem: 'MessageText' } }>
                         { __('Applied coupon code: ') }
                         <strong>{ couponCode.toUpperCase() }</strong>
-                    </p>
+                    </Typography>
                 </div>
                 <Button
                   variant={ ButtonVariants.OUTLINED }
@@ -156,7 +158,7 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
                       block: 'CartCoupon',
                       elem: 'Button',
                   } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   onClick={ this.handleRemoveCoupon }
                 >
                     { __('Remove Coupon') }
@@ -173,9 +175,12 @@ export class CartCouponComponent extends PureComponent<CartCouponComponentProps,
         }
 
         return (
-            <h3 block="CartCoupon" elem="Title">
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ { block: 'CartCoupon', elem: 'Title' } }
+            >
                 { title }
-            </h3>
+            </Typography>
         );
     }
 

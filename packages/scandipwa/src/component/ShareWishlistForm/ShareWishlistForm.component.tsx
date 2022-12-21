@@ -47,7 +47,7 @@ export class ShareWishlistFormComponent extends FieldForm<ShareWishlistFormCompo
         return (
             <>
                 { isFormLoading && <Loader isLoading /> }
-                <Button attr={ { type: ButtonType.SUBMIT } }>
+                <Button type={ ButtonType.SUBMIT }>
                     { __('Share Wishlist') }
                 </Button>
             </>

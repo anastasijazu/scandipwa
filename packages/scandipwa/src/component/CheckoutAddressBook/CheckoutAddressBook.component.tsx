@@ -21,6 +21,8 @@ import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getDefaultAddressLabel } from 'Util/Address';
 import { isSignedIn } from 'Util/Auth';
 
@@ -125,9 +127,12 @@ CheckoutAddressBookComponentState
         }
 
         return (
-            <h2 block="Checkout" elem="Heading">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ { block: 'Checkout', elem: 'Heading' } }
+            >
                 { __('Shipping address') }
-            </h2>
+            </Typography>
         );
     }
 
@@ -152,7 +157,7 @@ CheckoutAddressBookComponentState
                 <Button
                   variant={ ButtonVariants.OUTLINED }
                   mix={ { block: 'CheckoutAddressBook', elem: 'Button', mods: { isCustomAddressExpanded } } }
-                  attr={ { type: ButtonType.BUTTON } }
+                  type={ ButtonType.BUTTON }
                   onClick={ this.expandCustomAddress }
                 >
                     { __('Use custom address') }

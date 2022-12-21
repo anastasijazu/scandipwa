@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import ProductReviewRating from 'Component/ProductReviewRating';
 import { ProductReview } from 'Query/ProductList.type';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { RatingVote } from 'Util/Product/Product.type';
 
 import { ProductReviewItemComponentProps } from './ProductReviewItem.type';
@@ -48,7 +50,12 @@ export class ProductReviewItemComponent extends PureComponent<ProductReviewItemC
               itemScope
               itemProp="reviewRating"
             >
-                <p itemProp="name" block="ProductReviewItem" elem="RatingItem">{ rating_code }</p>
+                <Typography
+                  mix={ { block: 'ProductReviewItem', elem: 'ReviewItem' } }
+                  attr={ { itemProp: 'name' } }
+                >
+                    { rating_code }
+                </Typography>
                 <meta itemProp="ratingValue" content={ String(percent) } />
                 <meta itemProp="worstRating" content="0" />
                 <meta itemProp="bestRating" content="100" />
@@ -64,12 +71,12 @@ export class ProductReviewItemComponent extends PureComponent<ProductReviewItemC
         const { nickname, created_at } = reviewItem;
 
         return (
-            <p block="ProductReviewItem" elem="ReviewAuthor">
+            <Typography mix={ { block: 'ProductReviewItem', elem: 'ReviewAuthor' } }>
                 { __('Written by ') }
                 <strong itemProp="author">{ nickname }</strong>
                 <meta itemProp="datePublished" content={ this.getFormattedDate(created_at) } />
                 { __(', written at %s', this.getFormattedDate(created_at)) }
-            </p>
+            </Typography>
         );
     }
 
@@ -90,16 +97,23 @@ export class ProductReviewItemComponent extends PureComponent<ProductReviewItemC
               itemProp="review"
               itemScope
             >
-                <h4 block="ProductReviewItem" elem="ReviewTitle" itemProp="name">
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  mix={ { block: 'ProductReviewItem', elem: 'ReviewTitle' } }
+                  attr={ { itemProp: 'name' } }
+                >
                     { title }
-                </h4>
+                </Typography>
                 <div block="ProductReviewItem" elem="RatingSummary">
                     { rating_votes.map(this.renderReviewListItemRating) }
                 </div>
                 <div block="ProductReviewItem" elem="Content">
-                    <p block="ProductReviewItem" elem="ReviewDetails" itemProp="reviewBody">
+                    <Typography
+                      mix={ { block: 'ProductReviewItem', elem: 'ReviewDetails' } }
+                      attr={ { itemProp: 'reviewBody' } }
+                    >
                         { detail }
-                    </p>
+                    </Typography>
                     { this.renderAuthor(reviewItem) }
                 </div>
             </li>

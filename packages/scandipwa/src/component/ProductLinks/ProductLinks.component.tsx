@@ -14,6 +14,8 @@ import { PureComponent } from 'react';
 import ContentWrapper from 'Component/ContentWrapper';
 import ProductCard from 'Component/ProductCard';
 import { ReactElement } from 'Type/Common.type';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { IndexedProduct } from 'Util/Product/Product.type';
 
 import { ProductLinksComponentProps } from './ProductLinks.type';
@@ -85,9 +87,15 @@ export class ProductLinksComponent extends PureComponent<ProductLinksComponentPr
         const { title } = this.props;
 
         return (
-            <h2 block="ProductLinks" elem="Title">
+            <Typography
+              variant={ TypographyVariants.H2 }
+              mix={ {
+                  block: 'ProductLinks',
+                  elem: 'Title',
+              } }
+            >
                 { title }
-            </h2>
+            </Typography>
         );
     }
 

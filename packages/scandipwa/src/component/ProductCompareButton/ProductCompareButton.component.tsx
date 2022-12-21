@@ -59,7 +59,7 @@ export class ProductCompareButtonComponent extends PureComponent<ProductCompareB
                 <IconButton
                   onClick={ this.handleClick }
                   mix={ { block: 'ProductCompareButton', elem: 'Button' } }
-                  attr={ { 'aria-label': __('Compare') } }
+                  aria-label={ __('Compare') }
                 >
                     <CompareIcon isActive={ isActive } />
                     <Loader isLoading={ isLoading } />

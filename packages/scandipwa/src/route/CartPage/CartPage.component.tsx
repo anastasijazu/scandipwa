@@ -24,6 +24,7 @@ import { CartTotals } from 'Store/Cart/Cart.type';
 import { LinkedProductType } from 'Store/LinkedProducts/LinkedProducts.type';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
+import Typography from 'Ui/Typography';
 import { noopFn } from 'Util/Common';
 
 import { CartPageComponentProps } from './CartPage.type';
@@ -59,17 +60,17 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
         if (!items.length) {
             return (
-                <p block="CartPage" elem="Empty">{ __('There are no products in cart.') }</p>
+                <Typography mix={ { block: 'CartPage', elem: 'Empty' } }>{ __('There are no products in cart.') }</Typography>
             );
         }
 
         return (
             <>
-                <p block="CartPage" elem="TableHead" aria-hidden>
+                <Typography mix={ { block: 'CartPage', elem: 'TableHead' } } attr={ { 'aria-hidden': true } }>
                     <span>{ __('item') }</span>
                     <span>{ __('quantity') }</span>
                     <span>{ __('subtotal') }</span>
-                </p>
+                </Typography>
                 <div block="CartPage" elem="Items" aria-label="List of items in cart">
                     { items.map((item) => (
                         <CartItem
@@ -220,9 +221,9 @@ export class CartPageComponent extends PureComponent<CartPageComponentProps> {
 
     renderHeading(): ReactElement {
         return (
-            <h1 block="CartPage" elem="Heading">
+            <Typography mix={ { block: 'CartPage', elem: 'Heading' } }>
                 { __('Cart') }
-            </h1>
+            </Typography>
         );
     }
 

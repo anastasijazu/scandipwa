@@ -18,6 +18,7 @@ import MyAccountForgotPassword from 'Component/MyAccountForgotPassword';
 import MyAccountForgotPasswordSuccess from 'Component/MyAccountForgotPasswordSuccess';
 import MyAccountSignIn from 'Component/MyAccountSignIn';
 import Overlay from 'Component/Overlay';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 import { noopFn } from 'Util/Common';
 
@@ -71,7 +72,9 @@ Props extends MyAccountOverlayComponentProps = MyAccountOverlayComponentProps,
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             <div block="MyAccountOverlay" elem="Action" mods={ { state } }>
-                <p block="MyAccountOverlay" elem="Heading">{ title }</p>
+                <Typography mix={ { block: 'MyAccountOverlay', elem: 'Heading' } }>
+                    { title }
+                </Typography>
                 { render() }
             </div>
         );

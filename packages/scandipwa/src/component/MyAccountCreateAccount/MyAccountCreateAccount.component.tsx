@@ -17,6 +17,8 @@ import Form from 'Component/Form';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonColors, ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import history from 'Util/History';
 import { validatePassword } from 'Util/Validator';
 import { ValidationInputType } from 'Util/Validator/Config';
@@ -198,8 +200,7 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
             <div block="MyAccountOverlay" elem="Buttons">
                 <Button
                   mix={ { block: 'MyAccountOverlay', elem: 'SignUpButton' } }
-                  attr={ { type: ButtonType.SUBMIT } }
-                  isFullWidth
+                  type={ ButtonType.SUBMIT }
                 >
                     { __('Sign up') }
                 </Button>
@@ -229,12 +230,12 @@ export class MyAccountCreateAccountComponent extends PureComponent<MyAccountCrea
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section>
-                    <h4>{ __('Already have an account?') }</h4>
+                    <Typography variant={ TypographyVariants.H4 }>{ __('Already have an account?') }</Typography>
                     <Button
                       variant={ ButtonVariants.LINK }
                       color={ ButtonColors.PRIMARY }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInLink' } }
-                      events={ { onClick: handleSignIn } }
+                      onClick={ handleSignIn }
                     >
                         { __('Sign in') }
                     </Button>

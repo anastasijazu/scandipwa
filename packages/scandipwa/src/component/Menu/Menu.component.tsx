@@ -19,6 +19,8 @@ import StoreSwitcher from 'Component/StoreSwitcher';
 import { ReactElement } from 'Type/Common.type';
 import { ButtonColors } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { getSortedItems } from 'Util/Menu';
 import { FormattedMenuItem } from 'Util/Menu/Menu.type';
 import { debounce } from 'Util/Request';
@@ -393,7 +395,7 @@ export class MenuComponent extends PureComponent<MenuComponentProps> {
             <div block="Menu" elem="CompareLinkWrapper">
                 <Link color={ ButtonColors.SECONDARY } to="compare" mix={ { block: 'Menu', elem: 'CompareLink' } }>
                     <CompareIcon />
-                    <h4>{ __('Compare products') }</h4>
+                    <Typography variant={ TypographyVariants.H4 }>{ __('Compare products') }</Typography>
                     { this.renderCompareCount() }
                 </Link>
             </div>

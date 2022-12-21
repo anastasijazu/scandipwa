@@ -1,4 +1,3 @@
-/* eslint-disable @scandipwa/scandipwa-guidelines/jsx-no-props-destruction */
 /**
  * ScandiPWA - Progressive Web App for Magento
  *
@@ -10,55 +9,13 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { ButtonHTMLAttributes } from 'react';
+import ButtonComponent from 'Ui/Button/Button.component';
 
-import { FieldReactEvents } from 'Component/Field/Field.type';
-import { ReactElement } from 'Type/Common.type';
-import Button from 'Ui/Button';
-
-import { ButtonVariants } from '../Button/Button.config';
 import { IconButtonComponentProps } from './IconButton.type';
 
 import './IconButton.style';
 
 /** @namespace Ui/IconButton/Component */
-export class IconButtonComponent extends Button<IconButtonComponentProps> {
-    static defaultProps: Partial<IconButtonComponentProps> = {
-        ...Button.defaultProps,
-        variant: ButtonVariants.TRANSPARENT,
-    };
-
-    render(): ReactElement {
-        const {
-            children,
-            attr,
-            events,
-            color,
-            variant,
-            isLoading,
-            disabled,
-            onClick,
-            mix,
-        } = this.props;
-
-        return (
-             <button
-               block="IconButton"
-               mods={ {
-                   variant,
-                   color,
-                   isLoading,
-               } }
-               mix={ mix }
-               disabled={ disabled }
-               onClick={ onClick }
-               { ...attr as ButtonHTMLAttributes<HTMLButtonElement> }
-               { ...events as FieldReactEvents<HTMLButtonElement> }
-             >
-                 { children }
-             </button>
-        );
-    }
-}
+export class IconButtonComponent extends ButtonComponent<IconButtonComponentProps> {}
 
 export default IconButtonComponent;

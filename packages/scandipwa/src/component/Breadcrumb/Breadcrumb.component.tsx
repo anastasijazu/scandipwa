@@ -56,7 +56,7 @@ export class BreadcrumbComponent extends PureComponent<BreadcrumbComponentProps>
             <Link
               to={ url }
               mix={ { block: 'Breadcrumb', elem: 'Link' } }
-              attr={ { tabIndex: isDisabled ? -1 : 0 } }
+              tabIndex={ isDisabled ? -1 : 0 }
               isUnstyled
             >
                 <meta

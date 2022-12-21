@@ -15,6 +15,8 @@ import ContentWrapper from 'Component/ContentWrapper';
 import { ReactElement } from 'Type/Common.type';
 import { ButtonVariants } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { scrollToTop } from 'Util/Browser';
 
 import { NoMatchComponentProps } from './NoMatch.type';
@@ -55,16 +57,16 @@ export class NoMatchComponent extends PureComponent<NoMatchComponentProps> {
                   wrapperMix={ { block: 'NoMatch', elem: 'Wrapper' } }
                   label={ __('Page Not Found Content') }
                 >
-                    <h1>
+                    <Typography variant={ TypographyVariants.H1 }>
                         404
-                    </h1>
-                    <p block="NoMatch" elem="Subtitle">
+                    </Typography>
+                    <Typography mix={ { block: 'NoMatch', elem: 'Subtitle' } }>
                         { __('Page not found') }
-                    </p>
-                    <p>
+                    </Typography>
+                    <Typography>
                         { /* eslint-disable-next-line max-len */ }
                         { __('Sorry, we can`t find the page you are looking for! Please press a button below to go back to homepage.') }
-                    </p>
+                    </Typography>
                     <Link
                       variant={ ButtonVariants.FILLED }
                       to="/"

@@ -15,6 +15,8 @@ import Popup from 'Component/Popup';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
 import { NEW_VERSION_POPUP_ID } from './NewVersionPopup.config';
 import { NewVersionPopupComponentProps } from './NewVersionPopup.type';
@@ -25,20 +27,23 @@ import './NewVersionPopup.style';
 export class NewVersionPopupComponent extends PureComponent<NewVersionPopupComponentProps> {
     renderHeading(): ReactElement {
         return (
-            <h3
-              block="NewVersionPopup"
-              elem="Heading"
+            <Typography
+              variant={ TypographyVariants.H3 }
+              mix={ {
+                  block: 'NewVersionPopup',
+                  elem: 'Heading',
+              } }
             >
                 { __('New version available!') }
-            </h3>
+            </Typography>
         );
     }
 
     renderNotice(): ReactElement {
         return (
-            <p>
+            <Typography>
                 { __('We have updated the website. Reload is required to apply changes.') }
-            </p>
+            </Typography>
         );
     }
 

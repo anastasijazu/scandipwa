@@ -17,6 +17,8 @@ import Form from 'Component/Form';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonType, ButtonVariants } from 'Ui/Button/Button.config';
+import Typography from 'Ui/Typography';
+import { TypographyVariants } from 'Ui/Typography/Typography.config';
 import { ValidationInputType } from 'Util/Validator/Config';
 
 import { MyAccountForgotPasswordComponentProps } from './MyAccountForgotPassword.type';
@@ -52,8 +54,7 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
                 <div block="MyAccountOverlay" elem="Buttons">
                     <Button
                       mix={ { block: 'MyAccountOverlay', elem: 'ResetPassword' } }
-                      attr={ { type: ButtonType.SUBMIT } }
-                      isFullWidth
+                      type={ ButtonType.SUBMIT }
                     >
                         { __('Send reset link') }
                     </Button>
@@ -71,7 +72,12 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
 
         return (
             <section aria-labelledby="create-account-label">
-                <h4 id="create-account-label">{ __("Don't have an account?") }</h4>
+                <Typography
+                  variant={ TypographyVariants.H4 }
+                  attr={ { id: 'create-account-label' } }
+                >
+                    { __("Don't have an account?") }
+                </Typography>
                 <Button
                   variant={ ButtonVariants.LINK }
                   onClick={ handleCreateAccount }
@@ -88,7 +94,12 @@ export class MyAccountForgotPasswordComponent extends PureComponent<MyAccountFor
         return (
             <article block="MyAccountOverlay" elem="Additional" mods={ { state } }>
                 <section aria-labelledby="forgot-password-labe">
-                    <h4 id="forgot-password-label">{ __('Already have an account?') }</h4>
+                    <Typography
+                      variant={ TypographyVariants.H4 }
+                      attr={ { id: 'forgot-password-label' } }
+                    >
+                        { __('Already have an account?') }
+                    </Typography>
                     <Button
                       variant={ ButtonVariants.LINK }
                       mix={ { block: 'MyAccountOverlay', elem: 'SignInButton' } }

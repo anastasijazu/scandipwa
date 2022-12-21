@@ -16,6 +16,7 @@ import { FieldType } from 'Component/Field/Field.config';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { SortDirections } from 'Route/CategoryPage/CategoryPage.config';
+import Typography from 'Src/ui/Typography';
 import { ReactElement } from 'Type/Common.type';
 
 import { CategorySortComponentProps } from './CategorySort.type';
@@ -43,9 +44,9 @@ export class CategorySortComponent extends PureComponent<CategorySortComponentPr
 
     renderPlaceholder(): ReactElement {
         return (
-            <p block="CategorySort" elem="Placeholder">
+            <Typography mix={ { block: 'CategorySort', elem: 'Placeholder' } }>
                 <TextPlaceholder length={ TextPlaceHolderLength.SHORT } />
-            </p>
+            </Typography>
         );
     }
 

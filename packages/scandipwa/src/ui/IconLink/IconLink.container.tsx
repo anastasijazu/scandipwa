@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 /**
  * ScandiPWA - Progressive Web App for Magento
  *
@@ -13,7 +11,7 @@
 
 import { connect } from 'react-redux';
 
-import { ReactElement } from 'Type/Common.type';
+import { Mods, ReactElement } from 'Type/Common.type';
 import { ButtonVariants } from 'Ui/Button/Button.config';
 import IconLink from 'Ui/IconLink/IconLink.component';
 import {
@@ -39,9 +37,38 @@ export class IconLinkContainer extends LinkContainer<IconLinkContainerProps> {
     };
 
     containerProps(): Pick<IconLinkComponentProps, IconLinkContainerComponentPropKeys> {
+        const {
+            mix,
+            children,
+            isOpenInNewTab,
+            variant,
+            color,
+            isUnstyled,
+            underline,
+            disabled,
+            key,
+            onClick,
+            ...restProps
+        } = this.props;
+
+        const mods: Mods = isUnstyled
+            ? {}
+            : {
+                variant, color, disabled, underline,
+            };
+
         return {
-            ...super.containerProps(),
-            block: 'IconLink',
+            key,
+            to: this.getTo(),
+            mix: {
+                block: 'IconLink',
+                mods,
+                mix,
+            },
+            isOpenInNewTab,
+            children,
+            onClick,
+            ...restProps,
         };
     }
 

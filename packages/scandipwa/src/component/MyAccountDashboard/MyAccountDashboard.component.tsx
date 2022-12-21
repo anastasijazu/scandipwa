@@ -15,6 +15,7 @@ import Loader from 'Component/Loader';
 import MyAccountAddressTable from 'Component/MyAccountAddressTable';
 import MyAccountCustomerTable from 'Component/MyAccountCustomerTable';
 import { AccountPageUrl } from 'Route/MyAccount/MyAccount.config';
+import Typography from 'Src/ui/Typography';
 import { MyAccountTabs } from 'Type/Account.type';
 import { ReactElement } from 'Type/Common.type';
 import Link from 'Ui/Link';
@@ -32,7 +33,9 @@ export class MyAccountDashboardComponent extends PureComponent<MyAccountDashboar
               block="MyAccountDashboard"
               elem="DefaultAddress"
             >
-                <p block="MyAccountDashboard" elem="Info">{ __('No %s address configured.', name) }</p>
+                <Typography mix={ { block: 'MyAccountDashboard', elem: 'Info' } }>
+                    { __('No %s address configured.', name) }
+                </Typography>
                 { this.renderLinkToAddressBook() }
             </div>
         );
@@ -40,11 +43,11 @@ export class MyAccountDashboardComponent extends PureComponent<MyAccountDashboar
 
     renderLinkToAddressBook(): ReactElement {
         return (
-            <p block="MyAccountDashboard" elem="Info">
+            <Typography mix={ { block: 'MyAccountDashboard', elem: 'Info' } }>
                 <Link to={ `${AccountPageUrl.ACCOUNT_URL}/${MyAccountTabs.ADDRESS_BOOK}` }>
                     { __('Go to "Address Book", to configure them!') }
                 </Link>
-            </p>
+            </Typography>
         );
     }
 
@@ -86,7 +89,9 @@ export class MyAccountDashboardComponent extends PureComponent<MyAccountDashboar
         return (
             <div>
                 { this.renderAddressBlockTitle() }
-                <p block="MyAccountDashboard" elem="Info">{ __('You have no configured addresses.') }</p>
+                <Typography mix={ { block: 'MyAccountDashboard', elem: 'Info' } }>
+                    { __('You have no configured addresses.') }
+                </Typography>
                 { this.renderLinkToAddressBook() }
             </div>
         );
