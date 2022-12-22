@@ -11,16 +11,27 @@
 
 import { Children, Mix } from 'Type/Common.type';
 
+import { TooltipSideType } from './Tooltip.config';
+
 export interface TooltipContainerProps {
     children?: Children;
     mix: Mix;
+    side: TooltipSideType;
+    sideOffset: number;
     content: string;
 }
 
 export interface TooltipComponentProps {
     children?: Children;
+    side: TooltipSideType;
+    sideOffset: number;
     mix: Mix;
     content: string;
 }
 
-export type TooltipContainerComponentPropKeys = 'mix' | 'children' | 'content';
+export type TooltipContainerComponentPropKeys =
+    'mix'
+    | 'children'
+    | 'content'
+    | 'side'
+    | 'sideOffset';

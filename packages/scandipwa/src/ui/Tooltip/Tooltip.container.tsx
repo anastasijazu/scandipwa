@@ -14,6 +14,7 @@ import { PureComponent } from 'react';
 import { ReactElement } from 'Type/Common.type';
 
 import TooltipComponent from './Tooltip.component';
+import { TooltipSideType } from './Tooltip.config';
 import {
     TooltipComponentProps,
     TooltipContainerComponentPropKeys,
@@ -25,6 +26,8 @@ export class TooltipContainer extends PureComponent<TooltipContainerProps> {
     static defaultProps: Partial<TooltipContainerProps> = {
         mix: {},
         content: '',
+        side: TooltipSideType.TOP,
+        sideOffset: 0,
     };
 
     containerProps(): Pick<TooltipComponentProps, TooltipContainerComponentPropKeys> {
@@ -32,12 +35,16 @@ export class TooltipContainer extends PureComponent<TooltipContainerProps> {
             mix,
             content,
             children,
+            side,
+            sideOffset,
         } = this.props;
 
         return {
             mix,
             content,
             children,
+            side,
+            sideOffset,
         };
     }
 

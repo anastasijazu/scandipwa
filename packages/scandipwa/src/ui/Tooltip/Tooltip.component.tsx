@@ -36,7 +36,7 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
     }
 
     render(): ReactElement {
-        const { content } = this.props;
+        const { content, side, sideOffset } = this.props;
 
         return (
             <Tooltip.Provider>
@@ -44,7 +44,11 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
                 <Tooltip.Trigger asChild>
                   { this.renderChildren() }
                 </Tooltip.Trigger>
-                  <Tooltip.Content className="Tooltip-Content">
+                  <Tooltip.Content
+                    className="Tooltip-Content"
+                    side={ side }
+                    sideOffset={ sideOffset }
+                  >
                     <Html content={ content } />
                     <Tooltip.Arrow className="Tooltip-Arrow" />
                   </Tooltip.Content>

@@ -20,6 +20,7 @@ import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
 import IconButton from 'Src/ui/IconButton';
+import { TooltipSideType } from 'Src/ui/Tooltip/Tooltip.config';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
@@ -826,9 +827,13 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     { __('Tooltips') }
                 </Typography>
 
-                <Tooltip content="<b>Tooltip content</b>" />
+                <Tooltip content="<b>Tooltip content</b>" side={ TooltipSideType.BOTTOM } />
 
-                <Tooltip content="Tooltip content" mix={ { block: 'StyleGuidePage', elem: 'Tooltip' } }>
+                <Tooltip
+                  content="Tooltip content"
+                  mix={ { block: 'StyleGuidePage', elem: 'Tooltip' } }
+                  sideOffset={ 20 }
+                >
                     <IconButton variant={ ButtonVariants.OUTLINED }>
                         <LockIcon />
                     </IconButton>
