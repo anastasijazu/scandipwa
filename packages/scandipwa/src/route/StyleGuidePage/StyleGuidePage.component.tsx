@@ -19,6 +19,7 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
+import IconButton from 'Src/ui/IconButton';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
@@ -122,7 +123,6 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
     renderButtons(): ReactElement {
         return (
             <>
-            <Tooltip />
                 <div block="StyleGuidePage" elem="Buttons">
                     <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
                         { __('Primary filled [default state + disabled]') }
@@ -800,8 +800,6 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     { __('Notification messages') }
                 </Typography>
 
-                <Tooltip />
-
                 <Notification
                   onHideNotification={ fakeFunction }
                   lifeTime={ 9999999 }
@@ -823,6 +821,18 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   notification={ NOTIFICATION_INFO_DATA }
                   id="notificationInfo"
                 />
+
+                <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
+                    { __('Tooltips') }
+                </Typography>
+
+                <Tooltip content="<b>Tooltip content</b>" />
+
+                <Tooltip content="Tooltip content" mix={ { block: 'StyleGuidePage', elem: 'Tooltip' } }>
+                    <IconButton variant={ ButtonVariants.OUTLINED }>
+                        <LockIcon />
+                    </IconButton>
+                </Tooltip>
             </>
         );
     }

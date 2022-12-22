@@ -24,31 +24,15 @@ import './Tooltip.style';
 /** @namespace Ui/Tooltip/Component */
 export class TooltipComponent extends PureComponent<TooltipComponentProps> {
     renderChildren(): ReactElement {
-        const { children } = this.props;
+        const { children, mix } = this.props;
 
         if (!children) {
             return (
-                <span>Test</span>
+                <span block="Tooltip" mix={ mix }>Tooltip</span>
             );
         }
 
-        return children;
-    }
-
-    renderDefaultTooltip(): ReactElement {
-        return (
-            <Tooltip.Provider>
-              <Tooltip.Root delayDuration={ 0 }>
-                <Tooltip.Trigger asChild>
-                  <span>Teeeeeest</span>
-                </Tooltip.Trigger>
-                  <Tooltip.Content className="Tooltip">
-                    Add to library
-                    <Tooltip.Arrow />
-                  </Tooltip.Content>
-              </Tooltip.Root>
-            </Tooltip.Provider>
-        );
+        return <span block="Tooltip" mix={ mix }>{ children }</span>;
     }
 
     render(): ReactElement {
@@ -56,13 +40,13 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
 
         return (
             <Tooltip.Provider>
-              <Tooltip.Root delayDuration={ 0 }>
+              <Tooltip.Root delayDuration={ 100 }>
                 <Tooltip.Trigger asChild>
                   { this.renderChildren() }
                 </Tooltip.Trigger>
                   <Tooltip.Content className="Tooltip-Content">
                     <Html content={ content } />
-                    <Tooltip.Arrow />
+                    <Tooltip.Arrow className="Tooltip-Arrow" />
                   </Tooltip.Content>
               </Tooltip.Root>
             </Tooltip.Provider>

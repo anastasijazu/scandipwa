@@ -318,4 +318,13 @@
             margin-inline-end: 60px;
         }
     }
+
+    .Tooltip {
+        margin-inline-end: 15px;
+
+        .LockIcon {
+            margin-inline-end: 0;
+            width: 24px;
+        }
+    }
 }

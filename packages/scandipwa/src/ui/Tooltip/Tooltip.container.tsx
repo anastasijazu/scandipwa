@@ -24,7 +24,7 @@ import {
 export class TooltipContainer extends PureComponent<TooltipContainerProps> {
     static defaultProps: Partial<TooltipContainerProps> = {
         mix: {},
-        content: 'test',
+        content: '',
     };
 
     containerProps(): Pick<TooltipComponentProps, TooltipContainerComponentPropKeys> {
