@@ -17,6 +17,7 @@ import { PureComponent } from 'react';
 import Html from 'Component/Html';
 import { ReactElement } from 'Type/Common.type';
 
+import Tabs from '../Tabs';
 import { TooltipComponentProps } from './Tooltip.type';
 
 import './Tooltip.style';
@@ -40,6 +41,7 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
 
         return (
             <Tooltip.Provider>
+                <Tabs.List />
               <Tooltip.Root delayDuration={ 100 }>
                 <Tooltip.Trigger asChild>
                   { this.renderChildren() }
