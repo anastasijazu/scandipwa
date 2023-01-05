@@ -26,7 +26,6 @@ import Loader from 'Component/Loader';
 import TextPlaceholder from 'Component/TextPlaceholder';
 import { TextPlaceHolderLength } from 'Component/TextPlaceholder/TextPlaceholder.config';
 import { ReactElement } from 'Type/Common.type';
-import { ButtonVariants } from 'Ui/Button/Button.config';
 import IconButton from 'Ui/IconButton';
 import Typography from 'Ui/Typography';
 import { TypographyVariants } from 'Ui/Typography/Typography.config';
@@ -287,7 +286,6 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         case CategoryPageLayout.GRID:
             return (
                 <IconButton
-                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.GRID,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.GRID },
@@ -302,7 +300,6 @@ S extends CategoryPageComponentState = CategoryPageComponentState,
         case CategoryPageLayout.LIST:
             return (
                 <IconButton
-                  variant={ ButtonVariants.TRANSPARENT }
                   mix={ {
                       block: CategoryPageLayout.LIST,
                       mods: { isActive: activeLayoutType === CategoryPageLayout.LIST },

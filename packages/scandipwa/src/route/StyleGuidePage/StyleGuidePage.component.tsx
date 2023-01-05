@@ -19,11 +19,14 @@ import Field from 'Component/Field';
 import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
+import IconButton from 'Src/ui/IconButton';
+import { TooltipSideType } from 'Src/ui/Tooltip/Tooltip.config';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
 import { ButtonColors, ButtonVariants } from 'Ui/Button/Button.config';
 import Link from 'Ui/Link';
 import { LinkUnderlineType } from 'Ui/Link/Link.config';
+import Tooltip from 'Ui/Tooltip';
 import Typography from 'Ui/Typography';
 import { TypographyVariants } from 'Ui/Typography/Typography.config';
 
@@ -779,6 +782,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
     renderAdditionalElements(): ReactElement {
         const { fakeFunction } = this.props;
+        const content = <b>Tooltip content</b>;
 
         return (
             <>
@@ -819,6 +823,22 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                   notification={ NOTIFICATION_INFO_DATA }
                   id="notificationInfo"
                 />
+
+                <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
+                    { __('Tooltips') }
+                </Typography>
+
+                <Tooltip content={ content } side={ TooltipSideType.BOTTOM } />
+
+                <Tooltip
+                  content="Tooltip content"
+                  mix={ { block: 'StyleGuidePage', elem: 'Tooltip' } }
+                  sideOffset={ 20 }
+                >
+                    <IconButton variant={ ButtonVariants.OUTLINED }>
+                        <LockIcon />
+                    </IconButton>
+                </Tooltip>
             </>
         );
     }

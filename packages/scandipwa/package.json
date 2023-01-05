@@ -9,6 +9,7 @@
         "build:magento": "BUILD_MODE=magento scandipwa-scripts build"
     },
     "dependencies": {
+        "@radix-ui/react-tooltip": "^1.0.2",
         "@scandipwa/chunk-optimizer": "0.0.9",
         "@scandipwa/m2-theme": "0.2.6",
         "@scandipwa/next-emulator": "0.0.4",

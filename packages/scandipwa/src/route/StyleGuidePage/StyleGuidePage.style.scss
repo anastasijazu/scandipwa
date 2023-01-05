@@ -304,6 +304,15 @@
         margin-inline-end: 20px;
     }
 
+    .Tooltip {
+        margin-inline-end: 20px;
+
+        .LockIcon {
+            margin-inline-end: 0;
+            width: 24px;
+        }
+    }
+
     .Pagination {
         margin: unset;
     }
