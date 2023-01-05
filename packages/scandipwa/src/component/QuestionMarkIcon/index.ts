@@ -9,14 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-import { Children, Mix, ReactElement } from 'Type/Common.type';
-
-import { TooltipSideType } from './Tooltip.config';
-
-export interface TooltipComponentProps {
-    children?: Children;
-    side: TooltipSideType;
-    sideOffset: number;
-    mix: Mix;
-    content: ReactElement;
-}
+export { default } from './QuestionMarkIcon.component';

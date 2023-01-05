@@ -782,6 +782,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
 
     renderAdditionalElements(): ReactElement {
         const { fakeFunction } = this.props;
+        const content = <b>Tooltip content</b>;
 
         return (
             <>
@@ -827,7 +828,7 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                     { __('Tooltips') }
                 </Typography>
 
-                <Tooltip content="<b>Tooltip content</b>" side={ TooltipSideType.BOTTOM } />
+                <Tooltip content={ content } side={ TooltipSideType.BOTTOM } />
 
                 <Tooltip
                   content="Tooltip content"
