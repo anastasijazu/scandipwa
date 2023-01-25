@@ -9,14 +9,16 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export interface TabsContainerBaseProps {
-    defaultValue: string | number;
+import { ReactElement } from 'Type/Common.type';
+
+export interface TabsComponentProps {
+    tabs: TabShape[];
+    defaultValue: string;
 }
 
-export interface TabsContainerFunctions {}
-
-export type TabsContainerProps = TabsContainerBaseProps;
-
-export interface TabsComponentProps extends TabsContainerFunctions {}
-
-export type TabsContainerPropsKeys = '';
+export interface TabShape {
+    id: string;
+    name: string;
+    render: (key: string) => ReactElement;
+    shouldTabBeRemoved?: () => boolean;
+}

@@ -9,12 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export interface TabsListContainerBaseProps {}
-
-export interface TabsListContainerFunctions {}
-
-export type TabsListContainerProps = TabsListContainerBaseProps;
-
-export interface TabsListComponentProps extends TabsListContainerFunctions {}
-
-export type TabsListContainerPropsKeys = '';
+export { default } from './QuestionMarkIcon.component';

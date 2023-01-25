@@ -9,4 +9,4 @@
  * @link https://github.com/scandipwa/scandipwa
  */
 
-export { default } from './Tooltip.container';
+export { default } from './Tooltip.component';

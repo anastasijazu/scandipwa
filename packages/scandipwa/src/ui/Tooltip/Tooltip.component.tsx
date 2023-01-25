@@ -14,23 +14,38 @@
 import * as Tooltip from '@radix-ui/react-tooltip';
 import { PureComponent } from 'react';
 
-import Html from 'Component/Html';
+import QuestionMarkIcon from 'Component/QuestionMarkIcon';
 import { ReactElement } from 'Type/Common.type';
 
-import Tabs from '../Tabs';
+import { TooltipSideType } from './Tooltip.config';
 import { TooltipComponentProps } from './Tooltip.type';
 
 import './Tooltip.style';
 
 /** @namespace Ui/Tooltip/Component */
 export class TooltipComponent extends PureComponent<TooltipComponentProps> {
+    static defaultProps: Partial<TooltipComponentProps> = {
+        mix: {},
+        content: '',
+        side: TooltipSideType.TOP,
+        sideOffset: 0,
+    };
+
+    renderDefaultTooltip(): ReactElement {
+        const { mix } = this.props;
+
+        return (
+            <span block="Tooltip" mix={ mix }>
+                <QuestionMarkIcon />
+            </span>
+        );
+    }
+
     renderChildren(): ReactElement {
         const { children, mix } = this.props;
 
         if (!children) {
-            return (
-                <span block="Tooltip" mix={ mix }>Tooltip</span>
-            );
+            return this.renderDefaultTooltip();
         }
 
         return <span block="Tooltip" mix={ mix }>{ children }</span>;
@@ -41,7 +56,6 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
 
         return (
             <Tooltip.Provider>
-                <Tabs.List />
               <Tooltip.Root delayDuration={ 100 }>
                 <Tooltip.Trigger asChild>
                   { this.renderChildren() }
@@ -51,7 +65,7 @@ export class TooltipComponent extends PureComponent<TooltipComponentProps> {
                     side={ side }
                     sideOffset={ sideOffset }
                   >
-                    <Html content={ content } />
+                    { content }
                     <Tooltip.Arrow className="Tooltip-Arrow" />
                   </Tooltip.Content>
               </Tooltip.Root>
