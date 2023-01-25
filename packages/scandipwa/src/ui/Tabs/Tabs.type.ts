@@ -11,9 +11,12 @@
 
 import { ReactElement } from 'Type/Common.type';
 
+import { TabColors } from './Tabs.config';
+
 export interface TabsComponentProps {
     tabs: TabShape[];
     defaultValue: string;
+    color: TabColors;
 }
 
 export interface TabShape {

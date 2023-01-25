@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-component-props */
 /**
  * ScandiPWA - Progressive Web App for Magento
  *
@@ -11,9 +12,11 @@
 
 import * as Tabs from '@radix-ui/react-tabs';
 import { PureComponent } from 'react';
+import { stringify } from 'rebem-classname';
 
 import { ReactElement } from 'Type/Common.type';
 
+import { TabColors } from './Tabs.config';
 import { TabsComponentProps, TabShape } from './Tabs.type';
 
 import './Tabs.style';
@@ -22,6 +25,7 @@ import './Tabs.style';
 export class TabsComponent extends PureComponent<TabsComponentProps> {
     static defaultProps: Partial<TabsComponentProps> = {
         defaultValue: '',
+        color: TabColors.SECONDARY,
     };
 
     renderTab(item: TabShape): ReactElement {
@@ -59,15 +63,20 @@ export class TabsComponent extends PureComponent<TabsComponentProps> {
     }
 
     renderTabs(): ReactElement {
-        const { tabs, defaultValue } = this.props;
+        const { tabs, defaultValue, color } = this.props;
 
         if (!tabs?.length) {
             return null;
         }
 
+        const classNameConverted = `${ stringify({
+            block: 'Tabs',
+            mods: { color },
+        })}`;
+
         return (
             <Tabs.Root defaultValue={ defaultValue || this.getDefaultValue() }>
-                <Tabs.List>
+                <Tabs.List className={ classNameConverted }>
                     { tabs.map(this.renderTab.bind(this)) }
                 </Tabs.List>
                 { tabs.map(this.renderTabContent.bind(this)) }

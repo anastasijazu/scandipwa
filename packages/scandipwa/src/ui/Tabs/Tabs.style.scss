@@ -1,3 +1,35 @@
 .Tabs {
-    display: inline;
+    display: none;
+
+    @include desktop {
+        display: flex;
+    }
+
+    button {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 20px;
+        margin: 0;
+        padding: 16px 24px;
+        cursor: pointer;
+    }
+
+    &_color {
+        &_primary {
+            border-bottom: 1px solid var(--primary-base-color);
+
+            button[aria-selected="true"] {
+                background-color: var(--primary-base-color);
+            }
+        }
+
+        &_secondary {
+            border-bottom: 1px solid var(--secondary-base-color);
+
+            button[aria-selected="true"] {
+                background-color: var(--secondary-base-color);
+            }
+        }
+    }
 }
