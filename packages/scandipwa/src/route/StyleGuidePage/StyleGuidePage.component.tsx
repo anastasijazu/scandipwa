@@ -20,6 +20,7 @@ import { FieldType } from 'Component/Field/Field.config';
 import LockIcon from 'Component/LockIcon';
 import Notification from 'Component/Notification';
 import IconButton from 'Src/ui/IconButton';
+import Tabs from 'Src/ui/Tabs';
 import { TooltipSideType } from 'Src/ui/Tooltip/Tooltip.config';
 import { ReactElement } from 'Type/Common.type';
 import Button from 'Ui/Button';
@@ -52,6 +53,25 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
         [ INPUTS ]: (): ReactElement => this.renderInputs(),
         [ ADDITIONAL_ELEMENTS ]: (): ReactElement => this.renderAdditionalElements(),
     };
+
+    tabMap = [
+        {
+            id: 'First tab',
+            name: __('First tab'),
+            render: (): ReactElement => 'First content',
+        },
+        {
+            id: 'Second tab',
+            name: __('Second tab'),
+            shouldTabBeRemoved: () => true,
+            render: (): ReactElement => 'Second content',
+        },
+        {
+            id: 'Third tab',
+            name: __('Third tab'),
+            render: (): ReactElement => 'Third content',
+        },
+    ];
 
     renderContentWrapper(): ReactElement {
         return (
@@ -839,6 +859,12 @@ export class StyleGuidePageComponent extends PureComponent<StyleGuidePageCompone
                         <LockIcon />
                     </IconButton>
                 </Tooltip>
+
+                <Typography variant={ TypographyVariants.H4 } mix={ { block: 'StyleGuidePage', elem: 'SubHeading' } }>
+                    { __('Tabs') }
+                </Typography>
+
+                <Tabs tabs={ this.tabMap } defaultValue="Third tab" />
             </>
         );
     }
