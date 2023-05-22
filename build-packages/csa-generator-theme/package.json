@@ -1,0 +1,14 @@
+{
+    "name": "@scandipwa/csa-generator-theme",
+    "description": "Theme template used by CSA.",
+    "version": "0.4.6",
+    "main": "index.js",
+    "license": "OSL-3.0",
+    "dependencies": {
+        "@scandipwa/scandipwa-dev-utils": "0.1.16"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "187276597fcf17521bcccdac1238b4e0061e5418"
+}

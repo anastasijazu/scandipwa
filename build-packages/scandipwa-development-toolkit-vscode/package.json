@@ -1,0 +1,133 @@
+{
+	"private": true,
+	"version": "1.1.2",
+	"name": "scandipwa-vscode-tools",
+	"publisher": "scandipwa-new",
+	"displayName": "ScandiPWA tools for VSCode",
+	"description": "Become more productive working with ScandiPWA. Create ScandiPWA extensions, go to overrides from source files, generate override files, and more.",
+	"icon": "icon.png",
+	"license": "SEE LICENSE IN LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/scandipwa/scandipwa"
+	},
+	"homepage": "https://github.com/scandipwa/scandipwa/tree/master/build-packages/scandipwa-development-toolkit-vscode",
+	"scripts": {
+		"vscode:prepublish": "npm ci && npm run compile",
+		"compile": "rm -rf out && tsc --sourceMap false -p ./tsconfig.json",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"engines": {
+		"vscode": "^1.45.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.createComponent",
+		"onCommand:extension.createRoute",
+		"onCommand:extension.createQuery",
+		"onCommand:extension.createStore",
+		"onCommand:extension.extendComponent",
+		"onCommand:extension.extendRoute",
+		"onCommand:extension.extendQuery",
+		"onCommand:extension.extendStore",
+		"onCommand:extension.extensionCreate",
+		"onCommand:extension.goToChildTheme",
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.createComponent",
+				"title": "ScandiPWA: Create a component"
+			},
+			{
+				"command": "extension.createRoute",
+				"title": "ScandiPWA: Create a route"
+			},
+			{
+				"command": "extension.createQuery",
+				"title": "ScandiPWA: Create a query"
+			},
+			{
+				"command": "extension.createStore",
+				"title": "ScandiPWA: Create a store"
+			},
+			{
+				"command": "extension.extendComponent",
+				"title": "ScandiPWA: Extend a component"
+			},
+			{
+				"command": "extension.extendRoute",
+				"title": "ScandiPWA: Extend a route"
+			},
+			{
+				"command": "extension.extendQuery",
+				"title": "ScandiPWA: Extend a query"
+			},
+			{
+				"command": "extension.extendStore",
+				"title": "ScandiPWA: Extend a store"
+			},
+			{
+				"command": "extension.extensionCreate",
+				"title": "ScandiPWA: Create an extension"
+			},
+			{
+				"command": "extension.goToChildTheme",
+				"title": "ScandiPWA: Go to child theme",
+				"icon": "$(symbol-null)"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "extension.goToChildTheme",
+					"group": "navigation",
+					"when": "editorLangId in extension.scandipwaSupportedLangs"
+				}
+			]
+		},
+		"configuration": {
+			"title": "ScandiPWA",
+			"properties": {
+				"scandipwa.stylePostfix": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Styles postfix to use when creating style overrides"
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"@babel/generator": "^7.9.6",
+		"@babel/parser": "^7.9.6",
+		"@babel/traverse": "^7.9.6",
+		"@babel/types": "^7.9.6",
+		"@scandipwa/scandipwa-development-toolkit-core": "1.1.2",
+		"@tilework/mosaic-dev-utils": "0.0.5"
+	},
+	"devDependencies": {
+		"@types/babel__generator": "^7.6.1",
+		"@types/babel__traverse": "^7.0.11",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^14.14.35",
+		"@types/vscode": "^1.45.0",
+		"@typescript-eslint/eslint-plugin": "^5.26.0",
+		"@typescript-eslint/parser": "^5.26.0",
+		"eslint": "^8.24.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "4.7.2",
+		"vscode-test": "^1.3.0"
+	}
+}
